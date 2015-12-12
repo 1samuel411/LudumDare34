@@ -3,42 +3,52 @@ using System.Collections;
 
 public class Projectile : MonoBehaviour
 {
-    protected int _damage;
-    public float _projectileSpeed;
-    protected float _bulletLife;
-    protected float _currentBulletLife;
-
-    public int damage { get { return _damage; } }
+    public int damage;
+    public float knockbackForce;
+    public float knockbackTime;
+    public float projectileSpeed;
+    public float bulletLife;
+    public float currentBulletLife;
 
     private int direction;
 
+    private float updatedTime;
+
     public void Awake()
     {
-        _projectileSpeed = 1;
-        _currentBulletLife = Time.time + _bulletLife;
-        direction = PlayerController.direction;
+        updatedTime = Time.time;
+        currentBulletLife = Time.time + bulletLife;
+        direction = PlayerController.instance.direction;
     }
-
-    private float updatedTime;
 
     public void Update()
     {
-        float speed = ((direction == 1) ? -_projectileSpeed : _projectileSpeed);
-        this.transform.position += new Vector3( speed * Time.deltaTime, 0);
+        float speed = ((direction == 1) ? -projectileSpeed : projectileSpeed) + (PlayerController.instance.rigidbody.velocity.x/1.5f);
+        this.transform.position += new Vector3(speed * Time.deltaTime, 0);
 
         updatedTime += Time.deltaTime;
-        if (updatedTime > _currentBulletLife)
-            GameObject.Destroy(this.gameObject);
-
+        if (updatedTime > currentBulletLife)
+            RemoveBullet();
     }
 
-    /// <summary>
-    /// Set the projectile Speed of the bullet.
-    /// Only use this if the projectile has a speed.
-    /// </summary>
-    /// <param name="projectileSpeed">The Projectile Speed.</param>
-    public void SetProjectileSpeed(float projectileSpeed) {
-        _projectileSpeed = projectileSpeed;
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.tag == "Enemy")
+        {
+            BaseHealth enemyHealth = collider.GetComponent<BaseHealth>();
+            if (enemyHealth._died == false)
+            {
+                BaseEntity enemyEntity = collider.GetComponent<BaseEntity>();
+                enemyEntity.Knockback(knockbackForce, knockbackTime);
+                enemyHealth.DealDamage(damage);
+            }
+        }
+        RemoveBullet();
+    }
+
+    void RemoveBullet()
+    {
+        GameObject.Destroy(this.gameObject);
     }
 }
 
