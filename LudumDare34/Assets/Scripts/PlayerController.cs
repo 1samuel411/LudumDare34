@@ -59,7 +59,6 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(_direction, 1, 1);
         }
 
-        Debug.Log(rigidbody.velocity.magnitude);
         // Restrict speed
         if(rigidbody.velocity.magnitude > maxSpeed)
         {
@@ -140,7 +139,7 @@ public class PlayerController : MonoBehaviour
 
 
         // Jumping
-        if (canJump)
+        if (canJump && !isJumping)
         {
             // Check both keys
             if (Input.GetKey(leftKey) && Input.GetKey(rightKey))
@@ -202,6 +201,7 @@ public class PlayerController : MonoBehaviour
     public void Jump()
     {
         // Disable movement
+        _holdingKeys = false;
         canJump = false;
         canMove = false;
         canScale = false;
