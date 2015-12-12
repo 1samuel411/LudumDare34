@@ -227,9 +227,9 @@ public class PlayerController: MonoBehaviour
         isJumping = false;
     }
 
-    public void OnCollisionEnter(Collider collider) {
-        if (string.CompareOrdinal(collider.tag, "Weapon") == 0) {
-            weaponHandler.PickedUpWeapon(collider.GetComponent<BaseWeapon>());
-        }
-    }
+    //public void OnCollisionEnter2D(Collider collider) {
+    //    if (string.CompareOrdinal(collider.tag, "Weapon") == 0) {
+    //        weaponHandler.PickedUpWeapon(collider.GetComponent<BaseWeapon>());
+    //    }
+    //}
 }

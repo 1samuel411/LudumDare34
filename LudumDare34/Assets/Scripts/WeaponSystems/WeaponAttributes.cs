@@ -9,6 +9,7 @@ public class WeaponAttributes
     public float maxAlottedTime;
     public float curAlottedTime;
 
-
+    public bool usingAmmo;
+    public bool usingTimer;
 }
 
