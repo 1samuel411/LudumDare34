@@ -2,7 +2,7 @@
 new ludum dare 34 project, sam and i. chya
 
 # Milestone 1 (1 hour)
-*PlayerController Movement & Actions (SAM) 20
+*PlayerController Movement & Actions (SAM) 20.
 --Moving him left and right
 --WeaponHandler
 *WeaponScript Generic (ALEX) (20)
