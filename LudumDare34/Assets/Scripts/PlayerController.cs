@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController: MonoBehaviour
 {
 
     // Moving
@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
 
     // Jumping
     public float jumpTime;
+    public float jumpCooldownTime;
+    private float _curJumpCooldownTime;
+    private float _totalJumpCooldownTime;
 
     // Variables
     public bool canMove = true;
@@ -39,32 +42,34 @@ public class PlayerController : MonoBehaviour
     private RaycastHit2D _groundHit;
 
     // 1 is left | -1 is right
-    private int _direction = 1;
+    public static int direction = 1;
+
+    public BaseWeapon weapon;
 
     private new Transform transform;
     private new Rigidbody2D rigidbody;
 
-    void Start ()
+    void Start()
     {
         _regSpeed = speed;
         transform = GetComponent<Transform>();
         rigidbody = GetComponent<Rigidbody2D>();
-	}
-	
-	void Update ()
+        weapon.ActivateGun(true);
+    }
+
+    void Update()
     {
         // Update our scale based on direction
-        if (canScale)
+        if(canScale)
         {
-            transform.localScale = new Vector3(_direction, 1, 1);
+            transform.localScale = new Vector3(direction, 1, 1);
         }
 
         // Restrict speed
         if(rigidbody.velocity.magnitude > maxSpeed)
         {
             speed = 0;
-        }
-        else
+        } else
         {
             speed = _regSpeed;
         }
@@ -78,13 +83,13 @@ public class PlayerController : MonoBehaviour
             FinishJump();
         }
 
-        if (canMove)
+        if(canMove && !_holdingKeys)
         {
             // Check left key
-            if (Input.GetKey(leftKey))
+            if(Input.GetKey(leftKey))
             {
                 // If this is the first time holding it then set the hold time
-                if (!_holdingLeftKey)
+                if(!_holdingLeftKey)
                 {
                     _curHoldTimeLeft = Time.time;
                     _targetHoldTimeLeft = Time.time + holdTimeMove;
@@ -93,26 +98,24 @@ public class PlayerController : MonoBehaviour
                 _holdingLeftKey = true;
 
                 // Need to hold these keys for a certain time to allow left movement
-                if (_curHoldTimeLeft > _targetHoldTimeLeft && !_holdingKeys)
+                if(_curHoldTimeLeft > _targetHoldTimeLeft && !_holdingKeys)
                 {
                     // Move left
                     MoveLeft();
-                }
-                else
+                } else
                 {
                     _curHoldTimeLeft += Time.deltaTime;
                 }
-            }
-            else
+            } else
             {
                 _holdingLeftKey = false;
             }
 
             // Check right key
-            if (Input.GetKey(rightKey))
+            if(Input.GetKey(rightKey))
             {
                 // If this is the first time holding it then set the hold time
-                if (!_holdingRightKey)
+                if(!_holdingRightKey)
                 {
                     _curHoldTimeRight = Time.time;
                     _targetHoldTimeRight = Time.time + holdTimeMove;
@@ -121,17 +124,15 @@ public class PlayerController : MonoBehaviour
                 _holdingRightKey = true;
 
                 // Need to hold these keys for a certain time to allow right movement
-                if (_curHoldTimeRight > _targetHoldTimeRight && !_holdingKeys)
+                if(_curHoldTimeRight > _targetHoldTimeRight && !_holdingKeys)
                 {
                     // Move right
                     MoveRight();
-                }
-                else
+                } else
                 {
                     _curHoldTimeRight += Time.deltaTime;
                 }
-            }
-            else
+            } else
             {
                 _holdingRightKey = false;
             }
@@ -139,13 +140,13 @@ public class PlayerController : MonoBehaviour
 
 
         // Jumping
-        if (canJump && !isJumping)
+        if(canJump && !isJumping)
         {
             // Check both keys
-            if (Input.GetKey(leftKey) && Input.GetKey(rightKey))
+            if(Input.GetKey(leftKey) && Input.GetKey(rightKey))
             {
                 // If this is the first time holding it then set the hold time
-                if (!_holdingKeys)
+                if(!_holdingKeys)
                 {
                     _curHoldTimeJump = Time.time;
                     _targetHoldTimeJump = Time.time + holdTimeJump;
@@ -154,23 +155,26 @@ public class PlayerController : MonoBehaviour
                 _holdingKeys = true;
 
                 // Need to hold these keys for a certain time to allow jumping
-                if (_curHoldTimeJump > _targetHoldTimeJump)
+                if(_curHoldTimeJump > _targetHoldTimeJump)
                 {
                     // Jump
                     Jump();
-                }
-                else
+                } else
                 {
                     _curHoldTimeJump += Time.deltaTime;
                 }
 
-            }
-            else
+            } else
             {
                 _holdingKeys = false;
             }
         }
-	}
+        if (!canJump)
+            _curJumpCooldownTime += Time.deltaTime;
+
+        if(_curJumpCooldownTime > _totalJumpCooldownTime && !isJumping)
+            canJump = true;
+    }
 
     public bool Grounded()
     {
@@ -179,8 +183,7 @@ public class PlayerController : MonoBehaviour
         if(_groundHit)
         {
             return true;
-        }
-        else
+        } else
         {
             return false;
         }
@@ -188,13 +191,13 @@ public class PlayerController : MonoBehaviour
 
     public void MoveLeft()
     {
-        _direction = 1;
+        direction = 1;
         rigidbody.AddForce(new Vector2(-speed, 0) * Time.deltaTime, ForceMode2D.Impulse);
     }
 
     public void MoveRight()
     {
-        _direction = -1;
+        direction = -1;
         rigidbody.AddForce(new Vector2(speed, 0) * Time.deltaTime, ForceMode2D.Impulse);
     }
 
@@ -213,7 +216,8 @@ public class PlayerController : MonoBehaviour
 
     void FinishJump()
     {
-        canJump = true;
+        _totalJumpCooldownTime = Time.time + jumpCooldownTime;
+        _curJumpCooldownTime = Time.time;
         canMove = true;
         canScale = true;
         isJumping = false;

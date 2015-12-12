@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class BaseWeapon : BaseItem
 {
-    public string name;
     public int maxAmmo;
     public int minAmmo;
     public bool isGunActive;
@@ -13,34 +12,35 @@ public class BaseWeapon : BaseItem
     public float weaponTriggerSpeed;   //Used for the wait Time between Shots.
     public WeaponEffects weaponEffect;
     public ProjectileType weaponType;
-    public Projectile projectile;
+    public GameObject projectile;
     public GameObject bulletSpawnBox;
     protected IList<Projectile> _projectiles;
+    private Projectile _projectile;
 
     public BaseWeapon() {
-        projectile = new Projectile(10);
+        bulletSpawnBox = this.gameObject;
         Initialize();
     }
 
     protected virtual void Initialize() { }
 
     public int DamagePerBullet() {
-        return projectile.damage;
+        return _projectile.damage;
     }
 
-    protected IEnumerator CreateBullets() {
+    protected IEnumerator SpawnBullets() {
         while (isGunActive) {
-            GameObject.Instantiate(projectile, bulletSpawnBox.transform.position, (Quaternion) bulletSpawnBox.transform.rotation);
+            GameObject newProjectileObject = GameObject.Instantiate(projectile, bulletSpawnBox.transform.position, (Quaternion) bulletSpawnBox.transform.rotation) as GameObject;
+            _projectile = newProjectileObject.GetComponent<Projectile>();
             yield return new WaitForSeconds(weaponTriggerSpeed);
         }
     }
 
     public void ActivateGun(bool activateGun) {
-        if (activateGun) {
-            StartCoroutine(CreateBullets());
-        }
         isGunActive = activateGun;
-
+        if (activateGun) {
+            StartCoroutine(SpawnBullets());
+        }
     }
 }
 

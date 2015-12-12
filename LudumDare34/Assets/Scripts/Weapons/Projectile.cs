@@ -4,16 +4,32 @@ using System.Collections;
 public class Projectile : MonoBehaviour
 {
     protected int _damage;
-    protected float _projectileSpeed;
+    public float _projectileSpeed;
     protected float _bulletLife;
+    protected float _currentBulletLife;
 
     public int damage { get { return _damage; } }
 
-    public Projectile(int damage)
+    private int direction;
+
+    public void Awake()
     {
-        _damage = damage;
-        _projectileSpeed = -1;
-        _bulletLife = 3.0f;
+        _projectileSpeed = 1;
+        _currentBulletLife = Time.time + _bulletLife;
+        direction = PlayerController.direction;
+    }
+
+    private float updatedTime;
+
+    public void Update()
+    {
+        float speed = ((direction == 1) ? -_projectileSpeed : _projectileSpeed);
+        this.transform.position += new Vector3( speed * Time.deltaTime, 0);
+
+        updatedTime += Time.deltaTime;
+        if (updatedTime > _currentBulletLife)
+            GameObject.Destroy(this.gameObject);
+
     }
 
     /// <summary>

@@ -171,6 +171,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!1 &123020597 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 125784, guid: 596750fecea2a8c4aab65bb2637a8747, type: 2}
+  m_PrefabInternal: {fileID: 1938013996}
+--- !u!114 &123020600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 123020597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b12c091f3e26d74eb038bcc18cc259f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Pistol
+  itemType: 2
+  maxAmmo: 0
+  minAmmo: 0
+  isGunActive: 0
+  isAutomatic: 1
+  CanShoot: 1
+  weaponTriggerSpeed: 0.4
+  weaponEffect: 0
+  weaponType: 0
+  projectile: {fileID: 170152, guid: 3953efc9186a6c5419b81164b336a081, type: 2}
+  bulletSpawnBox: {fileID: 123020597}
 --- !u!1001 &208575796
 Prefab:
   m_ObjectHideFlags: 0
@@ -381,6 +408,14 @@ Prefab:
     - target: {fileID: 408084, guid: 596750fecea2a8c4aab65bb2637a8747, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11458060, guid: 596750fecea2a8c4aab65bb2637a8747, type: 2}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 123020600}
+    - target: {fileID: 11458060, guid: 596750fecea2a8c4aab65bb2637a8747, type: 2}
+      propertyPath: jumpCooldownTime
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 596750fecea2a8c4aab65bb2637a8747, type: 2}
