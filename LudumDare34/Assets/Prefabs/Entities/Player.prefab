@@ -154,7 +154,9 @@ MonoBehaviour:
   canMove: 1
   canJump: 1
   canScale: 1
+  knockedBack: 0
   isJumping: 0
+  baseHealth: {fileID: 0}
   rigidbody: {fileID: 0}
   transform: {fileID: 0}
   leftKey: 97

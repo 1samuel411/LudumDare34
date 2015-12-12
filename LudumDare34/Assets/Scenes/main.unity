@@ -287,66 +287,6 @@ Prefab:
       propertyPath: targetEntity
       value: 
       objectReference: {fileID: 803769351}
-    - target: {fileID: 11409600, guid: 88962712f1e5d364b8615091ad7bbc43, type: 2}
-      propertyPath: groundedMask.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 11409600, guid: 88962712f1e5d364b8615091ad7bbc43, type: 2}
-      propertyPath: groundCheckDist
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 21231838, guid: 88962712f1e5d364b8615091ad7bbc43, type: 2}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 21231838, guid: 88962712f1e5d364b8615091ad7bbc43, type: 2}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 21231838, guid: 88962712f1e5d364b8615091ad7bbc43, type: 2}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 21212998, guid: 88962712f1e5d364b8615091ad7bbc43, type: 2}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 21212998, guid: 88962712f1e5d364b8615091ad7bbc43, type: 2}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 21212998, guid: 88962712f1e5d364b8615091ad7bbc43, type: 2}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 124318, guid: 88962712f1e5d364b8615091ad7bbc43, type: 2}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 5023270, guid: 88962712f1e5d364b8615091ad7bbc43, type: 2}
-      propertyPath: m_UseAutoMass
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5023270, guid: 88962712f1e5d364b8615091ad7bbc43, type: 2}
-      propertyPath: m_Mass
-      value: 2.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 11409600, guid: 88962712f1e5d364b8615091ad7bbc43, type: 2}
-      propertyPath: speed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 11409600, guid: 88962712f1e5d364b8615091ad7bbc43, type: 2}
-      propertyPath: maxVelocity
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 21231838, guid: 88962712f1e5d364b8615091ad7bbc43, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
-    - target: {fileID: 11419008, guid: 88962712f1e5d364b8615091ad7bbc43, type: 2}
-      propertyPath: dissolveSpeed
-      value: 0.6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 88962712f1e5d364b8615091ad7bbc43, type: 2}
   m_IsPrefabParent: 0
