@@ -28,7 +28,6 @@ public class BaseWeapon : BaseItem
     }
 
     protected IEnumerator SpawnBullets() {
-        Debug.Log("Is Gun Active? " + isGunActive);
         while (isGunActive) {
             GameObject newProjectileObject = GameObject.Instantiate(projectile, bulletSpawnBox.transform.position, (Quaternion) bulletSpawnBox.transform.rotation) as GameObject;
             _projectile = newProjectileObject.GetComponent<Projectile>(); //may need to fix this?

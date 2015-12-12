@@ -73,11 +73,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc82cb80c25d5f94481d30459e5d67f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  knockbackForce: 8
-  knockbackTime: 0.5
+  damage: 10
+  knockbackForce: 1
+  knockbackTime: 0.2
   projectileSpeed: 4
-  bulletLife: 4.2
+  bulletLife: 3
   currentBulletLife: 0
 --- !u!212 &21250726
 SpriteRenderer:
@@ -130,11 +130,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: bulletLife
-      value: 4.2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damage
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
@@ -146,11 +146,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: knockbackForce
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: knockbackTime
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
