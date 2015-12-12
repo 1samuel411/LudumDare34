@@ -12,4 +12,6 @@ public class LevelManager : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    //Need to load Weapon Types.
 }
