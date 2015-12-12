@@ -1,44 +1,47 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Projectile : MonoBehaviour
-{
+public class Projectile: MonoBehaviour {
+    public int damage;
+    public float knockbackForce;
+    public float knockbackTime;
     public float projectileSpeed;
-    public int _damage;
-    public float _bulletLife;
-    public float _currentBulletLife;
-
-    public int damage { get { return _damage; } }
+    public float bulletLife;
+    public float currentBulletLife;
 
     private int direction;
 
-    public void Awake()
-    {
-        projectileSpeed = 1;
-        _currentBulletLife = Time.time + _bulletLife;
-        direction = PlayerController.direction;
-    }
-
     private float updatedTime;
 
-    public void Update()
-    {
-        float speed = ((direction == 1) ? -projectileSpeed : projectileSpeed);
-        this.transform.position += new Vector3( speed * Time.deltaTime, 0);
-
-        updatedTime += Time.deltaTime;
-        if (updatedTime > _currentBulletLife)
-            GameObject.Destroy(this.gameObject);
-
+    public void Awake() {
+        updatedTime = Time.time;
+        currentBulletLife = Time.time + bulletLife;
+        direction = PlayerController.instance.direction;
     }
 
-    /// <summary>
-    /// Set the projectile Speed of the bullet.
-    /// Only use this if the projectile has a speed.
-    /// </summary>
-    /// <param name="projectileSpeed">The Projectile Speed.</param>
-    public void SetProjectileSpeed(float projectileSpeed) {
-        projectileSpeed = projectileSpeed;
+    public void Update() {
+        float speed = ((direction == 1) ? -projectileSpeed : projectileSpeed) + (PlayerController.instance.rigidbody.velocity.x / 1.5f);
+        this.transform.position += new Vector3(speed * Time.deltaTime, 0);
+
+        updatedTime += Time.deltaTime;
+        if(updatedTime > currentBulletLife)
+            RemoveBullet();
+    }
+
+    void OnTriggerEnter2D(Collider2D collider) {
+        if(collider.tag == "Enemy") {
+            BaseHealth enemyHealth = collider.GetComponent<BaseHealth>();
+            if(enemyHealth._died == false) {
+                BaseEntity enemyEntity = collider.GetComponent<BaseEntity>();
+                enemyEntity.Knockback(knockbackForce, knockbackTime);
+                enemyHealth.DealDamage(damage);
+            }
+        }
+        RemoveBullet();
+    }
+
+    void RemoveBullet() {
+        GameObject.Destroy(this.gameObject);
     }
 }
 

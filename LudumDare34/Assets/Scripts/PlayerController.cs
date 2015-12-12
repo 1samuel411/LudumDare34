@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController: MonoBehaviour
+public class PlayerController : BaseEntity
 {
 
     // Moving
@@ -16,139 +16,85 @@ public class PlayerController: MonoBehaviour
     private bool _holdingRightKey;
     private bool _holdingKeys;
 
-    // Moving
-    public float maxSpeed = 2;
-    public float speed;
-    private float _regSpeed;
-    public float jumpSpeed;
-    public float jumpHeight;
-
-    // Jumping
-    public float jumpTime;
-    public float jumpCooldownTime;
-    private float _curJumpCooldownTime;
-    private float _totalJumpCooldownTime;
-
-    // Variables
-    public bool canMove = true;
-    public bool canJump = true;
-    public bool canScale = true;
-    public bool isJumping = false;
-
-    // Grounded
-    public LayerMask groundedMask;
-    public bool grounded;
-    public float groundCheckDist;
-    private RaycastHit2D _groundHit;
-
-    // 1 is left | -1 is right
-    public static int direction = 1;
-
-    public PlayerWeaponHandler weaponHandler;
     public BaseWeapon weapon;
+    public PlayerWeaponHandler weaponHandler;
 
-    private new Transform transform;
-    private new Rigidbody2D rigidbody;
+    public static PlayerController instance;
 
-    void Start()
+    public override void AwakeMethod()
     {
-        _regSpeed = speed;
-        transform = GetComponent<Transform>();
-        rigidbody = GetComponent<Rigidbody2D>();
+        instance = this;
         weapon.ActivateGun(true);
         weaponHandler = new PlayerWeaponHandler(weapon);
     }
 
-    void Update()
+    public override void UpdateMethod()
     {
-        // Update our scale based on direction
-        if(canScale)
+        // Check left key
+        if (Input.GetKey(leftKey) && !Input.GetKey(rightKey))
         {
-            transform.localScale = new Vector3(direction, 1, 1);
-        }
-
-        // Restrict speed
-        if(rigidbody.velocity.magnitude > maxSpeed)
-        {
-            speed = 0;
-        } else
-        {
-            speed = _regSpeed;
-        }
-
-        // Check grounded
-        grounded = Grounded();
-
-        // Stop jumping when we hit the ground if we are jumping
-        if(grounded && isJumping)
-        {
-            FinishJump();
-        }
-
-        if(canMove && !_holdingKeys)
-        {
-            // Check left key
-            if(Input.GetKey(leftKey))
+            // If this is the first time holding it then set the hold time
+            if (!_holdingLeftKey)
             {
-                // If this is the first time holding it then set the hold time
-                if(!_holdingLeftKey)
-                {
-                    _curHoldTimeLeft = Time.time;
-                    _targetHoldTimeLeft = Time.time + holdTimeMove;
-                }
-
-                _holdingLeftKey = true;
-
-                // Need to hold these keys for a certain time to allow left movement
-                if(_curHoldTimeLeft > _targetHoldTimeLeft && !_holdingKeys)
-                {
-                    // Move left
-                    MoveLeft();
-                } else
-                {
-                    _curHoldTimeLeft += Time.deltaTime;
-                }
-            } else
-            {
-                _holdingLeftKey = false;
+                _curHoldTimeLeft = Time.time;
+                _targetHoldTimeLeft = Time.time + holdTimeMove;
             }
 
-            // Check right key
-            if(Input.GetKey(rightKey))
-            {
-                // If this is the first time holding it then set the hold time
-                if(!_holdingRightKey)
-                {
-                    _curHoldTimeRight = Time.time;
-                    _targetHoldTimeRight = Time.time + holdTimeMove;
-                }
+            _holdingLeftKey = true;
 
-                _holdingRightKey = true;
-
-                // Need to hold these keys for a certain time to allow right movement
-                if(_curHoldTimeRight > _targetHoldTimeRight && !_holdingKeys)
-                {
-                    // Move right
-                    MoveRight();
-                } else
-                {
-                    _curHoldTimeRight += Time.deltaTime;
-                }
-            } else
+            // Need to hold these keys for a certain time to allow left movement
+            if (_curHoldTimeLeft > _targetHoldTimeLeft)
             {
-                _holdingRightKey = false;
+                // Move left
+                MoveLeft();
             }
+            else
+            {
+                _curHoldTimeLeft += Time.deltaTime / Time.timeScale;
+            }
+        }
+        else
+        {
+            _holdingLeftKey = false;
+        }
+
+        // Check right key
+        if (Input.GetKey(rightKey) && !Input.GetKey(leftKey))
+        {
+            // If this is the first time holding it then set the hold time
+            if (!_holdingRightKey)
+            {
+                _curHoldTimeRight = Time.time;
+                _targetHoldTimeRight = Time.time + holdTimeMove;
+            }
+
+            _holdingRightKey = true;
+
+            // Need to hold these keys for a certain time to allow right movement
+            if (_curHoldTimeRight > _targetHoldTimeRight)
+            {
+                // Move right
+                MoveRight();
+            }
+            else
+            {
+                _curHoldTimeRight += Time.deltaTime / Time.timeScale;
+            }
+        }
+        else
+        {
+            _holdingRightKey = false;
         }
 
 
         // Jumping
-        if(canJump && !isJumping)
+        if (canJump && !isJumping)
         {
             // Check both keys
-            if(Input.GetKey(leftKey) && Input.GetKey(rightKey))
+            if (Input.GetKey(leftKey) && Input.GetKey(rightKey))
             {
                 // If this is the first time holding it then set the hold time
-                if(!_holdingKeys)
+                if (!_holdingKeys)
                 {
                     _curHoldTimeJump = Time.time;
                     _targetHoldTimeJump = Time.time + holdTimeJump;
@@ -157,78 +103,61 @@ public class PlayerController: MonoBehaviour
                 _holdingKeys = true;
 
                 // Need to hold these keys for a certain time to allow jumping
-                if(_curHoldTimeJump > _targetHoldTimeJump)
+                if (_curHoldTimeJump > _targetHoldTimeJump)
                 {
                     // Jump
                     Jump();
-                } else
+                    _holdingKeys = false;
+                }
+                else
                 {
-                    _curHoldTimeJump += Time.deltaTime;
+                    _curHoldTimeJump += Time.deltaTime / Time.timeScale;
                 }
 
-            } else
+            }
+            else
             {
                 _holdingKeys = false;
             }
         }
-        if (!canJump)
-            _curJumpCooldownTime += Time.deltaTime;
 
-        if(_curJumpCooldownTime > _totalJumpCooldownTime && !isJumping)
-            canJump = true;
-    }
-
-    public bool Grounded()
-    {
-        _groundHit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDist, groundedMask);
-
-        if(_groundHit)
+        // Boost down
+        if (isJumping && airTime > targetAirTimeBoost)
         {
-            return true;
-        } else
-        {
-            return false;
+            // Check both keys
+            if (Input.GetKey(leftKey) && Input.GetKey(rightKey))
+            {
+                // If this is the first time holding it then set the hold time
+                if (!_holdingKeys)
+                {
+                    _curHoldTimeJump = Time.time;
+                    _targetHoldTimeJump = Time.time + holdTimeJump;
+                }
+
+                _holdingKeys = true;
+
+                // Need to hold these keys for a certain time to allow jumping
+                if (_curHoldTimeJump > _targetHoldTimeJump)
+                {
+                    // Jump
+                    BoostDown(2);
+                    _holdingKeys = false;
+                }
+                else
+                {
+                    _curHoldTimeJump += Time.deltaTime / Time.timeScale;
+                }
+
+            }
+            else
+            {
+                _holdingKeys = false;
+            }
         }
     }
 
-    #region Deals with Movement
-    public void MoveLeft()
-    {
-        direction = 1;
-        rigidbody.AddForce(new Vector2(-speed, 0) * Time.deltaTime, ForceMode2D.Impulse);
-    }
-
-    public void MoveRight()
-    {
-        direction = -1;
-        rigidbody.AddForce(new Vector2(speed, 0) * Time.deltaTime, ForceMode2D.Impulse);
-    }
-    #endregion
-
-    public void Jump()
-    {
-        // Disable movement
-        _holdingKeys = false;
-        canJump = false;
-        canMove = false;
-        canScale = false;
-        isJumping = true;
-
-        // Give air boost
-        rigidbody.AddForce(new Vector2(0, jumpHeight * jumpSpeed) * Time.deltaTime, ForceMode2D.Impulse);
-    }
-
-    void FinishJump()
-    {
-        _totalJumpCooldownTime = Time.time + jumpCooldownTime;
-        _curJumpCooldownTime = Time.time;
-        canMove = true;
-        canScale = true;
-        isJumping = false;
-    }
-
-    //public void OnCollisionEnter2D(Collider collider) {
-    //    if (string.CompareOrdinal(collider.tag, "Weapon") == 0) {
+    //public void OnCollisionEnter2D(Collider2D collider) {
+    //    if(string.CompareOrdinal(collider.tag, "Weapon") == 0) {
     //        weaponHandler.PickedUpWeapon(collider.GetComponent<BaseWeapon>());
     //    }
     //}
