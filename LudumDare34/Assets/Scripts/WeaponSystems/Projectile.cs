@@ -3,10 +3,10 @@ using System.Collections;
 
 public class Projectile : MonoBehaviour
 {
-    protected int _damage;
-    public float _projectileSpeed;
-    protected float _bulletLife;
-    protected float _currentBulletLife;
+    public float projectileSpeed;
+    public int _damage;
+    public float _bulletLife;
+    public float _currentBulletLife;
 
     public int damage { get { return _damage; } }
 
@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour
 
     public void Awake()
     {
-        _projectileSpeed = 1;
+        projectileSpeed = 1;
         _currentBulletLife = Time.time + _bulletLife;
         direction = PlayerController.direction;
     }
@@ -23,7 +23,7 @@ public class Projectile : MonoBehaviour
 
     public void Update()
     {
-        float speed = ((direction == 1) ? -_projectileSpeed : _projectileSpeed);
+        float speed = ((direction == 1) ? -projectileSpeed : projectileSpeed);
         this.transform.position += new Vector3( speed * Time.deltaTime, 0);
 
         updatedTime += Time.deltaTime;
@@ -38,7 +38,7 @@ public class Projectile : MonoBehaviour
     /// </summary>
     /// <param name="projectileSpeed">The Projectile Speed.</param>
     public void SetProjectileSpeed(float projectileSpeed) {
-        _projectileSpeed = projectileSpeed;
+        projectileSpeed = projectileSpeed;
     }
 }
 

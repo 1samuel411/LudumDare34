@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class BaseWeapon : BaseItem
 {
-    public int maxAmmo;
-    public int minAmmo;
     public bool isGunActive;
     public bool isAutomatic;
     public bool CanShoot;
@@ -16,6 +14,7 @@ public class BaseWeapon : BaseItem
     public GameObject bulletSpawnBox;
     protected IList<Projectile> _projectiles;
     private Projectile _projectile;
+    public WeaponAttributes weaponAttribute;
 
     public BaseWeapon() {
         bulletSpawnBox = this.gameObject;
@@ -40,6 +39,13 @@ public class BaseWeapon : BaseItem
         isGunActive = activateGun;
         if (activateGun) {
             StartCoroutine(SpawnBullets());
+        }
+    }
+
+    protected virtual IEnumerator CheckAttributesTimer() {
+        while (true) {
+            if(weaponAttribute.curAlottedTime >= weaponAttribute.maxAlottedTime)
+                yield break;
         }
     }
 }

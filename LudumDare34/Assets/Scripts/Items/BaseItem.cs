@@ -5,6 +5,7 @@ public class BaseItem : MonoBehaviour, IPickUpable, IDestroyable
 {
     public string name;
     public ItemType itemType;
+    public Texture itemTexture;
 
     #region IDestroyable Members
 

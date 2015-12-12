@@ -44,6 +44,7 @@ public class PlayerController: MonoBehaviour
     // 1 is left | -1 is right
     public static int direction = 1;
 
+    public PlayerWeaponHandler weaponHandler;
     public BaseWeapon weapon;
 
     private new Transform transform;
@@ -55,6 +56,7 @@ public class PlayerController: MonoBehaviour
         transform = GetComponent<Transform>();
         rigidbody = GetComponent<Rigidbody2D>();
         weapon.ActivateGun(true);
+        weaponHandler = new PlayerWeaponHandler(weapon);
     }
 
     void Update()
@@ -189,6 +191,7 @@ public class PlayerController: MonoBehaviour
         }
     }
 
+    #region Deals with Movement
     public void MoveLeft()
     {
         direction = 1;
@@ -200,6 +203,7 @@ public class PlayerController: MonoBehaviour
         direction = -1;
         rigidbody.AddForce(new Vector2(speed, 0) * Time.deltaTime, ForceMode2D.Impulse);
     }
+    #endregion
 
     public void Jump()
     {
@@ -221,5 +225,11 @@ public class PlayerController: MonoBehaviour
         canMove = true;
         canScale = true;
         isJumping = false;
+    }
+
+    public void OnCollisionEnter(Collider collider) {
+        if (string.CompareOrdinal(collider.tag, "Weapon") == 0) {
+            weaponHandler.PickedUpWeapon(collider.GetComponent<BaseWeapon>());
+        }
     }
 }
