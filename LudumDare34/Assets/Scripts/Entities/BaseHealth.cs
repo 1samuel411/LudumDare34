@@ -79,7 +79,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
             _died = true;
 
             // Add effect
-            CameraManager.ShakeScreen(3, 2);
+            CameraManager.ShakeScreen(2, 1.5f);
             CameraManager.ZoomIn(8, 2.4f, 4, 0.3f, transform.position, 5, 1);
 
             // Add dissolve effect

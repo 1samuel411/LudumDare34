@@ -1,7 +1,8 @@
 # LudumDare34
-new ludum dare 34 project, sam and i. chya.
+new ludum dare 34 project, sam and i. chya
 
 # Milestone 1 (3 hour)
+@Code
 *PlayerController Movement & Actions (SAM) 20
 --Moving him left and right
 --WeaponHandler
@@ -12,8 +13,21 @@ new ludum dare 34 project, sam and i. chya.
 *Camera Manager (SAM) NA
 *Test Shooting
 
+# Milestone 2 (x hours)
+@Art
+*Enviornment
+--Night time
+*Character art
+--Main character
+*Bullet variations
+*Weapons
+*Enemies
+@Code
+*UI
+*Picking up weapons
+
 # NEEDED
-Object Pooling - FastPool or Create custom (decide)
+***Object Pooling - FastPool or Create custom (decide)
 
 # Game Description
 Platform: 2d sidescroller

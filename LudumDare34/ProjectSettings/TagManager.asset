@@ -20,7 +20,7 @@ TagManager:
   - Bullets
   - Enemies
   - DeadEnemies
-  - 
+  - Border
   - 
   - 
   - 
@@ -42,4 +42,28 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 4158121719
+    locked: 0
+  - name: Foreground
+    uniqueID: 588413713
+    locked: 0
+  - name: Bullets
+    uniqueID: 3224108469
+    locked: 0
+  - name: Player
+    uniqueID: 2021991435
+    locked: 0
+  - name: Enemies
+    uniqueID: 1978157049
+    locked: 0
+  - name: Explosion
+    uniqueID: 467781513
+    locked: 0
+  - name: Loot
+    uniqueID: 2475874403
+    locked: 0
+  - name: Overlay
+    uniqueID: 3815526111
     locked: 0

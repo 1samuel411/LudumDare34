@@ -20,12 +20,8 @@ MonoBehaviour:
   m_Pow2Textures: 1
   m_MaxTexturesDimension: 2048
   m_SpritesBorder: 1
-  m_ClearColor:
-    r: 1
-    g: 1
-    b: 1
-    a: 0
-  m_OutputFolder: 4173736574732f5356474173736574735f315f335f35
+  m_ClearColor: {r: 1, g: 1, b: 1, a: 0}
+  m_OutputFolder: Assets/SVGAssets_1_3_5
   SvgList:
   - TxtAsset: {fileID: 4900000, guid: e4bf6b66c7449bd46a8c0c3c86581cd5, type: 3}
     SeparateGroups: 1
@@ -193,4 +189,4 @@ MonoBehaviour:
         ElemIdx: 65540
   EditorGenerationScale: 1
   m_SvgListHashOld: 3239354132464542343234424443324446453630364246423043393444353036
-  m_SvgListHashCurrent: 3239354132464542343234424443324446453630364246423043393444353036
+  m_SvgListHashCurrent: 295A2FEB424BDC2DFE606BFB0C94D506

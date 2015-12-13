@@ -30,6 +30,7 @@ public class BaseWeapon : BaseItem
     protected IEnumerator SpawnBullets() {
         while (isGunActive) {
             GameObject newProjectileObject = GameObject.Instantiate(projectile, bulletSpawnBox.transform.position, (Quaternion) bulletSpawnBox.transform.rotation) as GameObject;
+            newProjectileObject.transform.localScale = new Vector3((PlayerController.instance.direction == 1) ? 1 : -1, 1);
             _projectile = newProjectileObject.GetComponent<Projectile>(); //may need to fix this?
             yield return new WaitForSeconds(weaponTriggerSpeed);
         }
