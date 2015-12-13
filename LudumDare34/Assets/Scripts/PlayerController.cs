@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerController : BaseEntity
 {
@@ -16,16 +17,21 @@ public class PlayerController : BaseEntity
     private bool _holdingRightKey;
     private bool _holdingKeys;
 
-    public BaseWeapon weapon;
     public PlayerWeaponHandler weaponHandler;
+    public BaseWeapon weapon;
 
     public static PlayerController instance;
 
     public override void AwakeMethod()
     {
         instance = this;
+    }
+
+    public void Start()
+    {
         weapon.ActivateGun(true);
-        weaponHandler = new PlayerWeaponHandler(weapon);
+        if(weaponHandler == null)
+            weaponHandler = this.GetComponentInChildren<PlayerWeaponHandler>();
     }
 
     public override void UpdateMethod()
@@ -154,11 +160,24 @@ public class PlayerController : BaseEntity
                 _holdingKeys = false;
             }
         }
+
+        //change this to delegate call!
+        if (!weapon.weaponAttribute.CheckIfWeaponAvailable()) {
+            EquipNextWeapon(weapon);
+        }
     }
 
-    //public void OnCollisionEnter2D(Collider2D collider) {
-    //    if(string.CompareOrdinal(collider.tag, "Weapon") == 0) {
-    //        weaponHandler.PickedUpWeapon(collider.GetComponent<BaseWeapon>());
-    //    }
-    //}
+    public void OnTriggerEnter2D(Collider2D collider) {
+        Debug.Log("Collider + "  + collider.tag);
+        if(string.CompareOrdinal(collider.tag, "Weapon") == 0) {
+            Debug.Log("Found Weapon!");
+            EquipNextWeapon(collider.GetComponent<BaseWeapon>());
+        }
+    }
+
+    public void EquipNextWeapon(BaseWeapon newWeapon)
+    {
+        weaponHandler.PickedUpWeapon(newWeapon);
+        weapon = weaponHandler.GetNextWeapon(weapon);
+    }
 }

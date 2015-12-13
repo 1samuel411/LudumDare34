@@ -16,11 +16,14 @@ public class BaseWeapon : BaseItem
     private Projectile _projectile;
     public WeaponAttributes weaponAttribute;
 
-    public BaseWeapon() {
-        bulletSpawnBox = this.gameObject;
+    public void Awake()
+    {
+        if(bulletSpawnBox == null)
+            bulletSpawnBox =  this.gameObject;
+
+        this.name = (string.IsNullOrEmpty(this.name)) ? gameObject.name : this.name;
         Initialize();
     }
-
     protected virtual void Initialize() { }
 
     public int DamagePerBullet() {
@@ -44,10 +47,24 @@ public class BaseWeapon : BaseItem
     }
 
     protected virtual IEnumerator CheckAttributesTimer() {
-        while (true) {
-            if(weaponAttribute.curAlottedTime >= weaponAttribute.maxAlottedTime)
+        while (true)
+        {
+            weaponAttribute.CurAlottedTime -= Time.deltaTime;
+            if (weaponAttribute.CurAlottedTime <= 0.0f) {
+
                 yield break;
+            }
         }
+    }
+
+    public void DestroyWeapon()
+    {
+        GameObject.Destroy(this.gameObject);
+    }
+
+    public void DropWeapon()
+    {
+        //Awesome Drop Animation.
     }
 }
 
