@@ -13,7 +13,7 @@ new ludum dare 34 project, sam and i. chya
 *Camera Manager (SAM) NA
 *Test Shooting
 
-# Milestone 2 (x hours)
+# Milestone 2 (x hours).
 @Art
 *Enviornment
 --Night time
