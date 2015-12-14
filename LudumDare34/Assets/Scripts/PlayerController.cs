@@ -25,13 +25,11 @@ public class PlayerController : BaseEntity
     public override void AwakeMethod()
     {
         instance = this;
-    }
 
-    public void Start()
-    {
-        weapon.ActivateGun(true);
         if(weaponHandler == null)
             weaponHandler = this.GetComponentInChildren<PlayerWeaponHandler>();
+
+        weaponHandler.AddFirstWeapon(ref weapon);
     }
 
     public override void UpdateMethod()
@@ -168,7 +166,6 @@ public class PlayerController : BaseEntity
     }
 
     public void OnTriggerEnter2D(Collider2D collider) {
-        Debug.Log("Collider + "  + collider.tag);
         if(string.CompareOrdinal(collider.tag, "Weapon") == 0) {
             Debug.Log("Found Weapon!");
             EquipNextWeapon(collider.GetComponent<BaseWeapon>());

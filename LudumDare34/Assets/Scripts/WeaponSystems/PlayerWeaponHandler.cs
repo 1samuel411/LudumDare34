@@ -6,16 +6,24 @@ public class PlayerWeaponHandler : MonoBehaviour
 {
     public List<string> weaponsOwned;
 
+    public void AddFirstWeapon(ref BaseWeapon firstWeapon) {
+        weaponsOwned.Add(firstWeapon.name);
+        firstWeapon.ActivateGun(true);
+    }
+
     public void PickedUpWeapon(BaseWeapon weapon) {
         //Check the weapon doesn't have a parent
-        Debug.Log("Checking Weapon does not have a parent.");
         if (weapon.gameObject.transform.parent == null)
         {
             //Check if already Owned!
             string storedWeapons = weaponsOwned.FirstOrDefault(w => string.CompareOrdinal(w, weapon.name) == 0);
             if (string.IsNullOrEmpty(storedWeapons)) {
+                //Adding new Weapon!
                 weapon.transform.parent = this.transform;
-                weapon.gameObject.SetActive(false);
+                weapon.ActivateGun(false);
+                weapon.ResetWeaponAttributes();
+                Destroy(GetComponent(typeof(BoxCollider2D)));
+                Destroy(GetComponent(typeof(Rigidbody2D)));
                 weaponsOwned.Add(weapon.name);
             } else { 
                 //Add Weapon Ammo or Time!!
@@ -38,9 +46,11 @@ public class PlayerWeaponHandler : MonoBehaviour
     /// <returns></returns>
     public BaseWeapon GetNextWeapon(BaseWeapon weapon) {
         BaseWeapon baseWeapon;
-        weapon.ActivateGun(false);  //deactivate this current gun.
+        weapon.ActivateGun(false);  //deactivate the current gun.
         BaseWeapon[] ownedWeapons = gameObject.GetComponentsInChildren<BaseWeapon>(true);
         IEnumerable<BaseWeapon> availableWeapons = ownedWeapons.Where(w => w.weaponAttribute.CheckIfWeaponAvailable() == true);
+        Debug.Log("Owned Weapons Available: " + ownedWeapons.Count());
+        Debug.Log("Weapons Available: " + availableWeapons.Count());
         if (availableWeapons.Count() > 1) // check that we have more then just the core weapon.
         {
             //Add an order by, to prioritize next available weapon by strength.
@@ -50,7 +60,6 @@ public class PlayerWeaponHandler : MonoBehaviour
         else
             baseWeapon = availableWeapons.First();
 
-        baseWeapon.gameObject.SetActive(true);
         baseWeapon.ActivateGun(true);
         return baseWeapon;
     }

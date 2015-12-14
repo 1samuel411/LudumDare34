@@ -12,13 +12,11 @@ public class WeaponAttributes {
         get { return _currentMaxAmmo; }
         set
         {
-            if (value >= maxAllowedAmmo)
-                _currentMaxAmmo = maxAllowedAmmo;
+            if (value >= maxAmountForAmmo)
+                _currentMaxAmmo = maxAmountForAmmo;
             else
-            {
                 _currentMaxAmmo += value;
                 _currentAmmo = _currentMaxAmmo;
-            }
         }
     }
 
@@ -31,65 +29,37 @@ public class WeaponAttributes {
 
     #region Timer Settings
 
+    public bool checkTimer = false;
     private float _currentMaxTime;
-    private float _currentAlottedTime;
+    private float _currentTime;
 
     public float CurMaxAlottedTime
     {
         get { return _currentMaxTime; }
         set
         {
-            if(value >= maxAmountForTime)
+            if (value >= maxAmountForTime)
                 _currentMaxTime = maxAmountForTime;
             else
-            {
                 _currentMaxTime += value;
-                _currentAlottedTime = _currentMaxTime;
-            }
+            _currentTime = _currentMaxTime;
         }
     }
 
     public float CurAlottedTime {
-        get { return _currentAlottedTime; }
-        set { _currentAlottedTime = value; }
+        get { return _currentTime; }
     }
     #endregion
 
-    #region Set Radio Buttons for Ammo and Timer
-    public bool UsingAmmo {
-        get { return usingAmmo; }
-        set {
-            if (!coreWeapon) {
-                usingAmmo = value;
-                usingTimer = (!usingAmmo);
-            }
-            else
-                usingAmmo = usingTimer = false;
-        }
-    }
-
-    public bool UsingTimer {
-        get { return usingTimer; }
-        set {
-            if (coreWeapon == false) {
-                usingTimer = value;
-                usingAmmo = (!usingTimer);
-            }
-            else
-                usingAmmo = usingTimer = false;
-        }
-    }
-    #endregion
-
-    public bool usingAmmo;
+    public bool usingAmmo; 
     public bool usingTimer;
     public bool coreWeapon;
 
-    public float maxAmountForTime;
-    public int maxAllowedAmmo;
+    public float maxAmountForTime;  //this is the set time cap by the developer
+    public int maxAmountForAmmo;    //this is the set ammo cap by the developer.
 
-    public float TimeToAddPerPickUp;
-    public int ammoToAddPerPickUp;
+    public float TimeToAddPerPickUp;//this is the amount of time to be added per pickup
+    public int ammoToAddPerPickUp;  //this is the amount of ammo to be added per pickup
 
     protected void AddWeaponTime()
     {
@@ -135,10 +105,13 @@ public class WeaponAttributes {
     {
         bool bOk = false;
         if (!coreWeapon) {
+            //Debug.Log(string.Format("Current Ammo: {0}, Current Timer {1}", currentAmmo, _currentTime));
             if (usingAmmo && currentAmmo > 0)
                 bOk = true;
-            else if (usingTimer && CurAlottedTime > 0.01f)
+            else if(usingTimer && _currentTime > 0.01f) {
+                _currentTime -= Time.deltaTime;
                 bOk = true;
+            }
         } else
             bOk = true;
 

@@ -24,6 +24,19 @@ public class BaseWeapon : BaseItem
         this.name = (string.IsNullOrEmpty(this.name)) ? gameObject.name : this.name;
         Initialize();
     }
+
+    /// <summary>
+    /// Need to Fix this later. by abstracting it.
+    /// </summary>
+    public void Update()
+    {
+        //if (weaponAttribute.checkTimer) {
+        //    weaponAttribute.CurAlottedTime -= Time.deltaTime;
+        //    if (weaponAttribute.CurAlottedTime <= 0.01f)
+        //        weaponAttribute.checkTimer = false;
+        //}
+    }
+
     protected virtual void Initialize() { }
 
     public int DamagePerBullet() {
@@ -32,6 +45,9 @@ public class BaseWeapon : BaseItem
 
     protected IEnumerator SpawnBullets() {
         while (isGunActive) {
+            //Used to decrement ammo in weaponAttributes.
+            if (!weaponAttribute.coreWeapon && weaponAttribute.usingAmmo)
+                weaponAttribute.currentAmmo -= 1;
             GameObject newProjectileObject = GameObject.Instantiate(projectile, bulletSpawnBox.transform.position, (Quaternion) bulletSpawnBox.transform.rotation) as GameObject;
             newProjectileObject.transform.localScale = new Vector3((PlayerController.instance.direction == 1) ? 1 : -1, 1);
             _projectile = newProjectileObject.GetComponent<Projectile>(); //may need to fix this?
@@ -40,19 +56,14 @@ public class BaseWeapon : BaseItem
     }
 
     public void ActivateGun(bool activateGun) {
+        Debug.Log("I'm Being called!");
         isGunActive = activateGun;
+        gameObject.SetActive(activateGun);
         if (activateGun) {
+            ResetWeaponAttributes();
             StartCoroutine(SpawnBullets());
-        }
-    }
-
-    protected virtual IEnumerator CheckAttributesTimer() {
-        while (true)
-        {
-            weaponAttribute.CurAlottedTime -= Time.deltaTime;
-            if (weaponAttribute.CurAlottedTime <= 0.0f) {
-
-                yield break;
+            if (weaponAttribute.usingTimer) {
+                weaponAttribute.checkTimer = true;
             }
         }
     }
@@ -60,6 +71,14 @@ public class BaseWeapon : BaseItem
     public void DestroyWeapon()
     {
         GameObject.Destroy(this.gameObject);
+    }
+
+    public void ResetWeaponAttributes()
+    {
+        if (!weaponAttribute.coreWeapon) {
+            weaponAttribute.currentMaxAmmo = weaponAttribute.maxAmountForAmmo;
+            weaponAttribute.CurMaxAlottedTime = weaponAttribute.maxAmountForTime;
+        }
     }
 
     public void DropWeapon()

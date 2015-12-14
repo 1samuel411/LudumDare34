@@ -768,11 +768,7 @@ SpriteRenderer:
 GameObject:
   m_PrefabParentObject: {fileID: 125784, guid: 596750fecea2a8c4aab65bb2637a8747, type: 2}
   m_PrefabInternal: {fileID: 1938013996}
---- !u!4 &392295670 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 417318, guid: 596750fecea2a8c4aab65bb2637a8747, type: 2}
-  m_PrefabInternal: {fileID: 1938013996}
---- !u!114 &392295671
+--- !u!114 &392295668
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -2351,14 +2347,15 @@ MonoBehaviour:
   weaponTriggerSpeed: 0.2
   weaponEffect: 0
   weaponType: 0
-  projectile: {fileID: 0}
+  projectile: {fileID: 170152, guid: 3953efc9186a6c5419b81164b336a081, type: 2}
   bulletSpawnBox: {fileID: 1582718766}
   weaponAttribute:
+    checkTimer: 0
     usingAmmo: 0
     usingTimer: 1
     coreWeapon: 0
-    maxAmountForTime: 10
-    maxAllowedAmmo: 0
+    maxAmountForTime: 2
+    maxAmountForAmmo: 0
     TimeToAddPerPickUp: 2
     ammoToAddPerPickUp: 0
 --- !u!212 &1582718768
@@ -2858,16 +2855,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11416462, guid: 596750fecea2a8c4aab65bb2637a8747, type: 2}
-      propertyPath: jumpCooldownTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6184126, guid: 596750fecea2a8c4aab65bb2637a8747, type: 2}
-      propertyPath: m_Size.x
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 11435326, guid: 596750fecea2a8c4aab65bb2637a8747, type: 2}
+    - {fileID: 11464930, guid: 596750fecea2a8c4aab65bb2637a8747, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 596750fecea2a8c4aab65bb2637a8747, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1992617302
@@ -3006,52 +2995,6 @@ SpriteRenderer:
   m_Color: {r: 0.5147059, g: 0.5147059, b: 0.5147059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1001 &2052351885
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 392295670}
-    m_Modifications:
-    - target: {fileID: 460516, guid: 90c6f594296894f46850b633a9efc04c, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 6.201589
-      objectReference: {fileID: 0}
-    - target: {fileID: 460516, guid: 90c6f594296894f46850b633a9efc04c, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 5.18667
-      objectReference: {fileID: 0}
-    - target: {fileID: 460516, guid: 90c6f594296894f46850b633a9efc04c, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 460516, guid: 90c6f594296894f46850b633a9efc04c, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 460516, guid: 90c6f594296894f46850b633a9efc04c, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 460516, guid: 90c6f594296894f46850b633a9efc04c, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 460516, guid: 90c6f594296894f46850b633a9efc04c, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 460516, guid: 90c6f594296894f46850b633a9efc04c, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11410524, guid: 90c6f594296894f46850b633a9efc04c, type: 2}
-      propertyPath: bulletSpawnBox
-      value: 
-      objectReference: {fileID: 125784, guid: 596750fecea2a8c4aab65bb2637a8747, type: 2}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 90c6f594296894f46850b633a9efc04c, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &2090154314
 GameObject:
   m_ObjectHideFlags: 0
