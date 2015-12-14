@@ -49,8 +49,6 @@ public class PlayerWeaponHandler : MonoBehaviour
         weapon.ActivateGun(false);  //deactivate the current gun.
         BaseWeapon[] ownedWeapons = gameObject.GetComponentsInChildren<BaseWeapon>(true);
         IEnumerable<BaseWeapon> availableWeapons = ownedWeapons.Where(w => w.weaponAttribute.CheckIfWeaponAvailable() == true);
-        Debug.Log("Owned Weapons Available: " + ownedWeapons.Count());
-        Debug.Log("Weapons Available: " + availableWeapons.Count());
         if (availableWeapons.Count() > 1) // check that we have more then just the core weapon.
         {
             //Add an order by, to prioritize next available weapon by strength.

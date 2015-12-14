@@ -25,18 +25,6 @@ public class BaseWeapon : BaseItem
         Initialize();
     }
 
-    /// <summary>
-    /// Need to Fix this later. by abstracting it.
-    /// </summary>
-    public void Update()
-    {
-        //if (weaponAttribute.checkTimer) {
-        //    weaponAttribute.CurAlottedTime -= Time.deltaTime;
-        //    if (weaponAttribute.CurAlottedTime <= 0.01f)
-        //        weaponAttribute.checkTimer = false;
-        //}
-    }
-
     protected virtual void Initialize() { }
 
     public int DamagePerBullet() {
@@ -56,7 +44,6 @@ public class BaseWeapon : BaseItem
     }
 
     public void ActivateGun(bool activateGun) {
-        Debug.Log("I'm Being called!");
         isGunActive = activateGun;
         gameObject.SetActive(activateGun);
         if (activateGun) {
