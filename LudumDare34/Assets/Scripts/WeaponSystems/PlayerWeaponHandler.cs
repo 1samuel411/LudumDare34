@@ -19,11 +19,11 @@ public class PlayerWeaponHandler : MonoBehaviour
             string storedWeapons = weaponsOwned.FirstOrDefault(w => string.CompareOrdinal(w, weapon.name) == 0);
             if (string.IsNullOrEmpty(storedWeapons)) {
                 //Adding new Weapon!
+                Destroy(weapon.GetComponent(typeof(BoxCollider2D)));
+                Destroy(weapon.GetComponent(typeof(Rigidbody2D)));
                 weapon.transform.parent = this.transform;
                 weapon.ActivateGun(false);
                 weapon.ResetWeaponAttributes();
-                Destroy(GetComponent(typeof(BoxCollider2D)));
-                Destroy(GetComponent(typeof(Rigidbody2D)));
                 weaponsOwned.Add(weapon.name);
             } else { 
                 //Add Weapon Ammo or Time!!
