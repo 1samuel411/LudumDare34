@@ -7,6 +7,7 @@ public class BaseWeapon : BaseItem
     public bool isGunActive;
     public bool isAutomatic;
     public bool CanShoot;
+    public float power;
     public float weaponTriggerSpeed;   //Used for the wait Time between Shots.
     public WeaponEffects weaponEffect;
     public ProjectileType weaponType;
@@ -16,11 +17,6 @@ public class BaseWeapon : BaseItem
     private Projectile _projectile;
     public WeaponAttributes weaponAttribute;
 
-    public BaseWeapon() {
-        bulletSpawnBox = this.gameObject;
-        Initialize();
-    }
-
     protected virtual void Initialize() { }
 
     public int DamagePerBullet() {
@@ -29,6 +25,7 @@ public class BaseWeapon : BaseItem
 
     protected IEnumerator SpawnBullets() {
         while (isGunActive) {
+            CameraManager.ShakeScreen(power, 3);
             GameObject newProjectileObject = GameObject.Instantiate(projectile, bulletSpawnBox.transform.position, (Quaternion) bulletSpawnBox.transform.rotation) as GameObject;
             newProjectileObject.transform.localScale = new Vector3((PlayerController.instance.direction == 1) ? 1 : -1, 1);
             _projectile = newProjectileObject.GetComponent<Projectile>(); //may need to fix this?

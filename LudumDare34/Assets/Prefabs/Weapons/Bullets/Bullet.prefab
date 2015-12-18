@@ -152,11 +152,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impact_effect: {fileID: 193002, guid: 04f1bef3897c2384788556a29df7bdd3, type: 2}
   impactEffectSize: 1
+  impactScreenshake: 0
   damage: 10
   knockbackForce: 1
   knockbackTime: 0.2
   projectileSpeed: 18
-  bulletLife: 0.68
+  bulletLife: 1.1
 --- !u!114 &11463762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -222,7 +223,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: bulletLife
-      value: 0.68
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damage
