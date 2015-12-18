@@ -12,7 +12,9 @@ GameObject:
   - 114: {fileID: 11468168}
   - 61: {fileID: 6126420}
   - 50: {fileID: 5098908}
-  m_Layer: 0
+  - 61: {fileID: 6136268}
+  - 114: {fileID: 11491370}
+  m_Layer: 14
   m_Name: beamWeapon
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -26,8 +28,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198962}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.19, y: -2.84, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.05, z: 1}
+  m_LocalPosition: {x: 1.6646967, y: -1.867284, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -42,8 +44,8 @@ Rigidbody2D:
   m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_IsKinematic: 1
+  m_GravityScale: 0.6
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -61,7 +63,21 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 1.1, y: 0.35}
+--- !u!61 &6136268
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198962}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.86, y: 0.3}
 --- !u!114 &11468168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -79,6 +95,7 @@ MonoBehaviour:
   isGunActive: 0
   isAutomatic: 1
   CanShoot: 0
+  pickupPosition: {x: 0, y: 0}
   weaponTriggerSpeed: 0.2
   weaponEffect: 0
   weaponType: 0
@@ -89,10 +106,29 @@ MonoBehaviour:
     usingAmmo: 0
     usingTimer: 1
     coreWeapon: 0
-    maxAmountForTime: 2
+    maxAmountForTime: 6.37
     maxAmountForAmmo: 0
     TimeToAddPerPickUp: 2
     ammoToAddPerPickUp: 0
+--- !u!114 &11491370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 600385dfc89d92144a1b5084a7b27500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SVGFile: {fileID: 4900000, guid: b50a2c2c4117a8a4ba2a2ca3095cad27, type: 3}
+  ScaleAdaption: 0
+  Size: 115
+  ClearColor: {r: 1, g: 1, b: 1, a: 0}
+  GenerateOnStart: 1
+  Sliced: 0
+  SlicedWidth: 256
+  SlicedHeight: 256
 --- !u!212 &21259124
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -117,9 +153,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1978157049
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d2bb5b1d2eaabb9468233121a7ed20a7, type: 3}
+  m_SortingLayerID: 2021991435
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,6 +173,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: weaponAttribute.maxAmountForTime
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: weaponAttribute.usingTimer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: weaponAttribute.usingAmmo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

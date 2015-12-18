@@ -7,6 +7,7 @@ public class BaseWeapon : BaseItem
     public bool isGunActive;
     public bool isAutomatic;
     public bool CanShoot;
+    public Vector2 pickupPosition;
     public float weaponTriggerSpeed;   //Used for the wait Time between Shots.
     public WeaponEffects weaponEffect;
     public ProjectileType weaponType;
