@@ -7,7 +7,6 @@ public class BaseWeapon : BaseItem
     public bool isGunActive;
     public bool isAutomatic;
     public bool CanShoot;
-    public float power;
     public float weaponTriggerSpeed;   //Used for the wait Time between Shots.
     public WeaponEffects weaponEffect;
     public ProjectileType weaponType;
@@ -17,6 +16,15 @@ public class BaseWeapon : BaseItem
     private Projectile _projectile;
     public WeaponAttributes weaponAttribute;
 
+    public void Awake()
+    {
+        if(bulletSpawnBox == null)
+            bulletSpawnBox =  this.gameObject;
+
+        this.name = (string.IsNullOrEmpty(this.name)) ? gameObject.name : this.name;
+        Initialize();
+    }
+
     protected virtual void Initialize() { }
 
     public int DamagePerBullet() {
@@ -25,7 +33,9 @@ public class BaseWeapon : BaseItem
 
     protected IEnumerator SpawnBullets() {
         while (isGunActive) {
-            CameraManager.ShakeScreen(power, 3);
+            //Used to decrement ammo in weaponAttributes.
+            if (!weaponAttribute.coreWeapon && weaponAttribute.usingAmmo)
+                weaponAttribute.currentAmmo -= 1;
             GameObject newProjectileObject = GameObject.Instantiate(projectile, bulletSpawnBox.transform.position, (Quaternion) bulletSpawnBox.transform.rotation) as GameObject;
             newProjectileObject.transform.localScale = new Vector3((PlayerController.instance.direction == 1) ? 1 : -1, 1);
             _projectile = newProjectileObject.GetComponent<Projectile>(); //may need to fix this?
@@ -35,16 +45,32 @@ public class BaseWeapon : BaseItem
 
     public void ActivateGun(bool activateGun) {
         isGunActive = activateGun;
+        gameObject.SetActive(activateGun);
         if (activateGun) {
+            ResetWeaponAttributes();
             StartCoroutine(SpawnBullets());
+            if (weaponAttribute.usingTimer) {
+                weaponAttribute.checkTimer = true;
+            }
         }
     }
 
-    protected virtual IEnumerator CheckAttributesTimer() {
-        while (true) {
-            if(weaponAttribute.curAlottedTime >= weaponAttribute.maxAlottedTime)
-                yield break;
+    public void DestroyWeapon()
+    {
+        GameObject.Destroy(this.gameObject);
+    }
+
+    public void ResetWeaponAttributes()
+    {
+        if (!weaponAttribute.coreWeapon) {
+            weaponAttribute.currentMaxAmmo = weaponAttribute.maxAmountForAmmo;
+            weaponAttribute.CurMaxAlottedTime = weaponAttribute.maxAmountForTime;
         }
+    }
+
+    public void DropWeapon()
+    {
+        //Awesome Drop Animation.
     }
 }
 
