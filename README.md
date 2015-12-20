@@ -3,28 +3,47 @@ new ludum dare 34 project, sam and i. chya
 
 # Milestone 1 (3 hour)
 @Code
-*PlayerController Movement & Actions (SAM) 20
---Moving him left and right
---WeaponHandler
-*WeaponScript Generic (ALEX) (20)
---Where all weapons come from
-*First Auto Weapon (working) (ALEX) (10)
-*Simple Enemy Movement with one (SAM) 15
-*Camera Manager (SAM) NA
-*Test Shooting
+x*PlayerController Movement & Actions (SAM) 20
+x--Moving him left and right
+x--WeaponHandler
+x*WeaponScript Generic (ALEX) (20)
+x--Where all weapons come from
+x*First Auto Weapon (working) (ALEX) (10)
+x*Simple Enemy Movement with one (SAM) 15
+x*Camera Manager (SAM) NA
+x*Test Shooting
 
 # Milestone 2 (x hours).
 @Art
 *Enviornment
---Night time
+x--Night time
 *Character art
---Main character
-*Bullet variations
-*Weapons
-*Enemies
+--Main character (Alex) (was supposed to do this) (never finished) (no teddy bear) (Feggit)
+x*Bullet variations
+x*Weapons
+x*Enemies
 @Code
 *UI
-*Picking up weapons
+x*Picking up weapons
+
+# Milestone 3 (99 hours).
+@Art
+--Alien bullets
+--Shotgun pellets
+--Muzzle Flash
+--Player
+--1 more enemy
+@Code
+--Shotgun scatter
+--Muzzle Flash
+--Enemy bat AI
+--Skull
+--Clouds
+@UI
+--Ammo display
+--Weapon line up display
+--In-game menu
+--Main menu
 
 # NEEDED
 ***Object Pooling - FastPool or Create custom (decide)
