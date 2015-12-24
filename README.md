@@ -37,12 +37,15 @@ x*Picking up weapons
 --Shotgun scatter
 --Muzzle Flash
 --Enemy bat AI
---Skull
---Clouds
+--Skull : skull should shoot out the mouth of the bat and fall 
+	down in a half parabola and on impact keep moving in a parabola 
+	shape to the end of the screen and should be shootable
+--Clouds : clouds should be walkable and move from the sides of 
+	the screen and introduce a new type of enemy (cloud enemies)
 @UI
---Ammo display
---Weapon line up display
---In-game menu
+--Ammo display (alex)
+--Weapon line up display : To display the UI weapons to the player.(alex)
+--In-game menu (alex)
 --Main menu
 
 # NEEDED
