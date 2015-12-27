@@ -28,17 +28,19 @@ x*Picking up weapons
 
 # Milestone 3 (99 hours).
 @Art
---Alien bullets
---Shotgun pellets
---Muzzle Flash
+xx--Alien bullets
+xx--Shotgun pellets
+xx--Muzzle Flash
 --Player
 --1 more enemy
 @Code
---Shotgun scatter
---Muzzle Flash
+xx--Shotgun scatter
+xx--Muzzle Flash
 --Enemy bat AI
---Skull
+xx--Skull
 --Clouds
+xx--Enemy Spawner
+xx--Added Wave Tier System
 @UI
 --Ammo display
 --Weapon line up display
