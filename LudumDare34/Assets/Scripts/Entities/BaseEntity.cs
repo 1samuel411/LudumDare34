@@ -9,6 +9,15 @@ public class BaseEntity : MonoBehaviour
     // 1 is left || -1 is right
     public int direction = 1;
 
+    // Face
+    public bool faceCheck = false;
+    public LayerMask faceCheckMask;
+    public Transform faceTransform;
+    public bool faceCheckHit;
+    public float faceCheckDist;
+    [HideInInspector]
+    public RaycastHit2D faceCheckRaycastHit;
+
     // Moving
     public float jumpSpeed;
     public float jumpHeight;
@@ -63,6 +72,8 @@ public class BaseEntity : MonoBehaviour
         transform = GetComponent<Transform>();
         baseHealth = GetComponent<BaseHealth>();
 
+        targetEntity = GameObject.FindGameObjectWithTag("Player").GetComponent<BaseEntity>();
+
         AwakeMethod();
     }
 
@@ -84,6 +95,12 @@ public class BaseEntity : MonoBehaviour
                 rigidbody.isKinematic = true;
                 return;
             }
+        }
+
+        // Check Face
+        if (faceCheck)
+        {
+            faceCheckHit = FaceHitCheck();
         }
 
         // Check grounded
@@ -152,6 +169,20 @@ public class BaseEntity : MonoBehaviour
         }
     }
 
+    public bool FaceHitCheck()
+    {
+        faceCheckRaycastHit = Physics2D.Raycast(faceTransform.position, Vector2.left, faceCheckDist, faceCheckMask);
+
+        if (faceCheckRaycastHit)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public void MoveLeft()
     {
         if(canScale)
@@ -206,5 +237,10 @@ public class BaseEntity : MonoBehaviour
         canScale = false;
         knockedBack = true;
         rigidbody.AddForce(new Vector2((direction == 1) ? force : -force, 0), ForceMode2D.Impulse);
+    }
+
+    public GameObject SpawnItem (GameObject objectToSpawn, Vector3 position)
+    {
+        return Instantiate(objectToSpawn, position, Quaternion.identity) as GameObject;
     }
 }

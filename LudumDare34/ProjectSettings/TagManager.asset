@@ -23,7 +23,7 @@ TagManager:
   - DeadEnemies
   - Border
   - Weapons
-  - 
+  - EnemyBorder
   - 
   - 
   - 
@@ -55,6 +55,9 @@ TagManager:
     locked: 0
   - name: Enemies
     uniqueID: 1978157049
+    locked: 0
+  - name: Effects
+    uniqueID: 2413137025
     locked: 0
   - name: Player
     uniqueID: 2021991435

@@ -6,6 +6,9 @@ using System.Collections.Generic;
 public class BaseHealth : MonoBehaviour, IDamageable
 {
 
+    public enum Type { player, bat, skull, spider };
+    public Type type;
+
     public int currentHealth = 1;
 
     public float dissolveSpeed;
@@ -63,7 +66,6 @@ public class BaseHealth : MonoBehaviour, IDamageable
     {
         CurrentHealth -= damage;
         //Implement MissChance.
-
         return currentHealth;
     }
 
@@ -78,15 +80,24 @@ public class BaseHealth : MonoBehaviour, IDamageable
         {
             _died = true;
 
-            // Add effect
-            CameraManager.ShakeScreen(2, 1.5f);
-            CameraManager.ZoomIn(8, 2.4f, 4, 0.3f, transform.position, 5, 1);
+            int zoomInDecider = Random.Range(0, 100);
+            if (zoomInDecider > 75)
+            {
+                // Add effect
+                CameraManager.ShakeScreen(2, 1.5f);
+                CameraManager.ZoomIn(8, 2.4f, 4, 0.3f, transform.position, 5, 1);
+            }
 
             // Add dissolve effect
             if (dissolveable)
                 dissolving = true;
 
             gameObject.layer = 12;
+
+            if(type == Type.bat || type == Type.spider)
+            {
+                LevelManager.instance.totalEnmiesInWave--;
+            }
         }
     }
     #endregion

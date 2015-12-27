@@ -76,11 +76,14 @@ public class SVGAssetInput
     {
         string assetpath = AssetDatabase.GetAssetPath(this.TxtAsset);
         FileInfo fileInfo = new FileInfo(assetpath);
+        return null;
+#if !UNITY_WEBPLAYER
         return AssetDatabase.GetAssetPath(this.TxtAsset) + "_" + fileInfo.Length.ToString() + "_" + this.SeparateGroups.ToString();
+#endif
     }
 #endif
-    
-    // Text asset containing the svg xml.
+
+        // Text asset containing the svg xml.
     public TextAsset TxtAsset;
     // If true, it tells the packer to not pack the whole SVG document, but instead to pack each first-level element separately.
     public bool SeparateGroups;
@@ -663,8 +666,10 @@ public class SVGAtlas: ScriptableObject
 
     private void CheckAndDeleteFolder(string path)
     {
+#if !UNITY_WEBPLAYER
         if (System.IO.Directory.Exists(path))
             System.IO.Directory.Delete(path, true);
+#endif
     }
 
     private string CreateFolders()
@@ -731,27 +736,27 @@ public class SVGAtlas: ScriptableObject
         foreach (Animator animator in animators)
         {
             UnityEditor.Animations.AnimatorController animController = animator.runtimeAnimatorController as UnityEditor.Animations.AnimatorController;
-		#if UNITY_5_PLUS
+#if UNITY_5_PLUS
 			for (int i = 0; i < animController.layers.Length; i++)
-		#else
+#else
             for (int i = 0; i < animator.layerCount; i++)
-		#endif
+#endif
             {
-			#if UNITY_5_PLUS
+#if UNITY_5_PLUS
 				UnityEditor.Animations.AnimatorStateMachine stateMachine = animController.layers[i].stateMachine;
 				for (int j = 0; j < stateMachine.states.Length; j++)
-			#else
+#else
                 UnityEditor.Animations.AnimatorStateMachine stateMachine = animController.GetLayer(i).stateMachine;
 				for (int j = 0; j < stateMachine.stateCount; j++)
-			#endif
+#endif
                 {
-				#if UNITY_5_PLUS
+#if UNITY_5_PLUS
 					UnityEditor.Animations.ChildAnimatorState state = stateMachine.states[j];
 					Motion mtn = state.state.motion;
-				#else
+#else
                     UnityEditor.Animations.AnimatorState state = stateMachine.GetState(j);
 					Motion mtn = state.GetMotion();
-				#endif
+#endif
 
                     if (mtn != null)
                     {
@@ -1537,9 +1542,9 @@ public class SVGAtlas: ScriptableObject
     }
 
 #endif
-    
-	// Calculate the scale factor that would be used to generate sprites if the screen would have the specified dimensions
-	public float ScaleFactorCalc(int currentScreenWidth, int currentScreenHeight)
+
+        // Calculate the scale factor that would be used to generate sprites if the screen would have the specified dimensions
+    public float ScaleFactorCalc(int currentScreenWidth, int currentScreenHeight)
 	{
 		return SVGRuntimeGenerator.ScaleFactorCalc((float)this.m_ReferenceWidth, (float)this.m_ReferenceHeight, currentScreenWidth, currentScreenHeight, this.m_ScaleType, this.m_OffsetScale);
 	}

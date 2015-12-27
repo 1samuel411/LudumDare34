@@ -14,6 +14,11 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     public void PickedUpWeapon(BaseWeapon weapon)
     {
+        // Add effect
+        CameraManager.ShakeScreen(2, 1.5f);
+        CameraManager.ZoomIn(8, 2.4f, 4, 0.3f, transform.position, 5, 1);
+
+        Debug.Log(weapon.name);
         //Check the weapon doesn't have a parent
         if (weapon.gameObject.transform.parent == null)
         {
@@ -56,6 +61,8 @@ public class PlayerWeaponHandler : MonoBehaviour
     {
         BaseWeapon baseWeapon;
         weapon.ActivateGun(false);  //deactivate the current gun.
+        if(!weapon.weaponAttribute.coreWeapon)
+            weapon.DestroyWeapon();
         BaseWeapon[] ownedWeapons = gameObject.GetComponentsInChildren<BaseWeapon>(true);
         IEnumerable<BaseWeapon> availableWeapons = ownedWeapons.Where(w => w.weaponAttribute.CheckIfWeaponAvailable() == true);
         if (availableWeapons.Count() > 1) // check that we have more then just the core weapon.

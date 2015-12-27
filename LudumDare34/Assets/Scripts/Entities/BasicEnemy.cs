@@ -4,6 +4,8 @@ using System.Collections;
 public class BasicEnemy : BaseEntity
 {
 
+    public int damage;
+
     public override void StartMethod()
     {
         targetEntity = GameObject.FindGameObjectWithTag("Player").GetComponent<BaseEntity>();
@@ -23,5 +25,12 @@ public class BasicEnemy : BaseEntity
             MoveLeft();
         else if (direction == -1)
             MoveRight();
+
+        if(faceCheckHit && faceCheckRaycastHit)
+        {
+            faceCheckRaycastHit.transform.GetComponent<BaseHealth>().DealDamage(damage);
+            // suicide on attack
+            GetComponent<BaseHealth>().Die();
+        }
     }
 }

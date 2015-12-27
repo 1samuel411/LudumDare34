@@ -4,6 +4,7 @@ using System.Collections;
 public class Projectile : MonoBehaviour
 {
     public GameObject impact_effect;
+    public GameObject[] blood_effects;
     public float impactEffectSize;
     public float impactScreenshake;
     public int damage;
@@ -28,7 +29,7 @@ public class Projectile : MonoBehaviour
     public void Update()
     {
         float speed = ((direction == 1) ? -projectileSpeed : projectileSpeed);
-        this.transform.position += new Vector3(speed * Time.deltaTime, 0);
+        this.transform.position += new Vector3(speed * Time.deltaTime, ((PlayerController.instance.direction == 1) ? 1 : 1) * Mathf.Sin(transform.rotation.z));
 
         updatedTime += Time.deltaTime;
         if (updatedTime > currentBulletLife)
@@ -54,6 +55,10 @@ public class Projectile : MonoBehaviour
 
     void SpawnImpact()
     {
+        int bloodEffect = Random.Range(0, blood_effects.Length);
+        GameObject impactBloodEffect = Instantiate(blood_effects[bloodEffect], transform.position, Quaternion.identity) as GameObject;
+        impactBloodEffect.transform.localScale = new Vector3(impactEffectSize, impactEffectSize, impactEffectSize);
+
         GameObject impactEffectObj = Instantiate(impact_effect, transform.position, Quaternion.identity) as GameObject;
         impactEffectObj.transform.localScale = new Vector3(impactEffectSize, impactEffectSize, impactEffectSize);
         Animation impactEffectAnimation = impactEffectObj.GetComponent<Animation>();

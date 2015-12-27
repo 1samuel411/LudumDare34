@@ -97,6 +97,8 @@ public class CameraManager : MonoBehaviour
 
     public static void ZoomIn(float zoomSpeed, float zoomTarget, float timeScaleSpeed, float timeScale, Vector3 targetPos, float moveSpeed, float timeTaken)
     {
+        if (!CameraManager.instance)
+            return;
         CameraManager.instance._zoomingIn = true;
         CameraManager.instance._targetTimeToWaitZoom = Time.time + timeTaken;
         CameraManager.instance._curTimeToWaitZoom = Time.time;
@@ -113,6 +115,8 @@ public class CameraManager : MonoBehaviour
 
     public static void ShakeScreen(float amount, float reduceAmount)
     {
+        if (!CameraManager.instance)
+            return;
         CameraManager.instance.screenshakeAmount = amount;
         CameraManager.instance.screenshakeReduceAmount = reduceAmount;
     }
