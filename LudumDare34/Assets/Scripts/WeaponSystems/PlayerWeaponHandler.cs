@@ -14,18 +14,17 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     public void PickedUpWeapon(BaseWeapon weapon)
     {
-        // Add effect
-        CameraManager.ShakeScreen(2, 1.5f);
-        CameraManager.ZoomIn(8, 2.4f, 4, 0.3f, transform.position, 5, 1);
-
         Debug.Log(weapon.name);
         //Check the weapon doesn't have a parent
         if (weapon.gameObject.transform.parent == null)
         {
+            // Add effect
+            CameraManager.ShakeScreen(2, 1.5f);
+            CameraManager.ZoomIn(8, 2.4f, 4, 0.3f, transform.position, 5, 1);
+
             //Check if already Owned!
             string storedWeapons = weaponsOwned.FirstOrDefault(w => string.CompareOrdinal(w, weapon.name) == 0);
-            if (string.IsNullOrEmpty(storedWeapons))
-            {
+            if (string.IsNullOrEmpty(storedWeapons)) {
                 //Adding new Weapon!
                 Destroy(weapon.GetComponent(typeof(BoxCollider2D)));
                 Destroy(weapon.GetComponent(typeof(BoxCollider2D)));
@@ -35,9 +34,7 @@ public class PlayerWeaponHandler : MonoBehaviour
                 weapon.ActivateGun(false);
                 weapon.ResetWeaponAttributes();
                 weaponsOwned.Add(weapon.name);
-            }
-            else
-            {
+            } else {
                 //Add Weapon Ammo or Time!!
                 BaseWeapon[] ownedWeapons = gameObject.GetComponentsInChildren<BaseWeapon>(true);
                 BaseWeapon matchingWeapon = ownedWeapons.First(w => string.CompareOrdinal(w.name, weapon.name) == 0);
@@ -57,18 +54,17 @@ public class PlayerWeaponHandler : MonoBehaviour
     /// </summary>
     /// <param name="weapon">The Current Gun Equipped.</param>
     /// <returns></returns>
-    public BaseWeapon GetNextWeapon(BaseWeapon weapon)
-    {
+    public BaseWeapon GetNextWeapon(BaseWeapon weapon) {
         BaseWeapon baseWeapon;
         weapon.ActivateGun(false);  //deactivate the current gun.
-        if(!weapon.weaponAttribute.coreWeapon)
-            weapon.DestroyWeapon();
+        //if(!weapon.weaponAttribute.coreWeapon)
+        //    weapon.DestroyWeapon();
         BaseWeapon[] ownedWeapons = gameObject.GetComponentsInChildren<BaseWeapon>(true);
         IEnumerable<BaseWeapon> availableWeapons = ownedWeapons.Where(w => w.weaponAttribute.CheckIfWeaponAvailable() == true);
         if (availableWeapons.Count() > 1) // check that we have more then just the core weapon.
         {
             //Add an order by, to prioritize next available weapon by strength.
-            IEnumerable<BaseWeapon> nonCoreWeapons = ownedWeapons.Where(w => w.weaponAttribute.coreWeapon == false);
+            IEnumerable<BaseWeapon> nonCoreWeapons = availableWeapons.Where(w => w.weaponAttribute.coreWeapon == false);
             baseWeapon = (nonCoreWeapons.Count() > 0) ? nonCoreWeapons.First() : availableWeapons.First();
         }
         else
