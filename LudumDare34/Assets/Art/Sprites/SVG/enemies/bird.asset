@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!43 &4349136
+--- !u!43 &4323754
 Mesh:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -139,9 +139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35648741dd5b14baa82bec08abfe7457, type: 3}
   m_Name: bird
   m_EditorClassIdentifier: 
-  _lastTimeModified: 635868549392221058
+  _lastTimeModified: 635868692550348898
   _documentAsset: {fileID: 11462660}
-  _sharedMesh: {fileID: 4349136}
+  _sharedMesh: {fileID: 4323754}
   _antialiasing: 0
   _antialiasingWidth: 0.1
   _generateCollider: 0

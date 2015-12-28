@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &164426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 410762}
+  - 114: {fileID: 11427860}
+  - 33: {fileID: 3325138}
+  - 23: {fileID: 2327638}
+  m_Layer: 0
+  m_Name: SVG Renderer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &169038
 GameObject:
   m_ObjectHideFlags: 0
@@ -23,13 +41,12 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 447654}
-  - 212: {fileID: 21259124}
   - 114: {fileID: 11468168}
   - 61: {fileID: 6126420}
   - 50: {fileID: 5098908}
   - 61: {fileID: 6136268}
-  - 114: {fileID: 11491370}
   - 82: {fileID: 8218260}
+  - 111: {fileID: 11174240}
   m_Layer: 14
   m_Name: beamWeapon
   m_TagString: Weapon
@@ -37,6 +54,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &410762
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164426}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.28, y: 0.28, z: 1}
+  m_Children: []
+  m_Father: {fileID: 447654}
+  m_RootOrder: 1
 --- !u!4 &447654
 Transform:
   m_ObjectHideFlags: 1
@@ -48,6 +77,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 489822}
+  - {fileID: 410762}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &489822
@@ -62,6 +92,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 447654}
   m_RootOrder: 0
+--- !u!23 &2327638
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164426}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 2021991435
+  m_SortingOrder: -8
+--- !u!33 &3325138
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164426}
+  m_Mesh: {fileID: 0}
 --- !u!50 &5098908
 Rigidbody2D:
   serializedVersion: 2
@@ -182,6 +245,43 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!111 &11174240
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198962}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 5c940180f6c303a4b9dc1fe0914bf797, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 5c940180f6c303a4b9dc1fe0914bf797, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &11427860
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lastTimeModified: 635868549411476800
+  _vectorGraphics: {fileID: 11400000, guid: 015921e693711274794cdde8e26d83f7, type: 2}
+  _color: {r: 1, g: 1, b: 1, a: 1}
+  _opaqueMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
+  _transparentMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b,
+    type: 2}
+  _sortingLayerID: 2021991435
+  _sortingLayerName: Player
+  _sortingOrder: -8
+  _overrideSorter: 0
+  _overrideSorterChildren: 0
 --- !u!114 &11468168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -193,17 +293,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9ea85bc2049e94595f81afa4411ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: BeamWeapon
-  itemType: 2
+  name: Beam
+  itemType: 0
   itemTexture: {fileID: 0}
   isGunActive: 0
   isAutomatic: 1
-  CanShoot: 0
+  CanShoot: 1
   muzzleFlash: {fileID: 190704, guid: aed79bf96858ac64f933f19bf2089701, type: 2}
   pickupPosition: {x: 0, y: 0}
   force: 0.45
   shootSound: {fileID: 8300000, guid: 29259a33130bafb4fb56adb135ed9dff, type: 3}
-  weaponTriggerSpeed: 0.21
+  weaponTriggerSpeed: 0.24
   weaponEffect: 0
   weaponType: 0
   spraySpread: 0
@@ -211,63 +311,14 @@ MonoBehaviour:
   projectile: {fileID: 170152, guid: c761b684b83e1304d9ed9a4496c2774b, type: 2}
   bulletSpawnBox: {fileID: 169038}
   weaponAttribute:
-    checkTimer: 0
+    checkTimer: 1
     usingAmmo: 0
     usingTimer: 1
     coreWeapon: 0
-    maxAmountForTime: 6.37
+    maxAmountForTime: 6
     maxAmountForAmmo: 0
-    TimeToAddPerPickUp: 2
+    TimeToAddPerPickUp: 1
     ammoToAddPerPickUp: 0
---- !u!114 &11491370
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 198962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 600385dfc89d92144a1b5084a7b27500, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SVGFile: {fileID: 4900000, guid: 6ad5847bd1471e84f836588a97cec71c, type: 3}
-  ScaleAdaption: 0
-  Size: 186
-  ClearColor: {r: 1, g: 1, b: 1, a: 0}
-  GenerateOnStart: 1
-  Sliced: 0
-  SlicedWidth: 256
-  SlicedHeight: 256
---- !u!212 &21259124
-SpriteRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 198962}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 0
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2021991435
-  m_SortingOrder: 3
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

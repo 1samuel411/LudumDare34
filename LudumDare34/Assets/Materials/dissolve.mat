@@ -120,7 +120,7 @@ Material:
       data:
         first:
           name: _Illuminate
-        second: 0.5
+        second: 0.86
       data:
         first:
           name: _Tile

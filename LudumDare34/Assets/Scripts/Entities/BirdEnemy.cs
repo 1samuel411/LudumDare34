@@ -53,13 +53,19 @@ public class BirdEnemy : BaseEntity
             SpawnSkull();
             skullSpawningNeededTime = skullSpawningInterval + Time.time;
         }
+
+        if (faceCheckHit && faceCheckRaycastHit)
+        {
+            // suicide on attack
+            GetComponent<BaseHealth>().Die();
+        }
     }
 
     public void SpawnSkull()
     {
         // Spawn skull
         GameObject spawnedSkullObj = SpawnItem(skull, skullSpawner.position);
-        spawnedSkullObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(((direction == 1) ? -skullSpeedInitial : skullSpeedInitial), 0), ForceMode2D.Impulse);
+        spawnedSkullObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(((direction == 1) ? -skullSpeedInitial : skullSpeedInitial), -3), ForceMode2D.Impulse);
 
         BaseEntity spawnedSkullEntity = spawnedSkullObj.GetComponent<BaseEntity>();
         spawnedSkullEntity.direction = direction;

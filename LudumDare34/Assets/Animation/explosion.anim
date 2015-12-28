@@ -215,6 +215,126 @@ AnimationClip:
     path: explosion_sprite_bg1
     classID: 212
     script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.083333336
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.16666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.18333334
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: _color.r
+    path: explosion_sprite
+    classID: 114
+    script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0.9724138
+        inSlope: -0.49655056
+        outSlope: -0.49655056
+        tangentMode: 10
+      - time: 0.083333336
+        value: 0.93103456
+        inSlope: 1.820688
+        outSlope: 1.820688
+        tangentMode: 10
+      - time: 0.1
+        value: 1
+        inSlope: 2.0689633
+        outSlope: 2.0689633
+        tangentMode: 10
+      - time: 0.16666667
+        value: 1
+        inSlope: -3.3103468
+        outSlope: -3.3103468
+        tangentMode: 10
+      - time: 0.18333334
+        value: 0.8896551
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: 1
+        inSlope: 6.6206937
+        outSlope: 6.6206937
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: _color.g
+    path: explosion_sprite
+    classID: 114
+    script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.083333336
+        value: 0
+        inSlope: 30.000002
+        outSlope: 30.000002
+        tangentMode: 10
+      - time: 0.1
+        value: 1
+        inSlope: 30.000002
+        outSlope: 30.000002
+        tangentMode: 10
+      - time: 0.16666667
+        value: 1
+        inSlope: -30.000002
+        outSlope: -30.000002
+        tangentMode: 10
+      - time: 0.18333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: 1
+        inSlope: 60.000004
+        outSlope: 60.000004
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: _color.b
+    path: explosion_sprite
+    classID: 114
+    script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
   m_PPtrCurves:
   - curve:
     - time: 0.16666667
@@ -557,6 +677,126 @@ AnimationClip:
     path: explosion_sprite_bg1
     classID: 212
     script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.083333336
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.16666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.18333334
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: _color.r
+    path: explosion_sprite
+    classID: 114
+    script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0.9724138
+        inSlope: -0.49655056
+        outSlope: -0.49655056
+        tangentMode: 10
+      - time: 0.083333336
+        value: 0.93103456
+        inSlope: 1.820688
+        outSlope: 1.820688
+        tangentMode: 10
+      - time: 0.1
+        value: 1
+        inSlope: 2.0689633
+        outSlope: 2.0689633
+        tangentMode: 10
+      - time: 0.16666667
+        value: 1
+        inSlope: -3.3103468
+        outSlope: -3.3103468
+        tangentMode: 10
+      - time: 0.18333334
+        value: 0.8896551
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: 1
+        inSlope: 6.6206937
+        outSlope: 6.6206937
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: _color.g
+    path: explosion_sprite
+    classID: 114
+    script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.083333336
+        value: 0
+        inSlope: 30.000002
+        outSlope: 30.000002
+        tangentMode: 10
+      - time: 0.1
+        value: 1
+        inSlope: 30.000002
+        outSlope: 30.000002
+        tangentMode: 10
+      - time: 0.16666667
+        value: 1
+        inSlope: -30.000002
+        outSlope: -30.000002
+        tangentMode: 10
+      - time: 0.18333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: 1
+        inSlope: 60.000004
+        outSlope: 60.000004
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: _color.b
+    path: explosion_sprite
+    classID: 114
+    script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0

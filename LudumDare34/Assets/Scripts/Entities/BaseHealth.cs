@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Configuration;
 using System.Collections.Generic;
+using SVGImporter;
 
 public class BaseHealth : MonoBehaviour, IDamageable
 {
@@ -19,6 +20,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
     public bool _died;
 
     private Material[] materials;
+    private SVGRenderer[] renderers;
 
     public int CurrentHealth
     {
@@ -34,13 +36,21 @@ public class BaseHealth : MonoBehaviour, IDamageable
 
     void Awake()
     {
+        List<SVGRenderer> renderersList = new List<SVGRenderer>();
         List<Material> materialsList = new List<Material>();
         SpriteRenderer[] childrenRenderers = GetComponentsInChildren<SpriteRenderer>();
+        SVGRenderer[] childrenMeshRenderers = GetComponentsInChildren<SVGRenderer>();
         for (int i = 0; i < childrenRenderers.Length; i++)
         {
             materialsList.Add(childrenRenderers[i].material);
         }
+
+        for (int i = 0; i < childrenMeshRenderers.Length; i++)
+        {
+            renderersList.Add(childrenMeshRenderers[i]);
+        }
         materials = materialsList.ToArray();
+        renderers = renderersList.ToArray();
     }
 
     void Update()
@@ -48,9 +58,12 @@ public class BaseHealth : MonoBehaviour, IDamageable
         if(dissolving)
         {
             _dissolveTime += dissolveSpeed * Time.deltaTime;
-            for(int i = 0; i < materials.Length; i ++)
+            for(int i = 0; i < renderers.Length; i ++)
             {
-                materials[i].SetFloat("_Amount", _dissolveTime);
+                //materials[i].SetFloat("_Amount", _dissolveTime);
+                Color newColor = renderers[i].color;
+                newColor.a = newColor.a - _dissolveTime;
+                renderers[i].color = newColor;
             }
 
             if(_dissolveTime > 1)

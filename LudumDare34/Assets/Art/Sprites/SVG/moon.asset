@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!43 &4300086
+--- !u!43 &4341550
 Mesh:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -139,16 +139,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35648741dd5b14baa82bec08abfe7457, type: 3}
   m_Name: moon
   m_EditorClassIdentifier: 
-  _lastTimeModified: 635868550169543969
+  _lastTimeModified: 635868692631372454
   _documentAsset: {fileID: 11494162}
-  _sharedMesh: {fileID: 4300086}
+  _sharedMesh: {fileID: 4341550}
   _antialiasing: 0
   _antialiasingWidth: 0.1
   _generateCollider: 0
   _keepSVGFile: 1
   _ignoreSVGCanvas: 1
   _colliderShape: []
-  _format: 2
+  _format: 1
   _useGradients: 0
   _meshCompression: 0
   _optimizeMesh: 1
