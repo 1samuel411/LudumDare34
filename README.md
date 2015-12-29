@@ -1,6 +1,11 @@
 # LudumDare34
 new ludum dare 34 project, sam and i. chya
 
+# Legend
+^^ = next milestone
+xx = finished/completed
+** = sub details of previous line.
+
 # Milestone 1 (3 hour)
 @Code
 x*PlayerController Movement & Actions (SAM) 20
@@ -18,7 +23,7 @@ x*Test Shooting
 *Enviornment
 x--Night time
 *Character art
---Main character (Alex) (was supposed to do this) (never finished) (no teddy bear) (Feggit)
+^^--Main character (Alex) (was supposed to do this) (never finished) (no teddy bear) (Feggit)
 x*Bullet variations
 x*Weapons
 x*Enemies
@@ -31,21 +36,40 @@ x*Picking up weapons
 xx--Alien bullets
 xx--Shotgun pellets
 xx--Muzzle Flash
---Player
---1 more enemy
+^^--Player
+^^--1 more enemy
 @Code
 xx--Shotgun scatter
 xx--Muzzle Flash
---Enemy bat AI
+^^--Enemy bat AI
 xx--Skull
---Clouds
+^^--Clouds
 xx--Enemy Spawner
 xx--Added Wave Tier System
 @UI
+^^--Ammo display
+^^--Weapon line up display
+^^--In-game menu
+^^--Main menu
+
+# Milestone 4
+@Art
+--Player
+--1 more enemy
+--story
+@Code
+--Enemy bat AI
+--Clouds
+--Object Pooling
+@UI
 --Ammo display
 --Weapon line up display
+**Display Ammo
+**Display Timer
 --In-game menu
+**Player Health Bar
 --Main menu
+
 
 # NEEDED
 ***Object Pooling - FastPool or Create custom (decide)
