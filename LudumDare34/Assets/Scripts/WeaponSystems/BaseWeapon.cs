@@ -14,8 +14,6 @@ public class BaseWeapon : BaseItem
     public float weaponTriggerSpeed;   //Used for the wait Time between Shots.
     public WeaponEffects weaponEffect;
     public ProjectileType weaponType;
-    public float spraySpread = 0;
-    public int sprayAmount = 1;
     public GameObject projectile;
     public GameObject bulletSpawnBox;
     protected IList<Projectile> _projectiles;
@@ -47,59 +45,36 @@ public class BaseWeapon : BaseItem
         transform.localScale = new Vector3(1, 1, 1);
     }
 
-    protected IEnumerator SpawnBullets() {
+    protected virtual void SpawnBullets(float rotation = 0.0f) { // Make bullet
+        bulletSpawnBox.transform.localEulerAngles = new Vector3(0, 0, rotation);       
+        GameObject newProjectileObject = GameObject.Instantiate(projectile, bulletSpawnBox.transform.position, (Quaternion)bulletSpawnBox.transform.rotation) as GameObject;
+        newProjectileObject.transform.localScale = new Vector3((PlayerController.instance.direction == 1) ? 1 : -1, 1);
+        _projectile = newProjectileObject.GetComponent<Projectile>(); //may need to fix this?
+    }
+
+    public IEnumerator FireWeapon() {
         while (isGunActive) {
             //Used to decrement ammo in weaponAttributes.
-            if (!weaponAttribute.coreWeapon && weaponAttribute.usingAmmo)
+            if(!weaponAttribute.coreWeapon && weaponAttribute.usingAmmo)
                 weaponAttribute.currentAmmo -= 1;
 
-            for (int i = 0; i < sprayAmount; i++)
-            {
-                float rotation = 0;
-                switch (i)
-                {
-                    case 0:
-                        rotation = -spraySpread;
-                        break;
-                    case 1:
-                        rotation = 0;
-                        break;
-                    case 2:
-                        rotation = spraySpread;
-                        break;
-                }
-                // Make bullet
-                bulletSpawnBox.transform.localEulerAngles = new Vector3(0, 0, ((PlayerController.instance.direction == 1) ? 0 : 360) + rotation);
-                
-                GameObject newProjectileObject = GameObject.Instantiate(projectile, bulletSpawnBox.transform.position, (Quaternion)bulletSpawnBox.transform.rotation) as GameObject;
-                newProjectileObject.transform.localScale = new Vector3((PlayerController.instance.direction == 1) ? 1 : -1, 1);
-                _projectile = newProjectileObject.GetComponent<Projectile>(); //may need to fix this?
-            }
-
+            SpawnBullets();
             // Make Flash
             GameObject newMuzzleflashObject = GameObject.Instantiate(muzzleFlash, bulletSpawnBox.transform.position, (Quaternion)bulletSpawnBox.transform.rotation) as GameObject;
-            if (weaponTriggerSpeed < 0.25f)
-            {
+            if(weaponTriggerSpeed < 0.25f) {
                 newMuzzleflashObject.transform.parent = bulletSpawnBox.transform;
                 newMuzzleflashObject.transform.localScale = new Vector3(1, 1, 1);
-            }
-            else
-            {
+            } else {
                 newMuzzleflashObject.transform.localScale = new Vector3((PlayerController.instance.direction == 1) ? 1 : -1, 1);
             }
-
             // Play animation
-            if (animation)
+            if(animation)
                 animation.Play();
-
             // Screenshake
             CameraManager.ShakeScreen(force, 2);
-
             // sound
-            if(shootSound && audio)
-            {
+            if(shootSound)
                 audio.PlayOneShot(shootSound);
-            }
 
             yield return new WaitForSeconds(weaponTriggerSpeed);
         }
@@ -110,7 +85,7 @@ public class BaseWeapon : BaseItem
         gameObject.SetActive(activateGun);
         if (activateGun) {
             ResetWeaponAttributes();
-            StartCoroutine(SpawnBullets());
+            StartCoroutine(FireWeapon());
             if (weaponAttribute.usingTimer) {
                 weaponAttribute.checkTimer = true;
             }

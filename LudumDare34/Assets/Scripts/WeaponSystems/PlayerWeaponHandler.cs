@@ -16,8 +16,7 @@ public class PlayerWeaponHandler : MonoBehaviour
     {
         Debug.Log(weapon.name);
         //Check the weapon doesn't have a parent
-        if (weapon.gameObject.transform.parent == null)
-        {
+        if (weapon.gameObject.transform.parent == null) {
             // Add effect
             CameraManager.ShakeScreen(2, 1.5f);
             CameraManager.ZoomIn(8, 2.4f, 4, 0.3f, transform.position, 5, 1);
@@ -41,9 +40,7 @@ public class PlayerWeaponHandler : MonoBehaviour
                 matchingWeapon.weaponAttribute.AddTimeOrAmmo();
                 weapon.DestroyWeapon(); //------------Weapon is DESTROYED
             }
-        }
-        else
-        {
+        } else {
             Debug.Log("Weapon belongs to a parent!");
             //do not pick up weapon.
         }
@@ -57,8 +54,6 @@ public class PlayerWeaponHandler : MonoBehaviour
     public BaseWeapon GetNextWeapon(BaseWeapon weapon) {
         BaseWeapon baseWeapon;
         weapon.ActivateGun(false);  //deactivate the current gun.
-        //if(!weapon.weaponAttribute.coreWeapon)
-        //    weapon.DestroyWeapon();
         BaseWeapon[] ownedWeapons = gameObject.GetComponentsInChildren<BaseWeapon>(true);
         IEnumerable<BaseWeapon> availableWeapons = ownedWeapons.Where(w => w.weaponAttribute.CheckIfWeaponAvailable() == true);
         if (availableWeapons.Count() > 1) // check that we have more then just the core weapon.
