@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc82cb80c25d5f94481d30459e5d67f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impact_effect: {fileID: 193002, guid: 04f1bef3897c2384788556a29df7bdd3, type: 2}
+  impact_effect: {fileID: 149054, guid: 58706a2b821cd6d4aa6572cc3b748c16, type: 2}
   blood_effects:
   - {fileID: 175554, guid: 3b46a2b2710d6334b86a34857dde914d, type: 2}
   - {fileID: 118706, guid: 6da9c45111cac894b9e44e4c11d76f68, type: 2}
@@ -158,8 +158,8 @@ MonoBehaviour:
   - {fileID: 169934, guid: 92f616201a48cb34abe29c5336256b08, type: 2}
   impactEffectSize: 1
   impactScreenshake: 0
-  damage: 10
-  knockbackForce: 1
+  damage: 3
+  knockbackForce: 6.76
   knockbackTime: 0.2
   projectileSpeed: 18
   bulletLife: 1.1
@@ -236,7 +236,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damage
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
@@ -248,7 +248,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: knockbackForce
-      value: 1
+      value: 6.76
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: knockbackTime
@@ -277,7 +277,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: impact_effect
       value: 
-      objectReference: {fileID: 193002, guid: 04f1bef3897c2384788556a29df7bdd3, type: 2}
+      objectReference: {fileID: 149054, guid: 58706a2b821cd6d4aa6572cc3b748c16, type: 2}
     - target: {fileID: 0}
       propertyPath: impactEffectSize
       value: 1

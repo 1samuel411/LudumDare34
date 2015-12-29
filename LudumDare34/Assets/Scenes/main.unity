@@ -2433,7 +2433,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   Priority: 128
@@ -3267,7 +3267,7 @@ MonoBehaviour:
   totalEnmiesInWave: 0
   specialRound: 5
   enemyLimit: 0
-  spawnCooldownInterval: 3.65
+  spawnCooldownInterval: 2.55
 --- !u!4 &708378602
 Transform:
   m_ObjectHideFlags: 0
@@ -4103,7 +4103,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 408084, guid: 596750fecea2a8c4aab65bb2637a8747, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.94
+      value: -1.349
       objectReference: {fileID: 0}
     - target: {fileID: 408084, guid: 596750fecea2a8c4aab65bb2637a8747, type: 2}
       propertyPath: m_LocalPosition.z

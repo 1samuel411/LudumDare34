@@ -942,7 +942,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 124318}
   m_UseAutoMass: 0
   m_Mass: 2.24
-  m_LinearDrag: 0
+  m_LinearDrag: 6.11
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_IsKinematic: 0
@@ -1068,6 +1068,7 @@ MonoBehaviour:
   canScale: 1
   knockedBack: 0
   isJumping: 0
+  isBoosting: 0
   baseHealth: {fileID: 0}
   rigidbody: {fileID: 0}
   transform: {fileID: 0}
@@ -1346,6 +1347,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: faceCheckMask.m_Bits
       value: 33024
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LinearDrag
+      value: 6.11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

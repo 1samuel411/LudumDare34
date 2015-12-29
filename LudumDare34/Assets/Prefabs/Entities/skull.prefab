@@ -183,7 +183,7 @@ MonoBehaviour:
     m_Bits: 33024
   faceTransform: {fileID: 419432}
   faceCheckHit: 0
-  faceCheckDist: 0.22
+  faceCheckDist: 0.25
   jumpSpeed: 15
   jumpHeight: 20
   speed: 16
@@ -236,7 +236,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: faceCheckDist
-      value: 0.22
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damage

@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc82cb80c25d5f94481d30459e5d67f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impact_effect: {fileID: 193002, guid: 871c48ef9f770cf4f83d8bad1fe940b1, type: 2}
+  impact_effect: {fileID: 149054, guid: 6bfd8ef49b0501e488cfe77f90f71cbb, type: 2}
   blood_effects:
   - {fileID: 169934, guid: 92f616201a48cb34abe29c5336256b08, type: 2}
   - {fileID: 183274, guid: 8ad22e2e21a56c14eb308df07e8fb4ea, type: 2}
@@ -172,9 +172,9 @@ MonoBehaviour:
   - {fileID: 175554, guid: 3b46a2b2710d6334b86a34857dde914d, type: 2}
   impactEffectSize: 1
   impactScreenshake: 0
-  damage: 10
-  knockbackForce: 1
-  knockbackTime: 0.2
+  damage: 14
+  knockbackForce: 16.5
+  knockbackTime: 0.26
   projectileSpeed: 18
   bulletLife: 1.1
 --- !u!212 &21250664
@@ -233,7 +233,19 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: impact_effect
       value: 
-      objectReference: {fileID: 193002, guid: 871c48ef9f770cf4f83d8bad1fe940b1, type: 2}
+      objectReference: {fileID: 149054, guid: 6bfd8ef49b0501e488cfe77f90f71cbb, type: 2}
+    - target: {fileID: 0}
+      propertyPath: knockbackForce
+      value: 16.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: knockbackTime
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damage
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 146998}

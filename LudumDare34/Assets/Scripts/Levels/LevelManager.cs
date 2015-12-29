@@ -107,6 +107,8 @@ public class LevelManager : MonoBehaviour
     public void SpawnEnemy(int e)
     {
         GameObject enemySpawned = Instantiate(enemies[e].prefab, enemies[e].spawnLocations[Random.Range(0, enemies[e].spawnLocations.Length)].position, Quaternion.identity) as GameObject;
+        BaseHealth enemySpawnedHealth = enemySpawned.GetComponent<BaseHealth>();
+        enemySpawnedHealth.currentHealth = wave * 2;
     }
 
     //Need to load Weapon Types.

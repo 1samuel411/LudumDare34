@@ -54,6 +54,7 @@ public class BaseEntity : MonoBehaviour
     public bool canScale = true;
     public bool knockedBack = false;
     public bool isJumping = false;
+    public bool isBoosting = false;
 
     private float _targetRecoverTime;
     private float _currentRecoverTime;
@@ -92,7 +93,7 @@ public class BaseEntity : MonoBehaviour
         {
             if (baseHealth._died)
             {
-                rigidbody.isKinematic = true;
+                //rigidbody.isKinematic = true;
                 return;
             }
         }
@@ -203,7 +204,7 @@ public class BaseEntity : MonoBehaviour
     {
         // Disable movement
         canJump = false;
-        canMove = false;
+        //canMove = false;
         isJumping = true;
 
         airTime = Time.time;
@@ -216,6 +217,7 @@ public class BaseEntity : MonoBehaviour
 
     public void BoostDown(float modifier = 1)
     {
+        isBoosting = true;
         // Give air boost
         rigidbody.AddForce(new Vector2(0, -jumpHeight * jumpSpeed * modifier) * Time.deltaTime / Time.timeScale, ForceMode2D.Impulse);
     }
@@ -228,7 +230,7 @@ public class BaseEntity : MonoBehaviour
         isJumping = false;
     }
 
-    public void Knockback(float force, float recoverTime)
+    public void Knockback(float force, float recoverTime, int inputDir)
     {
         _targetRecoverTime = Time.time + recoverTime;
         _currentRecoverTime = Time.time;
@@ -236,7 +238,10 @@ public class BaseEntity : MonoBehaviour
         canJump = false;
         canScale = false;
         knockedBack = true;
-        rigidbody.AddForce(new Vector2((direction == 1) ? force : -force, 0), ForceMode2D.Impulse);
+        if(inputDir != direction)
+            rigidbody.AddForce(new Vector2((direction == 1) ? force : -force, 0), ForceMode2D.Impulse);
+        else
+            rigidbody.AddForce(new Vector2((direction == 1) ? -force : force, 0), ForceMode2D.Impulse);
     }
 
     public GameObject SpawnItem (GameObject objectToSpawn, Vector3 position)

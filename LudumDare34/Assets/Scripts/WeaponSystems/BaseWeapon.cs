@@ -96,7 +96,7 @@ public class BaseWeapon : BaseItem
             CameraManager.ShakeScreen(force, 2);
 
             // sound
-            if(shootSound)
+            if(shootSound && audio)
             {
                 audio.PlayOneShot(shootSound);
             }

@@ -44,7 +44,7 @@ public class Projectile : MonoBehaviour
             if (enemyHealth._died == false)
             {
                 BaseEntity enemyEntity = collider.GetComponent<BaseEntity>();
-                enemyEntity.Knockback(knockbackForce, knockbackTime);
+                enemyEntity.Knockback(knockbackForce, knockbackTime, direction);
                 enemyHealth.DealDamage(damage);
 
                 SpawnImpact();
@@ -62,7 +62,6 @@ public class Projectile : MonoBehaviour
         GameObject impactEffectObj = Instantiate(impact_effect, transform.position, Quaternion.identity) as GameObject;
         impactEffectObj.transform.localScale = new Vector3(impactEffectSize, impactEffectSize, impactEffectSize);
         Animation impactEffectAnimation = impactEffectObj.GetComponent<Animation>();
-        impactEffectAnimation.Play();
         CameraManager.ShakeScreen(impactScreenshake, 3);
     }
 

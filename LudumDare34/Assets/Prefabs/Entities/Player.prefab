@@ -109,7 +109,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.94, z: 0}
+  m_LocalPosition: {x: 0, y: -1.349, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 426332}
@@ -254,7 +254,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300001, guid: fb7413ed850c56e42bc073c7bb31279a,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -376,6 +376,7 @@ MonoBehaviour:
   canScale: 1
   knockedBack: 0
   isJumping: 0
+  isBoosting: 0
   baseHealth: {fileID: 0}
   rigidbody: {fileID: 0}
   transform: {fileID: 0}
@@ -383,6 +384,9 @@ MonoBehaviour:
   rightKey: 100
   holdTimeJump: 0.24
   holdTimeMove: 0.01
+  hardLandingExplosion: {fileID: 196310, guid: daf3a838b6d884b4e891deba629c4b70, type: 2}
+  hardLandingSize: 2.07
+  hardLandingForce: 11.5
   weaponHandler: {fileID: 0}
   weapon: {fileID: 11471006}
 --- !u!114 &11419800
@@ -398,7 +402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   currentHealth: 13
-  dissolveSpeed: 0
+  dissolveSpeed: 0.25
   dissolveable: 1
   _died: 0
 --- !u!114 &11433194

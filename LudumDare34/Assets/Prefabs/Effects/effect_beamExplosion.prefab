@@ -10,9 +10,9 @@ GameObject:
   - 4: {fileID: 481520}
   - 114: {fileID: 11415728}
   - 95: {fileID: 9516036}
-  - 82: {fileID: 8296834}
+  - 82: {fileID: 8222754}
   m_Layer: 0
-  m_Name: effect_launcher
+  m_Name: effect_beamExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ Transform:
   - {fileID: 444466}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!82 &8296834
+--- !u!82 &8222754
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -69,16 +69,16 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300001, guid: fb7413ed850c56e42bc073c7bb31279a,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: af42b82dc26a02e4a92ecc8de738b26f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: bc79666928b017541a9f67d8fd61a6bc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
-  Priority: 128
+  Priority: 216
   DopplerLevel: 1
-  MinDistance: 147.11
+  MinDistance: 74.68
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -143,7 +143,7 @@ Animator:
   m_GameObject: {fileID: 149054}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a876b050a65abb14b840d827294a9e48, type: 2}
+  m_Controller: {fileID: 9100000, guid: 232deb85021d5c84db183e1b10ce2125, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -203,10 +203,6 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: a876b050a65abb14b840d827294a9e48, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 149054}

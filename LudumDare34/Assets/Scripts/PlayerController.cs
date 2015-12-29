@@ -12,6 +12,11 @@ public class PlayerController : BaseEntity
     private float _curHoldTimeJump, _curHoldTimeRight, _curHoldTimeLeft;
     private float _targetHoldTimeJump, _targetHoldTimeRight, _targetHoldTimeLeft;
 
+    // Hardlanding
+    public GameObject hardLandingExplosion;
+    public float hardLandingSize = 3;
+    public float hardLandingForce = 3;
+
     // Moving
     private bool _holdingLeftKey;
     private bool _holdingRightKey;
@@ -34,6 +39,52 @@ public class PlayerController : BaseEntity
 
     public override void UpdateMethod()
     {
+        // Hard landing
+        if(isBoosting && grounded)
+        {
+            isBoosting = false;
+            Instantiate(hardLandingExplosion, transform.position, Quaternion.identity);
+
+            // Hurt enemies
+            RaycastHit2D[] leftBox = Physics2D.BoxCastAll(new Vector2(transform.position.x - hardLandingSize, transform.position.y), new Vector2(hardLandingSize, 5), 0, Vector2.left);
+            RaycastHit2D[] rightBox = Physics2D.BoxCastAll(new Vector2(transform.position.x + hardLandingSize, transform.position.y), new Vector2(hardLandingSize, 5), 0, Vector2.right);
+            for (int i = 0; i < leftBox.Length; i++)
+            {
+                Vector3 distance = leftBox[i].transform.position - transform.position;
+                if(distance.magnitude < (hardLandingSize * hardLandingSize))
+                {
+                    if (leftBox[i].collider.tag == "Enemy")
+                    {
+                        BaseHealth enemyHealth = leftBox[i].collider.GetComponent<BaseHealth>();
+                        if (enemyHealth._died == false)
+                        {
+                            BaseEntity enemyEntity = leftBox[i].collider.GetComponent<BaseEntity>();
+                            enemyEntity.Knockback(hardLandingForce, 0.2f, 1);
+                            enemyHealth.DealDamage(1);
+                        }
+                    }
+                }
+            }
+
+            for (int i = 0; i < rightBox.Length; i++)
+            {
+                Vector3 distance = rightBox[i].transform.position - transform.position;
+                if (distance.magnitude < (hardLandingSize * hardLandingSize))
+                {
+                    if (rightBox[i].collider.tag == "Enemy")
+                    {
+                        BaseHealth enemyHealth = rightBox[i].collider.GetComponent<BaseHealth>();
+                        if (enemyHealth._died == false)
+                        {
+                            BaseEntity enemyEntity = rightBox[i].collider.GetComponent<BaseEntity>();
+                            enemyEntity.Knockback(hardLandingForce, 0.2f, -1);
+                            enemyHealth.DealDamage(1);
+                        }
+                    }
+                }
+            }
+        }
+
         // Check left key
         if (Input.GetKey(leftKey) && !Input.GetKey(rightKey))
         {
