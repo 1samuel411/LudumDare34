@@ -359,8 +359,8 @@ MonoBehaviour:
   maxVelocity: 3.74
   regSpeed: 0
   jumpCooldownTime: 0.3
-  airTimeNeeded: 0.3
-  airTimeNeededToBoostDown: 0.8
+  airTimeNeeded: 0.21
+  airTimeNeededToBoostDown: 0.65
   airTime: 0
   targetAirTime: 0
   targetAirTimeBoost: 0
@@ -368,7 +368,7 @@ MonoBehaviour:
   totalJumpCooldownTime: 0
   groundedMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 66048
   grounded: 0
   groundCheckDist: 0.57
   canMove: 1
@@ -387,7 +387,7 @@ MonoBehaviour:
   hardLandingExplosion: {fileID: 196310, guid: daf3a838b6d884b4e891deba629c4b70, type: 2}
   hardLandingSize: 2.07
   hardLandingForce: 11.5
-  weaponHandler: {fileID: 0}
+  weaponHandler: {fileID: 11437524}
   weapon: {fileID: 11471006}
 --- !u!114 &11419800
 MonoBehaviour:
@@ -403,6 +403,7 @@ MonoBehaviour:
   type: 0
   currentHealth: 13
   dissolveSpeed: 0.25
+  zoomable: 1
   dissolveable: 1
   _died: 0
 --- !u!114 &11433194
@@ -439,6 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponsOwned: []
+  pickingUpWep: 0
 --- !u!114 &11471006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -453,6 +455,8 @@ MonoBehaviour:
   name: Pistol
   itemType: 0
   itemTexture: {fileID: 0}
+  weapon_image: {fileID: 0}
+  weapon_background: {fileID: 0}
   isGunActive: 1
   isAutomatic: 1
   CanShoot: 1
@@ -463,8 +467,6 @@ MonoBehaviour:
   weaponTriggerSpeed: 0.42
   weaponEffect: 0
   weaponType: 0
-  spraySpread: 0
-  sprayAmount: 1
   projectile: {fileID: 170152, guid: 3953efc9186a6c5419b81164b336a081, type: 2}
   bulletSpawnBox: {fileID: 190536}
   weaponAttribute:
@@ -512,7 +514,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: groundedMask.m_Bits
+      value: 66048
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 157486}

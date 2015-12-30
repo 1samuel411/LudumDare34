@@ -1,13 +1,34 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &107506
+--- !u!1 &126468
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 408310}
+  - 4: {fileID: 417046}
+  - 61: {fileID: 6153454}
+  - 50: {fileID: 5048774}
+  - 61: {fileID: 6129186}
+  - 111: {fileID: 11144634}
+  - 114: {fileID: 11400986}
+  - 82: {fileID: 8283024}
+  m_Layer: 14
+  m_Name: uziWeapon
+  m_TagString: Weapon
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &139332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 404638}
   m_Layer: 0
   m_Name: bulletSpawner
   m_TagString: Untagged
@@ -15,38 +36,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &160590
+--- !u!1 &163380
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 429106}
-  - 61: {fileID: 6163056}
-  - 50: {fileID: 5085770}
-  - 61: {fileID: 6102884}
-  - 111: {fileID: 11171540}
-  - 114: {fileID: 11476770}
-  - 82: {fileID: 8261838}
-  m_Layer: 14
-  m_Name: shotgunWeapon
-  m_TagString: Weapon
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &175056
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 438634}
-  - 114: {fileID: 11497990}
-  - 33: {fileID: 3335796}
-  - 23: {fileID: 2333848}
+  - 4: {fileID: 405398}
+  - 114: {fileID: 11403232}
+  - 33: {fileID: 3384000}
+  - 23: {fileID: 2316798}
   m_Layer: 0
   m_Name: SVG Renderer
   m_TagString: Untagged
@@ -54,50 +54,50 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &408310
+--- !u!4 &404638
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 107506}
+  m_GameObject: {fileID: 139332}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.497, y: 0.114, z: 0}
+  m_LocalPosition: {x: 0.328, y: 0.1101, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 429106}
+  m_Father: {fileID: 417046}
   m_RootOrder: 0
---- !u!4 &429106
+--- !u!4 &405398
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 160590}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.54, y: -2.08, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 408310}
-  - {fileID: 438634}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
---- !u!4 &438634
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 175056}
+  m_GameObject: {fileID: 163380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.28, y: 0.28, z: 0.28}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.23}
   m_Children: []
-  m_Father: {fileID: 429106}
+  m_Father: {fileID: 417046}
   m_RootOrder: 1
---- !u!23 &2333848
+--- !u!4 &417046
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126468}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.73, y: -2.708, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 404638}
+  - {fileID: 405398}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!23 &2316798
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 175056}
+  m_GameObject: {fileID: 163380}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -118,20 +118,20 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2021991435
   m_SortingOrder: -8
---- !u!33 &3335796
+--- !u!33 &3384000
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 175056}
+  m_GameObject: {fileID: 163380}
   m_Mesh: {fileID: 0}
---- !u!50 &5085770
+--- !u!50 &5048774
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 160590}
+  m_GameObject: {fileID: 126468}
   m_UseAutoMass: 0
   m_Mass: 0.0001
   m_LinearDrag: 0
@@ -142,12 +142,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &6102884
+--- !u!61 &6129186
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 160590}
+  m_GameObject: {fileID: 126468}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -155,27 +155,27 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1.25, y: 0.32}
---- !u!61 &6163056
+  m_Size: {x: 0.68, y: 0.41}
+--- !u!61 &6153454
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 160590}
+  m_GameObject: {fileID: 126468}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.03}
   serializedVersion: 2
-  m_Size: {x: 1.44, y: 0.37}
---- !u!82 &8261838
+  m_Size: {x: 0.88, y: 0.51}
+--- !u!82 &8283024
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 160590}
+  m_GameObject: {fileID: 126468}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300001, guid: fb7413ed850c56e42bc073c7bb31279a,
@@ -189,7 +189,7 @@ AudioSource:
   Spatialize: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 30.73
+  MinDistance: 67.76
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -245,33 +245,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!111 &11171540
+--- !u!111 &11144634
 Animation:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 160590}
+  m_GameObject: {fileID: 126468}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: b18f224ff45b7fe4fbe0937791071241, type: 2}
+  m_Animation: {fileID: 7400000, guid: 74becfc1b80d0ea47806eff0c23cf08a, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: b18f224ff45b7fe4fbe0937791071241, type: 2}
+  - {fileID: 7400000, guid: 74becfc1b80d0ea47806eff0c23cf08a, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &11476770
+--- !u!114 &11400986
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 160590}
+  m_GameObject: {fileID: 126468}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90a07f5d830672f438fa5046cc067b55, type: 3}
+  m_Script: {fileID: 11500000, guid: bdd5a6e6fa66bbb4999b338d36dd03df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Shotgun
+  name: UZI
   itemType: 0
   itemTexture: {fileID: 0}
   weapon_image: {fileID: 0}
@@ -279,39 +279,37 @@ MonoBehaviour:
   isGunActive: 0
   isAutomatic: 1
   CanShoot: 1
-  muzzleFlash: {fileID: 189622, guid: ffdf6c8a05207ee48a9e94b68bfe50bc, type: 2}
+  muzzleFlash: {fileID: 153020, guid: 4362736a35770aa44a23c6eefd6d0a71, type: 2}
   pickupPosition: {x: 0, y: 0}
-  force: 0.67
-  shootSound: {fileID: 8300000, guid: a7d709e502b0fe34d96adabc89c7e32b, type: 3}
-  weaponTriggerSpeed: 1.15
+  force: 0.42
+  shootSound: {fileID: 8300000, guid: abfbb2b53f2cd56418fb63a5a2d375d5, type: 3}
+  weaponTriggerSpeed: 0.08
   weaponEffect: 0
   weaponType: 0
-  projectile: {fileID: 170152, guid: 603701bd28e1dbb48b6e5b0040f0f780, type: 2}
-  bulletSpawnBox: {fileID: 107506}
+  projectile: {fileID: 170152, guid: 7b1d882a69f5ae648821c9df2c801cf2, type: 2}
+  bulletSpawnBox: {fileID: 139332}
   weaponAttribute:
     checkTimer: 0
     usingAmmo: 1
     usingTimer: 0
     coreWeapon: 0
     maxAmountForTime: 0
-    maxAmountForAmmo: 6
+    maxAmountForAmmo: 40
     TimeToAddPerPickUp: 0
-    ammoToAddPerPickUp: 3
-  spraySpread: 2
-  sprayAmount: 3
---- !u!114 &11497990
+    ammoToAddPerPickUp: 15
+--- !u!114 &11403232
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 175056}
+  m_GameObject: {fileID: 163380}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lastTimeModified: 635868549402155819
-  _vectorGraphics: {fileID: 11400000, guid: 757a0e20a7bdf7f479269616c10654ce, type: 2}
+  _lastTimeModified: 635869641319199241
+  _vectorGraphics: {fileID: 11400000, guid: 403aeef443a5daa46a6b16fd4945947a, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _opaqueMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
   _transparentMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b,
@@ -327,33 +325,8 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: panLevelCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 24300001, guid: fb7413ed850c56e42bc073c7bb31279a,
-        type: 2}
-    - target: {fileID: 0}
-      propertyPath: MinDistance
-      value: 30.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: shootSound
-      value: 
-      objectReference: {fileID: 8300000, guid: d850e0a6faa88ee4590a524d30c13dba, type: 3}
+    m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 160590}
+  m_RootGameObject: {fileID: 126468}
   m_IsPrefabParent: 1

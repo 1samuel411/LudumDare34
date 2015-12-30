@@ -296,6 +296,8 @@ MonoBehaviour:
   name: Beam
   itemType: 0
   itemTexture: {fileID: 0}
+  weapon_image: {fileID: 0}
+  weapon_background: {fileID: 0}
   isGunActive: 0
   isAutomatic: 1
   CanShoot: 1
@@ -306,8 +308,6 @@ MonoBehaviour:
   weaponTriggerSpeed: 0.24
   weaponEffect: 0
   weaponType: 0
-  spraySpread: 0
-  sprayAmount: 1
   projectile: {fileID: 170152, guid: c761b684b83e1304d9ed9a4496c2774b, type: 2}
   bulletSpawnBox: {fileID: 169038}
   weaponAttribute:

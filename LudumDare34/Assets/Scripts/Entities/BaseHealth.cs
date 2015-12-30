@@ -7,12 +7,13 @@ using SVGImporter;
 public class BaseHealth : MonoBehaviour, IDamageable
 {
 
-    public enum Type { player, bat, skull, spider };
+    public enum Type { player, bat, skull, spider, cloud };
     public Type type;
 
     public int currentHealth = 1;
 
     public float dissolveSpeed;
+    public bool zoomable = true;
     public bool dissolveable = true;
     private bool dissolving;
     private float _dissolveTime;
@@ -94,11 +95,11 @@ public class BaseHealth : MonoBehaviour, IDamageable
             _died = true;
 
             int zoomInDecider = Random.Range(0, 100);
-            if (zoomInDecider > 75)
+            if (zoomInDecider > 75 && zoomable)
             {
                 // Add effect
                 CameraManager.ShakeScreen(2, 1.5f);
-                CameraManager.ZoomIn(8, 2.4f, 4, 0.3f, transform.position, 5, 1);
+                CameraManager.ZoomIn(8, 3.2f, 4, 0.3f, transform.position, 5, 1);
             }
 
             // Add dissolve effect

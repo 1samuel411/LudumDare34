@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections;
 
 public class PlayerWeaponHandler : MonoBehaviour
 {
     public List<string> weaponsOwned;
+    public bool pickingUpWep;
 
     public void AddFirstWeapon(ref BaseWeapon firstWeapon)
     {
@@ -19,14 +21,16 @@ public class PlayerWeaponHandler : MonoBehaviour
         if (weapon.gameObject.transform.parent == null) {
             // Add effect
             CameraManager.ShakeScreen(2, 1.5f);
-            CameraManager.ZoomIn(8, 2.4f, 4, 0.3f, transform.position, 5, 1);
+            CameraManager.ZoomIn(8, 3.2f, 4, 0.3f, transform.position, 5, 1);
+            StartCoroutine(UIPickup(weapon));
+            StartCoroutine(UISpin(weapon));
 
             //Check if already Owned!
             string storedWeapons = weaponsOwned.FirstOrDefault(w => string.CompareOrdinal(w, weapon.name) == 0);
             if (string.IsNullOrEmpty(storedWeapons)) {
                 //Adding new Weapon!
-                Destroy(weapon.GetComponent(typeof(BoxCollider2D)));
-                Destroy(weapon.GetComponent(typeof(BoxCollider2D)));
+                weapon.GetComponent<BoxCollider2D>().enabled = false;
+                weapon.GetComponent<BoxCollider2D>().enabled = false;
                 Destroy(weapon.GetComponent(typeof(Rigidbody2D)));
                 weapon.transform.parent = this.transform;
                 weapon.transform.localPosition = weapon.pickupPosition;
@@ -44,6 +48,61 @@ public class PlayerWeaponHandler : MonoBehaviour
             Debug.Log("Weapon belongs to a parent!");
             //do not pick up weapon.
         }
+    }
+
+    IEnumerator UISpin(BaseWeapon wep)
+    {
+        if (pickingUpWep)
+        {
+            while (pickingUpWep)
+            {
+                Vector3 rotation;
+                rotation = wep.weapon_background.rectTransform.localEulerAngles;
+                rotation.z += 44 * Time.deltaTime;
+                wep.weapon_background.rectTransform.localEulerAngles = rotation;
+                yield return null;
+            }
+        }
+    }
+
+    IEnumerator UIPickup(BaseWeapon wep)
+    {
+        wep.weapon_image.gameObject.SetActive(true);
+        wep.weapon_background.gameObject.SetActive(true);
+        pickingUpWep = true;
+
+        float alpha = 0;
+        Color newColorWep = wep.weapon_image.color;
+        Color newColorBg = wep.weapon_background.color;
+        while (alpha < 0.7f)
+        {
+            alpha += 8 * Time.deltaTime;
+
+            newColorBg.a = alpha;
+            newColorWep.a = alpha;
+            wep.weapon_image.color = newColorWep;
+            wep.weapon_background.color = newColorBg;
+            
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.2f);
+
+        while(alpha > 0)
+        {
+            alpha -= 8 * Time.deltaTime;
+
+            newColorBg.a = alpha;
+            newColorWep.a = alpha;
+            wep.weapon_image.color = newColorWep;
+            wep.weapon_background.color = newColorBg;
+
+            yield return null;
+        }
+
+        pickingUpWep = false;
+        wep.weapon_image.gameObject.SetActive(false);
+        wep.weapon_background.gameObject.SetActive(false);
     }
 
     /// <summary>

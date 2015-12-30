@@ -274,18 +274,18 @@ MonoBehaviour:
   name: M16
   itemType: 0
   itemTexture: {fileID: 0}
+  weapon_image: {fileID: 0}
+  weapon_background: {fileID: 0}
   isGunActive: 0
   isAutomatic: 1
   CanShoot: 1
   muzzleFlash: {fileID: 153020, guid: 4362736a35770aa44a23c6eefd6d0a71, type: 2}
   pickupPosition: {x: 0, y: 0}
   force: 0.39
-  shootSound: {fileID: 8300000, guid: abfbb2b53f2cd56418fb63a5a2d375d5, type: 3}
-  weaponTriggerSpeed: 0.12
+  shootSound: {fileID: 8300000, guid: d57049a1f728f89458bfec46bb6cd2e4, type: 3}
+  weaponTriggerSpeed: 0.13
   weaponEffect: 0
   weaponType: 0
-  spraySpread: 0
-  sprayAmount: 1
   projectile: {fileID: 170152, guid: dd3d2774a586afa4a96e041e77cf45b6, type: 2}
   bulletSpawnBox: {fileID: 170054}
   weaponAttribute:

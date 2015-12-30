@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager instance;
 
     public Text curWaveText;
-    public Enemy[] enemies;
+    public Entity[] enemies;
     public int wave = 0;
     public int enemyMultiplyer;
     public int enemiesInWave;
@@ -17,11 +17,14 @@ public class LevelManager : MonoBehaviour
     public int specialRound;
     public int enemyLimit;
     public float spawnCooldownInterval;
+    public Entity[] clouds;
+    public float spawnCooldownIntervalClouds;
 
     private float cooldownTimer;
+    private float cooldownTimerClouds;
 
     [System.Serializable]
-    public struct Enemy
+    public struct Entity
     {
         public Transform[] spawnLocations;
         public GameObject prefab;
@@ -32,9 +35,10 @@ public class LevelManager : MonoBehaviour
 	void Awake ()
     {
         instance = this;
-	}
-	
-	void Update ()
+        StartCoroutine(SpawnClouds());
+    }
+
+    void Update ()
     {
         curWaveText.text = wave.ToString();
         if(currentEnemiesInWave <= 0 && totalEnmiesInWave <= 0)
@@ -66,10 +70,10 @@ public class LevelManager : MonoBehaviour
 
     public IEnumerator SpawnEnemies()
     {
-        for(int i = 0; i < enemiesInWave; i++)
+        for (int i = 0; i < enemiesInWave; i++)
         {
             cooldownTimer = Time.time + spawnCooldownInterval;
-            while(Time.time < cooldownTimer)
+            while (Time.time < cooldownTimer)
             {
                 yield return null;
             }
@@ -84,7 +88,7 @@ public class LevelManager : MonoBehaviour
             bool selectedEnemeyYet = false;
             float selectedRarity = Random.Range(0f, 1.0f);
             // Spawn enemy
-            for(int x = 0; x < enemies.Length; x++)
+            for (int x = 0; x < enemies.Length; x++)
             {
                 if (selectedRarity < enemies[x].rarity)
                 {
@@ -92,7 +96,7 @@ public class LevelManager : MonoBehaviour
                     selectedEnemy = x;
                 }
             }
-            if(!selectedEnemeyYet)
+            if (!selectedEnemeyYet)
             {
                 int randomEnemy = Random.Range(0, enemies.Length);
                 selectedEnemy = randomEnemy;
@@ -104,11 +108,48 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public IEnumerator SpawnClouds()
+    {
+        cooldownTimerClouds = Time.time + spawnCooldownIntervalClouds;
+        while (Time.time < cooldownTimerClouds)
+        {
+            yield return null;
+        }
+
+        int selectedCloud = 0;
+        bool selectedCloudYet = false;
+        float selectedRarity = Random.Range(0f, 1.0f);
+        // Spawn enemy
+        for (int x = 0; x < enemies.Length; x++)
+        {
+            if (selectedRarity < enemies[x].rarity)
+            {
+                selectedCloudYet = true;
+                selectedCloud = x;
+            }
+        }
+        if (!selectedCloudYet)
+        {
+            int randomEnemy = Random.Range(0, enemies.Length);
+            selectedCloud = randomEnemy;
+            selectedCloudYet = true;
+        }
+
+        // spawn enemy
+        SpawnCloud(selectedCloud);
+        StartCoroutine(SpawnClouds());
+    }
+
     public void SpawnEnemy(int e)
     {
         GameObject enemySpawned = Instantiate(enemies[e].prefab, enemies[e].spawnLocations[Random.Range(0, enemies[e].spawnLocations.Length)].position, Quaternion.identity) as GameObject;
         BaseHealth enemySpawnedHealth = enemySpawned.GetComponent<BaseHealth>();
         enemySpawnedHealth.currentHealth = wave * 2;
+    }
+
+    public void SpawnCloud(int c)
+    {
+        GameObject cloudSpawned = Instantiate(clouds[c].prefab, clouds[c].spawnLocations[Random.Range(0, clouds[c].spawnLocations.Length)].position, Quaternion.identity) as GameObject;
     }
 
     //Need to load Weapon Types.

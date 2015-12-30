@@ -274,6 +274,8 @@ MonoBehaviour:
   name: Thundergun
   itemType: 0
   itemTexture: {fileID: 0}
+  weapon_image: {fileID: 0}
+  weapon_background: {fileID: 0}
   isGunActive: 0
   isAutomatic: 1
   CanShoot: 1
@@ -284,8 +286,6 @@ MonoBehaviour:
   weaponTriggerSpeed: 0.33
   weaponEffect: 0
   weaponType: 0
-  spraySpread: 0
-  sprayAmount: 1
   projectile: {fileID: 146998, guid: fee2e72b63869f74eaed0a088a7ee7b4, type: 2}
   bulletSpawnBox: {fileID: 168914}
   weaponAttribute:

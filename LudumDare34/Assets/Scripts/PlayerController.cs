@@ -31,7 +31,7 @@ public class PlayerController : BaseEntity
     {
         instance = this;
 
-        if(weaponHandler == null)
+        if (weaponHandler == null)
             weaponHandler = this.GetComponentInChildren<PlayerWeaponHandler>();
 
         weaponHandler.AddFirstWeapon(ref weapon);
@@ -40,7 +40,7 @@ public class PlayerController : BaseEntity
     public override void UpdateMethod()
     {
         // Hard landing
-        if(isBoosting && grounded)
+        if (isBoosting && grounded)
         {
             isBoosting = false;
             Instantiate(hardLandingExplosion, transform.position, Quaternion.identity);
@@ -51,7 +51,7 @@ public class PlayerController : BaseEntity
             for (int i = 0; i < leftBox.Length; i++)
             {
                 Vector3 distance = leftBox[i].transform.position - transform.position;
-                if(distance.magnitude < (hardLandingSize * hardLandingSize))
+                if (distance.magnitude < (hardLandingSize * hardLandingSize))
                 {
                     if (leftBox[i].collider.tag == "Enemy")
                     {
@@ -211,13 +211,16 @@ public class PlayerController : BaseEntity
         }
 
         //change this to delegate call!
-        if (!weapon.weaponAttribute.CheckIfWeaponAvailable()) {
+        if (!weapon.weaponAttribute.CheckIfWeaponAvailable())
+        {
             EquipNextWeapon(weapon);
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D collider) {
-        if(string.CompareOrdinal(collider.tag, "Weapon") == 0) {
+    public void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (string.CompareOrdinal(collider.tag, "Weapon") == 0)
+        {
             Debug.Log("Found Weapon!");
             EquipNextWeapon(collider.GetComponent<BaseWeapon>());
         }

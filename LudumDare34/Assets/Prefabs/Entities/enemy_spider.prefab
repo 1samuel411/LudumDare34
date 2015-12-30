@@ -1060,7 +1060,7 @@ MonoBehaviour:
   totalJumpCooldownTime: 0
   groundedMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 66048
   grounded: 0
   groundCheckDist: 0.6
   canMove: 1
@@ -1342,7 +1342,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: groundedMask.m_Bits
-      value: 512
+      value: 66048
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: faceCheckMask.m_Bits

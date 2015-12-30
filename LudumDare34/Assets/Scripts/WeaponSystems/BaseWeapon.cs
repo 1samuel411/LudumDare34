@@ -1,9 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using SVGImporter;
 
 public class BaseWeapon : BaseItem
 {
+
+    public SVGImage weapon_image;
+    public SVGImage weapon_background;
+
     public bool isGunActive;
     public bool isAutomatic;
     public bool CanShoot;

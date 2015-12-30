@@ -30,7 +30,7 @@ GameObject:
   - 96: {fileID: 9643260}
   - 114: {fileID: 11463762}
   m_Layer: 10
-  m_Name: ShotgunPellet
+  m_Name: uziGunBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,8 +42,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170152}
-  m_LocalRotation: {x: 0, y: 0, z: 0.017451981, w: -0.9998477}
-  m_LocalPosition: {x: -5.028, y: -2.568, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.658, y: -1.671, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 465014}
@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 151596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_Children: []
   m_Father: {fileID: 458762}
   m_RootOrder: 0
@@ -91,7 +91,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3}
+  m_Size: {x: 0.3, y: 0.15}
 --- !u!96 &9643260
 TrailRenderer:
   m_ObjectHideFlags: 1
@@ -118,25 +118,25 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1070858827
   m_SortingOrder: 0
-  m_Time: 0.08
-  m_StartWidth: 0.28
-  m_EndWidth: 0.12
+  m_Time: 0.04
+  m_StartWidth: 0.144
+  m_EndWidth: 0.03
   m_Colors:
     m_Color[0]:
       serializedVersion: 2
-      rgba: 4278255611
+      rgba: 4282954426
     m_Color[1]:
       serializedVersion: 2
-      rgba: 4278255611
+      rgba: 4282954426
     m_Color[2]:
       serializedVersion: 2
-      rgba: 4278255611
+      rgba: 2649012
     m_Color[3]:
       serializedVersion: 2
-      rgba: 4278255611
+      rgba: 2649012
     m_Color[4]:
       serializedVersion: 2
-      rgba: 16777215
+      rgba: 2649012
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
 --- !u!114 &11423812
@@ -158,11 +158,11 @@ MonoBehaviour:
   - {fileID: 169934, guid: 92f616201a48cb34abe29c5336256b08, type: 2}
   impactEffectSize: 1
   impactScreenshake: 0
-  damage: 10
-  knockbackForce: 34.5
-  knockbackTime: 0.38
-  projectileSpeed: 18
-  bulletLife: 0.55
+  damage: 3
+  knockbackForce: 5.42
+  knockbackTime: 0.11
+  projectileSpeed: 20
+  bulletLife: 0.4
 --- !u!114 &11463762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -204,7 +204,7 @@ SpriteRenderer:
   m_SortingLayerID: -1070858827
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: fbd71d053351783428b169f8bfd59218, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9862069, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1001 &100100000
@@ -224,7 +224,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: projectileSpeed
-      value: 18
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Layer
@@ -232,11 +232,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: bulletLife
-      value: 0.55
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damage
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
@@ -248,15 +248,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: knockbackForce
-      value: 34.5
+      value: 5.42
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: knockbackTime
-      value: 0.38
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Time
-      value: 0.08
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x
@@ -268,7 +268,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_StartWidth
-      value: 0.28
+      value: 0.144
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_EndWidth
@@ -289,6 +289,38 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Name
       value: pistolBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Colors.m_Color[0].rgba
+      value: 4282954426
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Colors.m_Color[1].rgba
+      value: 4282954426
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Colors.m_Color[2].rgba
+      value: 2649012
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Colors.m_Color[3].rgba
+      value: 2649012
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Colors.m_Color[4].rgba
+      value: 2649012
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Color.r
+      value: 0.9862069
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: blood_effects.Array.data[4]

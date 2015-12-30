@@ -26,7 +26,7 @@ public class BaseEntity : MonoBehaviour
     public float maxVelocity;
     [HideInInspector]
     public float regSpeed;
-    
+
     // Jumping
     public float jumpCooldownTime;
     public float airTimeNeeded = 0.3f;
@@ -124,7 +124,7 @@ public class BaseEntity : MonoBehaviour
         }
 
         // Stop jumping when we hit the ground if we are jumping and we've been in the air long enough
-        if (grounded && isJumping && airTime > targetAirTime)
+        if (grounded && isJumping && Time.time > targetAirTime)
         {
             FinishJump();
         }
@@ -143,7 +143,7 @@ public class BaseEntity : MonoBehaviour
         }
 
         _currentRecoverTime += Time.deltaTime;
-        if(_currentRecoverTime > _targetRecoverTime && knockedBack && !canMove)
+        if (_currentRecoverTime > _targetRecoverTime && knockedBack && !canMove)
         {
             knockedBack = false;
             canMove = true;
@@ -186,22 +186,23 @@ public class BaseEntity : MonoBehaviour
 
     public void MoveLeft()
     {
-        if(canScale)
+        if (canScale)
             direction = 1;
-        if(canMove)
+        if (canMove)
             rigidbody.AddForce(new Vector2(-speed, 0) * Time.deltaTime, ForceMode2D.Impulse);
     }
 
     public void MoveRight()
     {
-        if(canScale)
+        if (canScale)
             direction = -1;
-        if(canMove)
+        if (canMove)
             rigidbody.AddForce(new Vector2(speed, 0) * Time.deltaTime, ForceMode2D.Impulse);
     }
 
     public void Jump()
     {
+        Debug.Log(rigidbody.velocity.magnitude);
         // Disable movement
         canJump = false;
         //canMove = false;
@@ -212,6 +213,7 @@ public class BaseEntity : MonoBehaviour
         targetAirTimeBoost = Time.time + airTimeNeededToBoostDown;
 
         // Give air boost
+        rigidbody.AddForce(new Vector2(0, 0), ForceMode2D.Impulse);
         rigidbody.AddForce(new Vector2(0, jumpHeight * jumpSpeed) * Time.deltaTime / Time.timeScale, ForceMode2D.Impulse);
     }
 
@@ -238,13 +240,13 @@ public class BaseEntity : MonoBehaviour
         canJump = false;
         canScale = false;
         knockedBack = true;
-        if(inputDir != direction)
+        if (inputDir != direction)
             rigidbody.AddForce(new Vector2((direction == 1) ? force : -force, 0), ForceMode2D.Impulse);
         else
             rigidbody.AddForce(new Vector2((direction == 1) ? -force : force, 0), ForceMode2D.Impulse);
     }
 
-    public GameObject SpawnItem (GameObject objectToSpawn, Vector3 position)
+    public GameObject SpawnItem(GameObject objectToSpawn, Vector3 position)
     {
         return Instantiate(objectToSpawn, position, Quaternion.identity) as GameObject;
     }
