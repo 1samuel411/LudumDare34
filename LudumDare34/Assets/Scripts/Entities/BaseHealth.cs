@@ -11,6 +11,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
     public Type type;
 
     public int currentHealth = 1;
+    private int maxHealth;
 
     public float dissolveSpeed;
     public bool zoomable = true;
@@ -18,6 +19,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
     private bool dissolving;
     private float _dissolveTime;
 
+    public bool healthChanged = true;
     public bool _died;
 
     private Material[] materials;
@@ -37,6 +39,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
 
     void Awake()
     {
+        maxHealth = currentHealth;
         List<SVGRenderer> renderersList = new List<SVGRenderer>();
         List<Material> materialsList = new List<Material>();
         SpriteRenderer[] childrenRenderers = GetComponentsInChildren<SpriteRenderer>();
@@ -56,6 +59,10 @@ public class BaseHealth : MonoBehaviour, IDamageable
 
     void Update()
     {
+        if(type == Type.player)
+        {
+            LevelManager.instance.healthImage.fillAmount = (float) currentHealth / (float)maxHealth;
+        }
         if(dissolving)
         {
             _dissolveTime += dissolveSpeed * Time.deltaTime;

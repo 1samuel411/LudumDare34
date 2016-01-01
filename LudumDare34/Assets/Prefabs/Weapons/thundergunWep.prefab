@@ -276,6 +276,8 @@ MonoBehaviour:
   itemTexture: {fileID: 0}
   weapon_image: {fileID: 0}
   weapon_background: {fileID: 0}
+  weapon_asset: {fileID: 11400000, guid: cb1c15ecba0d38d429173674309959aa, type: 2}
+  scale: 76.93
   isGunActive: 0
   isAutomatic: 1
   CanShoot: 1
@@ -351,6 +353,15 @@ Prefab:
       value: 
       objectReference: {fileID: 24300001, guid: fb7413ed850c56e42bc073c7bb31279a,
         type: 2}
+    - target: {fileID: 0}
+      propertyPath: weapon_asset
+      value: 
+      objectReference: {fileID: 11400000, guid: cb1c15ecba0d38d429173674309959aa,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: scale
+      value: 76.93
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 127188}

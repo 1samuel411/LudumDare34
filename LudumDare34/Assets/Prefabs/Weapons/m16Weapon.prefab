@@ -276,6 +276,8 @@ MonoBehaviour:
   itemTexture: {fileID: 0}
   weapon_image: {fileID: 0}
   weapon_background: {fileID: 0}
+  weapon_asset: {fileID: 11400000, guid: d5296963862aa9e43baada1bd3840662, type: 2}
+  scale: 87.38
   isGunActive: 0
   isAutomatic: 1
   CanShoot: 1
@@ -308,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lastTimeModified: 635868549407117020
+  _lastTimeModified: 635871456380949215
   _vectorGraphics: {fileID: 11400000, guid: 5ce500464b5b744468284324a677a480, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _opaqueMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
@@ -350,6 +352,15 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: MinDistance
       value: 67.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: weapon_asset
+      value: 
+      objectReference: {fileID: 11400000, guid: d5296963862aa9e43baada1bd3840662,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: scale
+      value: 76.93
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

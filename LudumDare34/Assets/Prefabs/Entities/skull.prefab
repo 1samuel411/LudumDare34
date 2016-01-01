@@ -164,6 +164,7 @@ MonoBehaviour:
   dissolveSpeed: 1.5
   zoomable: 1
   dissolveable: 1
+  healthChanged: 1
   _died: 0
 --- !u!114 &11481994
 MonoBehaviour:

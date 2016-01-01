@@ -16,6 +16,8 @@ public class BaseEntity : MonoBehaviour
     public bool faceCheckHit;
     public float faceCheckDist;
     [HideInInspector]
+    public float faceCheckDistReg;
+    [HideInInspector]
     public RaycastHit2D faceCheckRaycastHit;
 
     // Moving
@@ -68,6 +70,7 @@ public class BaseEntity : MonoBehaviour
 
     public void Awake()
     {
+        faceCheckDistReg = faceCheckDist;
         regSpeed = speed;
         rigidbody = GetComponent<Rigidbody2D>();
         transform = GetComponent<Transform>();
@@ -124,7 +127,7 @@ public class BaseEntity : MonoBehaviour
         }
 
         // Stop jumping when we hit the ground if we are jumping and we've been in the air long enough
-        if (grounded && isJumping && Time.time > targetAirTime)
+        if (grounded && isJumping && airTime > targetAirTime)
         {
             FinishJump();
         }
@@ -202,7 +205,6 @@ public class BaseEntity : MonoBehaviour
 
     public void Jump()
     {
-        Debug.Log(rigidbody.velocity.magnitude);
         // Disable movement
         canJump = false;
         //canMove = false;
@@ -213,7 +215,6 @@ public class BaseEntity : MonoBehaviour
         targetAirTimeBoost = Time.time + airTimeNeededToBoostDown;
 
         // Give air boost
-        rigidbody.AddForce(new Vector2(0, 0), ForceMode2D.Impulse);
         rigidbody.AddForce(new Vector2(0, jumpHeight * jumpSpeed) * Time.deltaTime / Time.timeScale, ForceMode2D.Impulse);
     }
 

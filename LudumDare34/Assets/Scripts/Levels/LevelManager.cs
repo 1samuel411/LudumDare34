@@ -1,11 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using SVGImporter;
 
 public class LevelManager : MonoBehaviour
 {
 
     public static LevelManager instance;
+
+    public Image healthImage;
+
+    public GameObject weaponUIList;
+    public GameObject weaponUIElement;
 
     public Text curWaveText;
     public Entity[] enemies;
@@ -90,10 +96,13 @@ public class LevelManager : MonoBehaviour
             // Spawn enemy
             for (int x = 0; x < enemies.Length; x++)
             {
-                if (selectedRarity < enemies[x].rarity)
+                for (int y = 0; y < enemies.Length; y++)
                 {
-                    selectedEnemeyYet = true;
-                    selectedEnemy = x;
+                    if (selectedRarity < enemies[x].rarity && enemies[y].rarity > enemies[x].rarity)
+                    {
+                        selectedEnemeyYet = true;
+                        selectedEnemy = x;
+                    }
                 }
             }
             if (!selectedEnemeyYet)
@@ -120,12 +129,15 @@ public class LevelManager : MonoBehaviour
         bool selectedCloudYet = false;
         float selectedRarity = Random.Range(0f, 1.0f);
         // Spawn enemy
-        for (int x = 0; x < enemies.Length; x++)
+        for (int x = 0; x < clouds.Length; x++)
         {
-            if (selectedRarity < enemies[x].rarity)
+            for (int y = 0; y < clouds.Length; y++)
             {
-                selectedCloudYet = true;
-                selectedCloud = x;
+                if (selectedRarity < clouds[x].rarity && clouds[y].rarity > clouds[x].rarity)
+                {
+                    selectedCloudYet = true;
+                    selectedCloud = x;
+                }
             }
         }
         if (!selectedCloudYet)
@@ -144,12 +156,31 @@ public class LevelManager : MonoBehaviour
     {
         GameObject enemySpawned = Instantiate(enemies[e].prefab, enemies[e].spawnLocations[Random.Range(0, enemies[e].spawnLocations.Length)].position, Quaternion.identity) as GameObject;
         BaseHealth enemySpawnedHealth = enemySpawned.GetComponent<BaseHealth>();
-        enemySpawnedHealth.currentHealth = wave * 2;
+        if(enemySpawnedHealth.healthChanged)
+            enemySpawnedHealth.currentHealth = wave * 2;
     }
 
     public void SpawnCloud(int c)
     {
         GameObject cloudSpawned = Instantiate(clouds[c].prefab, clouds[c].spawnLocations[Random.Range(0, clouds[c].spawnLocations.Length)].position, Quaternion.identity) as GameObject;
+    }
+
+    public void SpawnWeaponUI(SVGAsset weaponAsset, float scale, BaseWeapon reference, float rotation = 110.0f)
+    {
+        GameObject weaponUISpawned = Instantiate(weaponUIElement, Vector2.zero, Quaternion.identity) as GameObject;
+        weaponUISpawned.transform.SetParent(weaponUIList.transform);
+        WeaponElement weaponElement = weaponUISpawned.GetComponent<WeaponElement>();
+        weaponElement.reference = reference;
+        weaponElement.scale = scale;
+        weaponElement.rotation = rotation;
+        weaponElement.targetImage = weaponAsset;
+
+        if (reference.name == "Pistol")
+        {
+            weaponUISpawned.transform.SetAsFirstSibling();
+        }
+        else
+            weaponUISpawned.transform.SetSiblingIndex(1);
     }
 
     //Need to load Weapon Types.

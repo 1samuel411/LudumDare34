@@ -25,9 +25,16 @@ public class PlayerWeaponHandler : MonoBehaviour
             StartCoroutine(UIPickup(weapon));
             StartCoroutine(UISpin(weapon));
 
+            bool alreadyOwned = false;
             //Check if already Owned!
-            string storedWeapons = weaponsOwned.FirstOrDefault(w => string.CompareOrdinal(w, weapon.name) == 0);
-            if (string.IsNullOrEmpty(storedWeapons)) {
+            for(int i = 0; i < weaponsOwned.Count; i++)
+            {
+                if(weaponsOwned[i] == weapon.name)
+                {
+                    alreadyOwned = true;
+                }
+            }
+            if (!alreadyOwned) {
                 //Adding new Weapon!
                 weapon.GetComponent<BoxCollider2D>().enabled = false;
                 weapon.GetComponent<BoxCollider2D>().enabled = false;
@@ -38,6 +45,7 @@ public class PlayerWeaponHandler : MonoBehaviour
                 weapon.ResetWeaponAttributes();
                 weaponsOwned.Add(weapon.name);
             } else {
+                Debug.Log("we own it?");
                 //Add Weapon Ammo or Time!!
                 BaseWeapon[] ownedWeapons = gameObject.GetComponentsInChildren<BaseWeapon>(true);
                 BaseWeapon matchingWeapon = ownedWeapons.First(w => string.CompareOrdinal(w.name, weapon.name) == 0);
@@ -58,7 +66,7 @@ public class PlayerWeaponHandler : MonoBehaviour
             {
                 Vector3 rotation;
                 rotation = wep.weapon_background.rectTransform.localEulerAngles;
-                rotation.z += 44 * Time.deltaTime;
+                rotation.z += 50 * Time.deltaTime;
                 wep.weapon_background.rectTransform.localEulerAngles = rotation;
                 yield return null;
             }
@@ -111,6 +119,12 @@ public class PlayerWeaponHandler : MonoBehaviour
     /// <param name="weapon">The Current Gun Equipped.</param>
     /// <returns></returns>
     public BaseWeapon GetNextWeapon(BaseWeapon weapon) {
+        // clear images
+        for(int i = 0; i < LevelManager.instance.weaponUIList.transform.childCount; i ++)
+        {
+            Destroy(LevelManager.instance.weaponUIList.transform.GetChild(i).gameObject);
+        }
+
         BaseWeapon baseWeapon;
         weapon.ActivateGun(false);  //deactivate the current gun.
         BaseWeapon[] ownedWeapons = gameObject.GetComponentsInChildren<BaseWeapon>(true);
@@ -122,7 +136,15 @@ public class PlayerWeaponHandler : MonoBehaviour
             baseWeapon = (nonCoreWeapons.Count() > 0) ? nonCoreWeapons.First() : availableWeapons.First();
         }
         else
+        {
             baseWeapon = availableWeapons.First();
+        }
+
+        // Make ui image 
+        for(int i = 0; i < availableWeapons.Count(); i++)
+        {
+            LevelManager.instance.SpawnWeaponUI(availableWeapons.ElementAt(i).weapon_asset, availableWeapons.ElementAt(i).scale, availableWeapons.ElementAt(i));
+        }
 
         baseWeapon.ActivateGun(true);
         return baseWeapon;

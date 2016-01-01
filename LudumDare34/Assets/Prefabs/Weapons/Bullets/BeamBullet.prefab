@@ -176,7 +176,7 @@ MonoBehaviour:
   knockbackForce: 16.5
   knockbackTime: 0.26
   projectileSpeed: 18
-  bulletLife: 1.1
+  bulletLife: 0.62
 --- !u!212 &21250664
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -245,6 +245,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: damage
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bulletLife
+      value: 0.62
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

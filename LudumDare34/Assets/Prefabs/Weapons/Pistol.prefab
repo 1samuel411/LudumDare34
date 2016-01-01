@@ -164,6 +164,10 @@ MonoBehaviour:
   name: Pistol
   itemType: 2
   itemTexture: {fileID: 0}
+  weapon_image: {fileID: 0}
+  weapon_background: {fileID: 0}
+  weapon_asset: {fileID: 11400000, guid: 27fae8ed3d04e054795b774f325bd16b, type: 2}
+  scale: 76.93
   isGunActive: 0
   isAutomatic: 1
   CanShoot: 1
@@ -174,8 +178,6 @@ MonoBehaviour:
   weaponTriggerSpeed: 0.4
   weaponEffect: 0
   weaponType: 0
-  spraySpread: 0
-  sprayAmount: 1
   projectile: {fileID: 170152, guid: 3953efc9186a6c5419b81164b336a081, type: 2}
   bulletSpawnBox: {fileID: 163002}
   weaponAttribute:
@@ -284,6 +286,15 @@ Prefab:
       propertyPath: shootSound
       value: 
       objectReference: {fileID: 8300000, guid: 18abec19c251e8642b09c42395a3a0dc, type: 3}
+    - target: {fileID: 0}
+      propertyPath: weapon_asset
+      value: 
+      objectReference: {fileID: 11400000, guid: 27fae8ed3d04e054795b774f325bd16b,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: scale
+      value: 76.93
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 166708}

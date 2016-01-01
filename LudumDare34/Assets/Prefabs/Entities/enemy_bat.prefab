@@ -673,7 +673,7 @@ MonoBehaviour:
   faceCheck: 1
   faceCheckMask:
     serializedVersion: 2
-    m_Bits: 33024
+    m_Bits: 32768
   faceTransform: {fileID: 492242}
   faceCheckHit: 0
   faceCheckDist: 0.83
@@ -747,6 +747,7 @@ MonoBehaviour:
   type: 1
   currentHealth: 3
   dissolveSpeed: 1.2
+  zoomable: 1
   dissolveable: 1
   _died: 0
 --- !u!212 &21223826
@@ -792,7 +793,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: faceCheckMask.m_Bits
-      value: 33024
+      value: 32768
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: faceCheckHit

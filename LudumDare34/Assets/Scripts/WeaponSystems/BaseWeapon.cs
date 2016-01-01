@@ -9,6 +9,9 @@ public class BaseWeapon : BaseItem
     public SVGImage weapon_image;
     public SVGImage weapon_background;
 
+    public SVGAsset weapon_asset;
+    public float scale;
+
     public bool isGunActive;
     public bool isAutomatic;
     public bool CanShoot;
@@ -78,7 +81,7 @@ public class BaseWeapon : BaseItem
             // Screenshake
             CameraManager.ShakeScreen(force, 2);
             // sound
-            if(shootSound)
+            if(shootSound && audio)
                 audio.PlayOneShot(shootSound);
 
             yield return new WaitForSeconds(weaponTriggerSpeed);

@@ -353,6 +353,7 @@ MonoBehaviour:
   faceTransform: {fileID: 0}
   faceCheckHit: 0
   faceCheckDist: 0
+  faceCheckDistReg: 0
   jumpSpeed: 15
   jumpHeight: 40
   speed: 40
@@ -405,6 +406,7 @@ MonoBehaviour:
   dissolveSpeed: 0.25
   zoomable: 1
   dissolveable: 1
+  healthChanged: 1
   _died: 0
 --- !u!114 &11433194
 MonoBehaviour:
@@ -417,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lastTimeModified: 635868669402486430
+  _lastTimeModified: 635871469496581158
   _vectorGraphics: {fileID: 11400000, guid: 687b0db6380bc7045aec1f3b737b5297, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _opaqueMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
@@ -457,6 +459,8 @@ MonoBehaviour:
   itemTexture: {fileID: 0}
   weapon_image: {fileID: 0}
   weapon_background: {fileID: 0}
+  weapon_asset: {fileID: 11400000, guid: 27fae8ed3d04e054795b774f325bd16b, type: 2}
+  scale: 38.88
   isGunActive: 1
   isAutomatic: 1
   CanShoot: 1
