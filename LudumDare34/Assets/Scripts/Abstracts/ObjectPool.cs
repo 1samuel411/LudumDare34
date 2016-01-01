@@ -3,12 +3,9 @@ using System.Collections;
 using System.Linq;
 using JetBrains.Annotations;
 
-public class ObjectPool<T>
+public class ObjectPool : MonoBehaviour
 {
-    public T genObj;
+    public int stuff;
 
-    public ObjectPool(T T)
-    {
-        genObj = T;
-    }
 }
+
