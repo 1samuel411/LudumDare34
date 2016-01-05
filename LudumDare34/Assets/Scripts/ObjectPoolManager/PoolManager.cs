@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using System.Collections;
+﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -43,7 +41,8 @@ public class PoolManager : MonoBehaviour
     /// <param name="setPoolManagerParent">Should this spawnHandler be a child of the PoolManager?</param>
     /// <returns>The Spawn Handler Number.</returns>
     public int CreateNewSpawnHandler(GameObject spawnHandler, int spawnHandlerKey, bool setPoolManagerParent = false) {
-        spawnHandler.AddComponent<SpawnHandler>();   //Add Handler
+        if(spawnHandler.GetComponent<SpawnHandler>() == null)
+            spawnHandler.AddComponent<SpawnHandler>();   //Add Handler
         //Set the Parent of the SpawnHandler to the PoolManager.
         if(setPoolManagerParent)
             spawnHandler.transform.SetParent(this.transform);
@@ -62,8 +61,12 @@ public class PoolManager : MonoBehaviour
     }
 
     public void AddToSpawnPool(GameObject spawnObject, int spawnHandlerKey) {
-        spawnObject.AddComponent<SpawnObject>();
+        if(spawnObject.GetComponent<SpawnObject>() == null)
+            spawnObject.AddComponent<SpawnObject>();
         SpawnObject sObj = spawnObject.GetComponent<SpawnObject>();
+        SpawnHandler handler = _spawnHandlers.FirstOrDefault(s => s.spawnerKey == spawnHandlerKey);
+        if(handler == null) 
+            throw new UnityException("Missing SpawnHandler for SpawnPool");
         sObj.SetSpawnObject(spawnObject, spawnHandlerKey);
         _spawnObjects.Add(sObj);
     }
@@ -75,7 +78,7 @@ public class PoolManager : MonoBehaviour
         //Get me a list of all Handlers that reference this "spawnerKey"
         IEnumerable<SpawnHandler> referenceHandlers = _spawnHandlers.Where(s => s.spawnerKey == sObj.spawnerKey);
         int randomNumber = UnityEngine.Random.Range(1, referenceHandlers.Count());
-        SpawnHandler handler = referenceHandlers.First(s => s.spawnerKey == randomNumber);
+        SpawnHandler handler = referenceHandlers.ElementAt(randomNumber);
         handler.SpawnObject(sObj);
     }
 
@@ -86,4 +89,9 @@ public class PoolManager : MonoBehaviour
             throw new UnityException("SpawnObject does not exist in Pool Manager!");
 
     }
+}
+
+public enum enemySpawnerType {
+    SkySpawner = 0,
+    GroundSpawner = 1
 }

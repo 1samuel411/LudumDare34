@@ -9,7 +9,12 @@ public class SpawnHandler: MonoBehaviour {
     private GameObject _spawnHandler;
     public GameObject spawnHandler { get { return _spawnHandler; } }
     public int spawnerKey { get { return _spawnerKey; } }
-    public SpawnHandlerSettings handlerSettings;
+    public SpawnerSettings handlerSettings;
+    public PoolManager poolManager;
+
+    void Awake() {
+        poolManager = this.gameObject.transform.parent.GetComponent<PoolManager>();
+    }
 
     public void SetSpawnHandler(GameObject obj, int key) {
         _spawnHandler = obj;
@@ -21,11 +26,17 @@ public class SpawnHandler: MonoBehaviour {
     }
 
     public void SpawnObject(SpawnObject obj) {
-        SpawnObject[] spawnObjects = gameObject.GetComponentsInChildren<SpawnObject>(true);
-        SpawnObject deactiveObject = spawnObjects.FirstOrDefault(s => !s.gameObject.activeSelf);
-        if (deactiveObject != null) {
-            deactiveObject.gameObject.SetActive(true);
+        SpawnObject[] spawnObj = gameObject.GetComponentsInChildren<SpawnObject>(true);
+        IEnumerable<SpawnObject> inactiveSpawnObj = spawnObj.Where(s => s.gameObject.activeSelf.Equals(false));
 
+        if(inactiveSpawnObj.Count() > 0) {
+            SpawnObject sObj = inactiveSpawnObj.First();
+            sObj.ActivateObject();
+            handlerSettings.currentActiveUnits++;
+            handlerSettings.currentDeactiveUnits--;
+        } else {
+            handlerSettings.maxSpawnAmount++;
+            Instantiate(obj, this.transform.position, Quaternion.identity);
         }
     }
 

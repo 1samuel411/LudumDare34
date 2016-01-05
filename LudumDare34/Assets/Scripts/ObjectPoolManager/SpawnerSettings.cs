@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 [System.Serializable]
-public class SpawnHandlerSettings
+public class SpawnerSettings
 {
     public int maxSpawnAmount = 0;
     public int currentActiveUnits = 0;

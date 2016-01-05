@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
@@ -17,8 +18,12 @@ public class LevelManager : MonoBehaviour
     public int specialRound;
     public int enemyLimit;
     public float spawnCooldownInterval;
+    public PoolManager poolManager;
 
     private float cooldownTimer;
+    private int _skySpawner;
+    private int _groundSpawner;
+
 
     [System.Serializable]
     public struct Enemy
@@ -27,13 +32,42 @@ public class LevelManager : MonoBehaviour
         public GameObject prefab;
         // 1 is super common, 0 is super rare
         public float rarity;
+        public enemySpawnerType spawnerType;
     }
 
 	void Awake ()
     {
         instance = this;
-	}
+	    poolManager = GameObject.FindGameObjectWithTag("Spawner").GetComponent<PoolManager>();
+
+        InitializeSpawners();
+    }
+
+    private void InitializeSpawners() {
+        _skySpawner = InitializeEnemySpawnHandlers(enemySpawnerType.SkySpawner.ToString());
+        _groundSpawner = InitializeEnemySpawnHandlers(enemySpawnerType.GroundSpawner.ToString());
+
+        foreach(var enemy in enemies) {
+            if(enemy.spawnerType == enemySpawnerType.GroundSpawner)
+                poolManager.AddToSpawnPool(enemy.prefab, _groundSpawner);
+            else if(enemy.spawnerType == enemySpawnerType.SkySpawner)
+                poolManager.AddToSpawnPool(enemy.prefab, _skySpawner);
+        }
+    }
 	
+    private int InitializeEnemySpawnHandlers(string tag) {
+        GameObject[] spawnHandlers = GameObject.FindGameObjectsWithTag(tag);
+        int value = -1;
+        int cnt = 0;
+        do {
+            if(cnt == 0)
+                value = poolManager.CreateNewSpawnHandler(spawnHandlers.First(), true);
+            else
+                poolManager.CreateNewSpawnHandler(spawnHandlers[cnt], value, true);
+            cnt++;
+        } while (spawnHandlers.Count() > cnt);
+        return value;
+    }
 	void Update ()
     {
         curWaveText.text = wave.ToString();

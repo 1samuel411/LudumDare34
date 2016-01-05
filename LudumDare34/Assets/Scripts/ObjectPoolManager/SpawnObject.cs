@@ -26,4 +26,9 @@ public class SpawnObject: MonoBehaviour {
             //_spawn.transform.parent == 
         }
     }
+
+    public void ActivateObject() {
+        this.gameObject.SetActive(true);
+        SendMessage("Awake", SendMessageOptions.RequireReceiver);
+    }
 }
