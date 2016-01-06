@@ -28,7 +28,6 @@ public class LevelManager : MonoBehaviour
     [System.Serializable]
     public struct Enemy
     {
-        public Transform[] spawnLocations;
         public GameObject prefab;
         // 1 is super common, 0 is super rare
         public float rarity;
@@ -63,7 +62,7 @@ public class LevelManager : MonoBehaviour
             if(cnt == 0)
                 value = poolManager.CreateNewSpawnHandler(spawnHandlers.First(), true);
             else
-                poolManager.CreateNewSpawnHandler(spawnHandlers[cnt], value, true);
+                poolManager.AssignTransformToSpawnHandler(spawnHandlers[cnt], value);
             cnt++;
         } while (spawnHandlers.Count() > cnt);
         return value;

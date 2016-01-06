@@ -7,13 +7,15 @@ public class PoolManager : MonoBehaviour
     public int currentActiveSpawns = 0;
     public List<SpawnObject> _spawnObjects;
     private List<SpawnHandler> _spawnHandlers;
-    private int _miscHandlerKey;
+    private int keys;
+
+    public Dictionary<int, SpawnHandler> allSpawnHandlers; 
 
     public List<SpawnHandler> SpawnHandlers { get { return _spawnHandlers; } }  //Needed an Immutable List of Spawn Handlers.
 
     public void Awake() {
         _spawnHandlers = new List<SpawnHandler>();
-        _miscHandlerKey = CreateNewSpawnHandler();
+        keys = CreateNewSpawnHandler();
     }
 
     #region SpawnHandler
@@ -29,46 +31,38 @@ public class PoolManager : MonoBehaviour
     /// <param name="setPoolManagerParent">Should this spawnHandler be a child of the PoolManager?</param>
     /// <returns>The Spawn Handler Number.</returns>
     public int CreateNewSpawnHandler(GameObject spawnHandler, bool setPoolManagerParent = false) {
-        int handlerKey = _spawnHandlers.Count;
-        return CreateNewSpawnHandler(spawnHandler, handlerKey, setPoolManagerParent);
-    }
-
-    /// <summary>
-    /// Creates a new SpawnHandler from an existing object.
-    /// </summary>
-    /// <param name="spawnHandler">The SpawnHandler to Add.</param>
-    /// <param name="spawnHandlerKey">The Reference Key for the Spawn Handler.</param>
-    /// <param name="setPoolManagerParent">Should this spawnHandler be a child of the PoolManager?</param>
-    /// <returns>The Spawn Handler Number.</returns>
-    public int CreateNewSpawnHandler(GameObject spawnHandler, int spawnHandlerKey, bool setPoolManagerParent = false) {
-        if(spawnHandler.GetComponent<SpawnHandler>() == null)
-            spawnHandler.AddComponent<SpawnHandler>();   //Add Handler
-        //Set the Parent of the SpawnHandler to the PoolManager.
+        SpawnHandler handler = spawnHandler.GetComponent<SpawnHandler>();
+        if (handler == null) {
+            spawnHandler.AddComponent<SpawnHandler>();
+            return CreateNewSpawnHandler(spawnHandler, setPoolManagerParent);
+        }
         if(setPoolManagerParent)
             spawnHandler.transform.SetParent(this.transform);
-        SpawnHandler handler = spawnHandler.GetComponent<SpawnHandler>();
-        handler.SetSpawnHandler(spawnHandlerKey);
-        _spawnHandlers.Add(handler);
-        currentActiveSpawns++;
-        return spawnHandlerKey;
+        handler.AddSpawnerLocation();
+        allSpawnHandlers.Add(keys++,handler);
+        return keys;
     }
 
+    public void AssignTransformToSpawnHandler(GameObject spawnLocation, int spawnHandlerKey) {
+        allSpawnHandlers.FirstOrDefault(s => s.Key == spawnHandlerKey)
+            .Value.AddSpawnerLocation(spawnLocation);
+    }
     #endregion
 
     //Add newly instantiated objects to the spawnPool, as misc.
     public void AddToSpawnPool(GameObject spawnObject) {
-        AddToSpawnPool(spawnObject, _miscHandlerKey);
+        AddToSpawnPool(spawnObject, 0);
     }
 
     public void AddToSpawnPool(GameObject spawnObject, int spawnHandlerKey) {
-        if(spawnObject.GetComponent<SpawnObject>() == null)
+        SpawnObject spawnObj = spawnObject.GetComponent<SpawnObject>();
+        if (spawnObj == null)
             spawnObject.AddComponent<SpawnObject>();
-        SpawnObject sObj = spawnObject.GetComponent<SpawnObject>();
-        SpawnHandler handler = _spawnHandlers.FirstOrDefault(s => s.spawnerKey == spawnHandlerKey);
-        if(handler == null) 
+        KeyValuePair<int, SpawnHandler> handler = allSpawnHandlers.FirstOrDefault(s => s.Key == spawnHandlerKey);
+        if(handler.Value == null)
             throw new UnityException("Missing SpawnHandler for SpawnPool");
-        sObj.SetSpawnObject(spawnObject, spawnHandlerKey);
-        _spawnObjects.Add(sObj);
+        spawnObj.SetSpawnObject(spawnObject, spawnHandlerKey);
+        _spawnObjects.Add(spawnObj);
     }
 
     public void Spawn(SpawnObject spawnObject) {
@@ -76,10 +70,8 @@ public class PoolManager : MonoBehaviour
         if(sObj == null)
             throw new UnityException("SpawnObject does not Exist in Pool Manager!");
         //Get me a list of all Handlers that reference this "spawnerKey"
-        IEnumerable<SpawnHandler> referenceHandlers = _spawnHandlers.Where(s => s.spawnerKey == sObj.spawnerKey);
-        int randomNumber = UnityEngine.Random.Range(1, referenceHandlers.Count());
-        SpawnHandler handler = referenceHandlers.ElementAt(randomNumber);
-        handler.SpawnObject(sObj);
+        KeyValuePair<int, SpawnHandler> referenceHandlers = allSpawnHandlers.FirstOrDefault(s => s.Key == sObj.spawnerKey);
+        referenceHandlers.Value.SpawnObject(spawnObject);
     }
 
     public void DeactivateObject(GameObject obj)
@@ -87,7 +79,7 @@ public class PoolManager : MonoBehaviour
         SpawnObject sObj = _spawnObjects.FirstOrDefault(s => s.gameObject == obj);
         if(sObj == null)
             throw new UnityException("SpawnObject does not exist in Pool Manager!");
-
+        sObj.DeactivateObject();
     }
 }
 

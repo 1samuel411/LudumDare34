@@ -5,47 +5,49 @@ using System.Text;
 using UnityEngine;
 
 public class SpawnHandler: MonoBehaviour {
-    private int _spawnerKey;
     private GameObject _spawnHandler;
     public GameObject spawnHandler { get { return _spawnHandler; } }
-    public int spawnerKey { get { return _spawnerKey; } }
-    public SpawnerSettings handlerSettings;
+    public List<GameObject> spawnLocations; 
     public PoolManager poolManager;
+    public int maxSpawnAmount;
+    public int maxActiveUnits { get { return gameObject.GetComponentsInChildren<SpawnObject>(true).Count(); } }
 
     void Awake() {
         poolManager = this.gameObject.transform.parent.GetComponent<PoolManager>();
+        _spawnHandler = this.gameObject;
     }
 
-    public void SetSpawnHandler(GameObject obj, int key) {
-        _spawnHandler = obj;
-        _spawnerKey = key;
+    public void AddSpawnerLocation(GameObject obj) {
+        spawnLocations.Add(obj);
     }
 
-    public void SetSpawnHandler(int key) {
-        SetSpawnHandler(this.gameObject, key);
+    public void AddSpawnerLocation() {
+        AddSpawnerLocation(this.gameObject);
     }
 
     public void SpawnObject(SpawnObject obj) {
-        SpawnObject[] spawnObj = gameObject.GetComponentsInChildren<SpawnObject>(true);
-        IEnumerable<SpawnObject> inactiveSpawnObj = spawnObj.Where(s => s.gameObject.activeSelf.Equals(false));
+        //Get All InactiveGameObjects from the SpawnHandler.
+        IEnumerable<SpawnObject> spawnObjs = gameObject.GetComponentsInChildren<SpawnObject>(true)
+                                                .Where(s => s.gameObject.activeSelf.Equals(false) &&
+                                                s.gameObject.Equals(obj.gameObject));
 
-        if(inactiveSpawnObj.Count() > 0) {
-            SpawnObject sObj = inactiveSpawnObj.First();
-            sObj.ActivateObject();
-            handlerSettings.currentActiveUnits++;
-            handlerSettings.currentDeactiveUnits--;
+        if (spawnObjs.Any()) {
+            int num = UnityEngine.Random.Range(1, spawnLocations.Count);
+            spawnObjs.First().ActivateObject(spawnLocations.ElementAt(num).transform.position);
         } else {
-            handlerSettings.maxSpawnAmount++;
-            Instantiate(obj, this.transform.position, Quaternion.identity);
+            Debug.Log("Could not find an inactive SpawnObject in collection, instantiating new object.");
+            InstantiateObject(obj);
         }
     }
 
-    private void InstantiateObject(SpawnObject obj) {
-        for (int i = 0; i <= handlerSettings.maxSpawnAmount; i++) {
+    public void InstantiateObject(SpawnObject obj) {
             GameObject.Instantiate(obj, this.transform.position, Quaternion.identity);
-            obj.gameObject.SetActive(false);
             obj.gameObject.transform.SetParent(this.transform);
-        }
-        
+            obj.gameObject.SetActive(false);
+    }
+
+    public void InstantiateAll(SpawnObject obj) {
+        for (int i = 0; i < maxSpawnAmount; i++)
+            InstantiateObject(obj);
     }
 }

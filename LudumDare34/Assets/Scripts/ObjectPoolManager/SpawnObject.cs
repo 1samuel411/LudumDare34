@@ -21,13 +21,15 @@ public class SpawnObject: MonoBehaviour {
 
     public void DeactivateObject()
     {
-        if (_spawn.gameObject.activeSelf)
-        {
-            //_spawn.transform.parent == 
+        if (_spawn.gameObject.activeSelf) {
+            _spawn.SetActive(false);
         }
     }
 
-    public void ActivateObject() {
+    public void ActivateObject(Vector3 startingLocation)
+    {
+        //We're giving it a start position and re-invoking "awake" to "fake" an instantiation
+        this.gameObject.transform.position = startingLocation;
         this.gameObject.SetActive(true);
         SendMessage("Awake", SendMessageOptions.RequireReceiver);
     }
