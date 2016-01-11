@@ -1,0 +1,3 @@
+*Camera Shake becomes annoying when killing a lot of enemies at once.
+*Need a Death Screen.
+*Object Pool needs an abstract spawner. This abstract spawner is meant to handle the objectPool work easily.
