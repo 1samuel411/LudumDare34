@@ -4,26 +4,24 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-public class SpawnObject: MonoBehaviour {
-    private int _spawnerKey = 0;
-    private GameObject _spawn;
-    public GameObject spawn { get { return _spawn; } }
-    public int spawnerKey { get { return _spawnerKey; } }
+public class SpawnObject: MonoBehaviour
+{
+    private int _spawnObjectKey;
+    public int spawnObjectKey {get { return _spawnObjectKey; } }
+    private SpawnHandler _spawnHandler;
+    public SpawnHandler spawnHandler { get { return _spawnHandler; } }
 
-    public void SetSpawnObject(GameObject obj, int spawnerKey) {
-        _spawn = obj;
-        _spawnerKey = spawnerKey;
-    }
-
-    public void SetSpawnObject(int spawnerKey) {
-        SetSpawnObject(this.gameObject, spawnerKey);
+    public void SetSpawnObject(int spawnObjectKey, SpawnHandler handler) {
+        _spawnObjectKey = spawnObjectKey;
+        _spawnHandler = handler;
     }
 
     public void DeactivateObject()
     {
-        if (_spawn.gameObject.activeSelf) {
-            _spawn.SetActive(false);
-        }
+        Debug.Log("TRIGGERED!!! " + gameObject.activeSelf);
+        //if (gameObject.activeSelf) {
+            this.gameObject.SetActive(false);
+        //}
     }
 
     public void ActivateObject(Vector3 startingLocation)

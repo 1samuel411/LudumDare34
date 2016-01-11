@@ -84,34 +84,61 @@ public class BaseHealth : MonoBehaviour, IDamageable
 
     public void DestroyThisObject()
     {
+        //SpawnObject sObj = this.gameObject.GetComponent<SpawnObject>();
+        //if(sObj != null)
+        //    PoolManager.DeactivateObjects(sObj);
         GameObject.Destroy(this.gameObject);
     }
 
     public void Die()
     {
-        if (!_died)
-        {
-            _died = true;
-
-            int zoomInDecider = Random.Range(0, 100);
-            if (zoomInDecider > 75)
-            {
-                // Add effect
-                CameraManager.ShakeScreen(2, 1.5f);
-                CameraManager.ZoomIn(8, 2.4f, 4, 0.3f, transform.position, 5, 1);
-            }
-
-            // Add dissolve effect
-            if (dissolveable)
-                dissolving = true;
-
-            gameObject.layer = 12;
-
-            if(type == Type.bat || type == Type.spider)
-            {
-                LevelManager.instance.totalEnmiesInWave--;
-            }
+        int zoomInDecider = Random.Range(0, 100);
+        if(zoomInDecider > 75) {
+            // Add effect
+            CameraManager.ShakeScreen(2, 1.5f);
+            CameraManager.ZoomIn(8, 2.4f, 4, 0.3f, transform.position, 5, 1);
         }
+
+        //Leave this in, the camera shake is causing issues at the moment, due to a threading issue.
+        //Its a logic problem.
+        SpawnObject sObj = this.gameObject.GetComponent<SpawnObject>();
+        if(sObj != null)
+            PoolManager.DeactivateObjects(sObj);
+        else {
+            //temporary fix.
+            // Add dissolve effect
+            if(dissolveable)
+                dissolving = true;
+        }
+
+        //gameObject.layer = 12;
     }
+
+    //public void Die()
+    //{
+    //    if (!_died)
+    //    {
+    //        _died = true;
+
+    //        int zoomInDecider = Random.Range(0, 100);
+    //        if (zoomInDecider > 75)
+    //        {
+    //            // Add effect
+    //            CameraManager.ShakeScreen(2, 1.5f);
+    //            CameraManager.ZoomIn(8, 2.4f, 4, 0.3f, transform.position, 5, 1);
+    //        }
+
+    //        // Add dissolve effect
+    //        if (dissolveable)
+    //            dissolving = true;
+
+    //        gameObject.layer = 12;
+
+    //        if(type == Type.bat || type == Type.spider)
+    //        {
+    //            //LevelManager.instance.totalEnmiesInWave--;
+    //        }
+    //    }
+    //}
     #endregion
 }

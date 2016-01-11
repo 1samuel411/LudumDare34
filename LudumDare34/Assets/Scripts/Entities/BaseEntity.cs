@@ -66,7 +66,7 @@ public class BaseEntity : MonoBehaviour
     [HideInInspector]
     public new Transform transform;
 
-    public void Awake()
+    public virtual void Awake()
     {
         regSpeed = speed;
         rigidbody = GetComponent<Rigidbody2D>();

@@ -46,7 +46,7 @@ public class BaseWeapon : BaseItem
     }
 
     protected virtual void SpawnBullets(float rotation = 0.0f) { // Make bullet
-        bulletSpawnBox.transform.localEulerAngles = new Vector3(0, 0, rotation);       
+        bulletSpawnBox.transform.localEulerAngles = new Vector3(0, 0, rotation);
         GameObject newProjectileObject = GameObject.Instantiate(projectile, bulletSpawnBox.transform.position, (Quaternion)bulletSpawnBox.transform.rotation) as GameObject;
         newProjectileObject.transform.localScale = new Vector3((PlayerController.instance.direction == 1) ? 1 : -1, 1);
         _projectile = newProjectileObject.GetComponent<Projectile>(); //may need to fix this?

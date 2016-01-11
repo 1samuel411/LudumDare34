@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
@@ -10,20 +12,14 @@ public class LevelManager : MonoBehaviour
 
     public Text curWaveText;
     public Enemy[] enemies;
-    public int wave = 0;
-    public int enemyMultiplyer;
-    public int enemiesInWave;
-    public int currentEnemiesInWave;
-    public int totalEnmiesInWave;
-    public int specialRound;
-    public int enemyLimit;
-    public float spawnCooldownInterval;
     public PoolManager poolManager;
+    public List<SpawnObject> spawnObjects;
 
     private float cooldownTimer;
     private int _skySpawner;
     private int _groundSpawner;
-
+    private int _wave;
+    public bool spawnNextWave = false;
 
     [System.Serializable]
     public struct Enemy
@@ -37,8 +33,8 @@ public class LevelManager : MonoBehaviour
 	void Awake ()
     {
         instance = this;
-	    poolManager = GameObject.FindGameObjectWithTag("Spawner").GetComponent<PoolManager>();
-
+	    poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<PoolManager>();
+        spawnObjects = new List<SpawnObject>();
         InitializeSpawners();
     }
 
@@ -47,11 +43,14 @@ public class LevelManager : MonoBehaviour
         _groundSpawner = InitializeEnemySpawnHandlers(enemySpawnerType.GroundSpawner.ToString());
 
         foreach(var enemy in enemies) {
-            if(enemy.spawnerType == enemySpawnerType.GroundSpawner)
-                poolManager.AddToSpawnPool(enemy.prefab, _groundSpawner);
-            else if(enemy.spawnerType == enemySpawnerType.SkySpawner)
-                poolManager.AddToSpawnPool(enemy.prefab, _skySpawner);
+            SpawnObject sObj = new SpawnObject();
+            if (enemy.spawnerType == enemySpawnerType.GroundSpawner)
+                sObj = poolManager.AddToSpawnPool(enemy.prefab, _groundSpawner);
+            else if (enemy.spawnerType == enemySpawnerType.SkySpawner)
+                sObj = poolManager.AddToSpawnPool(enemy.prefab, _skySpawner);
+            spawnObjects.Add(sObj);
         }
+        Debug.Log("Initialized was successful!");
     }
 	
     private int InitializeEnemySpawnHandlers(string tag) {
@@ -67,82 +66,28 @@ public class LevelManager : MonoBehaviour
         } while (spawnHandlers.Count() > cnt);
         return value;
     }
-	void Update ()
-    {
-        curWaveText.text = wave.ToString();
-        if(currentEnemiesInWave <= 0 && totalEnmiesInWave <= 0)
-        {
+
+	void Update () {
+        if(spawnNextWave) {
+            curWaveText.text = _wave.ToString();
             NextWave();
         }
-	}   
+	}
 
-    public void NextWave()
+    private void NextWave()
     {
-        wave++;
-        if (wave <= 0 && specialRound <= 0)
-        {
-            if (wave % specialRound == 0)
-            {
-                // special wave
-            }
-        }
-        else
-        {
-            // Reg wave
-            totalEnmiesInWave = 0;
-            enemiesInWave = wave * enemyMultiplyer;
-            enemyLimit = enemiesInWave / 2;
-            currentEnemiesInWave = enemiesInWave;
-            StartCoroutine(SpawnEnemies());
-        }
+        StartCoroutine(SpawnObjects());
     }
 
-    public IEnumerator SpawnEnemies()
+    private IEnumerator SpawnObjects()
     {
-        for(int i = 0; i < enemiesInWave; i++)
+        while (true)
         {
-            cooldownTimer = Time.time + spawnCooldownInterval;
-            while(Time.time < cooldownTimer)
-            {
-                yield return null;
-            }
-
-            while (totalEnmiesInWave >= enemyLimit)
-                yield return null;
-
-            totalEnmiesInWave++;
-            currentEnemiesInWave--;
-
-            int selectedEnemy = 0;
-            bool selectedEnemeyYet = false;
-            float selectedRarity = Random.Range(0f, 1.0f);
-            // Spawn enemy
-            for(int x = 0; x < enemies.Length; x++)
-            {
-                if (selectedRarity < enemies[x].rarity)
-                {
-                    selectedEnemeyYet = true;
-                    selectedEnemy = x;
-                }
-            }
-            if(!selectedEnemeyYet)
-            {
-                int randomEnemy = Random.Range(0, enemies.Length);
-                selectedEnemy = randomEnemy;
-                selectedEnemeyYet = true;
-            }
-
-            // spawn enemy
-            SpawnEnemy(selectedEnemy);
+            spawnNextWave = false;
+            int num = Random.Range(1, spawnObjects.Count());
+            poolManager.Spawn(spawnObjects.ElementAt(num));
+            yield return new WaitForSeconds(5.0f);
         }
     }
-
-    public void SpawnEnemy(int e)
-    {
-        GameObject enemySpawned = Instantiate(enemies[e].prefab, enemies[e].spawnLocations[Random.Range(0, enemies[e].spawnLocations.Length)].position, Quaternion.identity) as GameObject;
-        BaseHealth enemySpawnedHealth = enemySpawned.GetComponent<BaseHealth>();
-        enemySpawnedHealth.currentHealth = wave * 2;
-    }
-
     //Need to load Weapon Types.
 }

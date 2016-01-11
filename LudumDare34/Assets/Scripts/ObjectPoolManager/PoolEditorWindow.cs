@@ -6,6 +6,13 @@ using UnityEditor;
 using UnityEngine;
 
 namespace ObjectPoolManager {
+    /****************UNDER CONSTRUCTION*******************
+     * You can ignore this for now
+     * You can ignore this for now
+     * You can ignore this for now
+     * You can ignore this for now
+     * You can ignore this for now
+     * */
     public class PoolEditorWindow : EditorWindow
     {
         private string mystring = "Hello World";

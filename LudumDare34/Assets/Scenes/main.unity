@@ -946,7 +946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentActiveSpawns: 0
-  _spawnObjects: []
+  spawnObjects: []
 --- !u!1 &96765014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,11 +1072,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f1479f1e104622429cd073481fe63a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handlerSettings:
-    maxSpawnAmount: 0
-    currentActiveUnits: 0
-    currentDeactiveUnits: 0
+  spawnLocations: []
   poolManager: {fileID: 0}
+  maxSpawnAmount: 0
 --- !u!1 &196581456
 GameObject:
   m_ObjectHideFlags: 0
@@ -3281,27 +3279,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curWaveText: {fileID: 1674383972}
   enemies:
-  - spawnLocations:
-    - {fileID: 1717007615}
-    - {fileID: 1985128062}
-    prefab: {fileID: 124318, guid: 88962712f1e5d364b8615091ad7bbc43, type: 2}
+  - prefab: {fileID: 124318, guid: 88962712f1e5d364b8615091ad7bbc43, type: 2}
     rarity: 0.7
-    spawnerType: 0
-  - spawnLocations:
-    - {fileID: 114419036}
-    - {fileID: 1953733617}
-    prefab: {fileID: 162986, guid: acc45e9b99e9b7744a1c267895b44b56, type: 2}
+    spawnerType: 1
+  - prefab: {fileID: 162986, guid: acc45e9b99e9b7744a1c267895b44b56, type: 2}
     rarity: 0.2
     spawnerType: 0
-  wave: 0
-  enemyMultiplyer: 2
-  enemiesInWave: 0
-  currentEnemiesInWave: 0
-  totalEnmiesInWave: 0
-  specialRound: 5
-  enemyLimit: 0
-  spawnCooldownInterval: 2.55
-  poolManager: {fileID: 0}
+  poolManager: {fileID: 94440581}
+  spawnObjects: []
+  spawnNextWave: 0
 --- !u!4 &708378602
 Transform:
   m_ObjectHideFlags: 0
