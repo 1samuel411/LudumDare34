@@ -16,12 +16,8 @@ public class SpawnObject: MonoBehaviour
         _spawnHandler = handler;
     }
 
-    public void DeactivateObject()
-    {
-        Debug.Log("TRIGGERED!!! " + gameObject.activeSelf);
-        //if (gameObject.activeSelf) {
-            this.gameObject.SetActive(false);
-        //}
+    public void DeactivateObject() {
+        this.gameObject.SetActive(false);
     }
 
     public void ActivateObject(Vector3 startingLocation)

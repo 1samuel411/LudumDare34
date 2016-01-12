@@ -7,8 +7,18 @@ public class SkullEnemy : BaseEntity
     private bool changedDirection = false;
     public int damage;
 
-    public override void StartMethod()
+    public float skullSpeed; //remember regSpeed
+    public float skullSpeedInitial;
+
+    public override void Awake()
     {
+        base.Awake();
+        this.GetComponent<Rigidbody2D>().AddForce(new Vector2(((direction == 1) ?
+                -skullSpeedInitial : skullSpeedInitial), -3), ForceMode2D.Impulse);
+        base.AwakeMethod();
+    }
+
+    public override void StartMethod() {
         targetEntity = GameObject.FindGameObjectWithTag("Player").GetComponent<BaseEntity>();
         
         Jump();

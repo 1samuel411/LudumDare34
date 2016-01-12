@@ -58,6 +58,7 @@ public class BaseEntity : MonoBehaviour
 
     private float _targetRecoverTime;
     private float _currentRecoverTime;
+    protected PoolManager _poolManager;
 
     [HideInInspector]
     public BaseHealth baseHealth;
@@ -74,7 +75,7 @@ public class BaseEntity : MonoBehaviour
         baseHealth = GetComponent<BaseHealth>();
 
         targetEntity = GameObject.FindGameObjectWithTag("Player").GetComponent<BaseEntity>();
-
+        _poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<PoolManager>();
         AwakeMethod();
     }
 

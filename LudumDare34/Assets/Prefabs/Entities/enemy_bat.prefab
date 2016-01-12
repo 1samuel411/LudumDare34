@@ -128,7 +128,7 @@ GameObject:
   - 50: {fileID: 5038990}
   - 114: {fileID: 11471630}
   - 114: {fileID: 11467236}
-  - 114: {fileID: 11473170}
+  - 114: {fileID: 11445300}
   m_Layer: 11
   m_Name: enemy_bat
   m_TagString: Enemy
@@ -196,7 +196,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 489818}
   m_Layer: 11
-  m_Name: _skullSpawner
+  m_Name: skullSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -299,7 +299,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162986}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.56, y: 3.22, z: 0}
+  m_LocalPosition: {x: 4.4043913, y: -1.2897459, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 445740}
@@ -570,6 +570,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11445300
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce62cc0df556f649abd1979ea62e9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11449956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -706,12 +717,15 @@ MonoBehaviour:
   rigidbody: {fileID: 0}
   transform: {fileID: 0}
   skull: {fileID: 111116, guid: 04bb02330b508cb4da55cb7084ec4d91, type: 2}
-  skullSpawner: {fileID: 489818}
-  skullSpeedInitial: 1.6
-  skullSpeed: 70
+  skullSpawner: {fileID: 186640}
   skullSpawningInterval: 1.91
   flapSpeed: 4.5
   flapHeight: 0.27
+  spawnHandlerDetails:
+    setPoolManagerParent: 0
+    initialSpawnAmount: 4
+    overflowMaxSpawnAmount: 8
+  spawnObject: {fileID: 0}
 --- !u!114 &11468354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -750,17 +764,6 @@ MonoBehaviour:
   dissolveSpeed: 1.2
   dissolveable: 1
   _died: 0
---- !u!114 &11473170
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 162986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ce62cc0df556f649abd1979ea62e9dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &21223826
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -822,6 +825,22 @@ Prefab:
       propertyPath: m_LinearDrag
       value: 6.11
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Name
+      value: skullSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spawnHandlerDetails.initialSpawnAmount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spawnHandlerDetails.overflowMaxSpawnAmount
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: skullSpawner
+      value: 
+      objectReference: {fileID: 186640}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 162986}

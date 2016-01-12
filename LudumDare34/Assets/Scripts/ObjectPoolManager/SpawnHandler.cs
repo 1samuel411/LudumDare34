@@ -13,21 +13,26 @@ public class SpawnHandler: MonoBehaviour {
     public List<GameObject> spawnLocations; 
     public PoolManager poolManager;
     public int spawnHandlerKey {get { return _spawnHandlerKey; } }
-    public int maxSpawnAmount;
+    public int initialSpawnAmount;
     public int maxActiveUnits { get { return gameObject.GetComponentsInChildren<SpawnObject>(true).Count(); } }
+    public int overFlowMaxSpawnAmount;
+    private int _curSpawnAmount;
 
     public void Awake() {
         spawnLocations = new List<GameObject>();
         poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<PoolManager>();
         _spawnHandler = this.gameObject;
-        maxSpawnAmount = 5;
+        initialSpawnAmount = 5;
+        _curSpawnAmount = 0;
     }
 
-    public void AddKey(int key)
-    {
+    public void AddDetails(SpawnHandlerDetails handlerDetails, int key) {
         if (!_isKeyAdded) {
             _spawnHandlerKey = key;
             _isKeyAdded = true;
+            initialSpawnAmount = (handlerDetails.initialSpawnAmount > 0) ? handlerDetails.initialSpawnAmount : 5;
+            overFlowMaxSpawnAmount = (handlerDetails.overflowMaxSpawnAmount > initialSpawnAmount)
+                ? handlerDetails.overflowMaxSpawnAmount : initialSpawnAmount*2;
         }
     }
 
@@ -58,14 +63,17 @@ public class SpawnHandler: MonoBehaviour {
     }
 
     public void InstantiateObject(SpawnObject obj) {
+        if (overFlowMaxSpawnAmount >= _curSpawnAmount) {
             SpawnObject gObj = GameObject.Instantiate(obj, this.transform.position, Quaternion.identity) as SpawnObject;
             gObj.transform.SetParent(_spawnHandler.transform);
             gObj.SetSpawnObject(obj.spawnObjectKey, this);
             gObj.gameObject.SetActive(false);
+            _curSpawnAmount++;
+        }
     }
 
     public void InstantiateAllObjects(SpawnObject obj) {
-        for (int i = 0; i < maxSpawnAmount; i++)
+        for (int i = 0; i < initialSpawnAmount; i++)
             InstantiateObject(obj);
         _invokedInstantiateAll = true;
     }

@@ -1,38 +1,45 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class BirdEnemy : BaseEntity
 {
 
     public GameObject skull;
-    public Transform skullSpawner;
-    public float skullSpeedInitial;
-    public float skullSpeed;
-
+    public GameObject skullSpawner;
     public float skullSpawningInterval;
-    private float skullSpawningNeededTime;
 
     public float flapSpeed;
     public float flapHeight;
 
     private float originalFlapHeight;
     private float flapIndex;
+    private int _spawnHandlerKey;
+    private bool _invokedSpawn = false;
+    public SpawnHandlerDetails spawnHandlerDetails;
+    public SpawnObject spawnObject;
 
-    public override void StartMethod()
-    {
+    public override void Awake() {
+        base.Awake();
+
+        if (!_invokedSpawn) {
+            _spawnHandlerKey = _poolManager.CreateNewSpawnHandler(skullSpawner, spawnHandlerDetails);
+            Debug.Log("Spawned BirdEnemy with Keys: " + _spawnHandlerKey);
+            spawnObject = _poolManager.AddToSpawnPool(skull, _spawnHandlerKey);
+            _invokedSpawn = true;
+        }
+
+        StartCoroutine(Spawn());
+    }
+
+    public override void StartMethod() {
         originalFlapHeight = transform.position.y;
 
-        skullSpawningNeededTime = skullSpawningInterval + Time.time;
-
         targetEntity = GameObject.FindGameObjectWithTag("Player").GetComponent<BaseEntity>();
-        if (targetEntity.transform.position.x < transform.position.x)
-        {
-            direction = 1;
-        }
-        else
-        {
-            direction = -1;
-        }
+        direction = (targetEntity.transform.position.x < transform.position.x) ? 1 : -1;
+
+        base.StartMethod();
     }
 
     public override void UpdateMethod ()
@@ -47,29 +54,28 @@ public class BirdEnemy : BaseEntity
         else if (direction == -1)
             MoveRight();
 
-        // Wait interval to spawn skull
-        if (Time.time > skullSpawningNeededTime)
-        {
-            SpawnSkull();
-            skullSpawningNeededTime = skullSpawningInterval + Time.time;
-        }
-
-        if (faceCheckHit && faceCheckRaycastHit)
-        {
+        if (faceCheckHit && faceCheckRaycastHit) {
             // suicide on attack
+            StopCoroutine(Spawn());
             GetComponent<BaseHealth>().Die();
         }
     }
 
-    public void SpawnSkull()
-    {
-        // Spawn skull
-        GameObject spawnedSkullObj = SpawnItem(skull, skullSpawner.position);
-        spawnedSkullObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(((direction == 1) ? -skullSpeedInitial : skullSpeedInitial), -3), ForceMode2D.Impulse);
+    //public void SpawnSkull()
+    //{
+    //    // Spawn skull
+    //    GameObject spawnedSkullObj = SpawnItem(skull, skullSpawner.transform.position);
+    //    spawnedSkullObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(((direction == 1) ? -skullSpeedInitial : skullSpeedInitial), -3), ForceMode2D.Impulse);
 
-        BaseEntity spawnedSkullEntity = spawnedSkullObj.GetComponent<BaseEntity>();
-        spawnedSkullEntity.direction = direction;
-        spawnedSkullEntity.speed = skullSpeed;
-        spawnedSkullEntity.regSpeed = skullSpeed;
+    //    BaseEntity spawnedSkullEntity = spawnedSkullObj.GetComponent<BaseEntity>();
+    //    spawnedSkullEntity.direction = direction;
+    //}
+
+    public IEnumerator Spawn() {
+        while (true) {
+            _poolManager.Spawn(spawnObject);
+            spawnObject.gameObject.GetComponent<BaseEntity>().direction = direction;
+            yield return new WaitForSeconds(skullSpawningInterval);
+        }
     }
 }

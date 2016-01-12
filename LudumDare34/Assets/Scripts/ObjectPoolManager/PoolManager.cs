@@ -22,7 +22,12 @@ public class PoolManager : MonoBehaviour
     #region SpawnHandler
     protected int CreateNewSpawnHandler() {
         GameObject obj = new GameObject("MiscSpawnHandler");
-        return CreateNewSpawnHandler(obj, true);
+        SpawnHandlerDetails sph = new SpawnHandlerDetails() {
+            initialSpawnAmount = 5,
+            overflowMaxSpawnAmount = 10,
+            setPoolManagerParent = true
+        };
+        return CreateNewSpawnHandler(obj, sph);
     }
 
     /// <summary>
@@ -31,17 +36,17 @@ public class PoolManager : MonoBehaviour
     /// <param name="spawnHandler">The SpawnHandler to Add.</param>
     /// <param name="setPoolManagerParent">Should this spawnHandler be a child of the PoolManager?</param>
     /// <returns>The Spawn Handler Number.</returns>
-    public int CreateNewSpawnHandler(GameObject spawnHandler, bool setPoolManagerParent = false) {
+    public int CreateNewSpawnHandler(GameObject spawnHandler, SpawnHandlerDetails handlerDetails) {
         SpawnHandler handler = spawnHandler.GetComponent<SpawnHandler>();
         if (handler == null) {
             spawnHandler.AddComponent<SpawnHandler>();
-            return CreateNewSpawnHandler(spawnHandler, setPoolManagerParent);
+            return CreateNewSpawnHandler(spawnHandler, handlerDetails);
         }
-        if(setPoolManagerParent)
+        if(handlerDetails.setPoolManagerParent)
             spawnHandler.transform.SetParent(this.transform);
         int value = ++_keys;
         handler.AddSpawnerLocation();
-        handler.AddKey(value);
+        handler.AddDetails(handlerDetails, value);
         allSpawnHandlers.Add(value,handler);
         return value;
     }
@@ -60,7 +65,7 @@ public class PoolManager : MonoBehaviour
     public SpawnObject AddToSpawnPool(GameObject spawnObject, int spawnHandlerKey) {
         SpawnObject spawnObj = spawnObject.GetComponent<SpawnObject>();
         if (spawnObj == null)
-            spawnObject.AddComponent<SpawnObject>();
+            spawnObj = spawnObject.AddComponent<SpawnObject>();
         KeyValuePair<int, SpawnHandler> handler = allSpawnHandlers.FirstOrDefault(s => s.Key == spawnHandlerKey);
         if(handler.Value == null)
             throw new UnityException("Missing SpawnHandler for SpawnPool");
@@ -81,9 +86,10 @@ public class PoolManager : MonoBehaviour
 
     public void DeactivateObject(SpawnObject obj)
     {
-        KeyValuePair<int, SpawnObject> sObj = allSPawnObjects.FirstOrDefault(s => s.Value.spawnObjectKey == obj.spawnObjectKey);
-        if(sObj.Equals(default(KeyValuePair<int, SpawnObject>)))
-            throw new UnityException("SpawnObject does not exist in Pool Manager!");
+        //KeyValuePair<int, SpawnObject> sObj = allSPawnObjects.FirstorDefault(s => s.Value.spawnObjectKey == obj.spawnObjectKey);
+        //if(sObj.Equals(default(KeyValuePair<int, SpawnObject>)))
+        //if(!allSPawnObjects.Any(s => s.Value.spawnObjectKey == obj.spawnObjectKey))
+        //    throw new UnityException("SpawnObject does not exist in Pool Manager! Cannot Deactivate!");
         obj.DeactivateObject();
     }
 
@@ -93,15 +99,11 @@ public class PoolManager : MonoBehaviour
         return key;
     }
 
-    public static void DeactivateObjects(SpawnObject obj)
-    {
+    public static void DeactivateObjects(SpawnObject obj) {
         PoolManager pm = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<PoolManager>();
+        Debug.Log("Deactivate Print Value: " + obj.spawnObjectKey);
         pm.DeactivateObject(obj);
 
     }
-}
 
-public enum enemySpawnerType {
-    SkySpawner = 0,
-    GroundSpawner = 1
 }

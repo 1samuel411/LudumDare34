@@ -12,6 +12,7 @@ GameObject:
   - 61: {fileID: 6159424}
   - 114: {fileID: 11474670}
   - 114: {fileID: 11481994}
+  - 114: {fileID: 11466676}
   m_Layer: 11
   m_Name: skull
   m_TagString: Enemy
@@ -148,6 +149,17 @@ MonoBehaviour:
   _sortingOrder: 0
   _overrideSorter: 0
   _overrideSorterChildren: 0
+--- !u!114 &11466676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce62cc0df556f649abd1979ea62e9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11474670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -207,10 +219,13 @@ MonoBehaviour:
   canScale: 1
   knockedBack: 0
   isJumping: 0
+  isBoosting: 0
   baseHealth: {fileID: 0}
   rigidbody: {fileID: 0}
   transform: {fileID: 0}
   damage: 1
+  skullSpeed: 70
+  skullSpeedInitial: 1.6
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -253,6 +268,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: groundedMask.m_Bits
       value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: skullSpeed
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: skullSpeedInitial
+      value: 1.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

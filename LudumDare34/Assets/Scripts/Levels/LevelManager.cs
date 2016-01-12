@@ -39,8 +39,13 @@ public class LevelManager : MonoBehaviour
     }
 
     private void InitializeSpawners() {
-        _skySpawner = InitializeEnemySpawnHandlers(enemySpawnerType.SkySpawner.ToString());
-        _groundSpawner = InitializeEnemySpawnHandlers(enemySpawnerType.GroundSpawner.ToString());
+        SpawnHandlerDetails sph = new SpawnHandlerDetails() {
+            initialSpawnAmount = 5,
+            overflowMaxSpawnAmount = 10,
+            setPoolManagerParent = true
+        };
+        _skySpawner = CreateEnemySpawnHandlers(enemySpawnerType.SkySpawner.ToString(), sph);
+        _groundSpawner = CreateEnemySpawnHandlers(enemySpawnerType.GroundSpawner.ToString(), sph);
 
         foreach(var enemy in enemies) {
             SpawnObject sObj = new SpawnObject();
@@ -53,13 +58,13 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Initialized was successful!");
     }
 	
-    private int InitializeEnemySpawnHandlers(string tag) {
+    private int CreateEnemySpawnHandlers(string tag, SpawnHandlerDetails shd) {
         GameObject[] spawnHandlers = GameObject.FindGameObjectsWithTag(tag);
         int value = -1;
         int cnt = 0;
         do {
             if(cnt == 0)
-                value = poolManager.CreateNewSpawnHandler(spawnHandlers.First(), true);
+                value = poolManager.CreateNewSpawnHandler(spawnHandlers.First(), shd);
             else
                 poolManager.AssignTransformToSpawnHandler(spawnHandlers[cnt], value);
             cnt++;
@@ -74,8 +79,7 @@ public class LevelManager : MonoBehaviour
         }
 	}
 
-    private void NextWave()
-    {
+    private void NextWave() {
         StartCoroutine(SpawnObjects());
     }
 
@@ -84,10 +88,14 @@ public class LevelManager : MonoBehaviour
         while (true)
         {
             spawnNextWave = false;
-            int num = Random.Range(1, spawnObjects.Count());
+            int num = Random.Range(0, spawnObjects.Count());
             poolManager.Spawn(spawnObjects.ElementAt(num));
-            yield return new WaitForSeconds(5.0f);
+            yield return new WaitForSeconds(2.0f);
         }
     }
     //Need to load Weapon Types.
+}
+public enum enemySpawnerType {
+    SkySpawner = 0,
+    GroundSpawner = 1
 }
