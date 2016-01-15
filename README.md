@@ -70,6 +70,22 @@ xx--Added Wave Tier System
 **Player Health Bar
 --Main menu
 
+# Milestone 5
+@Code
+--Bear mecanim
+--Bear stances
+--Highscore backend
+--Highscore frontend
+@Art
+--Bear import
+@UI
+--In-game menu
+
+Menu's
+
+Main Menu	- Play ->	Story (hold down 2 scs to skip) ->	Game;
+		- Store
+		- Options
 
 # NEEDED
 ***Object Pooling - FastPool or Create custom (decide)
@@ -122,6 +138,11 @@ Samuel Arminana
 Nicolas Dalianides
 [Voices]
 Rob Vorch
+[Supporters]
+Jonathan Weinberger
+Alex Moreno
+Samuel Arminana
+Unity Bar & Grill <3
 
 # Game Extras
 Cloud based Level -> Super Mario

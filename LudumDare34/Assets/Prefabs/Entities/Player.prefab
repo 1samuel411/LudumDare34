@@ -359,8 +359,8 @@ MonoBehaviour:
   speed: 40
   maxVelocity: 3.74
   regSpeed: 0
-  jumpCooldownTime: 0.3
-  airTimeNeeded: 0.21
+  jumpCooldownTime: 0.36
+  airTimeNeeded: 0.38
   airTimeNeededToBoostDown: 0.65
   airTime: 0
   targetAirTime: 0
@@ -460,7 +460,7 @@ MonoBehaviour:
   weapon_image: {fileID: 0}
   weapon_background: {fileID: 0}
   weapon_asset: {fileID: 11400000, guid: 27fae8ed3d04e054795b774f325bd16b, type: 2}
-  scale: 38.88
+  scale: 42.85
   isGunActive: 1
   isAutomatic: 1
   CanShoot: 1
