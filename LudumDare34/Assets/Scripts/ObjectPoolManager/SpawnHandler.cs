@@ -44,32 +44,38 @@ public class SpawnHandler: MonoBehaviour {
         AddSpawnerLocation(this.gameObject);
     }
 
-    public void SpawnObject(KeyValuePair<int, SpawnObject> spawnObj) {
+    public void SpawnObject(KeyValuePair<int, SpawnObject> spawnObj, Transform location = null) {
         //Get All InactiveGameObjects from the SpawnHandler.
         IEnumerable<SpawnObject> spawnObjs = gameObject.GetComponentsInChildren<SpawnObject>(true)
                                                 .Where(s => s.gameObject.activeSelf.Equals(false) &&
                                                     s.spawnObjectKey.Equals(spawnObj.Key));
 
         if (spawnObjs.Any()) {
-            int num = UnityEngine.Random.Range(0, spawnLocations.Count);
-            spawnObjs.First().ActivateObject(spawnLocations.ElementAt(num).transform.position);
-        } else {
+            if (location == null) {
+                int num = UnityEngine.Random.Range(0, spawnLocations.Count - 1);
+                Vector3 pos = spawnLocations.ElementAt(num).transform.position;
+                spawnObjs.First().ActivateObject(pos);
+            } else {
+                spawnObjs.First().ActivateObject(location.position);
+            }
+        } else if (overFlowMaxSpawnAmount >= _curSpawnAmount) {
             Debug.Log("Could not find an inactive SpawnObject in collection, instantiating new object.");
             if(_invokedInstantiateAll)
                 InstantiateObject(spawnObj.Value);
             else
                 InstantiateAllObjects(spawnObj.Value);
+            SpawnObject(spawnObj, location);
+        } else {
+            Debug.Log("Hit Overflow Max Spawn, cannot instantiate anymore Objects.");
         }
     }
 
     public void InstantiateObject(SpawnObject obj) {
-        if (overFlowMaxSpawnAmount >= _curSpawnAmount) {
-            SpawnObject gObj = GameObject.Instantiate(obj, this.transform.position, Quaternion.identity) as SpawnObject;
-            gObj.transform.SetParent(_spawnHandler.transform);
-            gObj.SetSpawnObject(obj.spawnObjectKey, this);
-            gObj.gameObject.SetActive(false);
-            _curSpawnAmount++;
-        }
+        SpawnObject gObj = GameObject.Instantiate(obj, this.transform.position, Quaternion.identity) as SpawnObject;
+        gObj.transform.SetParent(_spawnHandler.transform);
+        gObj.SetSpawnObject(obj.spawnObjectKey, this);
+        gObj.DeactivateObject();
+        _curSpawnAmount++;
     }
 
     public void InstantiateAllObjects(SpawnObject obj) {

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -7,6 +8,7 @@ public class PoolManager : MonoBehaviour
 {
     public int currentActiveSpawns = 0;
     private int _keys;
+    private int _miscSpawnHandler;
     private int _spawnObjectsKey;
 
     public Dictionary<int, SpawnHandler> allSpawnHandlers;
@@ -16,6 +18,7 @@ public class PoolManager : MonoBehaviour
         allSPawnObjects = new Dictionary<int, SpawnObject>();
         allSpawnHandlers = new Dictionary<int, SpawnHandler>();
         _keys = CreateNewSpawnHandler();
+        _miscSpawnHandler = _keys;
         _spawnObjectsKey = 0;
     }
 
@@ -59,7 +62,7 @@ public class PoolManager : MonoBehaviour
 
     //Add newly instantiated objects to the spawnPool, as misc.
     public SpawnObject AddToSpawnPool(GameObject spawnObject) {
-        return AddToSpawnPool(spawnObject, 0);
+        return AddToSpawnPool(spawnObject, _miscSpawnHandler);
     }
 
     public SpawnObject AddToSpawnPool(GameObject spawnObject, int spawnHandlerKey) {
@@ -69,6 +72,20 @@ public class PoolManager : MonoBehaviour
         KeyValuePair<int, SpawnHandler> handler = allSpawnHandlers.FirstOrDefault(s => s.Key == spawnHandlerKey);
         if(handler.Value == null)
             throw new UnityException("Missing SpawnHandler for SpawnPool");
+        //Check if the object is already in the pool with a matching handler.
+        Debug.Log("object Count " + allSPawnObjects.Count);
+        if (allSPawnObjects.Any()) { //BROKEN
+            Dictionary<int, SpawnObject> spawnObjs = allSPawnObjects.Where(s => s.Value.spawnHandler.spawnHandlerKey.Equals(spawnHandlerKey)).ToDictionary(v => v.Key, v => v.Value);
+            if (spawnObjs.Any()) {
+                KeyValuePair<int, SpawnObject> sObj = spawnObjs.First(s => s.Value.name.Contains(spawnObject.name.Trim()));
+                //if the object exists, with a handler, return the existing object.
+                if (!sObj.Equals(default(KeyValuePair<int, SpawnObject>)))
+                {
+                    Debug.Log("Yay it worked!");
+                    return sObj.Value;
+                }
+            }
+        }
         int value = ++_spawnObjectsKey;
         spawnObj.SetSpawnObject(value, handler.Value);
         allSPawnObjects.Add(value, spawnObj);
@@ -76,20 +93,22 @@ public class PoolManager : MonoBehaviour
     }
 
     public void Spawn(SpawnObject spawnObject) {
-        KeyValuePair<int,SpawnObject> sObj = allSPawnObjects.FirstOrDefault(s => s.Key.Equals(spawnObject.spawnObjectKey));
+        SpawnAt(spawnObject, null);
+    }
+
+    //Spawn this object @ location.
+    public void SpawnAt(SpawnObject spawnObject, Transform location) {
+        KeyValuePair<int, SpawnObject> sObj = allSPawnObjects.FirstOrDefault(s =>
+                                        s.Key.Equals(spawnObject.spawnObjectKey));
         if(sObj.Equals(default(KeyValuePair<int, SpawnObject>)))
             throw new UnityException("SpawnObject does not Exist in Pool Manager!");
         //Get me a list of all Handlers that reference this "spawnerKey"
         KeyValuePair<int, SpawnHandler> referenceHandlers = allSpawnHandlers.FirstOrDefault(s => s.Value.spawnHandlerKey == sObj.Value.spawnHandler.spawnHandlerKey);
-        referenceHandlers.Value.SpawnObject(sObj);
+        referenceHandlers.Value.SpawnObject(sObj, location);
     }
 
-    public void DeactivateObject(SpawnObject obj)
-    {
-        //KeyValuePair<int, SpawnObject> sObj = allSPawnObjects.FirstorDefault(s => s.Value.spawnObjectKey == obj.spawnObjectKey);
-        //if(sObj.Equals(default(KeyValuePair<int, SpawnObject>)))
-        //if(!allSPawnObjects.Any(s => s.Value.spawnObjectKey == obj.spawnObjectKey))
-        //    throw new UnityException("SpawnObject does not exist in Pool Manager! Cannot Deactivate!");
+#region deactivatingObjects
+    public void DeactivateObject(SpawnObject obj) {
         obj.DeactivateObject();
     }
 
@@ -103,7 +122,6 @@ public class PoolManager : MonoBehaviour
         PoolManager pm = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<PoolManager>();
         Debug.Log("Deactivate Print Value: " + obj.spawnObjectKey);
         pm.DeactivateObject(obj);
-
     }
-
+#endregion
 }

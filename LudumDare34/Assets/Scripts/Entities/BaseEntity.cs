@@ -244,9 +244,4 @@ public class BaseEntity : MonoBehaviour
         else
             rigidbody.AddForce(new Vector2((direction == 1) ? -force : force, 0), ForceMode2D.Impulse);
     }
-
-    public GameObject SpawnItem (GameObject objectToSpawn, Vector3 position)
-    {
-        return Instantiate(objectToSpawn, position, Quaternion.identity) as GameObject;
-    }
 }

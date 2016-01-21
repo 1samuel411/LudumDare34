@@ -1040,7 +1040,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 114419036}
-  - 114: {fileID: 114419037}
   m_Layer: 0
   m_Name: birdSpawnerRight
   m_TagString: SkySpawner
@@ -1060,21 +1059,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 94440580}
   m_RootOrder: 0
---- !u!114 &114419037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 114419035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f1479f1e104622429cd073481fe63a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnLocations: []
-  poolManager: {fileID: 0}
-  initialSpawnAmount: 3
-  overFlowMaxSpawnAmount: 8
 --- !u!1 &196581456
 GameObject:
   m_ObjectHideFlags: 0
@@ -6174,7 +6158,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1717007615}
-  - 114: {fileID: 1717007616}
   m_Layer: 0
   m_Name: spiderSpawnerLeft
   m_TagString: GroundSpawner
@@ -6194,21 +6177,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 94440580}
   m_RootOrder: 2
---- !u!114 &1717007616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1717007614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f1479f1e104622429cd073481fe63a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnLocations: []
-  poolManager: {fileID: 0}
-  initialSpawnAmount: 5
-  overFlowMaxSpawnAmount: 10
 --- !u!1 &1727625398
 GameObject:
   m_ObjectHideFlags: 0

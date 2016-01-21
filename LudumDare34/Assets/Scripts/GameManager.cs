@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
 	void Start () {
 	
 	}
+
+    void Awake() {
+    }
+
 	//this is an extra test.
 
 	// Update is called once per frame

@@ -24,13 +24,10 @@ public class BirdEnemy : BaseEntity
         base.Awake();
 
         if (!_invokedSpawn) {
-            _spawnHandlerKey = _poolManager.CreateNewSpawnHandler(skullSpawner, spawnHandlerDetails);
-            Debug.Log("Spawned BirdEnemy with Keys: " + _spawnHandlerKey);
-            spawnObject = _poolManager.AddToSpawnPool(skull, _spawnHandlerKey);
+            //_spawnHandlerKey = _poolManager.CreateNewSpawnHandler(skullSpawner, spawnHandlerDetails);
+            spawnObject = _poolManager.AddToSpawnPool(skull);
             _invokedSpawn = true;
         }
-
-        StartCoroutine(Spawn());
     }
 
     public override void StartMethod() {
@@ -56,24 +53,22 @@ public class BirdEnemy : BaseEntity
 
         if (faceCheckHit && faceCheckRaycastHit) {
             // suicide on attack
-            StopCoroutine(Spawn());
             GetComponent<BaseHealth>().Die();
         }
     }
 
-    //public void SpawnSkull()
-    //{
-    //    // Spawn skull
-    //    GameObject spawnedSkullObj = SpawnItem(skull, skullSpawner.transform.position);
-    //    spawnedSkullObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(((direction == 1) ? -skullSpeedInitial : skullSpeedInitial), -3), ForceMode2D.Impulse);
+    public void OnEnable() {
+        if(_invokedSpawn)
+            StartCoroutine(Spawn());
+    }
 
-    //    BaseEntity spawnedSkullEntity = spawnedSkullObj.GetComponent<BaseEntity>();
-    //    spawnedSkullEntity.direction = direction;
-    //}
+    public void OnDisable() {
+        StopCoroutine(Spawn());
+    }
 
     public IEnumerator Spawn() {
         while (true) {
-            _poolManager.Spawn(spawnObject);
+            _poolManager.SpawnAt(spawnObject, skullSpawner.transform);
             spawnObject.gameObject.GetComponent<BaseEntity>().direction = direction;
             yield return new WaitForSeconds(skullSpawningInterval);
         }

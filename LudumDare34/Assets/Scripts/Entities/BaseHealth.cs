@@ -6,10 +6,6 @@ using SVGImporter;
 
 public class BaseHealth : MonoBehaviour, IDamageable
 {
-
-    public enum Type { player, bat, skull, spider };
-    public Type type;
-
     public int currentHealth = 1;
 
     public float dissolveSpeed;
@@ -40,13 +36,11 @@ public class BaseHealth : MonoBehaviour, IDamageable
         List<Material> materialsList = new List<Material>();
         SpriteRenderer[] childrenRenderers = GetComponentsInChildren<SpriteRenderer>();
         SVGRenderer[] childrenMeshRenderers = GetComponentsInChildren<SVGRenderer>();
-        for (int i = 0; i < childrenRenderers.Length; i++)
-        {
+        for (int i = 0; i < childrenRenderers.Length; i++) {
             materialsList.Add(childrenRenderers[i].material);
         }
 
-        for (int i = 0; i < childrenMeshRenderers.Length; i++)
-        {
+        for (int i = 0; i < childrenMeshRenderers.Length; i++) {
             renderersList.Add(childrenMeshRenderers[i]);
         }
         materials = materialsList.ToArray();
@@ -58,9 +52,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
         if(dissolving)
         {
             _dissolveTime += dissolveSpeed * Time.deltaTime;
-            for(int i = 0; i < renderers.Length; i ++)
-            {
-                //materials[i].SetFloat("_Amount", _dissolveTime);
+            for(int i = 0; i < renderers.Length; i ++) {
                 Color newColor = renderers[i].color;
                 newColor.a = newColor.a - _dissolveTime;
                 renderers[i].color = newColor;

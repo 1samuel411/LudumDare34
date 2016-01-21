@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using UnityEngine;
 
@@ -25,6 +26,7 @@ public class SpawnObject: MonoBehaviour
         //We're giving it a start position and re-invoking "awake" to "fake" an instantiation
         this.gameObject.transform.position = startingLocation;
         this.gameObject.SetActive(true);
-        SendMessage("Awake", SendMessageOptions.RequireReceiver);
+        //Need to Update this to "fake" an instantiation
+        //SendMessage("Awake", SendMessageOptions.DontRequireReceiver);
     }
 }

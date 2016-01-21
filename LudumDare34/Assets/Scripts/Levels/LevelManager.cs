@@ -36,8 +36,12 @@ public class LevelManager : MonoBehaviour
 	    poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<PoolManager>();
         spawnObjects = new List<SpawnObject>();
         InitializeSpawners();
+	    var a = GameObject.FindGameObjectWithTag("test");
+        //a.SetActive(false);
+        if(a != null) Debug.Log("Test Object: " + a.GetHashCode());
     }
 
+    #region SpawnInitializer
     private void InitializeSpawners() {
         SpawnHandlerDetails sph = new SpawnHandlerDetails() {
             initialSpawnAmount = 5,
@@ -71,8 +75,9 @@ public class LevelManager : MonoBehaviour
         } while (spawnHandlers.Count() > cnt);
         return value;
     }
+    #endregion
 
-	void Update () {
+    void Update () {
         if(spawnNextWave) {
             curWaveText.text = _wave.ToString();
             NextWave();
