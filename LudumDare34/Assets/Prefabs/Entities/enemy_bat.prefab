@@ -718,7 +718,7 @@ MonoBehaviour:
   transform: {fileID: 0}
   skull: {fileID: 111116, guid: 04bb02330b508cb4da55cb7084ec4d91, type: 2}
   skullSpawner: {fileID: 186640}
-  skullSpawningInterval: 1.91
+  skullSpawningInterval: 2.5
   flapSpeed: 4.5
   flapHeight: 0.27
   spawnHandlerDetails:
@@ -759,7 +759,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8857c0e82cc782e43ba29aea581e23ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
   currentHealth: 3
   dissolveSpeed: 1.2
   dissolveable: 1
@@ -841,6 +840,10 @@ Prefab:
       propertyPath: skullSpawner
       value: 
       objectReference: {fileID: 186640}
+    - target: {fileID: 0}
+      propertyPath: skullSpawningInterval
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 162986}

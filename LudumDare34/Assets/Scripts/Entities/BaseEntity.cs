@@ -79,6 +79,12 @@ public class BaseEntity : MonoBehaviour
         AwakeMethod();
     }
 
+    public virtual void OnEnable() {
+        canJump = true;
+        isJumping = false;
+        grounded = false;
+    }
+
     public virtual void AwakeMethod() { }
 
     public void Start()
@@ -207,6 +213,8 @@ public class BaseEntity : MonoBehaviour
         canJump = false;
         //canMove = false;
         isJumping = true;
+
+        Debug.Log("This Jumped! " + gameObject.name);
 
         airTime = Time.time;
         targetAirTime = Time.time + airTimeNeeded;

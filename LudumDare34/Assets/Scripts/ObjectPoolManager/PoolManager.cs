@@ -73,15 +73,12 @@ public class PoolManager : MonoBehaviour
         if(handler.Value == null)
             throw new UnityException("Missing SpawnHandler for SpawnPool");
         //Check if the object is already in the pool with a matching handler.
-        Debug.Log("object Count " + allSPawnObjects.Count);
-        if (allSPawnObjects.Any()) { //BROKEN
+        if (allSPawnObjects.Any()) {
             Dictionary<int, SpawnObject> spawnObjs = allSPawnObjects.Where(s => s.Value.spawnHandler.spawnHandlerKey.Equals(spawnHandlerKey)).ToDictionary(v => v.Key, v => v.Value);
             if (spawnObjs.Any()) {
                 KeyValuePair<int, SpawnObject> sObj = spawnObjs.First(s => s.Value.name.Contains(spawnObject.name.Trim()));
                 //if the object exists, with a handler, return the existing object.
-                if (!sObj.Equals(default(KeyValuePair<int, SpawnObject>)))
-                {
-                    Debug.Log("Yay it worked!");
+                if (!sObj.Equals(default(KeyValuePair<int, SpawnObject>))) {
                     return sObj.Value;
                 }
             }
@@ -110,12 +107,6 @@ public class PoolManager : MonoBehaviour
 #region deactivatingObjects
     public void DeactivateObject(SpawnObject obj) {
         obj.DeactivateObject();
-    }
-
-    public int GetSpawnObjectKey(SpawnObject obj) {
-        int key = -1;
-
-        return key;
     }
 
     public static void DeactivateObjects(SpawnObject obj) {

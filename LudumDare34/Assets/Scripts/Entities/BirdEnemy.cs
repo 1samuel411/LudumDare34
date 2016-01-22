@@ -24,7 +24,6 @@ public class BirdEnemy : BaseEntity
         base.Awake();
 
         if (!_invokedSpawn) {
-            //_spawnHandlerKey = _poolManager.CreateNewSpawnHandler(skullSpawner, spawnHandlerDetails);
             spawnObject = _poolManager.AddToSpawnPool(skull);
             _invokedSpawn = true;
         }
@@ -57,7 +56,9 @@ public class BirdEnemy : BaseEntity
         }
     }
 
-    public void OnEnable() {
+    public override void OnEnable() {
+        base.OnEnable();
+
         if(_invokedSpawn)
             StartCoroutine(Spawn());
     }

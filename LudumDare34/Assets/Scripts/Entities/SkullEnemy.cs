@@ -10,12 +10,10 @@ public class SkullEnemy : BaseEntity
     public float skullSpeed; //remember regSpeed
     public float skullSpeedInitial;
 
-    public void OnEnable() {
+    public override void OnEnable() {
         this.GetComponent<Rigidbody2D>().AddForce(new Vector2(((direction == 1) ?
                 -skullSpeedInitial : skullSpeedInitial), -3), ForceMode2D.Impulse);
-
-        targetEntity = GameObject.FindGameObjectWithTag("Player").GetComponent<BaseEntity>();
-        Jump();
+        base.OnEnable();
     }
 
     public override void UpdateMethod()

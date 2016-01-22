@@ -36,9 +36,6 @@ public class LevelManager : MonoBehaviour
 	    poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<PoolManager>();
         spawnObjects = new List<SpawnObject>();
         InitializeSpawners();
-	    var a = GameObject.FindGameObjectWithTag("test");
-        //a.SetActive(false);
-        if(a != null) Debug.Log("Test Object: " + a.GetHashCode());
     }
 
     #region SpawnInitializer
