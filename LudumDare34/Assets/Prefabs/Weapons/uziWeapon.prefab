@@ -61,8 +61,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.328, y: 0.1101, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.69, y: 0.6, z: 0}
+  m_LocalScale: {x: -1.7294718, y: 1.7294717, z: 1.7294717}
   m_Children: []
   m_Father: {fileID: 496772}
   m_RootOrder: 0
@@ -73,8 +73,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 189206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.23}
+  m_LocalPosition: {x: -0.47, y: 0.24, z: 0}
+  m_LocalScale: {x: 0.1483158, y: 0.14831583, z: 0.2274176}
   m_Children: []
   m_Father: {fileID: 496772}
   m_RootOrder: 1
@@ -116,8 +116,8 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2021991435
-  m_SortingOrder: -8
+  m_SortingLayerID: 0
+  m_SortingOrder: 6
 --- !u!33 &3349010
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -141,7 +141,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6119180
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -153,9 +153,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -0.03}
+  m_Offset: {x: -0.45, y: 0.27}
   serializedVersion: 2
-  m_Size: {x: 0.88, y: 0.51}
+  m_Size: {x: 0.73, y: 0.54}
 --- !u!61 &6163592
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -167,9 +167,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.46, y: 0.22}
   serializedVersion: 2
-  m_Size: {x: 0.68, y: 0.41}
+  m_Size: {x: 0.63, y: 0.4}
 --- !u!82 &8205616
 AudioSource:
   m_ObjectHideFlags: 1
@@ -253,9 +253,10 @@ Animation:
   m_GameObject: {fileID: 116610}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 74becfc1b80d0ea47806eff0c23cf08a, type: 2}
+  m_Animation: {fileID: 7400000, guid: d12de36d050950842aa39c1d760e1c87, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 74becfc1b80d0ea47806eff0c23cf08a, type: 2}
+  - {fileID: 7400000, guid: d12de36d050950842aa39c1d760e1c87, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -277,9 +278,9 @@ MonoBehaviour:
   _opaqueMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
   _transparentMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b,
     type: 2}
-  _sortingLayerID: 2021991435
-  _sortingLayerName: Player
-  _sortingOrder: -8
+  _sortingLayerID: 0
+  _sortingLayerName: Default
+  _sortingOrder: 6
   _overrideSorter: 0
   _overrideSorterChildren: 0
 --- !u!114 &11433454
@@ -300,11 +301,13 @@ MonoBehaviour:
   weapon_background: {fileID: 0}
   weapon_asset: {fileID: 11400000, guid: f45824fa8883f974099f08ed737f6760, type: 2}
   scale: 49.06
+  holdType: 0
   isGunActive: 0
   isAutomatic: 1
   CanShoot: 1
   muzzleFlash: {fileID: 153020, guid: 4362736a35770aa44a23c6eefd6d0a71, type: 2}
   pickupPosition: {x: 0, y: 0}
+  pickupScale: 0.5
   force: 0.42
   shootSound: {fileID: 8300000, guid: abfbb2b53f2cd56418fb63a5a2d375d5, type: 3}
   weaponTriggerSpeed: 0.08

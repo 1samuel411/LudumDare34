@@ -12,11 +12,14 @@ public class BaseWeapon : BaseItem
     public SVGAsset weapon_asset;
     public float scale;
 
+    public enum HoldType { Onehanded, Twohanded };
+    public HoldType holdType;
     public bool isGunActive;
     public bool isAutomatic;
     public bool CanShoot;
     public GameObject muzzleFlash;
     public Vector2 pickupPosition;
+    public float pickupScale;
     public float force;
     public AudioClip shootSound;
     public float weaponTriggerSpeed;   //Used for the wait Time between Shots.
@@ -76,8 +79,10 @@ public class BaseWeapon : BaseItem
                 newMuzzleflashObject.transform.localScale = new Vector3((PlayerController.instance.direction == 1) ? 1 : -1, 1);
             }
             // Play animation
-            if(animation)
+            if (animation)
+            {
                 animation.Play();
+            }
             // Screenshake
             CameraManager.ShakeScreen(force, 2);
             // sound

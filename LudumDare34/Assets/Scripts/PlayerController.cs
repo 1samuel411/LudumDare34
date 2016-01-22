@@ -24,11 +24,13 @@ public class PlayerController : BaseEntity
 
     public PlayerWeaponHandler weaponHandler;
     public BaseWeapon weapon;
+    public Animator animator;
 
     public static PlayerController instance;
 
     public override void AwakeMethod()
     {
+        animator = GetComponentInChildren<Animator>();
         instance = this;
 
         if (weaponHandler == null)
@@ -39,6 +41,21 @@ public class PlayerController : BaseEntity
 
     public override void UpdateMethod()
     {
+        // Animator
+        animator.SetBool("grounded", grounded);
+        animator.SetFloat("yvelocity", rigidbody.velocity.y);
+        if (_holdingLeftKey || _holdingRightKey)
+            animator.SetFloat("xvelocity", rigidbody.velocity.x);
+        else
+            animator.SetFloat("xvelocity", 0);
+        if (weapon.holdType == BaseWeapon.HoldType.Onehanded)
+        {
+            animator.SetBool("oneHanded", true);
+        }
+        else
+        {
+            animator.SetBool("oneHanded", false);
+        }
         // Hard landing
         if (isBoosting && grounded)
         {
@@ -161,6 +178,7 @@ public class PlayerController : BaseEntity
                 if (_curHoldTimeJump > _targetHoldTimeJump)
                 {
                     // Jump
+                    animator.SetTrigger("jump");
                     Jump();
                     _holdingKeys = false;
                 }

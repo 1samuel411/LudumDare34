@@ -41,6 +41,7 @@ public class PlayerWeaponHandler : MonoBehaviour
                 Destroy(weapon.GetComponent(typeof(Rigidbody2D)));
                 weapon.transform.parent = this.transform;
                 weapon.transform.localPosition = weapon.pickupPosition;
+                weapon.transform.GetChild(1).transform.localScale = new Vector3(-weapon.pickupScale, weapon.pickupScale, weapon.pickupScale);
                 weapon.ActivateGun(false);
                 weapon.ResetWeaponAttributes();
                 weaponsOwned.Add(weapon.name);

@@ -73,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.58, y: -2.16, z: 0}
+  m_LocalPosition: {x: 1.88, y: -1.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 488214}
@@ -87,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168914}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.579, y: 0.076, z: 0}
+  m_LocalPosition: {x: -2.01, y: 0.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 467780}
@@ -117,7 +117,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2021991435
-  m_SortingOrder: -5
+  m_SortingOrder: 6
 --- !u!33 &3331764
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -141,7 +141,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6131482
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -278,11 +278,13 @@ MonoBehaviour:
   weapon_background: {fileID: 0}
   weapon_asset: {fileID: 11400000, guid: cb1c15ecba0d38d429173674309959aa, type: 2}
   scale: 76.93
+  holdType: 0
   isGunActive: 0
   isAutomatic: 1
   CanShoot: 1
   muzzleFlash: {fileID: 197372, guid: c2d975f072309274883d227f0fdf4db5, type: 2}
   pickupPosition: {x: -0.36, y: 0}
+  pickupScale: 0.85
   force: 0.67
   shootSound: {fileID: 8300000, guid: c216eac2602f930439eb731667e52b12, type: 3}
   weaponTriggerSpeed: 0.33
@@ -310,15 +312,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lastTimeModified: 635868549403155856
+  _lastTimeModified: 635871469981022261
   _vectorGraphics: {fileID: 11400000, guid: c56f6283a4d88ac4695c71ff509a1f35, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _opaqueMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
   _transparentMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b,
     type: 2}
-  _sortingLayerID: 2021991435
+  _sortingLayerID: 0
   _sortingLayerName: Player
-  _sortingOrder: -5
+  _sortingOrder: 6
   _overrideSorter: 0
   _overrideSorterChildren: 0
 --- !u!1001 &100100000

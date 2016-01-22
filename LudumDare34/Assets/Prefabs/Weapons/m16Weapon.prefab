@@ -61,8 +61,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.663, y: 0.1101, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -2.557, y: 0.372, z: 0}
+  m_LocalScale: {x: -2.8747735, y: 2.8747728, z: 2.8747728}
   m_Children: []
   m_Father: {fileID: 440174}
   m_RootOrder: 0
@@ -73,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.217, y: -2.708, z: 0}
+  m_LocalPosition: {x: -0.06, y: -0.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 424818}
@@ -116,8 +116,8 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2021991435
-  m_SortingOrder: -8
+  m_SortingLayerID: 0
+  m_SortingOrder: 6
 --- !u!33 &3365960
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -141,7 +141,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6108898
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -278,11 +278,13 @@ MonoBehaviour:
   weapon_background: {fileID: 0}
   weapon_asset: {fileID: 11400000, guid: d5296963862aa9e43baada1bd3840662, type: 2}
   scale: 87.38
+  holdType: 1
   isGunActive: 0
   isAutomatic: 1
   CanShoot: 1
   muzzleFlash: {fileID: 153020, guid: 4362736a35770aa44a23c6eefd6d0a71, type: 2}
   pickupPosition: {x: 0, y: 0}
+  pickupScale: 1.19
   force: 0.39
   shootSound: {fileID: 8300000, guid: d57049a1f728f89458bfec46bb6cd2e4, type: 3}
   weaponTriggerSpeed: 0.13
@@ -316,9 +318,9 @@ MonoBehaviour:
   _opaqueMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
   _transparentMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b,
     type: 2}
-  _sortingLayerID: 2021991435
-  _sortingLayerName: Player
-  _sortingOrder: -8
+  _sortingLayerID: 0
+  _sortingLayerName: Default
+  _sortingOrder: 6
   _overrideSorter: 0
   _overrideSorterChildren: 0
 --- !u!1001 &100100000

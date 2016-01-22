@@ -25,6 +25,8 @@ public class BaseHealth : MonoBehaviour, IDamageable
     private Material[] materials;
     private SVGRenderer[] renderers;
 
+    private Animator animator;
+
     public int CurrentHealth
     {
         get { return currentHealth; }
@@ -39,6 +41,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
 
     void Awake()
     {
+        animator = GetComponentInChildren<Animator>();
         maxHealth = currentHealth;
         List<SVGRenderer> renderersList = new List<SVGRenderer>();
         List<Material> materialsList = new List<Material>();
@@ -61,6 +64,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
     {
         if(type == Type.player)
         {
+            animator.SetBool("dead", _died);
             LevelManager.instance.healthImage.fillAmount = (float) currentHealth / (float)maxHealth;
         }
         if(dissolving)
