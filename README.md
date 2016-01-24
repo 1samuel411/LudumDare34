@@ -72,14 +72,25 @@ xx--Added Wave Tier System
 
 # Milestone 5
 @Code
---Bear mecanim
---Bear stances
+xx--Bear mecanim
+xx--Bear stances
 --Highscore backend
 --Highscore frontend
+--Player Shop
+--New Enemy
 @Art
---Bear import
+xx--Bear Import
+--Redesign gun
+--Shop UI
+--New Enemy
 @UI
 --In-game menu
+--Shop
+--Comic book background
+--Story Images
+@Story
+--Story
+--Background
 
 Menu's
 
