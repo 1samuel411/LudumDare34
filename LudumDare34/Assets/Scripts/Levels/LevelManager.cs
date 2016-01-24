@@ -3,12 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using SVGImporter;
 using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
 
     public static LevelManager instance;
+
+    [HideInInspector]
+    public BaseEntity player;
+
+    public Image healthImage;
+
+    public GameObject weaponUIList;
+    public GameObject weaponUIElement;
 
     public Text curWaveText;
     public Enemy[] enemies;
@@ -33,8 +42,10 @@ public class LevelManager : MonoBehaviour
 	void Awake ()
     {
         instance = this;
+        spawnNextWave = true;
 	    poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<PoolManager>();
         spawnObjects = new List<SpawnObject>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<BaseEntity>();
         InitializeSpawners();
     }
 
@@ -94,6 +105,24 @@ public class LevelManager : MonoBehaviour
             poolManager.Spawn(spawnObjects.ElementAt(num));
             yield return new WaitForSeconds(2.0f);
         }
+    }
+
+    public void SpawnWeaponUI(SVGAsset weaponAsset, float scale, BaseWeapon reference, float rotation = 110.0f)
+    {
+        GameObject weaponUISpawned = Instantiate(weaponUIElement, Vector2.zero, Quaternion.identity) as GameObject;
+        weaponUISpawned.transform.SetParent(weaponUIList.transform);
+        WeaponElement weaponElement = weaponUISpawned.GetComponent<WeaponElement>();
+        weaponElement.reference = reference;
+        weaponElement.scale = scale;
+        weaponElement.rotation = rotation;
+        weaponElement.targetImage = weaponAsset;
+
+        if (reference.name == "Pistol")
+        {
+            weaponUISpawned.transform.SetAsFirstSibling();
+        }
+        else
+            weaponUISpawned.transform.SetSiblingIndex(1);
     }
     //Need to load Weapon Types.
 }

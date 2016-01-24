@@ -36,8 +36,8 @@ public class BaseHealth : MonoBehaviour, IDamageable
         {
             if (value <= 0)
                 Die();
-            else
-                currentHealth = value;
+
+            currentHealth = value;
         }
     }
 
@@ -67,9 +67,9 @@ public class BaseHealth : MonoBehaviour, IDamageable
         if(type == Type.player)
         {
             animator.SetBool("dead", _died);
-            //LevelManager.instance.healthImage.fillAmount = (float) currentHealth / (float)maxHealth;
+            LevelManager.instance.healthImage.fillAmount = (float) currentHealth / (float)maxHealth;
         }
-        if(dissolving)
+        else if(dissolving)
         {
             _dissolveTime += dissolveSpeed * Time.deltaTime;
             for(int i = 0; i < renderers.Length; i ++) {
@@ -98,6 +98,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
     {
         // Stop Dissolving
         dissolving = false;
+        _died = false;
 
         // Reset Opacity
         for (int i = 0; i < renderers.Length; i++)
@@ -119,12 +120,22 @@ public class BaseHealth : MonoBehaviour, IDamageable
         {
             _died = true;
 
-            int zoomInDecider = Random.Range(0, 100);
-            if (zoomInDecider > 75)
+            if (zoomable)
+            {
+                int zoomInDecider = Random.Range(0, 100);
+                if (zoomInDecider > 75)
+                {
+                    // Add effect
+                    CameraManager.ShakeScreen(2, 1.5f);
+                    CameraManager.ZoomIn(8, 2.4f, 4, 0.3f, transform.position, 5, 1);
+                }
+            }
+
+            if(type == Type.player)
             {
                 // Add effect
-                CameraManager.ShakeScreen(2, 1.5f);
-                CameraManager.ZoomIn(8, 2.4f, 4, 0.3f, transform.position, 5, 1);
+                CameraManager.ShakeScreen(1.2f, 0.1f);
+                CameraManager.ZoomIn(8, 2.4f, 4, 0.6f, transform.position, 5, 100);
             }
 
             // Add dissolve effect

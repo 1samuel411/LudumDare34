@@ -65,6 +65,9 @@ public class BaseWeapon : BaseItem
 
     public IEnumerator FireWeapon() {
         while (isGunActive) {
+            if (PlayerController.instance.baseHealth._died)
+                yield break;
+
             //Used to decrement ammo in weaponAttributes.
             if(!weaponAttribute.coreWeapon && weaponAttribute.usingAmmo)
                 weaponAttribute.currentAmmo -= 1;
@@ -97,7 +100,7 @@ public class BaseWeapon : BaseItem
         isGunActive = activateGun;
         gameObject.SetActive(activateGun);
         if (activateGun) {
-            ResetWeaponAttributes();
+            //ResetWeaponAttributes();
             StartCoroutine(FireWeapon());
             if (weaponAttribute.usingTimer) {
                 weaponAttribute.checkTimer = true;

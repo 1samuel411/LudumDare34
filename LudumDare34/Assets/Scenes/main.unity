@@ -1082,9 +1082,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 94440580}
+  - 114: {fileID: 94440581}
   m_Layer: 0
   m_Name: Spawners
-  m_TagString: Untagged
+  m_TagString: PoolManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1103,10 +1104,20 @@ Transform:
   - {fileID: 1953733617}
   - {fileID: 1717007615}
   - {fileID: 1985128062}
-  - {fileID: 1529088551}
-  - {fileID: 957967981}
   m_Father: {fileID: 0}
   m_RootOrder: 7
+--- !u!114 &94440581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 94440579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3054703df44a040b41f713e4f7c2c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentActiveSpawns: 0
 --- !u!1 &96765014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1261,7 +1272,7 @@ GameObject:
   - 4: {fileID: 114419036}
   m_Layer: 0
   m_Name: birdSpawnerRight
-  m_TagString: Untagged
+  m_TagString: SkySpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4541,51 +4552,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a341e0708c12a145bb29717833afa0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   healthImage: {fileID: 816666992}
   weaponUIList: {fileID: 2139489751}
   weaponUIElement: {fileID: 199564, guid: 1e78523253a5dd5458a9e201f8102698, type: 2}
   curWaveText: {fileID: 1674383972}
   enemies:
-  - spawnLocations:
-    - {fileID: 1717007615}
-    - {fileID: 1985128062}
-    prefab: {fileID: 124318, guid: 88962712f1e5d364b8615091ad7bbc43, type: 2}
+  - prefab: {fileID: 124318, guid: 88962712f1e5d364b8615091ad7bbc43, type: 2}
     rarity: 0.6
-  - spawnLocations:
-    - {fileID: 114419036}
-    - {fileID: 1953733617}
-    prefab: {fileID: 162986, guid: acc45e9b99e9b7744a1c267895b44b56, type: 2}
+    spawnerType: 1
+  - prefab: {fileID: 162986, guid: acc45e9b99e9b7744a1c267895b44b56, type: 2}
     rarity: 0.3
-  - spawnLocations:
-    - {fileID: 1985128062}
-    - {fileID: 1717007615}
-    prefab: {fileID: 149590, guid: 28eb6cc1a5c47644e9323d33a95fad07, type: 2}
-    rarity: 1
-  wave: 0
-  enemyMultiplyer: 2
-  enemiesInWave: 0
-  currentEnemiesInWave: 0
-  totalEnmiesInWave: 0
-  specialRound: 5
-  enemyLimit: 0
-  spawnCooldownInterval: 2.55
-  clouds:
-  - spawnLocations:
-    - {fileID: 1529088551}
-    - {fileID: 957967981}
-    prefab: {fileID: 175872, guid: 0425da4a036380749a85bc594ad85ec5, type: 2}
-    rarity: 0.1
-  - spawnLocations:
-    - {fileID: 1529088551}
-    - {fileID: 957967981}
-    prefab: {fileID: 115800, guid: ab4986c4dcf0ccc4b90e191e73962b80, type: 2}
-    rarity: 0.45
-  - spawnLocations:
-    - {fileID: 1529088551}
-    - {fileID: 957967981}
-    prefab: {fileID: 164264, guid: 8a9ae02cfea671a43957d05f9a8eb4a8, type: 2}
-    rarity: 0.84
-  spawnCooldownIntervalClouds: 8.3
+    spawnerType: 0
+  poolManager: {fileID: 94440581}
+  spawnObjects: []
+  spawnNextWave: 0
 --- !u!4 &708378602
 Transform:
   m_ObjectHideFlags: 0
@@ -5885,33 +5866,6 @@ SpriteRenderer:
   m_Color: {r: 0.63235295, g: 0.63235295, b: 0.63235295, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1 &957967980
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 957967981}
-  m_Layer: 0
-  m_Name: cloudSpanwerLeft
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &957967981
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 957967980}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.49, y: 0.41, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 94440580}
-  m_RootOrder: 5
 --- !u!1 &1013190074
 GameObject:
   m_ObjectHideFlags: 0
@@ -7849,33 +7803,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1 &1529088550
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1529088551}
-  m_Layer: 0
-  m_Name: cloudSpanwerRight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1529088551
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1529088550}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.49, y: 0.41, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 94440580}
-  m_RootOrder: 4
 --- !u!1 &1548161408
 GameObject:
   m_ObjectHideFlags: 0
@@ -9120,7 +9047,7 @@ GameObject:
   - 4: {fileID: 1717007615}
   m_Layer: 0
   m_Name: spiderSpawnerLeft
-  m_TagString: Untagged
+  m_TagString: GroundSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10737,7 +10664,7 @@ GameObject:
   - 4: {fileID: 1953733617}
   m_Layer: 0
   m_Name: birdSpawnerLeft
-  m_TagString: Untagged
+  m_TagString: SkySpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10880,7 +10807,7 @@ GameObject:
   - 4: {fileID: 1985128062}
   m_Layer: 0
   m_Name: spiderSpawnerRight
-  m_TagString: Untagged
+  m_TagString: GroundSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

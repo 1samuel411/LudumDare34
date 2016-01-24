@@ -36,8 +36,10 @@ public class PlayerWeaponHandler : MonoBehaviour
             }
             if (!alreadyOwned) {
                 //Adding new Weapon!
-                weapon.GetComponent<BoxCollider2D>().enabled = false;
-                weapon.GetComponent<BoxCollider2D>().enabled = false;
+                BoxCollider2D[] collider = weapon.GetComponents<BoxCollider2D>();
+                for (int i = 0; i < collider.Length; i++)
+                    collider[i].enabled = false;
+
                 Destroy(weapon.GetComponent(typeof(Rigidbody2D)));
                 weapon.transform.parent = this.transform;
                 weapon.transform.localPosition = weapon.pickupPosition;

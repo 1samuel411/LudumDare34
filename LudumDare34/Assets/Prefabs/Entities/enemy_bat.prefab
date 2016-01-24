@@ -723,8 +723,8 @@ MonoBehaviour:
   flapHeight: 0.27
   spawnHandlerDetails:
     setPoolManagerParent: 0
-    initialSpawnAmount: 4
-    overflowMaxSpawnAmount: 16
+    initialSpawnAmount: 0
+    overflowMaxSpawnAmount: 0
   spawnObject: {fileID: 0}
 --- !u!114 &11468354
 MonoBehaviour:
@@ -759,10 +759,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8857c0e82cc782e43ba29aea581e23ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
   currentHealth: 3
   dissolveSpeed: 1.2
   zoomable: 1
   dissolveable: 1
+  healthChanged: 1
   _died: 0
 --- !u!212 &21223826
 SpriteRenderer:

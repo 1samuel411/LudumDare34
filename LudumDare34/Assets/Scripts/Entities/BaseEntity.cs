@@ -74,7 +74,6 @@ public class BaseEntity : MonoBehaviour
         transform = GetComponent<Transform>();
         baseHealth = GetComponent<BaseHealth>();
 
-        targetEntity = GameObject.FindGameObjectWithTag("Player").GetComponent<BaseEntity>();
         _poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<PoolManager>();
         AwakeMethod();
     }
@@ -94,6 +93,7 @@ public class BaseEntity : MonoBehaviour
     public void Start()
     {
         StartMethod();
+        targetEntity = LevelManager.instance.player;
     }
 
     public virtual void StartMethod() { }

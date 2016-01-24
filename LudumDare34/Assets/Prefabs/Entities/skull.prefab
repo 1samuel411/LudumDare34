@@ -171,9 +171,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8857c0e82cc782e43ba29aea581e23ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 2
   currentHealth: 1
   dissolveSpeed: 1.5
+  zoomable: 1
   dissolveable: 1
+  healthChanged: 1
   _died: 0
 --- !u!114 &11481994
 MonoBehaviour:
@@ -194,7 +197,7 @@ MonoBehaviour:
     m_Bits: 33024
   faceTransform: {fileID: 419432}
   faceCheckHit: 0
-  faceCheckDist: 0.25
+  faceCheckDist: 0.43
   jumpSpeed: 15
   jumpHeight: 20
   speed: 28.2
@@ -212,7 +215,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   grounded: 0
-  groundCheckDist: 0.35
+  groundCheckDist: 0.37
   canMove: 1
   canJump: 1
   canScale: 1
@@ -223,9 +226,8 @@ MonoBehaviour:
   rigidbody: {fileID: 0}
   transform: {fileID: 0}
   damage: 1
-  skullSpeed: 70
-  skullSpeedInitial: 1.91
-  checkingAirTime: 0
+  skullSpeed: 0
+  skullSpeedInitial: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -251,7 +253,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: faceCheckDist
-      value: 0.25
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damage
@@ -296,6 +298,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Mass
       value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: groundCheckDist
+      value: 0.37
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

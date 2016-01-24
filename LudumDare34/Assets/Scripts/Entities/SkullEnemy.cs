@@ -46,6 +46,7 @@ public class SkullEnemy : BaseEntity
             if (healthFace)
                 healthFace.DealDamage(damage);
             // suicide on attack
+            baseHealth.zoomable = false;
             GetComponent<BaseHealth>().Die();
         }
     }

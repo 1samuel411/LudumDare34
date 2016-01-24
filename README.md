@@ -54,20 +54,20 @@ xx--Added Wave Tier System
 
 # Milestone 4
 @Art
---Player
---1 more enemy
+xx--Player
+xx--1 more enemy
 --story
 @Code
---Enemy bat AI
+xx--Enemy bat AI
 --Clouds
---Object Pooling
+xx--Object Pooling
 @UI
---Ammo display
---Weapon line up display
-**Display Ammo
-**Display Timer
+xx--Ammo display
+xx--Weapon line up display
+xx**Display Ammo
+xx**Display Timer
 --In-game menu
-**Player Health Bar
+xx**Player Health Bar
 --Main menu
 
 # Milestone 5
@@ -78,6 +78,7 @@ xx--Bear stances
 --Highscore frontend
 --Player Shop
 --New Enemy
+--Level MAnager
 @Art
 xx--Bear Import
 --Redesign gun

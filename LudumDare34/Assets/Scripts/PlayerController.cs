@@ -56,6 +56,9 @@ public class PlayerController : BaseEntity
         {
             animator.SetBool("oneHanded", false);
         }
+        if (baseHealth._died)
+            return;
+
         // Hard landing
         if (isBoosting && grounded)
         {

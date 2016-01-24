@@ -6,7 +6,7 @@ public class BasicEnemy : BaseEntity
 
     public int damage;
 
-    public override void StartMethod()
+    public override void OnEnable()
     {
         targetEntity = GameObject.FindGameObjectWithTag("Player").GetComponent<BaseEntity>();
         if (targetEntity.transform.position.x < transform.position.x)
@@ -17,6 +17,7 @@ public class BasicEnemy : BaseEntity
         {
             direction = -1;
         }
+        base.OnEnable();
     }
 
     public override void UpdateMethod ()

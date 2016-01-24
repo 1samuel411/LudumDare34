@@ -9,6 +9,9 @@ TagManager:
   - Weapon
   - EnemyBorder
   - WeaponList
+  - SkySpawner
+  - GroundSpawner
+  - PoolManager
   layers:
   - Default
   - TransparentFX

@@ -49,6 +49,8 @@ public class CameraManager : MonoBehaviour
 
     void Update()
     {
+        if (!PlayerController.instance)
+            return;
         _position.x = PlayerController.instance.transform.position.x;
         _position.x = Mathf.Clamp(_position.x, maxLeft, maxRight);
         if(!_zoomingIn && !_zoomingOut)

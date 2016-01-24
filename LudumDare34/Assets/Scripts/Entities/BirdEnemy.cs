@@ -15,7 +15,6 @@ public class BirdEnemy : BaseEntity
 
     private float originalFlapHeight;
     private float flapIndex;
-    private int _spawnHandlerKey;
     private bool _invokedSpawn = false;
     public SpawnHandlerDetails spawnHandlerDetails;
     public SpawnObject spawnObject;
@@ -52,6 +51,7 @@ public class BirdEnemy : BaseEntity
 
         if (faceCheckHit && faceCheckRaycastHit) {
             // suicide on attack
+            baseHealth.zoomable = false;
             GetComponent<BaseHealth>().Die();
         }
     }
