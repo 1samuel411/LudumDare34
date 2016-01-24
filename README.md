@@ -1,5 +1,5 @@
 # LudumDare34
-new ludum dare 34 project, sam and i. chya
+new ludum dare 34 project, sam and i. chya.
 
 # Legend
 ^^ = next milestone
