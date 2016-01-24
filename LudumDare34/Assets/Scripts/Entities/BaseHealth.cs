@@ -142,7 +142,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
             if (dissolveable)
                 dissolving = true;
 
-            gameObject.layer = 12;
+            //gameObject.layer = 12;
 
             if (type == Type.bat || type == Type.spider)
             {
