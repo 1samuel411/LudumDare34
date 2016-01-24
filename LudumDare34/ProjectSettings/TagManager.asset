@@ -8,10 +8,7 @@ TagManager:
   - Enemy
   - Weapon
   - EnemyBorder
-  - SkySpawner
-  - GroundSpawner
-  - PoolManager
-  - test
+  - WeaponList
   layers:
   - Default
   - TransparentFX
@@ -29,8 +26,8 @@ TagManager:
   - Border
   - Weapons
   - EnemyBorder
-  - 
-  - 
+  - Platform
+  - CloudBorder
   - 
   - 
   - 
@@ -46,9 +43,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Background
     uniqueID: 4158121719
     locked: 0
@@ -63,6 +57,9 @@ TagManager:
     locked: 0
   - name: Effects
     uniqueID: 2413137025
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: Player
     uniqueID: 2021991435

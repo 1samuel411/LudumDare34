@@ -7,6 +7,9 @@ public class CameraManager : MonoBehaviour
     public static Camera ourCam;
     public static CameraManager instance;
 
+    public float maxLeft;
+    public float maxRight;
+
     private float screenshakeRegSpeed = 2;
     private float screenshakeAmount = 0;
     private float screenshakeReduceAmount = 0;
@@ -46,6 +49,8 @@ public class CameraManager : MonoBehaviour
 
     void Update()
     {
+        _position.x = PlayerController.instance.transform.position.x;
+        _position.x = Mathf.Clamp(_position.x, maxLeft, maxRight);
         if(!_zoomingIn && !_zoomingOut)
             transform.position = Vector3.Lerp(transform.position, new Vector3(_position.x + Random.Range(-screenshakeAmount, screenshakeAmount), _position.y + Random.Range(-screenshakeAmount, screenshakeAmount), -10), screenshakeRegSpeed * Time.deltaTime);
 
@@ -80,7 +85,7 @@ public class CameraManager : MonoBehaviour
             _currentZoom = Mathf.Lerp(_currentZoom, _targetZoom, _zoomSpeed * Time.deltaTime);
             _curTimeScale = Mathf.Lerp(_curTimeScale, _targetTimeScale, _timeScaleSpeed * Time.deltaTime);
 
-            transform.position = Vector3.Lerp(transform.position, new Vector3(_targetPosition.x + Random.Range(-screenshakeAmount, screenshakeAmount), _targetPosition.y + Random.Range(-screenshakeAmount, screenshakeAmount), -10), _moveSpeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(_position.x + Random.Range(-screenshakeAmount, screenshakeAmount), _position.y + Random.Range(-screenshakeAmount, screenshakeAmount), -10), _moveSpeed * Time.deltaTime);
             ourCam.orthographicSize = _currentZoom;
             Time.timeScale = _curTimeScale;
 

@@ -993,7 +993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lastTimeModified: 635868549398835608
+  _lastTimeModified: 635868692551567921
   _vectorGraphics: {fileID: 11400000, guid: 85279b1ca4ee9cc4dba6de3a50bd343e, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _opaqueMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
@@ -1015,7 +1015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lastTimeModified: 635868549398835608
+  _lastTimeModified: 635868692551567921
   _vectorGraphics: {fileID: 11400000, guid: 85279b1ca4ee9cc4dba6de3a50bd343e, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _opaqueMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
@@ -1043,9 +1043,10 @@ MonoBehaviour:
   faceCheckMask:
     serializedVersion: 2
     m_Bits: 33024
-  faceTransform: {fileID: 495132}
+  faceTransform: {fileID: 439918}
   faceCheckHit: 0
-  faceCheckDist: 1.1
+  faceCheckDist: 0.65
+  faceCheckDistReg: 0
   jumpSpeed: 0
   jumpHeight: 0
   speed: 30
@@ -1099,7 +1100,9 @@ MonoBehaviour:
   type: 3
   currentHealth: 3
   dissolveSpeed: 1.2
+  zoomable: 1
   dissolveable: 1
+  healthChanged: 1
   _died: 0
 --- !u!114 &11421826
 MonoBehaviour:
@@ -1112,7 +1115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lastTimeModified: 635868549406106932
+  _lastTimeModified: 635868692551290367
   _vectorGraphics: {fileID: 11400000, guid: 479317e853b4bf249a7b527cc2f8a58d, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _opaqueMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
@@ -1134,7 +1137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lastTimeModified: 635868549398835608
+  _lastTimeModified: 635868692551567921
   _vectorGraphics: {fileID: 11400000, guid: 85279b1ca4ee9cc4dba6de3a50bd343e, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _opaqueMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
@@ -1156,7 +1159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lastTimeModified: 635868549394745807
+  _lastTimeModified: 635868692552281361
   _vectorGraphics: {fileID: 11400000, guid: 01d4c04cf27161840950e9be7f0574a7, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _opaqueMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
@@ -1178,7 +1181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lastTimeModified: 635868549398835608
+  _lastTimeModified: 635868692551567921
   _vectorGraphics: {fileID: 11400000, guid: 85279b1ca4ee9cc4dba6de3a50bd343e, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _opaqueMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
@@ -1200,7 +1203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lastTimeModified: 635868549406106932
+  _lastTimeModified: 635868692551290367
   _vectorGraphics: {fileID: 11400000, guid: 479317e853b4bf249a7b527cc2f8a58d, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _opaqueMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
@@ -1222,7 +1225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lastTimeModified: 635868549397966236
+  _lastTimeModified: 635870553742825557
   _vectorGraphics: {fileID: 11400000, guid: b8b76d672a02fb347b308923a57f1143, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _opaqueMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
@@ -1244,7 +1247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lastTimeModified: 635868549398835608
+  _lastTimeModified: 635868692551567921
   _vectorGraphics: {fileID: 11400000, guid: 85279b1ca4ee9cc4dba6de3a50bd343e, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _opaqueMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
@@ -1266,7 +1269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lastTimeModified: 635868549398835608
+  _lastTimeModified: 635868692551567921
   _vectorGraphics: {fileID: 11400000, guid: 85279b1ca4ee9cc4dba6de3a50bd343e, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _opaqueMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
@@ -1288,7 +1291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lastTimeModified: 635868549414464024
+  _lastTimeModified: 635868692550178535
   _vectorGraphics: {fileID: 11400000, guid: 8980f074be7c51f438d103358e43abef, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _opaqueMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
@@ -1363,6 +1366,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LinearDrag
       value: 6.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: faceCheckDist
+      value: 0.65
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -70,6 +70,33 @@ xx--Added Wave Tier System
 **Player Health Bar
 --Main menu
 
+# Milestone 5
+@Code
+xx--Bear mecanim
+xx--Bear stances
+--Highscore backend
+--Highscore frontend
+--Player Shop
+--New Enemy
+@Art
+xx--Bear Import
+--Redesign gun
+--Shop UI
+--New Enemy
+@UI
+--In-game menu
+--Shop
+--Comic book background
+--Story Images
+@Story
+--Story
+--Background
+
+Menu's
+
+Main Menu	- Play ->	Story (hold down 2 scs to skip) ->	Game;
+		- Store
+		- Options
 
 # NEEDED
 ***Object Pooling - FastPool or Create custom (decide)
@@ -90,6 +117,43 @@ Camera Style -> Super Smash Brothers
 # Story
 *Insert Stupid Story Here
 
+# Lines
+[Random]
+-(Tone: Serious, menacing laugh in last part)- It's time to give hugs and give love, but I'm all out of love...
+-(Tone: Serious)- You're gonna be tasting cotton tonight.
+-(Tone: Serious and concerned)- Tommy won't be defiling himself tonight.
+-(Tone: Serious and menacing)- You want a face full of teddy?
+-(Tone: Serious and menacing)- I'm going to bathe in your brains.
+-(Tone: Serious)- Eat my cotton you foul beasts.
+[Damaged]
+-(Tone: Serious and hurt)- My fabric... It's weakening...
+-(Tone: Serious and hurt)- You'll regret that...
+-(Tone: Serious and hurt)- Nooo...
+-(Tone: Serious and hurt)- "grunt"
+[Death]
+-(Tone: Defeated)- Tommy I let you down...
+-(Tone: Defeated)- No... Tommy...
+-(Tone: Defeated)- I won't stop fighting...
+-(Tone: Defeated)- I tried my best...
+[Win]
+-(Tone: Happy and completed)- Tommy sleeps sound another night.
+-(Tone: Happy and completed)- I've cleaned the floor with these beasts.
+-(Tone: Happy and completed)- I'll be needing a bath to clense myself of all this blood and brains...
+
+#Credits
+[Programmers]
+Alex Moreno
+Samuel Arminana
+[Artists]
+Samuel Arminana
+Nicolas Dalianides
+[Voices]
+Rob Vorch
+[Supporters]
+Jonathan Weinberger
+Alex Moreno
+Samuel Arminana
+Unity Bar & Grill <3
 
 # Game Extras
 Cloud based Level -> Super Mario

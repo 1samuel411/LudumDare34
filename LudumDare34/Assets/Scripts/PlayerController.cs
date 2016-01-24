@@ -24,14 +24,16 @@ public class PlayerController : BaseEntity
 
     public PlayerWeaponHandler weaponHandler;
     public BaseWeapon weapon;
+    public Animator animator;
 
     public static PlayerController instance;
 
     public override void AwakeMethod()
     {
+        animator = GetComponentInChildren<Animator>();
         instance = this;
 
-        if(weaponHandler == null)
+        if (weaponHandler == null)
             weaponHandler = this.GetComponentInChildren<PlayerWeaponHandler>();
 
         weaponHandler.AddFirstWeapon(ref weapon);
@@ -39,8 +41,23 @@ public class PlayerController : BaseEntity
 
     public override void UpdateMethod()
     {
+        // Animator
+        animator.SetBool("grounded", grounded);
+        animator.SetFloat("yvelocity", rigidbody.velocity.y);
+        if (_holdingLeftKey || _holdingRightKey)
+            animator.SetFloat("xvelocity", rigidbody.velocity.x);
+        else
+            animator.SetFloat("xvelocity", 0);
+        if (weapon.holdType == BaseWeapon.HoldType.Onehanded)
+        {
+            animator.SetBool("oneHanded", true);
+        }
+        else
+        {
+            animator.SetBool("oneHanded", false);
+        }
         // Hard landing
-        if(isBoosting && grounded)
+        if (isBoosting && grounded)
         {
             isBoosting = false;
             Instantiate(hardLandingExplosion, transform.position, Quaternion.identity);
@@ -51,7 +68,7 @@ public class PlayerController : BaseEntity
             for (int i = 0; i < leftBox.Length; i++)
             {
                 Vector3 distance = leftBox[i].transform.position - transform.position;
-                if(distance.magnitude < (hardLandingSize * hardLandingSize))
+                if (distance.magnitude < (hardLandingSize * hardLandingSize))
                 {
                     if (leftBox[i].collider.tag == "Enemy")
                     {
@@ -161,6 +178,7 @@ public class PlayerController : BaseEntity
                 if (_curHoldTimeJump > _targetHoldTimeJump)
                 {
                     // Jump
+                    animator.SetTrigger("jump");
                     Jump();
                     _holdingKeys = false;
                 }
@@ -211,13 +229,16 @@ public class PlayerController : BaseEntity
         }
 
         //change this to delegate call!
-        if (!weapon.weaponAttribute.CheckIfWeaponAvailable()) {
+        if (!weapon.weaponAttribute.CheckIfWeaponAvailable())
+        {
             EquipNextWeapon(weapon);
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D collider) {
-        if(string.CompareOrdinal(collider.tag, "Weapon") == 0) {
+    public void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (string.CompareOrdinal(collider.tag, "Weapon") == 0)
+        {
             Debug.Log("Found Weapon!");
             EquipNextWeapon(collider.GetComponent<BaseWeapon>());
         }

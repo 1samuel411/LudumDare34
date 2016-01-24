@@ -26,9 +26,9 @@ GameObject:
   - 61: {fileID: 6163056}
   - 50: {fileID: 5085770}
   - 61: {fileID: 6102884}
-  - 111: {fileID: 11171540}
   - 114: {fileID: 11476770}
   - 82: {fileID: 8261838}
+  - 111: {fileID: 11120288}
   m_Layer: 14
   m_Name: shotgunWeapon
   m_TagString: Weapon
@@ -61,8 +61,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 107506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.497, y: 0.114, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.488, y: 0.302, z: 0}
+  m_LocalScale: {x: 1.1041418, y: 1.1041417, z: 1.1041417}
   m_Children: []
   m_Father: {fileID: 429106}
   m_RootOrder: 0
@@ -73,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.54, y: -2.08, z: 0}
+  m_LocalPosition: {x: -4.7, y: -2.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 408310}
@@ -116,8 +116,8 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2021991435
-  m_SortingOrder: -8
+  m_SortingLayerID: 0
+  m_SortingOrder: 6
 --- !u!33 &3335796
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -141,7 +141,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6102884
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -155,7 +155,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1.25, y: 0.32}
+  m_Size: {x: 0.92, y: 0.32}
 --- !u!61 &6163056
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -169,7 +169,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1.44, y: 0.37}
+  m_Size: {x: 1.03, y: 0.37}
 --- !u!82 &8261838
 AudioSource:
   m_ObjectHideFlags: 1
@@ -245,7 +245,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!111 &11171540
+--- !u!111 &11120288
 Animation:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -253,9 +253,9 @@ Animation:
   m_GameObject: {fileID: 160590}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: b18f224ff45b7fe4fbe0937791071241, type: 2}
+  m_Animation: {fileID: 7400000, guid: 09852f3aa356d0746a52bcd457b5c1dd, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: b18f224ff45b7fe4fbe0937791071241, type: 2}
+  - {fileID: 7400000, guid: 09852f3aa356d0746a52bcd457b5c1dd, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -274,18 +274,22 @@ MonoBehaviour:
   name: Shotgun
   itemType: 0
   itemTexture: {fileID: 0}
+  weapon_image: {fileID: 0}
+  weapon_background: {fileID: 0}
+  weapon_asset: {fileID: 11400000, guid: 74481f3effb3a5e43b4016d0214090ba, type: 2}
+  scale: 73.36
+  holdType: 1
   isGunActive: 0
   isAutomatic: 1
   CanShoot: 1
   muzzleFlash: {fileID: 189622, guid: ffdf6c8a05207ee48a9e94b68bfe50bc, type: 2}
   pickupPosition: {x: 0, y: 0}
+  pickupScale: 1
   force: 0.67
   shootSound: {fileID: 8300000, guid: a7d709e502b0fe34d96adabc89c7e32b, type: 3}
   weaponTriggerSpeed: 1.15
   weaponEffect: 0
   weaponType: 0
-  spraySpread: 2
-  sprayAmount: 3
   projectile: {fileID: 170152, guid: 603701bd28e1dbb48b6e5b0040f0f780, type: 2}
   bulletSpawnBox: {fileID: 107506}
   weaponAttribute:
@@ -297,6 +301,8 @@ MonoBehaviour:
     maxAmountForAmmo: 6
     TimeToAddPerPickUp: 0
     ammoToAddPerPickUp: 3
+  spraySpread: 2
+  sprayAmount: 3
 --- !u!114 &11497990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -308,15 +314,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lastTimeModified: 635868549402155819
+  _lastTimeModified: 635871456380658692
   _vectorGraphics: {fileID: 11400000, guid: 757a0e20a7bdf7f479269616c10654ce, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _opaqueMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
   _transparentMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b,
     type: 2}
-  _sortingLayerID: 2021991435
-  _sortingLayerName: Player
-  _sortingOrder: -8
+  _sortingLayerID: 0
+  _sortingLayerName: Default
+  _sortingOrder: 6
   _overrideSorter: 0
   _overrideSorterChildren: 0
 --- !u!1001 &100100000
@@ -351,6 +357,15 @@ Prefab:
       propertyPath: shootSound
       value: 
       objectReference: {fileID: 8300000, guid: d850e0a6faa88ee4590a524d30c13dba, type: 3}
+    - target: {fileID: 0}
+      propertyPath: weapon_asset
+      value: 
+      objectReference: {fileID: 11400000, guid: 74481f3effb3a5e43b4016d0214090ba,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: scale
+      value: 76.93
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 160590}

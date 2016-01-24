@@ -31,9 +31,12 @@ public class BasicEnemy : BaseEntity
             BaseHealth healthFace = null;
             healthFace = faceCheckRaycastHit.transform.GetComponent<BaseHealth>();
             if (healthFace)
+            {
                 healthFace.DealDamage(damage);
+            }
             // suicide on attack
-            GetComponent<BaseHealth>().Die();
+            baseHealth.zoomable = false;
+            baseHealth.Die();
         }
     }
 }

@@ -6,17 +6,28 @@ using SVGImporter;
 
 public class BaseHealth : MonoBehaviour, IDamageable
 {
+
+    public enum Type { player, bat, skull, spider, cloud };
+    public Type type;
+    
     public int currentHealth = 1;
+    private int maxHealth;
 
     public float dissolveSpeed;
+    public bool zoomable = true;
     public bool dissolveable = true;
     private bool dissolving;
     private float _dissolveTime;
 
+    public bool healthChanged = true;
     public bool _died;
 
     private Material[] materials;
     private SVGRenderer[] renderers;
+
+    private Animator animator;
+
+    private SpawnObject sObj;
 
     public int CurrentHealth
     {
@@ -32,6 +43,8 @@ public class BaseHealth : MonoBehaviour, IDamageable
 
     void Awake()
     {
+        animator = GetComponentInChildren<Animator>();
+        maxHealth = currentHealth;
         List<SVGRenderer> renderersList = new List<SVGRenderer>();
         List<Material> materialsList = new List<Material>();
         SpriteRenderer[] childrenRenderers = GetComponentsInChildren<SpriteRenderer>();
@@ -45,10 +58,17 @@ public class BaseHealth : MonoBehaviour, IDamageable
         }
         materials = materialsList.ToArray();
         renderers = renderersList.ToArray();
+
+        sObj = this.gameObject.GetComponent<SpawnObject>();
     }
 
     void Update()
     {
+        if(type == Type.player)
+        {
+            animator.SetBool("dead", _died);
+            LevelManager.instance.healthImage.fillAmount = (float) currentHealth / (float)maxHealth;
+        }
         if(dissolving)
         {
             _dissolveTime += dissolveSpeed * Time.deltaTime;
@@ -60,7 +80,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
 
             if(_dissolveTime > 1)
             {
-                DestroyThisObject();
+                DisableThisObject();
             }
         }
     }
@@ -74,63 +94,50 @@ public class BaseHealth : MonoBehaviour, IDamageable
         return currentHealth;
     }
 
-    public void DestroyThisObject()
+    public void DisableThisObject()
     {
-        //SpawnObject sObj = this.gameObject.GetComponent<SpawnObject>();
-        //if(sObj != null)
-        //    PoolManager.DeactivateObjects(sObj);
-        GameObject.Destroy(this.gameObject);
+        // Stop Dissolving
+        dissolving = false;
+
+        // Reset Opacity
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            Color newColor = renderers[i].color;
+            newColor.a = 1;
+            renderers[i].color = newColor;
+        }
+
+        // Deactivate
+        if(sObj != null)
+            PoolManager.DeactivateObjects(sObj);
+        //GameObject.Destroy(this.gameObject);
     }
 
     public void Die()
     {
-        int zoomInDecider = Random.Range(0, 100);
-        if(zoomInDecider > 75) {
-            // Add effect
-            CameraManager.ShakeScreen(2, 1.5f);
-            CameraManager.ZoomIn(8, 2.4f, 4, 0.3f, transform.position, 5, 1);
-        }
+        if (!_died)
+        {
+            _died = true;
 
-        //Leave this in, the camera shake is causing issues at the moment, due to a threading issue.
-        //Its a logic problem.
-        SpawnObject sObj = this.gameObject.GetComponent<SpawnObject>();
-        if(sObj != null)
-            PoolManager.DeactivateObjects(sObj);
-        else {
-            //temporary fix.
+            int zoomInDecider = Random.Range(0, 100);
+            if (zoomInDecider > 75)
+            {
+                // Add effect
+                CameraManager.ShakeScreen(2, 1.5f);
+                CameraManager.ZoomIn(8, 2.4f, 4, 0.3f, transform.position, 5, 1);
+            }
+
             // Add dissolve effect
-            if(dissolveable)
+            if (dissolveable)
                 dissolving = true;
+
+            gameObject.layer = 12;
+
+            if (type == Type.bat || type == Type.spider)
+            {
+                //LevelManager.instance.totalEnmiesInWave--;
+            }
         }
-
-        //gameObject.layer = 12;
     }
-
-    //public void Die()
-    //{
-    //    if (!_died)
-    //    {
-    //        _died = true;
-
-    //        int zoomInDecider = Random.Range(0, 100);
-    //        if (zoomInDecider > 75)
-    //        {
-    //            // Add effect
-    //            CameraManager.ShakeScreen(2, 1.5f);
-    //            CameraManager.ZoomIn(8, 2.4f, 4, 0.3f, transform.position, 5, 1);
-    //        }
-
-    //        // Add dissolve effect
-    //        if (dissolveable)
-    //            dissolving = true;
-
-    //        gameObject.layer = 12;
-
-    //        if(type == Type.bat || type == Type.spider)
-    //        {
-    //            //LevelManager.instance.totalEnmiesInWave--;
-    //        }
-    //    }
-    //}
     #endregion
 }
