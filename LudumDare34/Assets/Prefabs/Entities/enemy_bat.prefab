@@ -724,7 +724,7 @@ MonoBehaviour:
   spawnHandlerDetails:
     setPoolManagerParent: 0
     initialSpawnAmount: 4
-    overflowMaxSpawnAmount: 8
+    overflowMaxSpawnAmount: 16
   spawnObject: {fileID: 0}
 --- !u!114 &11468354
 MonoBehaviour:
@@ -834,7 +834,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: spawnHandlerDetails.overflowMaxSpawnAmount
-      value: 8
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: skullSpawner
@@ -843,6 +843,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: skullSpawningInterval
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: isBoosting
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

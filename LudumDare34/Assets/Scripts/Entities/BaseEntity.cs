@@ -79,7 +79,11 @@ public class BaseEntity : MonoBehaviour
         AwakeMethod();
     }
 
-    public virtual void OnEnable() {
+    public virtual void OnEnable()
+    {
+        airTime = targetAirTime = targetAirTimeBoost = 0;
+        curJumpCooldownTime = totalJumpCooldownTime= 0;
+        faceCheckHit = false;
         canJump = true;
         isJumping = false;
         grounded = false;
@@ -131,8 +135,7 @@ public class BaseEntity : MonoBehaviour
         }
 
         // Stop jumping when we hit the ground if we are jumping and we've been in the air long enough
-        if (grounded && isJumping && airTime > targetAirTime)
-        {
+        if (grounded && isJumping && airTime >= targetAirTime) {
             FinishJump();
         }
 
@@ -211,10 +214,7 @@ public class BaseEntity : MonoBehaviour
     {
         // Disable movement
         canJump = false;
-        //canMove = false;
         isJumping = true;
-
-        Debug.Log("This Jumped! " + gameObject.name);
 
         airTime = Time.time;
         targetAirTime = Time.time + airTimeNeeded;
