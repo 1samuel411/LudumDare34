@@ -67,7 +67,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
         if(type == Type.player)
         {
             animator.SetBool("dead", _died);
-            LevelManager.instance.healthImage.fillAmount = (float) currentHealth / (float)maxHealth;
+            //LevelManager.instance.healthImage.fillAmount = (float) currentHealth / (float)maxHealth;
         }
         if(dissolving)
         {
@@ -80,7 +80,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
 
             if(_dissolveTime > 1)
             {
-                DisableThisObject();
+                DestroyThisObject();
             }
         }
     }
@@ -94,7 +94,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
         return currentHealth;
     }
 
-    public void DisableThisObject()
+    public void DestroyThisObject()
     {
         // Stop Dissolving
         dissolving = false;
