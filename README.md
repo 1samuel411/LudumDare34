@@ -1,7 +1,7 @@
 # LudumDare34
 new ludum dare 34 project, sam and i. chya.
 
-# Legend
+# Legend #
 ^^ = next milestone
 xx = finished/completed
 ** = sub details of previous line.
