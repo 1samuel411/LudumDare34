@@ -9,6 +9,8 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour
 {
 
+    public int score;
+    public Text scoreText;
     public static LevelManager instance;
 
     [HideInInspector]
@@ -86,6 +88,7 @@ public class LevelManager : MonoBehaviour
     #endregion
 
     void Update () {
+        scoreText.text = score.ToString();
         if(spawnNextWave) {
             curWaveText.text = _wave.ToString();
             NextWave();

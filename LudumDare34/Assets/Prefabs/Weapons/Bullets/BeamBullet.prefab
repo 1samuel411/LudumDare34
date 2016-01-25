@@ -118,7 +118,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1070858827
   m_SortingOrder: 0
-  m_Time: 0.08
+  m_Time: 0.09
   m_StartWidth: 0.28
   m_EndWidth: 0.12
   m_Colors:
@@ -249,6 +249,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: bulletLife
       value: 0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Time
+      value: 0.09
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

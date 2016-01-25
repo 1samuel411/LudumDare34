@@ -118,7 +118,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1070858827
   m_SortingOrder: 0
-  m_Time: 0.04
+  m_Time: 0.1
   m_StartWidth: 0.144
   m_EndWidth: 0.03
   m_Colors:
@@ -256,7 +256,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Time
-      value: 0.04
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x

@@ -2118,7 +2118,6 @@ MonoBehaviour:
   faceTransform: {fileID: 0}
   faceCheckHit: 0
   faceCheckDist: 0
-  faceCheckDistReg: 0
   jumpSpeed: 15
   jumpHeight: 40
   speed: 40

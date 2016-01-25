@@ -139,10 +139,7 @@ public class BaseEntity : MonoBehaviour
             FinishJump();
         }
 
-        if (!grounded)
-        {
-            airTime += Time.deltaTime;
-        }
+        airTime += Time.deltaTime;
 
         if (!canJump)
             curJumpCooldownTime += Time.deltaTime;

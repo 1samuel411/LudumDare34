@@ -199,7 +199,7 @@ MonoBehaviour:
   faceCheckHit: 0
   faceCheckDist: 0.43
   jumpSpeed: 15
-  jumpHeight: 20
+  jumpHeight: 23
   speed: 28.2
   maxVelocity: 2
   regSpeed: 0
@@ -215,7 +215,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   grounded: 0
-  groundCheckDist: 0.37
+  groundCheckDist: 0.32
   canMove: 1
   canJump: 1
   canScale: 1
@@ -281,7 +281,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: jumpHeight
-      value: 20
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: jumpSpeed
@@ -301,7 +301,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: groundCheckDist
-      value: 0.37
+      value: 0.32
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
