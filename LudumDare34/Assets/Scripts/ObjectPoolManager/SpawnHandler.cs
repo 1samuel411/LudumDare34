@@ -52,7 +52,8 @@ public class SpawnHandler: MonoBehaviour {
 
         if (spawnObjs.Any()) {
             if (location == null) {
-                int num = UnityEngine.Random.Range(0, spawnLocations.Count - 1);
+                int num = UnityEngine.Random.Range(0, spawnLocations.Count);
+                Debug.Log("Location Count: " + spawnLocations.Count + " Element Number: " + num);
                 Vector3 pos = spawnLocations.ElementAt(num).transform.position;
                 spawnObjs.First().ActivateObject(pos);
             } else {

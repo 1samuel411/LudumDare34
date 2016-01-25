@@ -76,7 +76,7 @@ public class PoolManager : MonoBehaviour
         if (allSPawnObjects.Any()) {
             Dictionary<int, SpawnObject> spawnObjs = allSPawnObjects.Where(s => s.Value.spawnHandler.spawnHandlerKey.Equals(spawnHandlerKey)).ToDictionary(v => v.Key, v => v.Value);
             if (spawnObjs.Any()) {
-                KeyValuePair<int, SpawnObject> sObj = spawnObjs.First(s => s.Value.name.Contains(spawnObject.name.Trim()));
+                KeyValuePair<int, SpawnObject> sObj = spawnObjs.FirstOrDefault(s => s.Value.name.Contains(spawnObject.name.Trim()));
                 //if the object exists, with a handler, return the existing object.
                 if (!sObj.Equals(default(KeyValuePair<int, SpawnObject>))) {
                     return sObj.Value;
