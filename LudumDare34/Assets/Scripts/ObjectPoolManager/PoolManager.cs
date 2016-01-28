@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Configuration;
 using System.Runtime.CompilerServices;
 
 public class PoolManager : MonoBehaviour
@@ -11,10 +12,18 @@ public class PoolManager : MonoBehaviour
     private int _miscSpawnHandler;
     private int _spawnObjectsKey;
 
+    private bool _isInitialized = false;
+
     public Dictionary<int, SpawnHandler> allSpawnHandlers;
     public Dictionary<int, SpawnObject> allSPawnObjects; 
 
     public void Awake() {
+        if(!_isInitialized)
+            Initalize();
+    }
+
+    private void Initalize() {
+        _isInitialized = true;
         allSPawnObjects = new Dictionary<int, SpawnObject>();
         allSpawnHandlers = new Dictionary<int, SpawnHandler>();
         _keys = CreateNewSpawnHandler();
@@ -40,6 +49,8 @@ public class PoolManager : MonoBehaviour
     /// <param name="setPoolManagerParent">Should this spawnHandler be a child of the PoolManager?</param>
     /// <returns>The Spawn Handler Number.</returns>
     public int CreateNewSpawnHandler(GameObject spawnHandler, SpawnHandlerDetails handlerDetails) {
+        if(!_isInitialized)
+            Initalize();
         SpawnHandler handler = spawnHandler.GetComponent<SpawnHandler>();
         if (handler == null) {
             spawnHandler.AddComponent<SpawnHandler>();
@@ -50,6 +61,8 @@ public class PoolManager : MonoBehaviour
         int value = ++_keys;
         handler.AddSpawnerLocation();
         handler.AddDetails(handlerDetails, value);
+        Debug.Log(string.Format("values: {0}, handler: {1}, spawnHandlerCount:{2}", 
+            value, handler.gameObject.name, allSpawnHandlers.Count()));
         allSpawnHandlers.Add(value,handler);
         return value;
     }

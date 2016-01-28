@@ -34,6 +34,10 @@ public class BaseWeapon : BaseItem
     private new Animation animation;
     private new AudioSource audio;
 
+    protected PoolManager _poolManager;
+    protected int _spawnHandlerKey;
+    protected SpawnObject _spawnObject;
+
     public void Awake()
     {
         animation = GetComponent<Animation>();
@@ -42,10 +46,25 @@ public class BaseWeapon : BaseItem
             bulletSpawnBox =  this.gameObject;
 
         this.name = (string.IsNullOrEmpty(this.name)) ? gameObject.name : this.name;
+        _poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<PoolManager>();
         Initialize();
     }
 
-    protected virtual void Initialize() { }
+    protected virtual void Initialize()
+    {
+        SpawnHandlerDetails sph = new SpawnHandlerDetails() {
+            initialSpawnAmount = 4,
+            overflowMaxSpawnAmount = 8,
+            setPoolManagerParent = false
+        };
+        _spawnHandlerKey = _poolManager.CreateNewSpawnHandler(bulletSpawnBox, sph);
+        _spawnObject = _poolManager.AddToSpawnPool(projectile);
+        _projectile = _spawnObject.gameObject.GetComponent<Projectile>();
+    }
+
+    public virtual void OnEnable() {
+        
+    }
 
     public int DamagePerBullet() {
         return _projectile.damage;
@@ -58,9 +77,9 @@ public class BaseWeapon : BaseItem
 
     protected virtual void SpawnBullets(float rotation = 0.0f) { // Make bullet
         bulletSpawnBox.transform.localEulerAngles = new Vector3(0, 0, rotation);
-        GameObject newProjectileObject = GameObject.Instantiate(projectile, bulletSpawnBox.transform.position, (Quaternion)bulletSpawnBox.transform.rotation) as GameObject;
-        newProjectileObject.transform.localScale = new Vector3((PlayerController.instance.direction == 1) ? 1 : -1, 1);
-        _projectile = newProjectileObject.GetComponent<Projectile>(); //may need to fix this?
+        _poolManager.SpawnAt(_spawnObject, bulletSpawnBox.transform);
+        _spawnObject.gameObject.transform.localScale = new Vector3((PlayerController.instance.direction == 1) ? 1 : -1, 1);
+        //_projectile = newProjectileObject.GetComponent<Projectile>(); //may need to fix this?
     }
 
     public IEnumerator FireWeapon() {
