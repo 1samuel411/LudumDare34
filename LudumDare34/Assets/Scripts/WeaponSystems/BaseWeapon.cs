@@ -37,9 +37,9 @@ public class BaseWeapon : BaseItem
     protected PoolManager _poolManager;
     protected int _spawnHandlerKey;
     protected SpawnObject _spawnObject;
+    private bool _isInitialized = false;
 
-    public void Awake()
-    {
+    public void Awake() {
         animation = GetComponent<Animation>();
         audio = GetComponent<AudioSource>();
         if (bulletSpawnBox == null)
@@ -50,16 +50,20 @@ public class BaseWeapon : BaseItem
         Initialize();
     }
 
-    protected virtual void Initialize()
-    {
-        SpawnHandlerDetails sph = new SpawnHandlerDetails() {
-            initialSpawnAmount = 4,
-            overflowMaxSpawnAmount = 8,
-            setPoolManagerParent = false
-        };
-        _spawnHandlerKey = _poolManager.CreateNewSpawnHandler(bulletSpawnBox, sph);
-        _spawnObject = _poolManager.AddToSpawnPool(projectile);
-        _projectile = _spawnObject.gameObject.GetComponent<Projectile>();
+    protected virtual void Initialize() {
+        if (!_isInitialized) {
+            Debug.Log("This was triggered for: " + this.name);
+            SpawnHandlerDetails sph = new SpawnHandlerDetails()
+            {
+                initialSpawnAmount = 4,
+                overflowMaxSpawnAmount = 8,
+                setPoolManagerParent = false
+            };
+            _spawnHandlerKey = _poolManager.CreateNewSpawnHandler(bulletSpawnBox, sph);
+            _spawnObject = _poolManager.AddToSpawnPool(projectile, true);
+            _projectile = _spawnObject.gameObject.GetComponent<Projectile>();
+            _isInitialized = true;
+        }
     }
 
     public virtual void OnEnable() {
@@ -82,7 +86,11 @@ public class BaseWeapon : BaseItem
         //_projectile = newProjectileObject.GetComponent<Projectile>(); //may need to fix this?
     }
 
-    public IEnumerator FireWeapon() {
+    public IEnumerator FireWeapon()
+    {
+        if(!_isInitialized)
+            Initialize();
+
         while (isGunActive) {
             if (PlayerController.instance.baseHealth._died)
                 yield break;

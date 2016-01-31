@@ -27,12 +27,9 @@ public class PlayerWeaponHandler : MonoBehaviour
 
             bool alreadyOwned = false;
             //Check if already Owned!
-            for(int i = 0; i < weaponsOwned.Count; i++)
-            {
+            for(int i = 0; i < weaponsOwned.Count; i++) {
                 if(weaponsOwned[i] == weapon.name)
-                {
                     alreadyOwned = true;
-                }
             }
             if (!alreadyOwned) {
                 //Adding new Weapon!
@@ -137,9 +134,7 @@ public class PlayerWeaponHandler : MonoBehaviour
             //Add an order by, to prioritize next available weapon by strength.
             IEnumerable<BaseWeapon> nonCoreWeapons = availableWeapons.Where(w => w.weaponAttribute.coreWeapon == false);
             baseWeapon = (nonCoreWeapons.Count() > 0) ? nonCoreWeapons.First() : availableWeapons.First();
-        }
-        else
-        {
+        } else {
             baseWeapon = availableWeapons.First();
         }
 

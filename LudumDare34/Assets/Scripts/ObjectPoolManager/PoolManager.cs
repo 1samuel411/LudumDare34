@@ -10,6 +10,7 @@ public class PoolManager : MonoBehaviour
     public int currentActiveSpawns = 0;
     private int _keys;
     private int _miscSpawnHandler;
+    private int _wepSpawnHandler;
     private int _spawnObjectsKey;
 
     private bool _isInitialized = false;
@@ -26,17 +27,18 @@ public class PoolManager : MonoBehaviour
         _isInitialized = true;
         allSPawnObjects = new Dictionary<int, SpawnObject>();
         allSpawnHandlers = new Dictionary<int, SpawnHandler>();
-        _keys = CreateNewSpawnHandler();
+        _keys = CreateNewSpawnHandler("MiscSpawnHandler", 10);
         _miscSpawnHandler = _keys;
+        _wepSpawnHandler = CreateNewSpawnHandler("WepSpawnHandler", 50);
         _spawnObjectsKey = 0;
     }
 
     #region SpawnHandler
-    protected int CreateNewSpawnHandler() {
-        GameObject obj = new GameObject("MiscSpawnHandler");
+    protected int CreateNewSpawnHandler(string spawnHandlerName, int overflowMax) {
+        GameObject obj = new GameObject(spawnHandlerName);
         SpawnHandlerDetails sph = new SpawnHandlerDetails() {
             initialSpawnAmount = 5,
-            overflowMaxSpawnAmount = 10,
+            overflowMaxSpawnAmount = overflowMax,
             setPoolManagerParent = true
         };
         return CreateNewSpawnHandler(obj, sph);
@@ -74,8 +76,10 @@ public class PoolManager : MonoBehaviour
     #endregion
 
     //Add newly instantiated objects to the spawnPool, as misc.
-    public SpawnObject AddToSpawnPool(GameObject spawnObject) {
-        return AddToSpawnPool(spawnObject, _miscSpawnHandler);
+    public SpawnObject AddToSpawnPool(GameObject spawnObject, bool isWeapon = false) {
+        if (!isWeapon)
+            return AddToSpawnPool(spawnObject, _miscSpawnHandler);    
+        return AddToSpawnPool(spawnObject, _wepSpawnHandler);
     }
 
     public SpawnObject AddToSpawnPool(GameObject spawnObject, int spawnHandlerKey) {
@@ -108,6 +112,8 @@ public class PoolManager : MonoBehaviour
 
     //Spawn this object @ location.
     public void SpawnAt(SpawnObject spawnObject, Transform location) {
+        if(spawnObject == null)
+            throw new UnityException("SpawnObject was not Given!");
         KeyValuePair<int, SpawnObject> sObj = allSPawnObjects.FirstOrDefault(s =>
                                         s.Key.Equals(spawnObject.spawnObjectKey));
         if(sObj.Equals(default(KeyValuePair<int, SpawnObject>)))
