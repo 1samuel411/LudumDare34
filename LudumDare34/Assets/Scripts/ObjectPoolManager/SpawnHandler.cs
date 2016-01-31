@@ -54,10 +54,11 @@ public class SpawnHandler: MonoBehaviour {
             if (location == null) {
                 int num = UnityEngine.Random.Range(0, spawnLocations.Count);
                 Debug.Log("Location Count: " + spawnLocations.Count + " Element Number: " + num);
-                Vector3 pos = spawnLocations.ElementAt(num).transform.position;
-                spawnObjs.First().ActivateObject(pos);
+                //Vector3 pos = spawnLocations.ElementAt(num).transform.position;
+                Transform trans = spawnLocations.ElementAt(num).transform;
+                spawnObjs.First().ActivateObject(trans);
             } else {
-                spawnObjs.First().ActivateObject(location.position);
+                spawnObjs.First().ActivateObject(location);
             }
         } else if (overFlowMaxSpawnAmount >= _curSpawnAmount) {
             Debug.Log("Could not find an inactive SpawnObject in collection, instantiating new object.");

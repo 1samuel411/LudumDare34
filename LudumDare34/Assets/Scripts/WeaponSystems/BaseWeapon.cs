@@ -83,7 +83,6 @@ public class BaseWeapon : BaseItem
         bulletSpawnBox.transform.localEulerAngles = new Vector3(0, 0, rotation);
         _poolManager.SpawnAt(_spawnObject, bulletSpawnBox.transform);
         _spawnObject.gameObject.transform.localScale = new Vector3((PlayerController.instance.direction == 1) ? 1 : -1, 1);
-        //_projectile = newProjectileObject.GetComponent<Projectile>(); //may need to fix this?
     }
 
     public IEnumerator FireWeapon()
