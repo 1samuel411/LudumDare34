@@ -29,13 +29,14 @@ GameObject:
   - 114: {fileID: 11476770}
   - 82: {fileID: 8261838}
   - 111: {fileID: 11120288}
+  - 114: {fileID: 11414336}
   m_Layer: 14
   m_Name: shotgunWeapon
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &175056
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +261,17 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &11414336
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce62cc0df556f649abd1979ea62e9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11476770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -301,6 +313,7 @@ MonoBehaviour:
     maxAmountForAmmo: 6
     TimeToAddPerPickUp: 0
     ammoToAddPerPickUp: 3
+  weapon: 2
   spraySpread: 2
   sprayAmount: 3
 --- !u!114 &11497990
@@ -365,6 +378,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: scale
       value: 76.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: weapon
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

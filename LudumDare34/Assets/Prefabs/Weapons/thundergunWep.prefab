@@ -14,13 +14,14 @@ GameObject:
   - 111: {fileID: 11111406}
   - 114: {fileID: 11413000}
   - 82: {fileID: 8200700}
+  - 114: {fileID: 11472018}
   m_Layer: 14
   m_Name: thundergunWep
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &168914
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +302,18 @@ MonoBehaviour:
     maxAmountForAmmo: 0
     TimeToAddPerPickUp: 2
     ammoToAddPerPickUp: 0
+  weapon: 3
+--- !u!114 &11472018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce62cc0df556f649abd1979ea62e9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11486210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -363,6 +376,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: scale
       value: 76.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: weapon
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

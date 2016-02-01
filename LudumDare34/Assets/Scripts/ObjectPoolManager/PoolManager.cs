@@ -8,10 +8,10 @@ using System.Runtime.CompilerServices;
 public class PoolManager : MonoBehaviour
 {
     public int currentActiveSpawns = 0;
-    private int _keys;
-    private int _miscSpawnHandler;
-    private int _wepSpawnHandler;
-    private int _spawnObjectsKey;
+    protected int _keys;
+    protected int _miscSpawnHandler;
+    protected int _wepSpawnHandler;
+    protected int _spawnObjectsKey;
 
     private bool _isInitialized = false;
 
@@ -23,13 +23,13 @@ public class PoolManager : MonoBehaviour
             Initalize();
     }
 
-    private void Initalize() {
+    protected virtual void Initalize() {
         _isInitialized = true;
         allSPawnObjects = new Dictionary<int, SpawnObject>();
         allSpawnHandlers = new Dictionary<int, SpawnHandler>();
         _keys = CreateNewSpawnHandler("MiscSpawnHandler", 10);
         _miscSpawnHandler = _keys;
-        _wepSpawnHandler = CreateNewSpawnHandler("WepSpawnHandler", 50);
+        _wepSpawnHandler = CreateNewSpawnHandler("BulletSpawnHandler", 50);
         _spawnObjectsKey = 0;
     }
 
@@ -37,7 +37,7 @@ public class PoolManager : MonoBehaviour
     protected int CreateNewSpawnHandler(string spawnHandlerName, int overflowMax) {
         GameObject obj = new GameObject(spawnHandlerName);
         SpawnHandlerDetails sph = new SpawnHandlerDetails() {
-            initialSpawnAmount = 5,
+            initialSpawnAmount = 2,
             overflowMaxSpawnAmount = overflowMax,
             setPoolManagerParent = true
         };
@@ -63,8 +63,6 @@ public class PoolManager : MonoBehaviour
         int value = ++_keys;
         handler.AddSpawnerLocation();
         handler.AddDetails(handlerDetails, value);
-        Debug.Log(string.Format("values: {0}, handler: {1}, spawnHandlerCount:{2}", 
-            value, handler.gameObject.name, allSpawnHandlers.Count()));
         allSpawnHandlers.Add(value,handler);
         return value;
     }
@@ -76,8 +74,8 @@ public class PoolManager : MonoBehaviour
     #endregion
 
     //Add newly instantiated objects to the spawnPool, as misc.
-    public SpawnObject AddToSpawnPool(GameObject spawnObject, bool isWeapon = false) {
-        if (!isWeapon)
+    public SpawnObject AddToSpawnPool(GameObject spawnObject, bool isBullet = false) {
+        if (!isBullet)
             return AddToSpawnPool(spawnObject, _miscSpawnHandler);    
         return AddToSpawnPool(spawnObject, _wepSpawnHandler);
     }
@@ -130,7 +128,6 @@ public class PoolManager : MonoBehaviour
 
     public static void DeactivateObjects(SpawnObject obj) {
         PoolManager pm = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<PoolManager>();
-        Debug.Log("Deactivate Print Value: " + obj.spawnObjectKey);
         pm.DeactivateObject(obj);
     }
 #endregion

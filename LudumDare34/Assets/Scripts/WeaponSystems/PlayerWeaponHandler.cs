@@ -16,7 +16,6 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     public void PickedUpWeapon(BaseWeapon weapon)
     {
-        Debug.Log(weapon.name);
         //Check the weapon doesn't have a parent
         if (weapon.gameObject.transform.parent == null) {
             // Add effect

@@ -30,6 +30,7 @@ public class BaseWeapon : BaseItem
     protected IList<Projectile> _projectiles;
     private Projectile _projectile;
     public WeaponAttributes weaponAttribute;
+    public Weapons weapon;
 
     private new Animation animation;
     private new AudioSource audio;
@@ -134,9 +135,9 @@ public class BaseWeapon : BaseItem
         }
     }
 
-    public void DestroyWeapon()
-    {
-        GameObject.Destroy(this.gameObject);
+    public void DestroyWeapon() {
+        //GameObject.Destroy(this.gameObject);
+        this.ActivateGun(false);
     }
 
     public void ResetWeaponAttributes()

@@ -1114,10 +1114,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 94440579}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b3054703df44a040b41f713e4f7c2c7, type: 3}
+  m_Script: {fileID: 11500000, guid: cb980f1b6deb32e47b21f53bc9b8f307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentActiveSpawns: 0
+  WeaponObjects:
+  - {fileID: 11481796, guid: a29d836d2285a484c8faf2feecdc9967, type: 2}
+  - {fileID: 11476770, guid: 9128e21b2be8e644ab9e794627d2ac41, type: 2}
+  - {fileID: 11413000, guid: c91be496bd1aee94e83ccdb5afdac853, type: 2}
+  - {fileID: 11433454, guid: 791d5750764a1ab49bbb061ad4ad3395, type: 2}
 --- !u!1 &96765014
 GameObject:
   m_ObjectHideFlags: 0
@@ -2700,7 +2705,7 @@ Transform:
   - {fileID: 36162890}
   - {fileID: 712708843}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!1 &432680991
 GameObject:
   m_ObjectHideFlags: 0
@@ -4567,7 +4572,7 @@ MonoBehaviour:
   - prefab: {fileID: 149590, guid: 28eb6cc1a5c47644e9323d33a95fad07, type: 2}
     rarity: 0.3
     spawnerType: 1
-  poolManager: {fileID: 94440581}
+  poolManager: {fileID: 0}
   spawnObjects: []
   spawnNextWave: 0
 --- !u!4 &708378602
@@ -11411,7 +11416,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 12
 --- !u!1 &2095571074
 GameObject:
   m_ObjectHideFlags: 0

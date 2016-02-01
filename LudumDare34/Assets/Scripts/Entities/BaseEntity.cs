@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class BaseEntity : MonoBehaviour
 {
@@ -55,10 +56,11 @@ public class BaseEntity : MonoBehaviour
     public bool knockedBack = false;
     public bool isJumping = false;
     public bool isBoosting = false;
+    private bool _firstTrigger = false;
 
     private float _targetRecoverTime;
     private float _currentRecoverTime;
-    protected PoolManager _poolManager;
+    protected extWepPoolManager _poolManager;
 
     [HideInInspector]
     public BaseHealth baseHealth;
@@ -74,7 +76,7 @@ public class BaseEntity : MonoBehaviour
         transform = GetComponent<Transform>();
         baseHealth = GetComponent<BaseHealth>();
 
-        _poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<PoolManager>();
+        _poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<extWepPoolManager>();
         AwakeMethod();
     }
 
@@ -86,6 +88,20 @@ public class BaseEntity : MonoBehaviour
         canJump = true;
         isJumping = false;
         grounded = false;
+    }
+
+    public virtual void OnDisable() {
+        if(_firstTrigger)
+            if (SpawnWeapon()) {
+                SpawnObject obj = _poolManager.RandomWeapon();
+                _poolManager.SpawnAt(obj, this.transform);
+            }
+        if(!_firstTrigger)
+            _firstTrigger = true;
+    }
+
+    protected bool SpawnWeapon() {
+        return true;
     }
 
     public virtual void AwakeMethod() { }

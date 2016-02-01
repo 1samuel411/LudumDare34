@@ -27,6 +27,7 @@ public class LevelManager : MonoBehaviour
     private float cooldownTimer;
     private int _skySpawner;
     private int _groundSpawner;
+    private int _weaponSpawner;
     private int _wave;
     public bool spawnNextWave = false;
 
@@ -46,18 +47,47 @@ public class LevelManager : MonoBehaviour
 	    poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<PoolManager>();
         spawnObjects = new List<SpawnObject>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<BaseEntity>();
-        InitializeSpawners();
+        InitializeEnemySpawners();
+    }
+
+    void Start() {
+        //InitializeWeaponSpawner();
+
     }
 
     #region SpawnInitializer
-    private void InitializeSpawners() {
+
+    //private void InitializeWeaponSpawner() {
+    //    SpawnHandlerDetails sph = new SpawnHandlerDetails() {
+    //        initialSpawnAmount = 1,
+    //        overflowMaxSpawnAmount = 12,
+    //        setPoolManagerParent = true
+    //    };
+    //    string tag = "WeaponSpawner";
+
+    //    GameObject obj = new GameObject(tag);
+    //    obj.tag = tag;
+    //    _weaponSpawner = CreateSpawnHandlers(tag, sph);
+    //    Debug.Log("Triggered with #" + _weaponSpawner);
+
+
+    //    foreach (var wep in weapons) {
+    //        AddWeaponToSpawnPool(wep.gameObject);
+    //    }
+    //}
+
+    //private void AddWeaponToSpawnPool(GameObject weapon) {
+    //    weaponSpawnObjects.Add(poolManager.AddToSpawnPool(weapon, _weaponSpawner));
+    //}
+
+    private void InitializeEnemySpawners() {
         SpawnHandlerDetails sph = new SpawnHandlerDetails() {
             initialSpawnAmount = 5,
             overflowMaxSpawnAmount = 10,
             setPoolManagerParent = true
         };
-        _skySpawner = CreateEnemySpawnHandlers(enemySpawnerType.SkySpawner.ToString(), sph);
-        _groundSpawner = CreateEnemySpawnHandlers(enemySpawnerType.GroundSpawner.ToString(), sph);
+        _skySpawner = CreateSpawnHandlers(enemySpawnerType.SkySpawner.ToString(), sph);
+        _groundSpawner = CreateSpawnHandlers(enemySpawnerType.GroundSpawner.ToString(), sph);
 
         foreach(var enemy in enemies) {
             SpawnObject sObj = new SpawnObject();
@@ -70,7 +100,7 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Initialized was successful!");
     }
 	
-    private int CreateEnemySpawnHandlers(string tag, SpawnHandlerDetails shd) {
+    private int CreateSpawnHandlers(string tag, SpawnHandlerDetails shd) {
         GameObject[] spawnHandlers = GameObject.FindGameObjectsWithTag(tag);
         int value = -1;
         int cnt = 0;

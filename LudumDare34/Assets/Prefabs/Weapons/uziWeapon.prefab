@@ -14,13 +14,14 @@ GameObject:
   - 111: {fileID: 11115382}
   - 114: {fileID: 11433454}
   - 82: {fileID: 8205616}
+  - 114: {fileID: 11428010}
   m_Layer: 14
   m_Name: uziWeapon
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &172018
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +284,17 @@ MonoBehaviour:
   _sortingOrder: 6
   _overrideSorter: 0
   _overrideSorterChildren: 0
+--- !u!114 &11428010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 116610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce62cc0df556f649abd1979ea62e9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11433454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -324,6 +336,7 @@ MonoBehaviour:
     maxAmountForAmmo: 40
     TimeToAddPerPickUp: 0
     ammoToAddPerPickUp: 15
+  weapon: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -12,6 +12,7 @@ TagManager:
   - SkySpawner
   - GroundSpawner
   - PoolManager
+  - WeaponSpawner
   layers:
   - Default
   - TransparentFX
