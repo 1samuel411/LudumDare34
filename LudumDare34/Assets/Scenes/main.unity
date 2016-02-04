@@ -4558,6 +4558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a341e0708c12a145bb29717833afa0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
+  scoreText: {fileID: 0}
   player: {fileID: 0}
   healthImage: {fileID: 816666992}
   weaponUIList: {fileID: 2139489751}
@@ -11399,6 +11401,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2093530718}
+  - 114: {fileID: 2093530719}
   m_Layer: 0
   m_Name: VoiceManager
   m_TagString: Untagged
@@ -11418,6 +11421,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
+--- !u!114 &2093530719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2093530717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a84e02ba3dacbe488825a048c059f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startSounds: []
+  killSounds: []
+  dieSounds: []
+  damagedSounds: []
+  winSounds: []
+  audioSource: {fileID: 0}
 --- !u!1 &2095571074
 GameObject:
   m_ObjectHideFlags: 0

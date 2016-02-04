@@ -53,7 +53,6 @@ public class BaseWeapon : BaseItem
 
     protected virtual void Initialize() {
         if (!_isInitialized) {
-            Debug.Log("This was triggered for: " + this.name);
             SpawnHandlerDetails sph = new SpawnHandlerDetails()
             {
                 initialSpawnAmount = 4,

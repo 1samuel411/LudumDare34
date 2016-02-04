@@ -40,12 +40,8 @@ public class PlayerController : BaseEntity
     public override void StartMethod()
     {
         weaponHandler.AddFirstWeapon(ref weapon);
-        base.StartMethod();
-    }
-    
-    public override void StartMethod()
-    {
         VoiceManager.instance.PlayStartSound();
+        base.StartMethod();
     }
 
     public override void UpdateMethod()
