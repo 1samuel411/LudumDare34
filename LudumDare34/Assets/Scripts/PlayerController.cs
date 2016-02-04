@@ -35,8 +35,12 @@ public class PlayerController : BaseEntity
 
         if (weaponHandler == null)
             weaponHandler = this.GetComponentInChildren<PlayerWeaponHandler>();
+    }
 
+    public override void StartMethod()
+    {
         weaponHandler.AddFirstWeapon(ref weapon);
+        base.StartMethod();
     }
     
     public override void StartMethod()

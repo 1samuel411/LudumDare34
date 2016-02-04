@@ -3,7 +3,6 @@ using System.Collections;
 using System.Configuration;
 using System.Collections.Generic;
 using SVGImporter;
-using UnityStandardAssets.ImageEffects;
 
 public class BaseHealth : MonoBehaviour, IDamageable
 {
@@ -29,9 +28,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
     private Animator animator;
 
     private SpawnObject sObj;
-    private BaseEntity _base;
-    private VignetteAndChromaticAberration _vignette;
-    
+
     public int CurrentHealth
     {
         get { return currentHealth; }
@@ -63,11 +60,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
         renderers = renderersList.ToArray();
 
         sObj = this.gameObject.GetComponent<SpawnObject>();
-        _base = this.gameObject.GetComponent<BaseEntity>();
-        _vignette = Camera.main.GetComponent<VignetteAndChromaticAberration>();
     }
-
-    bool diedEffectPlayed = false;
 
     void Update()
     {
@@ -75,18 +68,6 @@ public class BaseHealth : MonoBehaviour, IDamageable
         {
             animator.SetBool("dead", _died);
             LevelManager.instance.healthImage.fillAmount = (float) currentHealth / (float)maxHealth;
-            if (_died)
-            {
-                _vignette.intensity += 5 * Time.deltaTime;
-                _vignette.intensity = Mathf.Clamp(_vignette.intensity, 0, 20);
-                if (!diedEffectPlayed)
-                {
-                    diedEffectPlayed = true;
-                    // Add effect
-                    CameraManager.ShakeScreen(1.6f, 0.3f);
-                    CameraManager.ZoomIn(8, 2.4f, 4, 0.6f, transform.position, 5, 100);
-                }
-            }
         }
         else if(dissolving)
         {
@@ -108,24 +89,8 @@ public class BaseHealth : MonoBehaviour, IDamageable
 
     public int DealDamage(int damage)
     {
-        if (type == Type.player)
-        {
-            if (!_base.isBoosting)
-            {
-                CurrentHealth -= damage;
-            }
-
-            if (!_died)
-            {
-                int randomNum = Random.Range(0, 100);
-                if (randomNum > 60)
-                    VoiceManager.instance.PlayDamagedSound();
-            }
-        }
-        else
-        {
-            CurrentHealth -= damage;
-        }
+        CurrentHealth -= damage;
+        //Implement MissChance.
         return currentHealth;
     }
 
@@ -166,29 +131,22 @@ public class BaseHealth : MonoBehaviour, IDamageable
                 }
             }
 
+            if(type == Type.player)
+            {
+                // Add effect
+                CameraManager.ShakeScreen(1.2f, 0.1f);
+                CameraManager.ZoomIn(8, 2.4f, 4, 0.6f, transform.position, 5, 100);
+            }
+
             // Add dissolve effect
             if (dissolveable)
                 dissolving = true;
 
+            //gameObject.layer = 12;
+
             if (type == Type.bat || type == Type.spider)
             {
-                if(type == Type.skull)
-                    LevelManager.instance.score += Random.Range(0, maxHealth + 2);
-                else
-                    LevelManager.instance.score += Random.Range(0, maxHealth * 5);
                 //LevelManager.instance.totalEnmiesInWave--;
-            }
-
-            if(type == Type.player)
-            {
-                VoiceManager.instance.PlayDieSound();
-            }
-
-            if(type != Type.player)
-            {
-                int randomNum = Random.Range(0, 100);
-                if(randomNum > 80)
-                    VoiceManager.instance.PlayKillSound();
             }
         }
     }

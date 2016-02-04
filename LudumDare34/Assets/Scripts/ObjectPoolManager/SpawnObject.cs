@@ -21,12 +21,10 @@ public class SpawnObject: MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    public void ActivateObject(Vector3 startingLocation)
-    {
+    public void ActivateObject(Transform startingTransform) {
         //We're giving it a start position and re-invoking "awake" to "fake" an instantiation
-        this.gameObject.transform.position = startingLocation;
+        this.gameObject.transform.position = startingTransform.position;
+        this.gameObject.transform.rotation = startingTransform.rotation;
         this.gameObject.SetActive(true);
-        //Need to Update this to "fake" an instantiation
-        //SendMessage("Awake", SendMessageOptions.DontRequireReceiver);
     }
 }

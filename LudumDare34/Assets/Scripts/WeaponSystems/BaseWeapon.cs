@@ -30,22 +30,46 @@ public class BaseWeapon : BaseItem
     protected IList<Projectile> _projectiles;
     private Projectile _projectile;
     public WeaponAttributes weaponAttribute;
+    public Weapons weapon;
 
     private new Animation animation;
     private new AudioSource audio;
 
-    public void Awake()
-    {
+    protected PoolManager _poolManager;
+    protected int _spawnHandlerKey;
+    protected SpawnObject _spawnObject;
+    private bool _isInitialized = false;
+
+    public void Awake() {
         animation = GetComponent<Animation>();
         audio = GetComponent<AudioSource>();
         if (bulletSpawnBox == null)
             bulletSpawnBox =  this.gameObject;
 
         this.name = (string.IsNullOrEmpty(this.name)) ? gameObject.name : this.name;
+        _poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<PoolManager>();
         Initialize();
     }
 
-    protected virtual void Initialize() { }
+    protected virtual void Initialize() {
+        if (!_isInitialized) {
+            Debug.Log("This was triggered for: " + this.name);
+            SpawnHandlerDetails sph = new SpawnHandlerDetails()
+            {
+                initialSpawnAmount = 4,
+                overflowMaxSpawnAmount = 8,
+                setPoolManagerParent = false
+            };
+            _spawnHandlerKey = _poolManager.CreateNewSpawnHandler(bulletSpawnBox, sph);
+            _spawnObject = _poolManager.AddToSpawnPool(projectile, true);
+            _projectile = _spawnObject.gameObject.GetComponent<Projectile>();
+            _isInitialized = true;
+        }
+    }
+
+    public virtual void OnEnable() {
+        
+    }
 
     public int DamagePerBullet() {
         return _projectile.damage;
@@ -58,12 +82,15 @@ public class BaseWeapon : BaseItem
 
     protected virtual void SpawnBullets(float rotation = 0.0f) { // Make bullet
         bulletSpawnBox.transform.localEulerAngles = new Vector3(0, 0, rotation);
-        GameObject newProjectileObject = GameObject.Instantiate(projectile, bulletSpawnBox.transform.position, (Quaternion)bulletSpawnBox.transform.rotation) as GameObject;
-        newProjectileObject.transform.localScale = new Vector3((PlayerController.instance.direction == 1) ? 1 : -1, 1);
-        _projectile = newProjectileObject.GetComponent<Projectile>(); //may need to fix this?
+        _poolManager.SpawnAt(_spawnObject, bulletSpawnBox.transform);
+        _spawnObject.gameObject.transform.localScale = new Vector3((PlayerController.instance.direction == 1) ? 1 : -1, 1);
     }
 
-    public IEnumerator FireWeapon() {
+    public IEnumerator FireWeapon()
+    {
+        if(!_isInitialized)
+            Initialize();
+
         while (isGunActive) {
             if (PlayerController.instance.baseHealth._died)
                 yield break;
@@ -108,9 +135,9 @@ public class BaseWeapon : BaseItem
         }
     }
 
-    public void DestroyWeapon()
-    {
-        GameObject.Destroy(this.gameObject);
+    public void DestroyWeapon() {
+        //GameObject.Destroy(this.gameObject);
+        this.ActivateGun(false);
     }
 
     public void ResetWeaponAttributes()

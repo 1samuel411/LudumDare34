@@ -19,12 +19,7 @@ public class Projectile : MonoBehaviour
 
     private float updatedTime;
 
-    public void Start()
-    {
-        updatedTime = Time.time;
-        currentBulletLife = Time.time + bulletLife;
-        direction = PlayerController.instance.direction;
-    }
+    public void Start() { }
 
     public void Update()
     {
@@ -33,8 +28,16 @@ public class Projectile : MonoBehaviour
 
         updatedTime += Time.deltaTime;
         if (updatedTime > currentBulletLife)
-            RemoveBullet();
+            this.gameObject.SetActive(false);
     }
+
+    public void OnEnable() {
+        updatedTime = Time.time;
+        currentBulletLife = Time.time + bulletLife;
+        direction = PlayerController.instance.direction;
+    }
+
+    public void OnDisable() { }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
@@ -50,7 +53,7 @@ public class Projectile : MonoBehaviour
                 SpawnImpact();
             }
         }
-        RemoveBullet();
+        this.gameObject.SetActive(false);
     }
 
     void SpawnImpact()
@@ -63,11 +66,6 @@ public class Projectile : MonoBehaviour
         impactEffectObj.transform.localScale = new Vector3(impactEffectSize, impactEffectSize, impactEffectSize);
         Animation impactEffectAnimation = impactEffectObj.GetComponent<Animation>();
         CameraManager.ShakeScreen(impactScreenshake, 3);
-    }
-
-    void RemoveBullet()
-    {
-        GameObject.Destroy(this.gameObject);
     }
 }
 

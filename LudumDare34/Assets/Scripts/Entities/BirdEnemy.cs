@@ -63,7 +63,8 @@ public class BirdEnemy : BaseEntity
             StartCoroutine(Spawn());
     }
 
-    public void OnDisable() {
+    public override void OnDisable() {
+        base.OnDisable();
         StopCoroutine(Spawn());
     }
 
