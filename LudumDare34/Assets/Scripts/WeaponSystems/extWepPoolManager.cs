@@ -9,19 +9,18 @@ using Random = UnityEngine.Random;
 public class extWepPoolManager : PoolManager {
 
     public BaseWeapon[] WeaponObjects;
-    public Dictionary<int, SpawnObject> weaponSpawnObjects;
+    public List<SpawnObject> weaponSpawnObjects;
 
     protected override void Initalize() {
         base.Initalize();
-        weaponSpawnObjects = new Dictionary<int, SpawnObject>();
+        weaponSpawnObjects = new List<SpawnObject>();
         int value = 0;
         foreach (BaseWeapon wep in WeaponObjects) {
             value = CreateNewSpawnHandler(string.Format("{0}SpawnHandler"
                                                 , wep.weapon.ToString()), 3);
             SpawnObject obj = AddToSpawnPool(wep.gameObject, value);
-            Spawn(obj);
-            obj.DeactivateObject();
-            weaponSpawnObjects.Add(value, obj);
+            Spawn(obj).gameObject.SetActive(false);
+            weaponSpawnObjects.Add(obj);
         }
     }
 
@@ -30,17 +29,17 @@ public class extWepPoolManager : PoolManager {
         SpawnObject obj;
         if(!weaponSpawnObjects.Any())
             throw new Exception("Weapon Objects does not contain weapons in Spawn Pool.");
-        IEnumerable<SpawnObject> allWeaponObjs = from allWeaps in weaponSpawnObjects
-                                join allHandlers in allSpawnHandlers on allWeaps.Key 
-                                equals allHandlers.Key //into weaponHandlers
-                                select new SpawnObject();
+        int num = Random.Range(0, weaponSpawnObjects.Count);
+        SpawnObject weaponSpawnObject = weaponSpawnObjects.ElementAt(num);
 
-        IEnumerable<SpawnObject> deactiveWeapons = allWeaponObjs.Where(s => s.gameObject.activeSelf.Equals(false));
-        Debug.Log("The number of weapon Objects are: " + deactiveWeapons.Count());
-        int num = Random.Range(0, deactiveWeapons.Count());
-        obj = deactiveWeapons.ElementAt(num);
+        return weaponSpawnObject;
+        //KeyValuePair<int, SpawnObject> spawnObj = allSPawnObjects.Where(o => o.Value.gameObject.activeSelf == false).
+        //    FirstOrDefault(s => s.Key.Equals(weaponSpawnObject.spawnObjectKey));
 
-        return obj;
+
+        //obj = (!spawnObj.Equals(default(KeyValuePair<int, SpawnObject>)))
+        //    ? spawnObj.Value : RandomWeapon();
+        //return obj;
     }
 }
 

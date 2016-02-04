@@ -41,6 +41,7 @@ public class PoolManager : MonoBehaviour
             overflowMaxSpawnAmount = overflowMax,
             setPoolManagerParent = true
         };
+        obj.tag = "SpawnHandler";
         return CreateNewSpawnHandler(obj, sph);
     }
 
@@ -104,12 +105,12 @@ public class PoolManager : MonoBehaviour
         return spawnObj;
     }
 
-    public void Spawn(SpawnObject spawnObject) {
-        SpawnAt(spawnObject, null);
+    public SpawnObject Spawn(SpawnObject spawnObject) {
+        return SpawnAt(spawnObject, null);
     }
 
     //Spawn this object @ location.
-    public void SpawnAt(SpawnObject spawnObject, Transform location) {
+    public SpawnObject SpawnAt(SpawnObject spawnObject, Transform location) {
         if(spawnObject == null)
             throw new UnityException("SpawnObject was not Given!");
         KeyValuePair<int, SpawnObject> sObj = allSPawnObjects.FirstOrDefault(s =>
@@ -118,7 +119,7 @@ public class PoolManager : MonoBehaviour
             throw new UnityException("SpawnObject does not Exist in Pool Manager!");
         //Get me a list of all Handlers that reference this "spawnerKey"
         KeyValuePair<int, SpawnHandler> referenceHandlers = allSpawnHandlers.FirstOrDefault(s => s.Value.spawnHandlerKey == sObj.Value.spawnHandler.spawnHandlerKey);
-        referenceHandlers.Value.SpawnObject(sObj, location);
+        return referenceHandlers.Value.SpawnObject(sObj, location);
     }
 
 #region deactivatingObjects

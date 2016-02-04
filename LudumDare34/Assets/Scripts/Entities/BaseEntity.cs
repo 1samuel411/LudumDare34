@@ -101,7 +101,12 @@ public class BaseEntity : MonoBehaviour
     }
 
     protected bool SpawnWeapon() {
-        return true;
+        bool bOk = false;
+        float num = Random.Range(0.0f, 1.0f);
+        //Percent chance of spawning a weapon.
+        if (num < 0.25f)
+            bOk = true;
+        return bOk;
     }
 
     public virtual void AwakeMethod() { }

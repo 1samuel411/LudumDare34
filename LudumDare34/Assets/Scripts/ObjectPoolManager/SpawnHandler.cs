@@ -44,7 +44,8 @@ public class SpawnHandler: MonoBehaviour {
         AddSpawnerLocation(this.gameObject);
     }
 
-    public void SpawnObject(KeyValuePair<int, SpawnObject> spawnObj, Transform location = null) {
+    public SpawnObject SpawnObject(KeyValuePair<int, SpawnObject> spawnObj, Transform location = null) {
+        SpawnObject sObj = null;
         //Get All InactiveGameObjects from the SpawnHandler.
         IEnumerable<SpawnObject> spawnObjs = gameObject.GetComponentsInChildren<SpawnObject>(true)
                                                 .Where(s => s.gameObject.activeSelf.Equals(false) &&
@@ -56,9 +57,11 @@ public class SpawnHandler: MonoBehaviour {
                 Debug.Log("Location Count: " + spawnLocations.Count + " Element Number: " + num);
                 //Vector3 pos = spawnLocations.ElementAt(num).transform.position;
                 Transform trans = spawnLocations.ElementAt(num).transform;
-                spawnObjs.First().ActivateObject(trans);
+                sObj = spawnObjs.First();
+                sObj.ActivateObject(trans);
             } else {
-                spawnObjs.First().ActivateObject(location);
+                sObj = spawnObjs.First();
+                sObj.ActivateObject(location);
             }
         } else if (overFlowMaxSpawnAmount >= _curSpawnAmount) {
             Debug.Log("Could not find an inactive SpawnObject in collection, instantiating new object.");
@@ -66,10 +69,11 @@ public class SpawnHandler: MonoBehaviour {
                 InstantiateObject(spawnObj.Value);
             else
                 InstantiateAllObjects(spawnObj.Value);
-            SpawnObject(spawnObj, location);
+            sObj = SpawnObject(spawnObj, location);
         } else {
             Debug.Log("Hit Overflow Max Spawn, cannot instantiate anymore Objects.");
         }
+        return sObj;
     }
 
     public void InstantiateObject(SpawnObject obj) {

@@ -17,7 +17,8 @@ public class PlayerWeaponHandler : MonoBehaviour
     public void PickedUpWeapon(BaseWeapon weapon)
     {
         //Check the weapon doesn't have a parent
-        if (weapon.gameObject.transform.parent == null) {
+        if(weapon.gameObject.transform.parent == null || 
+            string.CompareOrdinal(weapon.gameObject.transform.parent.tag, "SpawnHandler") == 0) {
             // Add effect
             CameraManager.ShakeScreen(2, 1.5f);
             CameraManager.ZoomIn(8, 3.2f, 4, 0.3f, transform.position, 5, 1);

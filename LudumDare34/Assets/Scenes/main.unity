@@ -1123,6 +1123,7 @@ MonoBehaviour:
   - {fileID: 11476770, guid: 9128e21b2be8e644ab9e794627d2ac41, type: 2}
   - {fileID: 11413000, guid: c91be496bd1aee94e83ccdb5afdac853, type: 2}
   - {fileID: 11433454, guid: 791d5750764a1ab49bbb061ad4ad3395, type: 2}
+  weaponSpawnObjects: []
 --- !u!1 &96765014
 GameObject:
   m_ObjectHideFlags: 0
