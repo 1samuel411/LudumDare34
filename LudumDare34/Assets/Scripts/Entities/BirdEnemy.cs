@@ -19,9 +19,7 @@ public class BirdEnemy : BaseEntity
     public SpawnHandlerDetails spawnHandlerDetails;
     public SpawnObject spawnObject;
 
-    public override void Awake() {
-        base.Awake();
-
+    public override void AwakeMethod() {
         if (!_invokedSpawn) {
             spawnObject = _poolManager.AddToSpawnPool(skull);
             _invokedSpawn = true;

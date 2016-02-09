@@ -13,6 +13,9 @@ public class SkullEnemy : BaseEntity
     public override void OnEnable() {
         this.GetComponent<Rigidbody2D>().AddForce(new Vector2(((direction == 1) ?
                 -skullSpeedInitial : skullSpeedInitial), -3), ForceMode2D.Impulse);
+        this.rigidbody = GetComponent<Rigidbody2D>();
+        rigidbody.AddForce(new Vector2(0, 2), ForceMode2D.Impulse);
+        changedDirection = false;
         base.OnEnable();
     }
 

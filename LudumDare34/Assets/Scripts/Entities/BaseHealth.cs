@@ -31,6 +31,8 @@ public class BaseHealth : MonoBehaviour, IDamageable
     private SpawnObject sObj;
     private BaseEntity _base;
     private VignetteAndChromaticAberration _vignette;
+
+    private int _defaultLayer;
     
     public int CurrentHealth
     {
@@ -65,6 +67,8 @@ public class BaseHealth : MonoBehaviour, IDamageable
         sObj = this.gameObject.GetComponent<SpawnObject>();
         _base = this.gameObject.GetComponent<BaseEntity>();
         _vignette = Camera.main.GetComponent<VignetteAndChromaticAberration>();
+
+        _defaultLayer = gameObject.layer;
     }
 
     bool diedEffectPlayed = false;
@@ -134,6 +138,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
         // Stop Dissolving
         dissolving = false;
         _died = false;
+        gameObject.layer = _defaultLayer;
 
         // Reset Opacity
         for (int i = 0; i < renderers.Length; i++)
@@ -153,6 +158,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
     {
         if (!_died)
         {
+            gameObject.layer = 12;
             _died = true;
 
             if (zoomable)

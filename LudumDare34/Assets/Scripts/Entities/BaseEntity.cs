@@ -218,14 +218,14 @@ public class BaseEntity : MonoBehaviour
         targetAirTimeBoost = Time.time + airTimeNeededToBoostDown;
 
         // Give air boost
-        rigidbody.AddForce(new Vector2(0, jumpHeight * jumpSpeed) * Time.deltaTime / Time.timeScale, ForceMode2D.Impulse);
+        rigidbody.AddForce(new Vector2(0, jumpHeight * jumpSpeed) * Time.deltaTime, ForceMode2D.Impulse);
     }
 
     public void BoostDown(float modifier = 1)
     {
         isBoosting = true;
         // Give air boost
-        rigidbody.AddForce(new Vector2(0, -jumpHeight * jumpSpeed * modifier) * Time.deltaTime / Time.timeScale, ForceMode2D.Impulse);
+        rigidbody.AddForce(new Vector2(0, -jumpHeight * jumpSpeed * modifier) * Time.deltaTime, ForceMode2D.Impulse);
     }
 
     void FinishJump()

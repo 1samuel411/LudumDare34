@@ -227,7 +227,7 @@ MonoBehaviour:
   transform: {fileID: 0}
   damage: 1
   skullSpeed: 0
-  skullSpeedInitial: 0
+  skullSpeedInitial: 3
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -273,11 +273,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: skullSpeed
-      value: 70
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: skullSpeedInitial
-      value: 1.91
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: jumpHeight
