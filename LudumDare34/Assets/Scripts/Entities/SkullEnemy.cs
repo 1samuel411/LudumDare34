@@ -5,12 +5,16 @@ public class SkullEnemy : BaseEntity
 {
 
     private bool changedDirection = false;
+    private bool hitFloorOnce = false;
     public int damage;
 
     public float skullSpeed; //remember regSpeed
     public float skullSpeedInitial;
 
     public override void OnEnable() {
+        hitFloorOnce = false;
+        if (!baseHealth)
+            baseHealth = GetComponent<BaseHealth>();
         this.GetComponent<Rigidbody2D>().AddForce(new Vector2(((direction == 1) ?
                 -skullSpeedInitial : skullSpeedInitial), -3), ForceMode2D.Impulse);
         base.OnEnable();
@@ -19,13 +23,14 @@ public class SkullEnemy : BaseEntity
     public override void UpdateMethod()
     {
         if (grounded) {
+            hitFloorOnce = true;
             if (direction == 1)
                 MoveLeft();
             else if (direction == -1)
                 MoveRight();
         }
 
-        if(!changedDirection && grounded) {
+        if(!changedDirection && grounded && hitFloorOnce) {
             changedDirection = true;
             if (targetEntity.transform.position.x < transform.position.x) {
                 direction = 1;
@@ -47,7 +52,8 @@ public class SkullEnemy : BaseEntity
                 healthFace.DealDamage(damage);
             // suicide on attack
             baseHealth.zoomable = false;
-            GetComponent<BaseHealth>().Die();
+            baseHealth.addScore = false;
+            baseHealth.Die();
         }
     }
 }

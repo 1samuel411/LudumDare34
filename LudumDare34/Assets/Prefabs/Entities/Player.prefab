@@ -2118,7 +2118,6 @@ MonoBehaviour:
   faceTransform: {fileID: 0}
   faceCheckHit: 0
   faceCheckDist: 0
-  faceCheckDistReg: 0
   jumpSpeed: 15
   jumpHeight: 40
   speed: 40
@@ -2174,6 +2173,9 @@ MonoBehaviour:
   dissolveable: 1
   healthChanged: 1
   _died: 0
+  addScore: 0
+  minScore: 0
+  maxScore: 0
 --- !u!114 &11433194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2250,6 +2252,7 @@ MonoBehaviour:
     maxAmountForAmmo: 0
     TimeToAddPerPickUp: 0
     ammoToAddPerPickUp: 0
+  weapon: 0
 --- !u!137 &13736592
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

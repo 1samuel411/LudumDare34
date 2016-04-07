@@ -16,9 +16,9 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     public void PickedUpWeapon(BaseWeapon weapon)
     {
-        Debug.Log(weapon.name);
         //Check the weapon doesn't have a parent
-        if (weapon.gameObject.transform.parent == null) {
+        if(weapon.gameObject.transform.parent == null || 
+            string.CompareOrdinal(weapon.gameObject.transform.parent.tag, "SpawnHandler") == 0) {
             // Add effect
             CameraManager.ShakeScreen(2, 1.5f);
             CameraManager.ZoomIn(8, 3.2f, 4, 0.3f, transform.position, 5, 1);
@@ -27,12 +27,9 @@ public class PlayerWeaponHandler : MonoBehaviour
 
             bool alreadyOwned = false;
             //Check if already Owned!
-            for(int i = 0; i < weaponsOwned.Count; i++)
-            {
+            for(int i = 0; i < weaponsOwned.Count; i++) {
                 if(weaponsOwned[i] == weapon.name)
-                {
                     alreadyOwned = true;
-                }
             }
             if (!alreadyOwned) {
                 //Adding new Weapon!
@@ -78,8 +75,10 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     IEnumerator UIPickup(BaseWeapon wep)
     {
-        wep.weapon_image.gameObject.SetActive(true);
-        wep.weapon_background.gameObject.SetActive(true);
+        if(wep.weapon_image)
+            wep.weapon_image.gameObject.SetActive(true);
+        if(wep.weapon_background)
+            wep.weapon_background.gameObject.SetActive(true);
         pickingUpWep = true;
 
         float alpha = 0;
@@ -137,9 +136,7 @@ public class PlayerWeaponHandler : MonoBehaviour
             //Add an order by, to prioritize next available weapon by strength.
             IEnumerable<BaseWeapon> nonCoreWeapons = availableWeapons.Where(w => w.weaponAttribute.coreWeapon == false);
             baseWeapon = (nonCoreWeapons.Count() > 0) ? nonCoreWeapons.First() : availableWeapons.First();
-        }
-        else
-        {
+        } else {
             baseWeapon = availableWeapons.First();
         }
 

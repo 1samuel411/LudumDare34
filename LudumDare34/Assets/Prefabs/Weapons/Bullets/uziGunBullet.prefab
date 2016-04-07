@@ -29,6 +29,7 @@ GameObject:
   - 61: {fileID: 6142020}
   - 96: {fileID: 9643260}
   - 114: {fileID: 11463762}
+  - 114: {fileID: 11402290}
   m_Layer: 10
   m_Name: uziGunBullet
   m_TagString: Bullet
@@ -42,9 +43,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170152}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.022421071, y: -0.021353083, z: -0.0004789887, w: 0.9995205}
   m_LocalPosition: {x: -6.658, y: -1.671, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 0}
   m_Children:
   - {fileID: 465014}
   m_Father: {fileID: 0}
@@ -77,7 +78,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6142020
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -118,7 +119,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1070858827
   m_SortingOrder: 0
-  m_Time: 0.04
+  m_Time: 0.1
   m_StartWidth: 0.144
   m_EndWidth: 0.03
   m_Colors:
@@ -139,6 +140,17 @@ TrailRenderer:
       rgba: 2649012
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
+--- !u!114 &11402290
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce62cc0df556f649abd1979ea62e9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11423812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -150,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc82cb80c25d5f94481d30459e5d67f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impact_effect: {fileID: 149054, guid: 58706a2b821cd6d4aa6572cc3b748c16, type: 2}
+  impactType: 1
   blood_effects:
   - {fileID: 175554, guid: 3b46a2b2710d6334b86a34857dde914d, type: 2}
   - {fileID: 118706, guid: 6da9c45111cac894b9e44e4c11d76f68, type: 2}
@@ -163,6 +175,7 @@ MonoBehaviour:
   knockbackTime: 0.11
   projectileSpeed: 20
   bulletLife: 0.4
+  impactAmounts: 2
 --- !u!114 &11463762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -256,7 +269,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Time
-      value: 0.04
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x

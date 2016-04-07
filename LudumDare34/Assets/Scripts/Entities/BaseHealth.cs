@@ -12,6 +12,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
     
     public int currentHealth = 1;
     private int maxHealth;
+    private int defaultHealth;
 
     public float dissolveSpeed;
     public bool zoomable = true;
@@ -21,6 +22,11 @@ public class BaseHealth : MonoBehaviour, IDamageable
 
     public bool healthChanged = true;
     public bool _died;
+
+    public bool addScore;
+    private bool _addScore;
+    public int minScore;
+    public int maxScore;
 
     private Material[] materials;
     private SVGRenderer[] renderers;
@@ -43,7 +49,9 @@ public class BaseHealth : MonoBehaviour, IDamageable
 
     void Awake()
     {
+        _addScore = addScore;
         animator = GetComponentInChildren<Animator>();
+        defaultHealth = currentHealth;
         maxHealth = currentHealth;
         List<SVGRenderer> renderersList = new List<SVGRenderer>();
         List<Material> materialsList = new List<Material>();
@@ -85,12 +93,35 @@ public class BaseHealth : MonoBehaviour, IDamageable
         }
     }
 
+    public void OnEnable()
+    {
+        addScore = _addScore;
+        if(type != Type.player && type != Type.skull)
+        {
+            maxHealth = (defaultHealth * LevelManager.instance._wave); 
+        }
+        currentHealth = maxHealth;
+        _died = false;
+    }
+
     #region IDamageable Members
 
     public int DealDamage(int damage)
     {
         CurrentHealth -= damage;
         //Implement MissChance.
+        if (type == Type.player)
+        {
+            // Add effect
+            CameraManager.ShakeScreen(2, 1.5f);
+            CameraManager.ZoomIn(8, 2.4f, 4, 0.3f, transform.position, 5, 0.5f);
+
+            int zoomInDecider = Random.Range(0, 100);
+            if (zoomInDecider > 60)
+            {
+                VoiceManager.instance.PlayDamagedSound();
+            }
+        }
         return currentHealth;
     }
 
@@ -123,11 +154,12 @@ public class BaseHealth : MonoBehaviour, IDamageable
             if (zoomable)
             {
                 int zoomInDecider = Random.Range(0, 100);
-                if (zoomInDecider > 75)
+                if (zoomInDecider > 80)
                 {
                     // Add effect
                     CameraManager.ShakeScreen(2, 1.5f);
-                    CameraManager.ZoomIn(8, 2.4f, 4, 0.3f, transform.position, 5, 1);
+                    CameraManager.ZoomIn(8, 2.4f, 4, 0.3f, transform.position, 5, 0.5f);
+                    VoiceManager.instance.PlayKillSound();
                 }
             }
 
@@ -136,17 +168,23 @@ public class BaseHealth : MonoBehaviour, IDamageable
                 // Add effect
                 CameraManager.ShakeScreen(1.2f, 0.1f);
                 CameraManager.ZoomIn(8, 2.4f, 4, 0.6f, transform.position, 5, 100);
+                VoiceManager.instance.PlayDieSound();
             }
 
             // Add dissolve effect
             if (dissolveable)
                 dissolving = true;
 
-            gameObject.layer = 12;
+            //gameObject.layer = 12;
 
-            if (type == Type.bat || type == Type.spider)
+            if (type == Type.bat || type == Type.spider || type == Type.bat)
             {
-                //LevelManager.instance.totalEnmiesInWave--;
+                LevelManager.instance.totalEnmiesInWave--;
+            }
+
+            if(addScore)
+            {
+                LevelManager.instance.score += (Random.Range(minScore, maxScore));
             }
         }
     }

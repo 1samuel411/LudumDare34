@@ -14,6 +14,7 @@ GameObject:
   - 111: {fileID: 11111406}
   - 114: {fileID: 11413000}
   - 82: {fileID: 8200700}
+  - 114: {fileID: 11472018}
   m_Layer: 14
   m_Name: thundergunWep
   m_TagString: Weapon
@@ -73,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.88, y: -1.84, z: 0}
+  m_LocalPosition: {x: 3.35, y: -1.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 488214}
@@ -278,7 +279,7 @@ MonoBehaviour:
   weapon_background: {fileID: 0}
   weapon_asset: {fileID: 11400000, guid: cb1c15ecba0d38d429173674309959aa, type: 2}
   scale: 76.93
-  holdType: 0
+  holdType: 1
   isGunActive: 0
   isAutomatic: 1
   CanShoot: 1
@@ -301,6 +302,18 @@ MonoBehaviour:
     maxAmountForAmmo: 0
     TimeToAddPerPickUp: 2
     ammoToAddPerPickUp: 0
+  weapon: 3
+--- !u!114 &11472018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce62cc0df556f649abd1979ea62e9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11486210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -312,7 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lastTimeModified: 635871469981022261
+  _lastTimeModified: 635893432894914104
   _vectorGraphics: {fileID: 11400000, guid: c56f6283a4d88ac4695c71ff509a1f35, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _opaqueMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
@@ -363,6 +376,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: scale
       value: 76.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: weapon
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

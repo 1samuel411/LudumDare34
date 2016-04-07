@@ -104,7 +104,7 @@ public class CameraManager : MonoBehaviour
 
     public static void ZoomIn(float zoomSpeed, float zoomTarget, float timeScaleSpeed, float timeScale, Vector3 targetPos, float moveSpeed, float timeTaken)
     {
-        if (!CameraManager.instance)
+        if (!CameraManager.instance && !LevelManager.instance.player.baseHealth._died)
             return;
         CameraManager.instance._zoomingIn = true;
         CameraManager.instance._targetTimeToWaitZoom = Time.time + timeTaken;

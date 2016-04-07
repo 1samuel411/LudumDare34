@@ -168,11 +168,13 @@ MonoBehaviour:
   weapon_background: {fileID: 0}
   weapon_asset: {fileID: 11400000, guid: 27fae8ed3d04e054795b774f325bd16b, type: 2}
   scale: 76.93
+  holdType: 0
   isGunActive: 0
   isAutomatic: 1
   CanShoot: 1
   muzzleFlash: {fileID: 125564, guid: d842905699850574084b2f00516841eb, type: 2}
   pickupPosition: {x: 0, y: 0}
+  pickupScale: 0
   force: 0.51
   shootSound: {fileID: 0}
   weaponTriggerSpeed: 0.4
@@ -189,6 +191,7 @@ MonoBehaviour:
     maxAmountForAmmo: 0
     TimeToAddPerPickUp: 0
     ammoToAddPerPickUp: 0
+  weapon: 5
 --- !u!114 &11471960
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -294,6 +297,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: scale
       value: 76.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: weapon
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

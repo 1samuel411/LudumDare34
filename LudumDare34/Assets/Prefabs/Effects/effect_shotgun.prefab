@@ -24,8 +24,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 424602}
-  - 114: {fileID: 11413340}
   - 95: {fileID: 9510998}
+  - 114: {fileID: 11437846}
+  - 114: {fileID: 11495354}
   m_Layer: 0
   m_Name: effect_shotgun
   m_TagString: Untagged
@@ -41,7 +42,7 @@ Transform:
   m_GameObject: {fileID: 189622}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.41, y: -3.65, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 438792}
   m_Father: {fileID: 0}
@@ -53,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.52, y: 0.01, z: 0}
+  m_LocalPosition: {x: -0.62, y: 0.01, z: 0}
   m_LocalScale: {x: -0.25, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 424602}
@@ -75,7 +76,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11413340
+--- !u!114 &11437846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce62cc0df556f649abd1979ea62e9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11495354
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -86,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeecce890110ed94184b638941086183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  descruct: 0
 --- !u!212 &21255974
 SpriteRenderer:
   m_ObjectHideFlags: 1

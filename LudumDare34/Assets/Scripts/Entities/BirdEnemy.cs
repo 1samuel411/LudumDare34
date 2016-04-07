@@ -52,6 +52,8 @@ public class BirdEnemy : BaseEntity
         if (faceCheckHit && faceCheckRaycastHit) {
             // suicide on attack
             baseHealth.zoomable = false;
+            baseHealth.addScore = false;
+            LevelManager.instance.SpawnEnemy();
             GetComponent<BaseHealth>().Die();
         }
     }
@@ -63,7 +65,8 @@ public class BirdEnemy : BaseEntity
             StartCoroutine(Spawn());
     }
 
-    public void OnDisable() {
+    public override void OnDisable() {
+        base.OnDisable();
         StopCoroutine(Spawn());
     }
 

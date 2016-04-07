@@ -766,6 +766,9 @@ MonoBehaviour:
   dissolveable: 1
   healthChanged: 1
   _died: 0
+  addScore: 1
+  minScore: 50
+  maxScore: 60
 --- !u!212 &21223826
 SpriteRenderer:
   m_ObjectHideFlags: 1

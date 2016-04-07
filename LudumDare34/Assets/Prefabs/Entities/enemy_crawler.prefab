@@ -1127,6 +1127,9 @@ MonoBehaviour:
   dissolveable: 1
   healthChanged: 0
   _died: 0
+  addScore: 1
+  minScore: 20
+  maxScore: 25
 --- !u!114 &11485312
 MonoBehaviour:
   m_ObjectHideFlags: 1

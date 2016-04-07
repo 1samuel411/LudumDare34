@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class BaseEntity : MonoBehaviour
 {
@@ -55,10 +56,11 @@ public class BaseEntity : MonoBehaviour
     public bool knockedBack = false;
     public bool isJumping = false;
     public bool isBoosting = false;
+    private bool _firstTrigger = false;
 
     private float _targetRecoverTime;
     private float _currentRecoverTime;
-    protected PoolManager _poolManager;
+    protected extWepPoolManager _poolManager;
 
     [HideInInspector]
     public BaseHealth baseHealth;
@@ -74,7 +76,7 @@ public class BaseEntity : MonoBehaviour
         transform = GetComponent<Transform>();
         baseHealth = GetComponent<BaseHealth>();
 
-        _poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<PoolManager>();
+        _poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<extWepPoolManager>();
         AwakeMethod();
     }
 
@@ -86,6 +88,27 @@ public class BaseEntity : MonoBehaviour
         canJump = true;
         isJumping = false;
         grounded = false;
+        AwakeMethod();
+        StartMethod();
+    }
+
+    public virtual void OnDisable() {
+        if(_firstTrigger)
+            if (SpawnWeapon()) {
+                SpawnObject obj = _poolManager.RandomWeapon();
+                _poolManager.SpawnAt(obj, this.transform);
+            }
+        if(!_firstTrigger)
+            _firstTrigger = true;
+    }
+
+    protected bool SpawnWeapon() {
+        bool bOk = false;
+        float num = Random.Range(0.0f, 1.0f);
+        //Percent chance of spawning a weapon.
+        if (num < 0.45f)
+            bOk = true;
+        return bOk;
     }
 
     public virtual void AwakeMethod() { }
@@ -139,10 +162,7 @@ public class BaseEntity : MonoBehaviour
             FinishJump();
         }
 
-        if (!grounded)
-        {
-            airTime += Time.deltaTime;
-        }
+        airTime += Time.deltaTime;
 
         if (!canJump)
             curJumpCooldownTime += Time.deltaTime;
@@ -221,14 +241,14 @@ public class BaseEntity : MonoBehaviour
         targetAirTimeBoost = Time.time + airTimeNeededToBoostDown;
 
         // Give air boost
-        rigidbody.AddForce(new Vector2(0, jumpHeight * jumpSpeed) * Time.deltaTime / Time.timeScale, ForceMode2D.Impulse);
+        rigidbody.AddForce(new Vector2(0, jumpHeight * jumpSpeed) * Time.deltaTime * (1/Time.timeScale), ForceMode2D.Impulse);
     }
 
     public void BoostDown(float modifier = 1)
     {
         isBoosting = true;
         // Give air boost
-        rigidbody.AddForce(new Vector2(0, -jumpHeight * jumpSpeed * modifier) * Time.deltaTime / Time.timeScale, ForceMode2D.Impulse);
+        rigidbody.AddForce(new Vector2(0, -jumpHeight * jumpSpeed * modifier) * Time.deltaTime * (1 / Time.timeScale), ForceMode2D.Impulse);
     }
 
     void FinishJump()

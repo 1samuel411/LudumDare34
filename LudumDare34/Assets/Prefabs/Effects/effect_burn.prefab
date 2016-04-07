@@ -8,8 +8,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 403290}
-  - 114: {fileID: 11439202}
   - 95: {fileID: 9500046}
+  - 114: {fileID: 11412152}
   m_Layer: 0
   m_Name: effect_burn
   m_TagString: Untagged
@@ -75,7 +75,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11439202
+--- !u!114 &11412152
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -86,6 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeecce890110ed94184b638941086183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  descruct: 0
 --- !u!212 &21213510
 SpriteRenderer:
   m_ObjectHideFlags: 1

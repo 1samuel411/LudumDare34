@@ -35,8 +35,13 @@ public class PlayerController : BaseEntity
 
         if (weaponHandler == null)
             weaponHandler = this.GetComponentInChildren<PlayerWeaponHandler>();
+    }
 
+    public override void StartMethod()
+    {
         weaponHandler.AddFirstWeapon(ref weapon);
+        if(VoiceManager.instance)
+            VoiceManager.instance.PlayStartSound();
     }
 
     public override void UpdateMethod()
@@ -153,7 +158,7 @@ public class PlayerController : BaseEntity
             }
             else
             {
-                _curHoldTimeRight += Time.deltaTime / Time.timeScale;
+                _curHoldTimeRight += Time.deltaTime;
             }
         }
         else
@@ -187,7 +192,7 @@ public class PlayerController : BaseEntity
                 }
                 else
                 {
-                    _curHoldTimeJump += Time.deltaTime / Time.timeScale;
+                    _curHoldTimeJump += Time.deltaTime;
                 }
 
             }
@@ -221,7 +226,7 @@ public class PlayerController : BaseEntity
                 }
                 else
                 {
-                    _curHoldTimeJump += Time.deltaTime / Time.timeScale;
+                    _curHoldTimeJump += Time.deltaTime;
                 }
 
             }

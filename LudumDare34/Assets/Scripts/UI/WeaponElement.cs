@@ -19,6 +19,7 @@ public class WeaponElement : MonoBehaviour
     {
         background.rectTransform.sizeDelta = new Vector2(scale, background.rectTransform.sizeDelta.y);
         foreground.rectTransform.sizeDelta = new Vector2(scale, foreground.rectTransform.sizeDelta.y);
+        transform.localScale = new Vector2(1, 1);
         foreground.vectorGraphics = targetImage;
         background.vectorGraphics = targetImage;
         foregroundImageMask.rectTransform.sizeDelta = new Vector2(scale, foregroundImageMask.rectTransform.sizeDelta.y);

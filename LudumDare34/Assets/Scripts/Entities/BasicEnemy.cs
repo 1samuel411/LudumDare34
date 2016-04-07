@@ -37,6 +37,8 @@ public class BasicEnemy : BaseEntity
             }
             // suicide on attack
             baseHealth.zoomable = false;
+            baseHealth.addScore = false;
+            LevelManager.instance.SpawnEnemy();
             baseHealth.Die();
         }
     }
