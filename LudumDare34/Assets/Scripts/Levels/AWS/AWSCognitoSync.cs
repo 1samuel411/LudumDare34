@@ -41,10 +41,14 @@ class AWSCognitoSync : MonoBehaviour {
     public void Awake() {
         UnityInitializer.AttachToGameObject(this.gameObject);
         if(!FB.IsInitialized) {
-            Debug.Log("THIS HAS BEEN TRIGGERED!");
-            //Initialize the facebook SDK
+            if(FB.IsLoggedIn)
+                Debug.Log("THIS HAS BEEN TRIGGERED!");
+            //Initialize - Try both options.
+            //Option 1,
             FB.Init(InitCallBack, OnHideUnity);
         }
+
+
         //AmazonDynamoDBClient client = new AmazonDynamoDBClient();
     }
 
