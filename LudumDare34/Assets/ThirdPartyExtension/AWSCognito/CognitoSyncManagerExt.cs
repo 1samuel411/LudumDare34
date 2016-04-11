@@ -31,7 +31,7 @@ using Amazon.CognitoSync.SyncManager;
 namespace AWSSDK.Examples
 {
 
-    public class CognitoSyncManagerExt : MonoBehaviour
+    public class CognitoSyncManagerSample : MonoBehaviour
     {
 
         private Dataset playerInfo;
@@ -40,8 +40,7 @@ namespace AWSSDK.Examples
 
 		private string statusMessage = "";
 
-        public string IdentityPoolId = "us-east-1:50893fe8-8071-4143-893c-04974e42f0d9";
-        //public string IdentityPoolId = "";
+        public string IdentityPoolId = "";
        
         public string Region = RegionEndpoint.USEast1.SystemName;
         

@@ -112,11 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bed46572c6b51a4d85f77096b43721a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: 
-  alias: 
-  statusMessage: 
-  IdentityPoolId: 75732d656173742d313a35303839336665382d383037312d343134332d383933632d303439373465343266306439
-  Region: 373537333264363536313733373432643331
+  IdentityPoolId: 
+  Region: us-east-1
 --- !u!4 &134338384
 Transform:
   m_ObjectHideFlags: 0

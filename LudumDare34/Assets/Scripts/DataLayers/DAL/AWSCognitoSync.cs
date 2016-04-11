@@ -9,20 +9,17 @@ using Amazon.CognitoSync.SyncManager;
 using Facebook.Unity;
 using UnityEngine;
 
-class AWSCognitoSync : MonoBehaviour {
-
-    public string IdentityPoolId = "us-east-1:50893fe8-8071-4143-893c-04974e42f0d9";
-    public string Region = RegionEndpoint.USEast1.SystemName;
+class AWSCognitoSync: MonoBehaviour {
 
     private RegionEndpoint _Region {
-        get { return RegionEndpoint.GetBySystemName(Region); }
+        get { return RegionEndpoint.GetBySystemName(AWSDataCredentials.REGION); }
     }
 
     private CognitoAWSCredentials _credentials;
     private CognitoAWSCredentials Credentials {
         get {
             if(_credentials == null)
-                _credentials = new CognitoAWSCredentials(IdentityPoolId, _Region);
+                _credentials = new CognitoAWSCredentials(AWSDataCredentials.IDENTITY_POOL_ID, _Region);
             return _credentials;
         }
     }
