@@ -164,7 +164,7 @@ MonoBehaviour:
   knockbackTime: 0.38
   projectileSpeed: 18
   bulletLife: 0.55
-  impactAmounts: 3
+  impactAmounts: 4
 --- !u!114 &11463762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -217,7 +217,7 @@ SpriteRenderer:
   m_SortingLayerID: -1070858827
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: fbd71d053351783428b169f8bfd59218, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.90588236, b: 0.78676474, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1001 &100100000

@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetEntity: {fileID: 0}
-  direction: 1
+  direction: -1
   faceCheck: 1
   faceCheckMask:
     serializedVersion: 2
@@ -201,8 +201,8 @@ MonoBehaviour:
   faceTransform: {fileID: 419432}
   faceCheckHit: 0
   faceCheckDist: 0.43
-  jumpSpeed: 15
-  jumpHeight: 23
+  jumpSpeed: 2
+  jumpHeight: 3.09
   speed: 28.2
   maxVelocity: 2
   regSpeed: 0

@@ -85,15 +85,17 @@ public class BaseWeapon : BaseItem
             _spawnObject = _poolManager.AddToSpawnPool(projectile, true);
             _muzzleEffect = _poolManager.AddToSpawnPool(muzzleFlash, false);
             _projectile = _spawnObject.gameObject.GetComponent<Projectile>();
-            // Despawn Timer
-            despawnTimer = Time.time + 6.7f;
+            InvokeRepeating("ToggleOnOff", 0, 0.25f);
             _isInitialized = true;
         }
     }
 
     public virtual void OnEnable()
     {
-
+        despawnTimer = Time.time + 6.7f;
+        onOff = false;
+        if(imageRenderer)
+            imageRenderer.enabled = true;
     }
 
     public int DamagePerBullet()
@@ -117,14 +119,13 @@ public class BaseWeapon : BaseItem
         if (!isGunActive && (despawnTimer - Time.time) <= 3 && !onOff)
         {
             onOff = true;
-            InvokeRepeating("ToggleOnOff", 0, 0.25f);    
         }
     }
     private bool onOff;
 
     public void ToggleOnOff()
     {
-        if(!isGunActive)
+        if(!isGunActive && onOff)
         {
             imageRenderer.enabled = !imageRenderer.enabled;
         }
@@ -145,6 +146,7 @@ public class BaseWeapon : BaseItem
         if (!_shooting)
         {
             _shooting = true;
+            yield return new WaitForSeconds(0.1f);
 
             while (isGunActive)
             {
@@ -163,7 +165,7 @@ public class BaseWeapon : BaseItem
                 if (weaponTriggerSpeed < 0.25f)
                 {
                     muzzleEffect.GetComponent<AutoDestruct>().parent = bulletSpawnBox.transform;
-                    muzzleEffect.transform.localScale = new Vector3(1, 1, 1);
+                    muzzleEffect.transform.localScale = new Vector3((PlayerController.instance.direction == 1) ? -1 : 1, 1);
                 }
                 else
                 {
@@ -179,7 +181,6 @@ public class BaseWeapon : BaseItem
                 // sound
                 if (shootSound && audio)
                     audio.PlayOneShot(shootSound);
-
                 yield return new WaitForSeconds(weaponTriggerSpeed);
             }
         }

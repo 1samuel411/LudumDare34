@@ -1181,7 +1181,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.554, z: 0}
+  m_LocalPosition: {x: 0, y: -0.554, z: 96.2}
   m_LocalScale: {x: 0.27248827, y: 0.2724882, z: 0.2724882}
   m_Children:
   - {fileID: 402090}
@@ -2118,8 +2118,8 @@ MonoBehaviour:
   faceTransform: {fileID: 0}
   faceCheckHit: 0
   faceCheckDist: 0
-  jumpSpeed: 15
-  jumpHeight: 40
+  jumpSpeed: 2
+  jumpHeight: 5
   speed: 40
   maxVelocity: 3.74
   regSpeed: 0
@@ -2167,7 +2167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  currentHealth: 13
+  currentHealth: 10
   dissolveSpeed: 0.25
   zoomable: 1
   dissolveable: 1
@@ -2228,7 +2228,7 @@ MonoBehaviour:
   weapon_image: {fileID: 0}
   weapon_background: {fileID: 0}
   weapon_asset: {fileID: 11400000, guid: 27fae8ed3d04e054795b774f325bd16b, type: 2}
-  scale: 42.85
+  scale: 57.7
   holdType: 0
   isGunActive: 1
   isAutomatic: 1
@@ -2252,7 +2252,8 @@ MonoBehaviour:
     maxAmountForAmmo: 0
     TimeToAddPerPickUp: 0
     ammoToAddPerPickUp: 0
-  weapon: 0
+  weapon: 5
+  despawnTimer: 0
 --- !u!137 &13736592
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

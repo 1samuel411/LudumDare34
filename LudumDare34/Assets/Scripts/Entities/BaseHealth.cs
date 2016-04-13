@@ -35,6 +35,8 @@ public class BaseHealth : MonoBehaviour, IDamageable
 
     private SpawnObject sObj;
 
+    protected extWepPoolManager _poolManager;
+
     public int CurrentHealth
     {
         get { return currentHealth; }
@@ -49,6 +51,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
 
     void Awake()
     {
+        _poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<extWepPoolManager>();
         _addScore = addScore;
         animator = GetComponentInChildren<Animator>();
         defaultHealth = currentHealth;
@@ -98,7 +101,8 @@ public class BaseHealth : MonoBehaviour, IDamageable
         addScore = _addScore;
         if(type != Type.player && type != Type.skull)
         {
-            maxHealth = (defaultHealth * LevelManager.instance._wave); 
+            maxHealth = (defaultHealth * (LevelManager.instance._wave/2));
+            maxHealth = Mathf.Clamp(maxHealth, 1, 8); 
         }
         currentHealth = maxHealth;
         _died = false;
@@ -108,6 +112,9 @@ public class BaseHealth : MonoBehaviour, IDamageable
 
     public int DealDamage(int damage)
     {
+        if (type == Type.player)
+            if (LevelManager.instance.player.isBoosting)
+                return currentHealth;
         CurrentHealth -= damage;
         //Implement MissChance.
         if (type == Type.player)
@@ -145,13 +152,46 @@ public class BaseHealth : MonoBehaviour, IDamageable
         //GameObject.Destroy(this.gameObject);
     }
 
+    public virtual void SpawnDeath()
+    {
+        if (SpawnWeapon())
+        {
+            SpawnObject obj = _poolManager.RandomWeapon();
+            LevelManager.instance.poolManager.SpawnAt(obj, this.transform);
+        }
+
+        if (SpawnCoin())
+        {
+            SpawnObject spawnedCoin = LevelManager.instance.poolManager.SpawnAt(LevelManager.instance.coinsSpawnObj, this.transform);
+            spawnedCoin.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-3, 3), Random.Range(3, 6)), ForceMode2D.Impulse);
+        }
+    }
+
+    protected bool SpawnWeapon()
+    {
+        bool bOk = false;
+        float num = Random.Range(0.0f, 1.0f);
+        //Percent chance of spawning a weapon.
+        if (num < 0.75f)
+            bOk = true;
+        return bOk;
+    }
+
+    protected bool SpawnCoin()
+    {
+        bool bOk = false;
+        float num = Random.Range(0.0f, 1.0f);
+        //Percent chance of spawning a weapon.
+        if (num < 0.3f)
+            bOk = true;
+        return bOk;
+    }
+
     public void Die()
     {
         if (!_died)
         {
-            _died = true;
-
-            if (zoomable)
+            if (zoomable && type != Type.player)
             {
                 int zoomInDecider = Random.Range(0, 100);
                 if (zoomInDecider > 80)
@@ -166,9 +206,9 @@ public class BaseHealth : MonoBehaviour, IDamageable
             if(type == Type.player)
             {
                 // Add effect
-                CameraManager.ShakeScreen(1.2f, 0.1f);
-                CameraManager.ZoomIn(8, 2.4f, 4, 0.6f, transform.position, 5, 100);
-                VoiceManager.instance.PlayDieSound();
+                CameraManager.ShakeScreen(0.8f, 0.000001f);
+                CameraManager.ZoomIn(8, 2.4f, 4, 1, transform.position, 5, 100);
+                StartCoroutine(DeathSequence());
             }
 
             // Add dissolve effect
@@ -180,13 +220,28 @@ public class BaseHealth : MonoBehaviour, IDamageable
             if (type == Type.bat || type == Type.spider || type == Type.bat)
             {
                 LevelManager.instance.totalEnmiesInWave--;
+                SpawnDeath();
             }
 
-            if(addScore)
+            if(type != Type.player && type != Type.cloud)
+                LevelManager.instance.enemiesKilled++;
+
+            if (addScore)
             {
                 LevelManager.instance.score += (Random.Range(minScore, maxScore));
             }
+            _died = true;
         }
+    }
+
+    IEnumerator DeathSequence()
+    {
+        yield return new WaitForSeconds(0.5f);
+        VoiceManager.instance.PlayDieSound();
+        yield return new WaitForSeconds(3f);
+        CameraManager.instance.FadeOut();
+        yield return new WaitForSeconds(1.2f);
+        LevelManager.instance.LoadLevel("gameover", true);
     }
     #endregion
 }

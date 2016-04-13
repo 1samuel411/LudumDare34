@@ -5,13 +5,17 @@ using System.Linq;
 using System.Threading;
 using SVGImporter;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System;
 
 public class LevelManager : MonoBehaviour
 {
 
     public int score;
     public Text scoreText;
+    public Text coinsText;
     public static LevelManager instance;
+    public GameObject gameInfoPrefab;
 
     [HideInInspector]
     public BaseEntity player;
@@ -31,6 +35,8 @@ public class LevelManager : MonoBehaviour
 
     public float enemySpawnTime;
     public float waveCooldownTimer;
+    public int enemiesKilled;
+    public int coins;
     private int _skySpawner;
     private int _groundSpawner;
     private int _weaponSpawner;
@@ -38,6 +44,9 @@ public class LevelManager : MonoBehaviour
     public bool spawnNextWave = false;
 
     public SVGImage[] wepImages;
+
+    public GameObject coinObj;
+    public SpawnObject coinsSpawnObj;
 
     [System.Serializable]
     public struct Enemy
@@ -50,10 +59,12 @@ public class LevelManager : MonoBehaviour
 
 	void Awake ()
     {
+        coins = Int32.Parse(InfoManager.GetInfo("coins"));
         instance = this;
         spawnNextWave = true;
 	    poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<PoolManager>();
         spawnObjects = new List<SpawnObject>();
+        coinsSpawnObj = poolManager.AddToSpawnPool(coinObj);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<BaseEntity>();
         InitializeEnemySpawners();
         InitializeEffectSpawners();
@@ -136,6 +147,7 @@ public class LevelManager : MonoBehaviour
 
     void Update () {
         scoreText.text = score.ToString();
+        coinsText.text = coins.ToString();
         if(spawnNextWave) {
             curWaveText.text = _wave.ToString();
             NextWave();
@@ -178,7 +190,7 @@ public class LevelManager : MonoBehaviour
         for (int i = 0; i < enemies.Count(); i++)
             range += enemies[i].rarity;
 
-        randomEnemy = Random.Range(0.0f, range);
+        randomEnemy = UnityEngine.Random.Range(0.0f, range);
         current = 0;
         for (int i = 0; i < enemies.Count(); i++)
         {
@@ -193,6 +205,7 @@ public class LevelManager : MonoBehaviour
                 {
                     newEnemy = GetRandomEnemy();
                 }
+                break;
             }
         }
         return newEnemy;
@@ -214,6 +227,36 @@ public class LevelManager : MonoBehaviour
         }
         else
             weaponUISpawned.transform.SetSiblingIndex(1);
+    }
+
+    public void LoadLevel(string levelName, bool keepInfo, bool fade = false)
+    {
+        if (keepInfo)
+        {
+            GameObject info = Instantiate(gameInfoPrefab) as GameObject;
+            DontDestroyOnLoad(info);
+            GameInfo gameInfo = info.GetComponent<GameInfo>();
+            gameInfo.coins = coins;
+            gameInfo.enemiesKilled = enemiesKilled;
+            gameInfo.score = score;
+            gameInfo.wave = _wave;
+            gameInfo.lastLevel = SceneManager.GetActiveScene().name;
+        }
+        if (fade)
+        {
+            StartCoroutine(FadeOutAndLoad(levelName));
+        }
+        else
+        {
+            SceneManager.LoadScene(levelName);
+        }
+    }
+
+    IEnumerator FadeOutAndLoad(string levelName)
+    {
+        CameraManager.instance.FadeOut();
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(levelName);
     }
     //Need to load Weapon Types.
 }

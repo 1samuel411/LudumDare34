@@ -118,7 +118,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2021991435
-  m_SortingOrder: 6
+  m_SortingOrder: 11
 --- !u!33 &3331764
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -303,6 +303,7 @@ MonoBehaviour:
     TimeToAddPerPickUp: 2
     ammoToAddPerPickUp: 0
   weapon: 3
+  despawnTimer: 0
 --- !u!114 &11472018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -333,7 +334,7 @@ MonoBehaviour:
     type: 2}
   _sortingLayerID: 0
   _sortingLayerName: Player
-  _sortingOrder: 6
+  _sortingOrder: 11
   _overrideSorter: 0
   _overrideSorterChildren: 0
 --- !u!1001 &100100000

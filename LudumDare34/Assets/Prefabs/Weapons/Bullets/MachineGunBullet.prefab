@@ -163,7 +163,7 @@ MonoBehaviour:
   knockbackForce: 5.42
   knockbackTime: 0.11
   projectileSpeed: 20
-  bulletLife: 0.4
+  bulletLife: 0.37
   impactAmounts: 2
 --- !u!114 &11428684
 MonoBehaviour:

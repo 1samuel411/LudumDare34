@@ -93,22 +93,7 @@ public class BaseEntity : MonoBehaviour
     }
 
     public virtual void OnDisable() {
-        if(_firstTrigger)
-            if (SpawnWeapon()) {
-                SpawnObject obj = _poolManager.RandomWeapon();
-                _poolManager.SpawnAt(obj, this.transform);
-            }
-        if(!_firstTrigger)
-            _firstTrigger = true;
-    }
 
-    protected bool SpawnWeapon() {
-        bool bOk = false;
-        float num = Random.Range(0.0f, 1.0f);
-        //Percent chance of spawning a weapon.
-        if (num < 0.45f)
-            bOk = true;
-        return bOk;
     }
 
     public virtual void AwakeMethod() { }
@@ -202,7 +187,7 @@ public class BaseEntity : MonoBehaviour
 
     public bool FaceHitCheck()
     {
-        faceCheckRaycastHit = Physics2D.Raycast(faceTransform.position, Vector2.left, faceCheckDist, faceCheckMask);
+        faceCheckRaycastHit = Physics2D.Raycast(faceTransform.position, (direction == 1) ? Vector2.left : Vector2.right, faceCheckDist, faceCheckMask);
 
         if (faceCheckRaycastHit)
         {
@@ -240,19 +225,22 @@ public class BaseEntity : MonoBehaviour
         targetAirTime = Time.time + airTimeNeeded;
         targetAirTimeBoost = Time.time + airTimeNeededToBoostDown;
 
+        float amount = (jumpHeight * jumpSpeed);
         // Give air boost
-        rigidbody.AddForce(new Vector2(0, jumpHeight * jumpSpeed) * Time.deltaTime * (1/Time.timeScale), ForceMode2D.Impulse);
+        rigidbody.AddForce(new Vector2(0, amount) , ForceMode2D.Impulse);
     }
 
     public void BoostDown(float modifier = 1)
     {
         isBoosting = true;
         // Give air boost
-        rigidbody.AddForce(new Vector2(0, -jumpHeight * jumpSpeed * modifier) * Time.deltaTime * (1 / Time.timeScale), ForceMode2D.Impulse);
+        float amount = (-jumpHeight * jumpSpeed);
+        rigidbody.AddForce(new Vector2(0, amount * modifier), ForceMode2D.Impulse);
     }
 
     void FinishJump()
     {
+        rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0);
         totalJumpCooldownTime = Time.time + jumpCooldownTime;
         curJumpCooldownTime = Time.time;
         canMove = true;

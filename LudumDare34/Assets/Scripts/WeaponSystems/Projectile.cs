@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour
     public void Update()
     {
         float speed = ((direction == 1) ? -projectileSpeed : projectileSpeed);
-        this.transform.position += new Vector3(speed * Time.deltaTime, ((PlayerController.instance.direction == 1) ? 1 : 1) * Mathf.Sin(transform.rotation.z));
+        this.transform.position += new Vector3(speed * Time.deltaTime, ((PlayerController.instance.direction == 1) ? 1 : 1) * Mathf.Sin(transform.rotation.z) * Time.timeScale);
 
         updatedTime += Time.deltaTime;
         if (updatedTime > currentBulletLife)

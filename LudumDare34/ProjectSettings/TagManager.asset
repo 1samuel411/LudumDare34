@@ -13,6 +13,7 @@ TagManager:
   - GroundSpawner
   - PoolManager
   - SpawnHandler
+  - GameInfo
   layers:
   - Default
   - TransparentFX

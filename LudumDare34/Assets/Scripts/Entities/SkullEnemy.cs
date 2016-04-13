@@ -12,6 +12,8 @@ public class SkullEnemy : BaseEntity
     public float skullSpeedInitial;
 
     public override void OnEnable() {
+        changedDirection = false;
+        hitFloorOnce = false;
         hitFloorOnce = false;
         if (!baseHealth)
             baseHealth = GetComponent<BaseHealth>();

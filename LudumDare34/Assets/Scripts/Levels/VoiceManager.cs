@@ -19,6 +19,11 @@ public class VoiceManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    public void Update()
+    {
+        died = LevelManager.instance.player.baseHealth._died;
+    }
+
     public void PlayStartSound()
     {
         if(!died)
