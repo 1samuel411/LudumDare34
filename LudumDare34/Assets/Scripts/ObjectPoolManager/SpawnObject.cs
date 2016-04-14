@@ -5,10 +5,9 @@ using System.Reflection;
 using System.Text;
 using UnityEngine;
 
-public class SpawnObject: MonoBehaviour
-{
+public class SpawnObject: MonoBehaviour {
     private int _spawnObjectKey;
-    public int spawnObjectKey {get { return _spawnObjectKey; } }
+    public int spawnObjectKey { get { return _spawnObjectKey; } }
     private SpawnHandler _spawnHandler;
     public SpawnHandler spawnHandler { get { return _spawnHandler; } }
 

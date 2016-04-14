@@ -46,7 +46,7 @@ Transform:
   m_GameObject: {fileID: 111116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.53, y: -1.8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 425018}
   m_Father: {fileID: 0}
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetEntity: {fileID: 0}
-  direction: -1
+  direction: 1
   faceCheck: 1
   faceCheckMask:
     serializedVersion: 2

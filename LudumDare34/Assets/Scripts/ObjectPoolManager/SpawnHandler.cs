@@ -10,9 +10,9 @@ public class SpawnHandler: MonoBehaviour {
     private bool _isKeyAdded = false;
     private bool _invokedInstantiateAll = false;
     public GameObject spawnHandler { get { return _spawnHandler; } }
-    public List<GameObject> spawnLocations; 
+    public List<GameObject> spawnLocations;
     public PoolManager poolManager;
-    public int spawnHandlerKey {get { return _spawnHandlerKey; } }
+    public int spawnHandlerKey { get { return _spawnHandlerKey; } }
     public int initialSpawnAmount;
     public int maxActiveUnits { get { return gameObject.GetComponentsInChildren<SpawnObject>(true).Count(); } }
     public int overFlowMaxSpawnAmount;
@@ -22,18 +22,18 @@ public class SpawnHandler: MonoBehaviour {
         spawnLocations = new List<GameObject>();
         poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<PoolManager>();
         _spawnHandler = this.gameObject;
-        initialSpawnAmount = 15;
+        initialSpawnAmount = 5;
         _curSpawnAmount = 0;
     }
 
     public void AddDetails(SpawnHandlerDetails handlerDetails, int key) {
-        if (!_isKeyAdded) {
+        if(!_isKeyAdded) {
             _spawnHandlerKey = key;
             _isKeyAdded = true;
             initialSpawnAmount = (handlerDetails.initialSpawnAmount > 0) ? handlerDetails.initialSpawnAmount : 5;
             overFlowMaxSpawnAmount = (handlerDetails.overflowMaxSpawnAmount > initialSpawnAmount)
-                ? handlerDetails.overflowMaxSpawnAmount : initialSpawnAmount*2;
-            overFlowMaxSpawnAmount = 150;
+                ? handlerDetails.overflowMaxSpawnAmount : initialSpawnAmount * 2;
+            //overFlowMaxSpawnAmount = 150;
         }
     }
 
@@ -52,8 +52,8 @@ public class SpawnHandler: MonoBehaviour {
                                                 .Where(s => s.gameObject.activeSelf.Equals(false) &&
                                                     s.spawnObjectKey.Equals(spawnObj.Key));
 
-        if (spawnObjs.Any()) {
-            if (location == null) {
+        if(spawnObjs.Any()) {
+            if(location == null) {
                 int num = UnityEngine.Random.Range(0, spawnLocations.Count);
                 Debug.Log("Location Count: " + spawnLocations.Count + " Element Number: " + num);
                 //Vector3 pos = spawnLocations.ElementAt(num).transform.position;
@@ -64,13 +64,17 @@ public class SpawnHandler: MonoBehaviour {
                 sObj = spawnObjs.First();
                 sObj.ActivateObject(location);
             }
-        } else {
+        } else if(overFlowMaxSpawnAmount > _curSpawnAmount) {
             Debug.Log("Could not find an inactive SpawnObject in collection, instantiating new object.");
             if(_invokedInstantiateAll)
                 InstantiateObject(spawnObj.Value);
             else
                 InstantiateAllObjects(spawnObj.Value);
+            if (overFlowMaxSpawnAmount == _curSpawnAmount)
+                overFlowMaxSpawnAmount++;
             sObj = SpawnObject(spawnObj, location);
+        } else {
+            Debug.Log("Hit Overflow Max Spawn, cannot instantiate anymore Objects.");
         }
         return sObj;
     }
@@ -84,7 +88,7 @@ public class SpawnHandler: MonoBehaviour {
     }
 
     public void InstantiateAllObjects(SpawnObject obj) {
-        for (int i = 0; i < initialSpawnAmount; i++)
+        for(int i = 0;i < initialSpawnAmount;i++)
             InstantiateObject(obj);
         _invokedInstantiateAll = true;
     }
