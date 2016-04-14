@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IdentityPoolId: 
-  Region: us-east-1
+  Region: 75732d656173742d31
 --- !u!4 &134338384
 Transform:
   m_ObjectHideFlags: 0

@@ -8,5 +8,9 @@ namespace NightBear.DOL {
     {
         [DynamoDBHashKey] 
         public int Id { get; set; }
+        [DynamoDBProperty]
+        public string User { get; set; }
+        [DynamoDBProperty]
+        public string Score { get; set; }
     }
 }
