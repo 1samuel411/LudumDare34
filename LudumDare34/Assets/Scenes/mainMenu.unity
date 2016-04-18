@@ -620,7 +620,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 13
   m_TargetDisplay: 0
@@ -1620,7 +1619,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 12
   m_TargetDisplay: 0
@@ -1715,7 +1713,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 15
   m_TargetDisplay: 0
@@ -2368,30 +2365,37 @@ MonoBehaviour:
     cost: 15
     desc: Adds 1 health to your character.
     icon: {fileID: 21300000, guid: efafdb0755a5f9742a5bf8b2af7a53ed, type: 3}
+    repurshable: 0
   - title: Ammunition
     cost: 15
     desc: Adds 2 ammunition to all picked up weapons.
     icon: {fileID: 21300000, guid: 06140c28e469db549b3d860b0bc58683, type: 3}
+    repurshable: 0
   - title: Timer
     cost: 20
     desc: Adds Time to timed weapons that are picked up.
     icon: {fileID: 21300000, guid: 17cfc512041a7824996deaa695d8b814, type: 3}
+    repurshable: 0
   - title: 
     cost: 0
     desc: 
     icon: {fileID: 0}
+    repurshable: 0
   - title: 
     cost: 0
     desc: 
     icon: {fileID: 0}
+    repurshable: 0
   - title: 
     cost: 0
     desc: 
     icon: {fileID: 0}
+    repurshable: 0
   - title: 
     cost: 0
     desc: 
     icon: {fileID: 0}
+    repurshable: 0
 --- !u!114 &549192265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3050,8 +3054,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 669101985}
   m_HandleRect: {fileID: 669101984}
   m_Direction: 0
-  m_Value: 0.00000004437889
-  m_Size: 0.22531155
+  m_Value: 0
+  m_Size: 0.22531153
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5185,7 +5189,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 14
   m_TargetDisplay: 0
@@ -6556,7 +6559,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 36
   m_TargetDisplay: 0

@@ -89,6 +89,10 @@ public class Options : MonoBehaviour
         PlayerPrefs.SetInt("effectsEnabled", (soundEffectsEnabled == true) ? 1 : 0);
     }
 
+    public void ToggleFacebookConnect() {
+        
+    }
+
     void Update()
     {
         voiceImage.sprite = (voiceEnabled == true) ? musicOnSprite : musicOffSprite;
