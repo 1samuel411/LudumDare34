@@ -16,4 +16,9 @@ public class CognitoGameSync {
         playerInfo = _syncManager.OpenOrCreateDataset(datasetName);
         playerInfo.SynchronizeOnConnectivity();
     }
+
+    public void AddDataSet(string key, string value) {
+        playerInfo.Put(key, value);
+        playerInfo.SynchronizeAsync();
+    }
 }
