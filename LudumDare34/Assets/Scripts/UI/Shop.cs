@@ -20,6 +20,7 @@ public class Shop : MonoBehaviour
     public List<int> boughtItems = new List<int>();
 
     public Item[] items;
+    public static Item[] itemDatabase;
 
     private List<ShopItem> shopItems = new List<ShopItem>();
 
@@ -31,45 +32,63 @@ public class Shop : MonoBehaviour
         public string desc;
         public Sprite icon;
         public bool repurshable;
+        public int maxPurchases;
+        public int multiplyer;
+        public ItemType itemType;
+    }
+
+    public enum ItemType
+    {
+        health, ammo, timer, damagePistol, damageBoost
+    }
+
+    void Start()
+    {
+        itemDatabase = items;
     }
 
     public void Open()
     {
-        GetBoughtItems(InfoManager.GetInfo("bought"));
+        boughtItems = GetBoughtItems(InfoManager.GetInfo("bought"));
 
         Close();
         selectedItem = -1;
         layout.position = new Vector2(0, layout.position.y);
         for (int i = 0; i < items.Length; i++)
         {
-            if (!boughtItems.Contains(i) || items[i].repurshable)
+            if (boughtItems.Contains(i) && !items[i].repurshable)
+                return;
+
+            GameObject newShopItemObj = Instantiate(Resources.Load("ShopItem")) as GameObject;
+            newShopItemObj.transform.SetParent(layout);
+            newShopItemObj.transform.position = Vector3.zero;
+            newShopItemObj.transform.localScale = Vector3.one;
+            ShopItem newShopItem = newShopItemObj.GetComponent<ShopItem>();
+            newShopItem.title = items[i].title;
+            if (items[i].repurshable)
             {
-                GameObject newShopItemObj = Instantiate(Resources.Load("ShopItem")) as GameObject;
-                newShopItemObj.transform.SetParent(layout);
-                newShopItemObj.transform.position = Vector3.zero;
-                newShopItemObj.transform.localScale = Vector3.one;
-                ShopItem newShopItem = newShopItemObj.GetComponent<ShopItem>();
-                newShopItem.title = items[i].title;
-                if(items[i].repurshable)
+                int timesBought = 0;
+                for (int x = 0; x < boughtItems.Count; x++)
                 {
-                    int timesBought = 0;
-                    for(int x = 0; x < boughtItems.Count; x++)
-                    {
-                        if (boughtItems[x] == i)
-                            timesBought++;
-                    }
-                    newShopItem.cost = items[i].cost * ((timesBought == 0) ? 1 : (timesBought + 1));
+                    if (boughtItems[x] == i)
+                        timesBought++;
                 }
+                newShopItem.cost = items[i].cost * ((timesBought == 0) ? 1 : (timesBought + 1));
+                newShopItem.timesBought = timesBought;
+                if (timesBought > items[i].maxPurchases)
+                    newShopItem.maxed = true;
                 else
-                {
-                    newShopItem.cost = items[i].cost;
-                }
-                newShopItem.desc = items[i].desc;
-                newShopItem.icon = items[i].icon;
-                newShopItem.index = i;
-                newShopItem.selectedButton.onClick.AddListener(() => { SelectItem(newShopItem.index); });
-                shopItems.Add(newShopItem);
+                    newShopItem.maxed = false;
             }
+            else
+            {
+                newShopItem.cost = items[i].cost;
+            }
+            newShopItem.desc = items[i].desc;
+            newShopItem.icon = items[i].icon;
+            newShopItem.index = i;
+            newShopItem.selectedButton.onClick.AddListener(() => { SelectItem(newShopItem.index); });
+            shopItems.Add(newShopItem);
         }
     }
 
@@ -87,19 +106,35 @@ public class Shop : MonoBehaviour
         selectedItem = shopItem;
     }
 
+    private bool purchasing;
     public void PurchaseItem()
     {
-        Popup.Create("Are You Sure?", "Are you sure you want to purchase '" + items[selectedItem].title + "'?", "Yes", "No", false, CallbackPurchase);
+        if (!purchasing)
+        {
+            purchasing = true;
+            Popup.Create("Are You Sure?", "Are you sure you want to purchase '" + items[selectedItem].title + "'?", "Yes", "No", false, CallbackPurchase);
+        }
     }
 
     public void CallbackPurchase(Popup.ResponseTypes response)
     {
+        purchasing = false;
         if(response == Popup.ResponseTypes.Accepted)
         {
             Item shopItem = items[selectedItem];
             Debug.Log("Purchasing item...");
+            
             if (selectedItem != -1)
             {
+                int timesBought = 0;
+                for (int x = 0; x < boughtItems.Count; x++)
+                {
+                    if (boughtItems[x] == selectedItem)
+                        timesBought++;
+                }
+                shopItem.cost = shopItem.cost * ((timesBought == 0) ? 1 : (timesBought + 1));
+
+                Debug.Log(shopItem.cost);
                 if (shopItem.cost > MainMenu.instance.coins)
                 {
                     Debug.Log("Not enough money!");
@@ -116,13 +151,17 @@ public class Shop : MonoBehaviour
                     if (shopItems[i].index == selectedItem)
                         if (items[i].repurshable)
                         {
-                            int timesBought = 0;
+                            timesBought = 0;
                             for (int x = 0; x < boughtItems.Count; x++)
                             {
                                 if (boughtItems[x] == i)
                                     timesBought++;
                             }
                             shopItems[i].cost = items[i].cost * ((timesBought == 0) ? 1 : (timesBought+1));
+                            if (timesBought > items[i].maxPurchases)
+                                shopItems[i].maxed = true;
+                            else
+                                shopItems[i].maxed = false;
                         }
                         else
                         {
@@ -141,8 +180,9 @@ public class Shop : MonoBehaviour
         }
     }
 
-    public void GetBoughtItems(string items)
+    public static List<int> GetBoughtItems(string items)
     {
+        List<int> boughtItems = new List<int>();
         boughtItems.Clear();
         if (items != "")
         {
@@ -152,6 +192,7 @@ public class Shop : MonoBehaviour
                 boughtItems.Add(Int32.Parse(individualItems[i]));
             }
         }
+        return boughtItems;
     }
 
     public static string GetBoughtItemsString(int[] items)

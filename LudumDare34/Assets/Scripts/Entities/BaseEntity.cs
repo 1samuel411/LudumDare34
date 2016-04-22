@@ -25,6 +25,7 @@ public class BaseEntity : MonoBehaviour
 
     public float speed;
     public float maxVelocity;
+    public float originalMaxVelocity;
     [HideInInspector]
     public float regSpeed;
     
@@ -56,6 +57,7 @@ public class BaseEntity : MonoBehaviour
     public bool knockedBack = false;
     public bool isJumping = false;
     public bool isBoosting = false;
+    public bool takeDamage = true;
     private bool _firstTrigger = false;
 
     private float _targetRecoverTime;
@@ -68,16 +70,33 @@ public class BaseEntity : MonoBehaviour
     public new Rigidbody2D rigidbody;
     [HideInInspector]
     public new Transform transform;
+    [HideInInspector]
+    public new AudioSource audio;
+
+    public AudioClip[] soundEffects;
 
     public virtual void Awake()
     {
+        originalMaxVelocity = maxVelocity;
         regSpeed = speed;
         rigidbody = GetComponent<Rigidbody2D>();
         transform = GetComponent<Transform>();
         baseHealth = GetComponent<BaseHealth>();
+        audio = GetComponent<AudioSource>();
 
         _poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<extWepPoolManager>();
         AwakeMethod();
+
+        if(baseHealth.type != BaseHealth.Type.player)
+        {
+            InvokeRepeating("PlayRandomSoundEffect", Random.Range(4.0f, 8.0f), Random.Range(4.0f, 8.0f));
+        }
+    }
+
+    public void PlayRandomSoundEffect()
+    {
+        if(gameObject.activeSelf)
+            audio.PlayOneShot(soundEffects[Random.Range(0, soundEffects.Length)]);
     }
 
     public virtual void OnEnable()
@@ -199,20 +218,20 @@ public class BaseEntity : MonoBehaviour
         }
     }
 
-    public void MoveLeft()
+    public void MoveLeft(bool changeDir = true, int targetDir = 0, float speed = -1)
     {
-        if(canScale)
-            direction = 1;
+        if(changeDir && canScale)
+            direction = (targetDir == 0) ? 1 :  targetDir;
         if(canMove)
-            rigidbody.AddForce(new Vector2(-speed, 0) * Time.deltaTime, ForceMode2D.Impulse);
+            rigidbody.AddForce(new Vector2(-((speed == -1) ? this.speed : speed), 0) * Time.deltaTime, ForceMode2D.Impulse);
     }
 
-    public void MoveRight()
+    public void MoveRight(bool changeDir = true, int targetDir = 0, float speed = -1)
     {
-        if(canScale)
-            direction = -1;
+        if(changeDir && canScale)
+            direction = (targetDir == 0) ? -1 :  targetDir;
         if(canMove)
-            rigidbody.AddForce(new Vector2(speed, 0) * Time.deltaTime, ForceMode2D.Impulse);
+            rigidbody.AddForce(new Vector2((speed == -1) ? this.speed : speed, 0) * Time.deltaTime, ForceMode2D.Impulse);
     }
 
     public void Jump()
@@ -232,10 +251,18 @@ public class BaseEntity : MonoBehaviour
 
     public void BoostDown(float modifier = 1)
     {
+        StartCoroutine(BoostCooldown());
         isBoosting = true;
         // Give air boost
         float amount = (-jumpHeight * jumpSpeed);
         rigidbody.AddForce(new Vector2(0, amount * modifier), ForceMode2D.Impulse);
+    }
+
+    IEnumerator BoostCooldown()
+    {
+        takeDamage = false;
+        yield return new WaitForSeconds(1);
+        takeDamage = true;
     }
 
     void FinishJump()

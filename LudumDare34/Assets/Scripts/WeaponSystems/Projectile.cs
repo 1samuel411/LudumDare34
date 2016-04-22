@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
     public GameObject[] blood_effects;
     public float impactEffectSize;
     public float impactScreenshake;
-    public int damage;
+    public int damage, originalDamage;
     public float knockbackForce;
     public float knockbackTime;
     public float projectileSpeed;
@@ -23,7 +23,8 @@ public class Projectile : MonoBehaviour
 
     private TrailRenderer rendererTrail;
 
-    public void Start() { }
+    public void Start() {
+    }
 
     public void Update()
     {

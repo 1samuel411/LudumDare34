@@ -296,6 +296,7 @@ MonoBehaviour:
   name: beamWeapon
   itemType: 0
   itemTexture: {fileID: 0}
+  wepEnabled: 1
   weapon_image: {fileID: 0}
   weapon_background: {fileID: 0}
   weapon_asset: {fileID: 11400000, guid: e4b5dd72daa725448bfae0dd8ba69da8, type: 2}
@@ -315,15 +316,20 @@ MonoBehaviour:
   projectile: {fileID: 170152, guid: c761b684b83e1304d9ed9a4496c2774b, type: 2}
   bulletSpawnBox: {fileID: 169038}
   weaponAttribute:
+    _currentAmmo: 0
     checkTimer: 1
+    _currentTime: 0
     usingAmmo: 0
     usingTimer: 1
     coreWeapon: 0
-    maxAmountForTime: 6
+    maxAmountForTime: 10
+    originalMaxAmountForTime: 0
     maxAmountForAmmo: 0
-    TimeToAddPerPickUp: 1
+    originalMaxAmountForAmmo: 0
+    TimeToAddPerPickUp: 0
     ammoToAddPerPickUp: 0
   weapon: 4
+  despawnTimer: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

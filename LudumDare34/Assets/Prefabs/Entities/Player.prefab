@@ -1971,7 +1971,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.7
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -2118,12 +2118,13 @@ MonoBehaviour:
   faceTransform: {fileID: 0}
   faceCheckHit: 0
   faceCheckDist: 0
-  jumpSpeed: 2
-  jumpHeight: 5
-  speed: 40
+  jumpSpeed: 3
+  jumpHeight: 4.5
+  speed: 55
   maxVelocity: 3.74
+  originalMaxVelocity: 0
   regSpeed: 0
-  jumpCooldownTime: 0.36
+  jumpCooldownTime: 1.1
   airTimeNeeded: 0.38
   airTimeNeededToBoostDown: 0.65
   airTime: 0
@@ -2142,16 +2143,21 @@ MonoBehaviour:
   knockedBack: 0
   isJumping: 0
   isBoosting: 0
+  takeDamage: 1
   baseHealth: {fileID: 0}
   rigidbody: {fileID: 0}
   transform: {fileID: 0}
   leftKey: 97
   rightKey: 100
-  holdTimeJump: 0.24
+  jumpKey: 32
+  toggleWeaponKey: 115
+  holdTimeJump: 0.09
   holdTimeMove: 0.01
+  holdTimeStrafe: 0.08
   hardLandingExplosion: {fileID: 196310, guid: daf3a838b6d884b4e891deba629c4b70, type: 2}
   hardLandingSize: 2.07
   hardLandingForce: 11.5
+  boostDamage: 1
   weaponHandler: {fileID: 11466016}
   weapon: {fileID: 11471006}
   animator: {fileID: 0}
@@ -2168,6 +2174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   currentHealth: 10
+  maxHealth: 0
   dissolveSpeed: 0.25
   zoomable: 1
   dissolveable: 1
@@ -2211,6 +2218,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponsOwned: []
   pickingUpWep: 0
+  ammoAddition: 0
+  timeAddition: 0
 --- !u!114 &11471006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2225,6 +2234,7 @@ MonoBehaviour:
   name: Pistol
   itemType: 0
   itemTexture: {fileID: 0}
+  wepEnabled: 1
   weapon_image: {fileID: 0}
   weapon_background: {fileID: 0}
   weapon_asset: {fileID: 11400000, guid: 27fae8ed3d04e054795b774f325bd16b, type: 2}
@@ -2244,12 +2254,16 @@ MonoBehaviour:
   projectile: {fileID: 170152, guid: 3953efc9186a6c5419b81164b336a081, type: 2}
   bulletSpawnBox: {fileID: 190536}
   weaponAttribute:
+    _currentAmmo: 0
     checkTimer: 0
+    _currentTime: 0
     usingAmmo: 0
     usingTimer: 0
     coreWeapon: 1
     maxAmountForTime: 0
+    originalMaxAmountForTime: 0
     maxAmountForAmmo: 0
+    originalMaxAmountForAmmo: 0
     TimeToAddPerPickUp: 0
     ammoToAddPerPickUp: 0
   weapon: 5

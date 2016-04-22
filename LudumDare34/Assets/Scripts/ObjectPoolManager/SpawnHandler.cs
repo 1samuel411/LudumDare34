@@ -55,7 +55,6 @@ public class SpawnHandler: MonoBehaviour {
         if(spawnObjs.Any()) {
             if(location == null) {
                 int num = UnityEngine.Random.Range(0, spawnLocations.Count);
-                Debug.Log("Location Count: " + spawnLocations.Count + " Element Number: " + num);
                 //Vector3 pos = spawnLocations.ElementAt(num).transform.position;
                 Transform trans = spawnLocations.ElementAt(num).transform;
                 sObj = spawnObjs.First();
@@ -65,7 +64,6 @@ public class SpawnHandler: MonoBehaviour {
                 sObj.ActivateObject(location);
             }
         } else if(overFlowMaxSpawnAmount > _curSpawnAmount) {
-            Debug.Log("Could not find an inactive SpawnObject in collection, instantiating new object.");
             if(_invokedInstantiateAll)
                 InstantiateObject(spawnObj.Value);
             else
@@ -74,7 +72,6 @@ public class SpawnHandler: MonoBehaviour {
                 overFlowMaxSpawnAmount++;
             sObj = SpawnObject(spawnObj, location);
         } else {
-            Debug.Log("Hit Overflow Max Spawn, cannot instantiate anymore Objects.");
         }
         return sObj;
     }

@@ -399,7 +399,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
 --- !u!1 &11631286
 GameObject:
   m_ObjectHideFlags: 0
@@ -2125,7 +2125,7 @@ RectTransform:
   m_RootOrder: 8
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -76.48, y: -80.86549}
+  m_AnchoredPosition: {x: -76.48047, y: -80.86549}
   m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &297024447
@@ -2178,12 +2178,13 @@ MonoBehaviour:
           m_StringArgument: options_start
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1787547106}
-        m_MethodName: ToggleOptions
-        m_Mode: 1
+      - m_Target: {fileID: 1041573179}
+        m_MethodName: PlayOneShot
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: bf59b2a161f0d6d4f94ec3570d62072d,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2236,6 +2237,28 @@ MonoBehaviour:
       - m_Target: {fileID: 1700304966}
         m_MethodName: set_enabled
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1700304966}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1787547106}
+        m_MethodName: ToggleOptions
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2990,7 +3013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.75735295, g: 0.75735295, b: 0.75735295, a: 0.878}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3418,8 +3441,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 36.10002, y: -108.6}
-  m_SizeDelta: {x: 57.23, y: 57.23}
+  m_AnchoredPosition: {x: 36.09961, y: -107.36}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &448126952
 MonoBehaviour:
@@ -3440,7 +3463,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 270de03ed065744488dabbb46a59d860, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d86e39a9eca7d734b9d1d08aeab98c27, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4253,10 +4276,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 635501305}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 331.37, y: -284}
-  m_SizeDelta: {x: 34.08, y: 26.76}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -58.33, y: 16}
+  m_SizeDelta: {x: 34.080017, y: 26.76001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &549256726
 MonoBehaviour:
@@ -4840,7 +4863,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: -1
   m_TargetDisplay: 0
@@ -5257,6 +5279,7 @@ MonoBehaviour:
   enemiesKilled: 0
   coins: 0
   _wave: 0
+  spawnEnemies: 1
   spawnNextWave: 0
   wepImages:
   - {fileID: 592816429}
@@ -5266,7 +5289,18 @@ MonoBehaviour:
   - {fileID: 2147074188}
   - {fileID: 1741134068}
   coinObj: {fileID: 159184, guid: 4ed2db64fb870e54db626a368937517a, type: 2}
+  explosionObj: {fileID: 149054, guid: 58706a2b821cd6d4aa6572cc3b748c16, type: 2}
+  burnObj: {fileID: 101400, guid: 5119b521387d9044fb773b4f213d5115, type: 2}
+  explosionSpawnObj: {fileID: 0}
+  burnSpawnObj: {fileID: 0}
   coinsSpawnObj: {fileID: 708378603}
+  wepsEnabled: 1
+  boughtItems: 
+  ammoAddition: 0
+  timeAddition: 0
+  boostDamageAddition: 0
+  pistolDamageAddition: 0
+  healthAddition: 0
 --- !u!4 &708378602
 Transform:
   m_ObjectHideFlags: 0
@@ -5902,6 +5936,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 3331764, guid: c91be496bd1aee94e83ccdb5afdac853, type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 11413000, guid: c91be496bd1aee94e83ccdb5afdac853, type: 2}
       propertyPath: weapon_image
       value: 
@@ -5910,10 +5948,6 @@ Prefab:
       propertyPath: weapon_background
       value: 
       objectReference: {fileID: 592816429}
-    - target: {fileID: 3331764, guid: c91be496bd1aee94e83ccdb5afdac853, type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2310622, guid: c91be496bd1aee94e83ccdb5afdac853, type: 2}
       propertyPath: m_Enabled
       value: 0
@@ -5921,10 +5955,6 @@ Prefab:
     - target: {fileID: 127188, guid: c91be496bd1aee94e83ccdb5afdac853, type: 2}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11413000, guid: c91be496bd1aee94e83ccdb5afdac853, type: 2}
-      propertyPath: weaponAttribute.maxAmountForTime
-      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c91be496bd1aee94e83ccdb5afdac853, type: 2}
@@ -6221,6 +6251,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1041573179}
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: bf59b2a161f0d6d4f94ec3570d62072d,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &883962977
@@ -6500,12 +6542,13 @@ MonoBehaviour:
           m_StringArgument: options_stop
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1787547106}
-        m_MethodName: ToggleOptions
-        m_Mode: 1
+      - m_Target: {fileID: 1041573179}
+        m_MethodName: PlayOneShot
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: bf59b2a161f0d6d4f94ec3570d62072d,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6547,6 +6590,28 @@ MonoBehaviour:
       - m_Target: {fileID: 1700304966}
         m_MethodName: set_enabled
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1700304966}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1787547106}
+        m_MethodName: ToggleOptions
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6919,6 +6984,109 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 19.93, y: 7.85}
+--- !u!1 &1041573178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1041573180}
+  - 82: {fileID: 1041573179}
+  m_Layer: 0
+  m_Name: MenuAudioPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1041573179
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1041573178}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300001, guid: fb7413ed850c56e42bc073c7bb31279a,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 81.65
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!4 &1041573180
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1041573178}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
 --- !u!1 &1043124854
 GameObject:
   m_ObjectHideFlags: 0
@@ -6952,7 +7120,7 @@ RectTransform:
   m_RootOrder: 6
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -101.4, y: -91}
+  m_AnchoredPosition: {x: -101.40039, y: -91}
   m_SizeDelta: {x: 204.21002, y: 46.799988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1043124857
@@ -10429,7 +10597,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 36.1, y: -40.5}
+  m_AnchoredPosition: {x: 36.09961, y: -40.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1684652838
@@ -10610,6 +10778,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1041573179}
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: bf59b2a161f0d6d4f94ec3570d62072d,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11048,10 +11228,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1981522626}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0.000061035156, y: -0.000030517578}
-  m_SizeDelta: {x: 1000, y: 1000}
+  m_SizeDelta: {x: 40, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1720283816
 MonoBehaviour:
@@ -11260,10 +11440,6 @@ Prefab:
     - target: {fileID: 198962, guid: 784a6147b4123624a8267d1aaa194781, type: 2}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11468168, guid: 784a6147b4123624a8267d1aaa194781, type: 2}
-      propertyPath: weaponAttribute.maxAmountForTime
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 784a6147b4123624a8267d1aaa194781, type: 2}
@@ -12193,19 +12369,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22470886, guid: 1e78523253a5dd5458a9e201f8102698, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -56
       objectReference: {fileID: 0}
     - target: {fileID: 22470886, guid: 1e78523253a5dd5458a9e201f8102698, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 22470886, guid: 1e78523253a5dd5458a9e201f8102698, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -112
       objectReference: {fileID: 0}
     - target: {fileID: 22470886, guid: 1e78523253a5dd5458a9e201f8102698, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 22470886, guid: 1e78523253a5dd5458a9e201f8102698, type: 2}
       propertyPath: m_AnchorMin.x
@@ -12213,7 +12389,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22470886, guid: 1e78523253a5dd5458a9e201f8102698, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22470886, guid: 1e78523253a5dd5458a9e201f8102698, type: 2}
       propertyPath: m_AnchorMax.x
@@ -12221,7 +12397,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22470886, guid: 1e78523253a5dd5458a9e201f8102698, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22470886, guid: 1e78523253a5dd5458a9e201f8102698, type: 2}
       propertyPath: m_Pivot.x
@@ -12365,6 +12541,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3365960, guid: a29d836d2285a484c8faf2feecdc9967, type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 11481796, guid: a29d836d2285a484c8faf2feecdc9967, type: 2}
       propertyPath: weapon_image
       value: 
@@ -12373,25 +12553,13 @@ Prefab:
       propertyPath: weapon_background
       value: 
       objectReference: {fileID: 592816429}
-    - target: {fileID: 3365960, guid: a29d836d2285a484c8faf2feecdc9967, type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11153354, guid: a29d836d2285a484c8faf2feecdc9967, type: 2}
-      propertyPath: m_PlayAutomatically
+    - target: {fileID: 2300520, guid: a29d836d2285a484c8faf2feecdc9967, type: 2}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 195052, guid: a29d836d2285a484c8faf2feecdc9967, type: 2}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300520, guid: a29d836d2285a484c8faf2feecdc9967, type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11481796, guid: a29d836d2285a484c8faf2feecdc9967, type: 2}
-      propertyPath: weaponAttribute.maxAmountForAmmo
-      value: 54
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a29d836d2285a484c8faf2feecdc9967, type: 2}
@@ -12830,6 +12998,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 3349010, guid: 791d5750764a1ab49bbb061ad4ad3395, type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 11433454, guid: 791d5750764a1ab49bbb061ad4ad3395, type: 2}
       propertyPath: weapon_image
       value: 
@@ -12838,17 +13010,13 @@ Prefab:
       propertyPath: weapon_background
       value: 
       objectReference: {fileID: 592816429}
-    - target: {fileID: 3349010, guid: 791d5750764a1ab49bbb061ad4ad3395, type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11115382, guid: 791d5750764a1ab49bbb061ad4ad3395, type: 2}
-      propertyPath: m_PlayAutomatically
+    - target: {fileID: 2335570, guid: 791d5750764a1ab49bbb061ad4ad3395, type: 2}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11433454, guid: 791d5750764a1ab49bbb061ad4ad3395, type: 2}
-      propertyPath: weaponAttribute.maxAmountForAmmo
-      value: 70
+    - target: {fileID: 116610, guid: 791d5750764a1ab49bbb061ad4ad3395, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 791d5750764a1ab49bbb061ad4ad3395, type: 2}
@@ -13386,6 +13554,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1041573179}
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: bf59b2a161f0d6d4f94ec3570d62072d,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1963511965
@@ -13564,6 +13744,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1041573179}
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: bf59b2a161f0d6d4f94ec3570d62072d,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1979707218
@@ -13669,7 +13861,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
@@ -14056,7 +14247,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 429106, guid: 9128e21b2be8e644ab9e794627d2ac41, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11476770, guid: 9128e21b2be8e644ab9e794627d2ac41, type: 2}
       propertyPath: weapon_image
@@ -14070,21 +14261,13 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 11120288, guid: 9128e21b2be8e644ab9e794627d2ac41, type: 2}
-      propertyPath: m_PlayAutomatically
+    - target: {fileID: 160590, guid: 9128e21b2be8e644ab9e794627d2ac41, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11476770, guid: 9128e21b2be8e644ab9e794627d2ac41, type: 2}
-      propertyPath: weaponAttribute.maxAmountForAmmo
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 11476770, guid: 9128e21b2be8e644ab9e794627d2ac41, type: 2}
-      propertyPath: weaponTriggerSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11476770, guid: 9128e21b2be8e644ab9e794627d2ac41, type: 2}
-      propertyPath: spraySpread
-      value: 8.31
+    - target: {fileID: 2333848, guid: 9128e21b2be8e644ab9e794627d2ac41, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9128e21b2be8e644ab9e794627d2ac41, type: 2}
@@ -14641,7 +14824,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: -479441185
   m_SortingOrder: -1
   m_TargetDisplay: 0
@@ -14901,9 +15083,9 @@ RectTransform:
   - {fileID: 45942454}
   m_Father: {fileID: 635501305}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 438, y: -239.85}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 63, y: 60.149994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2139489753

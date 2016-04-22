@@ -171,6 +171,7 @@ MonoBehaviour:
   impactEffectSize: 1
   impactScreenshake: 0
   damage: 9
+  originalDamage: 9
   knockbackForce: 8.14
   knockbackTime: 0.24
   projectileSpeed: 30

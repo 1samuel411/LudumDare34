@@ -8,9 +8,11 @@ public class PlayerController : BaseEntity
     // Moving
     public KeyCode leftKey;
     public KeyCode rightKey;
-    public float holdTimeJump, holdTimeMove;
+    public KeyCode jumpKey;
+    public KeyCode toggleWeaponKey;
+    public float holdTimeJump, holdTimeMove, holdTimeStrafe;
     private float _curHoldTimeJump, _curHoldTimeRight, _curHoldTimeLeft;
-    private float _targetHoldTimeJump, _targetHoldTimeRight, _targetHoldTimeLeft;
+    private float _targetHoldTimeJump, _targetHoldTimeRight, _targetHoldTimeLeft, _targetHoldTimeStrafe;
 
     // Hardlanding
     public GameObject hardLandingExplosion;
@@ -20,7 +22,12 @@ public class PlayerController : BaseEntity
     // Moving
     private bool _holdingLeftKey;
     private bool _holdingRightKey;
+    private bool _holdingStrafeLeftKey;
+    private bool _holdingStrafeRightKey;
     private bool _holdingKeys;
+    private bool _strafing;
+
+    public int boostDamage = 1;
 
     public PlayerWeaponHandler weaponHandler;
     public BaseWeapon weapon;
@@ -35,6 +42,9 @@ public class PlayerController : BaseEntity
 
         if (weaponHandler == null)
             weaponHandler = this.GetComponentInChildren<PlayerWeaponHandler>();
+
+        if (!TouchController.initialized)
+            TouchController.Initialize();
     }
 
     public override void StartMethod()
@@ -46,10 +56,14 @@ public class PlayerController : BaseEntity
 
     public override void UpdateMethod()
     {
+        if (!gotItems && LevelManager.instance)
+        {
+            GetItems();
+        }
         // Animator
         animator.SetBool("grounded", grounded);
         animator.SetFloat("yvelocity", rigidbody.velocity.y);
-        if (_holdingLeftKey || _holdingRightKey)
+        if (_holdingLeftKey || _holdingRightKey || _strafing)
             animator.SetFloat("xvelocity", rigidbody.velocity.x);
         else
             animator.SetFloat("xvelocity", 0);
@@ -61,6 +75,7 @@ public class PlayerController : BaseEntity
         {
             animator.SetBool("oneHanded", false);
         }
+        animator.SetBool("strafing", _strafing);
         if (baseHealth._died)
             return;
 
@@ -85,7 +100,7 @@ public class PlayerController : BaseEntity
                         {
                             BaseEntity enemyEntity = leftBox[i].collider.GetComponent<BaseEntity>();
                             enemyEntity.Knockback(hardLandingForce, 0.2f, 1);
-                            enemyHealth.DealDamage(1);
+                            enemyHealth.DealDamage(boostDamage);
                         }
                     }
                 }
@@ -103,7 +118,7 @@ public class PlayerController : BaseEntity
                         {
                             BaseEntity enemyEntity = rightBox[i].collider.GetComponent<BaseEntity>();
                             enemyEntity.Knockback(hardLandingForce, 0.2f, -1);
-                            enemyHealth.DealDamage(1);
+                            enemyHealth.DealDamage(boostDamage);
                         }
                     }
                 }
@@ -111,26 +126,58 @@ public class PlayerController : BaseEntity
         }
 
         // Check left key
-        if (Input.GetKey(leftKey) && !Input.GetKey(rightKey))
+        if (Input.GetKey(leftKey) || TouchController.controller.GetTouch(TouchLocations.Left, 250))
         {
-            // If this is the first time holding it then set the hold time
-            if (!_holdingLeftKey)
+            if (_holdingRightKey)
             {
-                _curHoldTimeLeft = Time.time;
-                _targetHoldTimeLeft = Time.time + holdTimeMove;
-            }
+                // If this is the first time holding it then set the hold time
+                if (!_holdingStrafeLeftKey)
+                {
+                    _targetHoldTimeStrafe = Time.time + holdTimeStrafe;
+                }
 
-            _holdingLeftKey = true;
+                _holdingStrafeLeftKey = true;
 
-            // Need to hold these keys for a certain time to allow left movement
-            if (_curHoldTimeLeft > _targetHoldTimeLeft)
-            {
-                // Move left
-                MoveLeft();
+                // Need to hold these keys for a certain time to allow left movement
+                if (Time.time > _targetHoldTimeStrafe)
+                {
+                    // Move left
+                    _holdingRightKey = false;
+                    _strafing = true;
+                    maxVelocity = originalMaxVelocity * 0.6f;
+                    MoveRight(true, 1);
+                }
             }
             else
             {
-                _curHoldTimeLeft += Time.deltaTime / Time.timeScale;
+                _holdingStrafeLeftKey = false;
+                // If this is the first time holding it then set the hold time
+                if (!_holdingLeftKey || _holdingStrafeRightKey)
+                {
+                    _strafing = false;
+                    if (!_holdingLeftKey)
+                    {
+                        _curHoldTimeLeft = Time.time;
+                        _targetHoldTimeLeft = Time.time + holdTimeMove;
+                    }
+                }
+
+                _holdingLeftKey = true;
+
+                // Need to hold these keys for a certain time to allow left movement
+                if (_curHoldTimeLeft > _targetHoldTimeLeft)
+                {
+                    // Move left
+                    if (!_strafing)
+                    {
+                        maxVelocity = originalMaxVelocity;
+                        MoveLeft();
+                    }
+                }
+                else
+                {
+                    _curHoldTimeLeft += Time.deltaTime;
+                }
             }
         }
         else
@@ -139,26 +186,58 @@ public class PlayerController : BaseEntity
         }
 
         // Check right key
-        if (Input.GetKey(rightKey) && !Input.GetKey(leftKey))
+        if (Input.GetKey(rightKey) || TouchController.controller.GetTouch(TouchLocations.Right, 250))
         {
-            // If this is the first time holding it then set the hold time
-            if (!_holdingRightKey)
+            if (_holdingLeftKey)
             {
-                _curHoldTimeRight = Time.time;
-                _targetHoldTimeRight = Time.time + holdTimeMove;
-            }
+                // If this is the first time holding it then set the hold time
+                if (!_holdingStrafeRightKey)
+                {
+                    _targetHoldTimeStrafe = Time.time + holdTimeStrafe;
+                }
 
-            _holdingRightKey = true;
+                _holdingStrafeRightKey = true;
 
-            // Need to hold these keys for a certain time to allow right movement
-            if (_curHoldTimeRight > _targetHoldTimeRight)
-            {
-                // Move right
-                MoveRight();
+                // Need to hold these keys for a certain time to allow left movement
+                if (Time.time >= _targetHoldTimeStrafe)
+                {
+                    // Move left
+                    _holdingLeftKey = false;
+                    _strafing = true;
+                    maxVelocity = originalMaxVelocity * 0.6f;
+                    MoveLeft(true, -1);
+                }
             }
             else
             {
-                _curHoldTimeRight += Time.deltaTime;
+                _holdingStrafeRightKey = false;
+                // If this is the first time holding it then set the hold time
+                if (!_holdingRightKey || _holdingStrafeLeftKey)
+                {
+                    _strafing = false;
+                    if (!_holdingRightKey)
+                    {
+                        _curHoldTimeRight = Time.time;
+                        _targetHoldTimeRight = Time.time + holdTimeMove;
+                    }
+                }
+
+                _holdingRightKey = true;
+
+                // Need to hold these keys for a certain time to allow right movement
+                if (_curHoldTimeRight >= _targetHoldTimeRight)
+                {
+                    // Move right
+                    if (!_strafing)
+                    {
+                        maxVelocity = originalMaxVelocity;
+                        MoveRight();
+                    }
+                }
+                else
+                {
+                    _curHoldTimeRight += Time.deltaTime;
+                }
             }
         }
         else
@@ -171,7 +250,7 @@ public class PlayerController : BaseEntity
         if (canJump && !isJumping)
         {
             // Check both keys
-            if (Input.GetKey(leftKey) && Input.GetKey(rightKey))
+            if (Input.GetKey(jumpKey))
             {
                 // If this is the first time holding it then set the hold time
                 if (!_holdingKeys)
@@ -182,31 +261,42 @@ public class PlayerController : BaseEntity
 
                 _holdingKeys = true;
 
+                MoveLeft(false);
+                MoveRight(false);
                 // Need to hold these keys for a certain time to allow jumping
                 if (_curHoldTimeJump > _targetHoldTimeJump)
                 {
                     // Jump
                     animator.SetTrigger("jump");
+                    rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
                     Jump();
                     _holdingKeys = false;
                 }
                 else
                 {
-                    _curHoldTimeJump += Time.deltaTime;
+                    _curHoldTimeJump = Time.time;
                 }
-
             }
             else
             {
                 _holdingKeys = false;
             }
+
+            if(TouchController.controller.GetSwipe(SwipeLocations.Up))
+            {
+                // Jump
+                animator.SetTrigger("jump");
+                rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
+                Jump();
+                _holdingKeys = false;
+            }
         }
 
         // Boost down
-        if (isJumping && airTime > targetAirTimeBoost)
+        if (isJumping && airTime > targetAirTimeBoost && !isBoosting)
         {
             // Check both keys
-            if (Input.GetKey(leftKey) && Input.GetKey(rightKey))
+            if (Input.GetKey(jumpKey))
             {
                 // If this is the first time holding it then set the hold time
                 if (!_holdingKeys)
@@ -226,7 +316,7 @@ public class PlayerController : BaseEntity
                 }
                 else
                 {
-                    _curHoldTimeJump += Time.deltaTime;
+                    _curHoldTimeJump = Time.time;
                 }
 
             }
@@ -234,27 +324,69 @@ public class PlayerController : BaseEntity
             {
                 _holdingKeys = false;
             }
+
+            if (TouchController.controller.GetSwipe(SwipeLocations.Down))
+            {
+                // Jump
+                BoostDown(2);
+                _holdingKeys = false;
+            }
         }
 
         //change this to delegate call!
-        if (!weapon.weaponAttribute.CheckIfWeaponAvailable())
-        {
-            EquipNextWeapon(weapon);
-        }
-    }
-
-    public void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (string.CompareOrdinal(collider.tag, "Weapon") == 0)
-        {
-            Debug.Log("Found Weapon!");
-            EquipNextWeapon(collider.GetComponent<BaseWeapon>());
-        }
+        if(weapon.wepEnabled)
+            if (!weapon.weaponAttribute.CheckIfWeaponAvailable())
+            {
+                EquipNextWeapon(weapon);
+            }
     }
 
     public void EquipNextWeapon(BaseWeapon newWeapon)
     {
         weaponHandler.PickedUpWeapon(newWeapon);
         weapon = weaponHandler.GetNextWeapon(weapon);
+    }
+
+    private bool gotItems;
+    public void GetItems()
+    {
+        gotItems = true;
+        LevelManager.instance.boughtItems = Shop.GetBoughtItems(InfoManager.GetInfo("bought"));
+        for(int i = 0; i <Shop.itemDatabase.Length; i ++)
+        {
+            if(LevelManager.instance.boughtItems.Contains(i))
+            {
+                int timesBought = 0;
+                for (int x = 0; x < LevelManager.instance.boughtItems.Count; x++)
+                {
+                    if (LevelManager.instance.boughtItems[x] == i)
+                        timesBought++;
+                }
+
+                if (Shop.itemDatabase[i].itemType == Shop.ItemType.health)
+                {
+                    LevelManager.instance.healthAddition += (timesBought * Shop.itemDatabase[i].multiplyer);
+                }
+                if (Shop.itemDatabase[i].itemType == Shop.ItemType.ammo)
+                {
+                    LevelManager.instance.ammoAddition = (timesBought * Shop.itemDatabase[i].multiplyer);
+                }
+                if (Shop.itemDatabase[i].itemType == Shop.ItemType.timer)
+                {
+                    LevelManager.instance.timeAddition = (timesBought * Shop.itemDatabase[i].multiplyer);
+                }
+                if (Shop.itemDatabase[i].itemType == Shop.ItemType.damageBoost)
+                {
+                    LevelManager.instance.boostDamageAddition = (timesBought * Shop.itemDatabase[i].multiplyer);
+                }
+                if (Shop.itemDatabase[i].itemType == Shop.ItemType.damagePistol)
+                {
+                    LevelManager.instance.pistolDamageAddition = (timesBought * Shop.itemDatabase[i].multiplyer);
+                }
+            }
+        }
+        baseHealth.maxHealth += LevelManager.instance.healthAddition;
+        baseHealth.currentHealth = baseHealth.maxHealth;
+        boostDamage += LevelManager.instance.boostDamageAddition;
     }
 }

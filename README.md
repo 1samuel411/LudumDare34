@@ -78,7 +78,7 @@ xx--Bear stances
 --Highscore frontend
 --Player Shop
 --New Enemy
---Level MAnager
+--Level Manager
 @Art
 xx--Bear Import
 --Redesign gun

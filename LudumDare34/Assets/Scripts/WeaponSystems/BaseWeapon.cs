@@ -6,6 +6,8 @@ using SVGImporter;
 public class BaseWeapon : BaseItem
 {
 
+    public bool wepEnabled = true;
+
     public SVGImage weapon_image;
     public SVGImage weapon_background;
 
@@ -68,6 +70,7 @@ public class BaseWeapon : BaseItem
             bulletSpawnBox = this.gameObject;
 
         this.name = (string.IsNullOrEmpty(this.name)) ? gameObject.name : this.name;
+
     }
 
     protected virtual void Initialize()
@@ -85,6 +88,8 @@ public class BaseWeapon : BaseItem
             _spawnObject = _poolManager.AddToSpawnPool(projectile, true);
             _muzzleEffect = _poolManager.AddToSpawnPool(muzzleFlash, false);
             _projectile = _spawnObject.gameObject.GetComponent<Projectile>();
+            _projectile.originalDamage = _projectile.damage;
+            
             InvokeRepeating("ToggleOnOff", 0, 0.25f);
             _isInitialized = true;
         }
@@ -96,6 +101,8 @@ public class BaseWeapon : BaseItem
         onOff = false;
         if(imageRenderer)
             imageRenderer.enabled = true;
+
+        setVariables = false;
     }
 
     public int DamagePerBullet()
@@ -103,22 +110,34 @@ public class BaseWeapon : BaseItem
         return _projectile.damage;
     }
 
+    private bool setVariables;
     public void Update()
     {
+        wepEnabled = LevelManager.instance.wepsEnabled;
         transform.localScale = new Vector3(1, 1, 1);
         Initialize();
         CheckTimer();
+
+        // ShopVariables
+        if (isGunActive && !setVariables)
+        {
+            setVariables = true;
+            if (weapon == Weapons.Pistol)
+            {
+                _projectile.damage = _projectile.originalDamage + LevelManager.instance.pistolDamageAddition;
+            }
+        }
     }
 
     public void CheckTimer()
     {
-        if(Time.time >= despawnTimer && !isGunActive)
-        {
-            DestroyWeapon();
-        }
         if (!isGunActive && (despawnTimer - Time.time) <= 3 && !onOff)
         {
             onOff = true;
+        }
+        if(Time.time >= despawnTimer && !isGunActive)
+        {
+            gameObject.SetActive(false);
         }
     }
     private bool onOff;
@@ -131,7 +150,15 @@ public class BaseWeapon : BaseItem
         }
     }
 
-    protected virtual void SpawnBullets(float rotation = 2f)
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.tag == "Player")
+        {
+            LevelManager.instance.player.EquipNextWeapon(this);
+        }
+    }
+
+    protected virtual void SpawnBullets(float rotation = 4f)
     { // Make bullet
         bulletSpawnBox.transform.localEulerAngles = new Vector3(0, 0, Random.Range(-rotation, rotation));
         _poolManager.SpawnAt(_spawnObject, bulletSpawnBox.transform);
@@ -150,37 +177,40 @@ public class BaseWeapon : BaseItem
 
             while (isGunActive)
             {
-                if (PlayerController.instance.baseHealth._died)
-                    yield break;
+                if (wepEnabled)
+                {
+                    if (PlayerController.instance.baseHealth._died)
+                        yield break;
 
-                //Used to decrement ammo in weaponAttributes.
-                if (!weaponAttribute.coreWeapon && weaponAttribute.usingAmmo)
-                    weaponAttribute.currentAmmo -= 1;
+                    //Used to decrement ammo in weaponAttributes.
+                    if (!weaponAttribute.coreWeapon && weaponAttribute.usingAmmo)
+                        weaponAttribute.currentAmmo -= 1;
 
-                SpawnBullets();
-                // Make Flash
-                GameObject muzzleEffect = null;
-                if (_poolManager)
-                    muzzleEffect = _poolManager.SpawnAt(_muzzleEffect, bulletSpawnBox.transform).gameObject;
-                if (weaponTriggerSpeed < 0.25f)
-                {
-                    muzzleEffect.GetComponent<AutoDestruct>().parent = bulletSpawnBox.transform;
-                    muzzleEffect.transform.localScale = new Vector3((PlayerController.instance.direction == 1) ? -1 : 1, 1);
+                    SpawnBullets();
+                    // Make Flash
+                    GameObject muzzleEffect = null;
+                    if (_poolManager)
+                        muzzleEffect = _poolManager.SpawnAt(_muzzleEffect, bulletSpawnBox.transform).gameObject;
+                    if (weaponTriggerSpeed < 0.25f)
+                    {
+                        muzzleEffect.GetComponent<AutoDestruct>().parent = bulletSpawnBox.transform;
+                        muzzleEffect.transform.localScale = new Vector3((PlayerController.instance.direction == 1) ? -1 : 1, 1);
+                    }
+                    else
+                    {
+                        muzzleEffect.transform.localScale = new Vector3((PlayerController.instance.direction == 1) ? 1 : -1, 1);
+                    }
+                    // Play animation
+                    if (animation)
+                    {
+                        animation.Play();
+                    }
+                    // Screenshake
+                    CameraManager.ShakeScreen(force, 2);
+                    // sound
+                    if (shootSound && audio)
+                        audio.PlayOneShot(shootSound);
                 }
-                else
-                {
-                    muzzleEffect.transform.localScale = new Vector3((PlayerController.instance.direction == 1) ? 1 : -1, 1);
-                }
-                // Play animation
-                if (animation)
-                {
-                    animation.Play();
-                }
-                // Screenshake
-                CameraManager.ShakeScreen(force, 2);
-                // sound
-                if (shootSound && audio)
-                    audio.PlayOneShot(shootSound);
                 yield return new WaitForSeconds(weaponTriggerSpeed);
             }
         }
@@ -194,7 +224,6 @@ public class BaseWeapon : BaseItem
         {
             if(imageRenderer)
                 imageRenderer.enabled = true;
-            despawnTimer = 9999999;
             //ResetWeaponAttributes();
             StartCoroutine(FireWeapon());
             if (weaponAttribute.usingTimer)
@@ -218,8 +247,8 @@ public class BaseWeapon : BaseItem
     {
         if (!weaponAttribute.coreWeapon)
         {
-            weaponAttribute.currentMaxAmmo = weaponAttribute.maxAmountForAmmo;
-            weaponAttribute.CurMaxAlottedTime = weaponAttribute.maxAmountForTime;
+            weaponAttribute.currentMaxAmmo = weaponAttribute.maxAmountForAmmo + LevelManager.instance.ammoAddition;
+            weaponAttribute.CurMaxAlottedTime = weaponAttribute.maxAmountForTime + LevelManager.instance.timeAddition;
         }
     }
 

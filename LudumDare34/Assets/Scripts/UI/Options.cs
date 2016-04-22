@@ -69,6 +69,7 @@ public class Options : MonoBehaviour
     public void ToggleOptions()
     {
         menuEnabled = !menuEnabled;
+        Debug.Log("HI");
     }
 
     public void ToggleVoice()

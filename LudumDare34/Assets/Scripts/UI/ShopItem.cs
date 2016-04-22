@@ -15,6 +15,8 @@ public class ShopItem : MonoBehaviour
     public string title;
     public string desc;
     public int index;
+    public bool maxed;
+    public int timesBought;
     public Sprite icon;
 
     void Start()
@@ -27,5 +29,8 @@ public class ShopItem : MonoBehaviour
         selectedCostText.text = cost.ToString();
         selectedTitleText.text = title;
         selectedIconImage.sprite = icon;
+        selectedButton.interactable = !maxed;
+        if(maxed)
+            selectedCostText.text = "Max";
     }
 }

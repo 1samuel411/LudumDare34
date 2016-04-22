@@ -11,7 +11,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
     public Type type;
     
     public int currentHealth = 1;
-    private int maxHealth;
+    public int maxHealth;
     private int defaultHealth;
 
     public float dissolveSpeed;
@@ -113,7 +113,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
     public int DealDamage(int damage)
     {
         if (type == Type.player)
-            if (LevelManager.instance.player.isBoosting)
+            if (!LevelManager.instance.player.takeDamage)
                 return currentHealth;
         CurrentHealth -= damage;
         //Implement MissChance.
@@ -165,6 +165,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
             SpawnObject spawnedCoin = LevelManager.instance.poolManager.SpawnAt(LevelManager.instance.coinsSpawnObj, this.transform);
             spawnedCoin.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-3, 3), Random.Range(3, 6)), ForceMode2D.Impulse);
         }
+
     }
 
     protected bool SpawnWeapon()
@@ -223,9 +224,18 @@ public class BaseHealth : MonoBehaviour, IDamageable
                 SpawnDeath();
             }
 
-            if(type != Type.player && type != Type.cloud)
+            if (type != Type.player && type != Type.cloud)
+            {
+                if (type == Type.skull)
+                {
+                    SpawnObject burn = LevelManager.instance.poolManager.SpawnAt(LevelManager.instance.burnSpawnObj, this.transform);
+                }
+                else
+                {
+                    SpawnObject explosion = LevelManager.instance.poolManager.SpawnAt(LevelManager.instance.explosionSpawnObj, this.transform);
+                }
                 LevelManager.instance.enemiesKilled++;
-
+            }
             if (addScore)
             {
                 LevelManager.instance.score += (Random.Range(minScore, maxScore));

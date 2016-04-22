@@ -121,7 +121,7 @@ public class CameraManager : MonoBehaviour
             ourCam.orthographicSize = _currentZoom;
             Time.timeScale = _curTimeScale;
 
-            _curTimeToWaitZoom += Time.deltaTime/ Time.timeScale;
+            _curTimeToWaitZoom += Time.deltaTime;
 
             if (_curTimeToWaitZoom > _targetTimeToWaitZoom)
             {
