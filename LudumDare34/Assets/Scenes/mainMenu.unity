@@ -728,14 +728,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playButton: {fileID: 1692906718}
+  watchAdsButton: {fileID: 1372521274}
   adsButton: {fileID: 1991622361}
   coinsText: {fileID: 1757295908}
   shopCoinsText: {fileID: 612975603}
   scoreDisplayText: {fileID: 74819561}
   killsDisplayText: {fileID: 99731336}
+  timeLeftCoinsText: {fileID: 1174232399}
   coins: 0
   totalKills: 0
   totalScore: 0
+  timeUsedMins: 0
+  timeUsedHrs: 0
+  timeNeededHrs: 0
+  currentTimeMins: 0
+  currentTimeHrs: 0
 --- !u!1 &66863944
 GameObject:
   m_ObjectHideFlags: 0
@@ -2248,7 +2255,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000061035156, y: 18.7}
+  m_AnchoredPosition: {x: -0.000061035156, y: -6.6}
   m_SizeDelta: {x: 222, y: 20.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &512651884
@@ -2263,7 +2270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.45588237, g: 0.45588237, b: 0.45588237, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3357,7 +3364,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 669101984}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.22531149
+  m_Size: 0.22531143
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3428,8 +3435,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000038146973, y: 84.180016}
-  m_SizeDelta: {x: 140.79999, y: 214.16002}
+  m_AnchoredPosition: {x: 0.0000038146973, y: 68.43001}
+  m_SizeDelta: {x: 140.79999, y: 245.66003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &795475125
 MonoBehaviour:
@@ -4028,8 +4035,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 49.8}
-  m_SizeDelta: {x: 222, y: 20.2}
+  m_AnchoredPosition: {x: 0, y: 23}
+  m_SizeDelta: {x: 236.17, y: 20.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1174232399
 MonoBehaviour:
@@ -4052,10 +4059,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: cc5370b389433fe409c37c2eded52b50, type: 3}
-    m_FontSize: 14
+    m_FontSize: 13
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -4559,7 +4566,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -34.1}
+  m_AnchoredPosition: {x: 0, y: -65.4}
   m_SizeDelta: {x: 235.5, y: 71.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1372521274
@@ -6193,8 +6200,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 124.06}
-  m_SizeDelta: {x: 218.8, y: 218.8}
+  m_AnchoredPosition: {x: 0, y: 116.5}
+  m_SizeDelta: {x: 135.4, y: 135.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1861814148
 MonoBehaviour:
@@ -6208,14 +6215,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.36764705, g: 0.36764705, b: 0.36764705, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d86e39a9eca7d734b9d1d08aeab98c27, type: 3}
+  m_Sprite: {fileID: 21300000, guid: df2bd1ecb92bae34ebbcb88e1bf20516, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6785,6 +6792,17 @@ MonoBehaviour:
       - m_Target: {fileID: 669568306}
         m_MethodName: set_enabled
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 60796278}
+        m_MethodName: CheckCoinTimer
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

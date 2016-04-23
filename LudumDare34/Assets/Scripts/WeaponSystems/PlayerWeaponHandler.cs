@@ -156,13 +156,15 @@ public class PlayerWeaponHandler : MonoBehaviour
     }
 
     private PlayerController controller;
-    
+    private float toggleTimer;
+    private float toggleTime = 0.4f;
     public void Update()
     {
         if (!controller)
             controller = LevelManager.instance.player.GetComponent<PlayerController>();
-        if (Input.GetKeyDown(controller.toggleWeaponKey) || (TouchController.controller.GetSwipe(SwipeLocations.Down) && LevelManager.instance.player.grounded))
+        if (Input.GetKeyDown(controller.toggleWeaponKey) || (TouchController.controller.GetSwipe(SwipeLocations.Down) && LevelManager.instance.player.grounded && Time.time > toggleTimer))
         {
+            toggleTimer = toggleTime + Time.time;
             LevelManager.instance.wepsEnabled = !LevelManager.instance.wepsEnabled;
         }
     }
