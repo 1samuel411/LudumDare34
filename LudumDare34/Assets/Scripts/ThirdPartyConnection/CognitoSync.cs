@@ -13,7 +13,7 @@ public class CognitoGameSync {
     }
 
     public void InitiateDataset(string datasetName) {
-        playerInfo = _syncManager.OpenOrCreateDataset(datasetName);
+        playerInfo = _syncManager.OpenOrCreateDataset(datasetName); 
         playerInfo.SynchronizeOnConnectivity();
     }
 
