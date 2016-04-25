@@ -24,15 +24,14 @@ public class InfoManager : MonoBehaviour
     {
         bool returnInfo = false;
 
-        if (PlayerPrefs.HasKey("newUser17"))
+        if (PlayerPrefs.HasKey("newUser18"))
             returnInfo = false;
         else
         {
-            PlayerPrefs.SetString("newUser17", "true");
+            PlayerPrefs.SetString("newUser18", "true");
             InfoManager.SetInfo("bought", "");
             InfoManager.SetInfo("timeNeededHrs", "0");
-            InfoManager.SetInfo("timeUsedMins", "0");
-            InfoManager.SetInfo("timeUsedHrs", "0");
+            InfoManager.SetInfo("timeUsed", "00:00");
             InfoManager.SetInfo("coins", "0");
             InfoManager.SetInfo("kills", "0");
             InfoManager.SetInfo("score", "0");

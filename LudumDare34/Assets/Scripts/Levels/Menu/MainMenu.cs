@@ -53,17 +53,15 @@ public class MainMenu : MonoBehaviour
         // Ad Timer
         if (coinTimerChecked)
         {
-            currentTimeMins = System.DateTime.UtcNow.Minute;
-            currentTimeHrs = System.DateTime.UtcNow.Hour;
+            currentTime = System.DateTime.UtcNow;
 
             DateTime timeNeededDateTime = new DateTime();
             timeNeededDateTime = Convert.ToDateTime(timeNeededHrs + ":00");
 
             TimeSpan timeSpan = new TimeSpan();
-            timeSpan = CalculateTimeDifference(currentTimeHrs, timeUsedHrs, currentTimeMins, timeUsedMins);
+            timeSpan = CalculateTimeDifference(currentTime, timeUsed);
 
             DateTime timeSpanDateTime = new DateTime();
-            Debug.Log(timeSpan);
             if(timeSpan.Hours >= 0)
                 timeSpanDateTime = Convert.ToDateTime(timeSpan.Hours + ":" + timeSpan.Minutes);
 
@@ -81,37 +79,11 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    int CalculateHourDifference(int aHr, int bHr, int aMin, int bMin)
-    {
-        double returnData = 0;
-        DateTime aTime = new DateTime();
-        aTime = Convert.ToDateTime(aHr + ":" + aMin);
-        DateTime bTime = new DateTime();
-        bTime = Convert.ToDateTime(bHr + ":" + bMin);
-        returnData = (aTime - bTime).Hours;
-        return (int)returnData;
-    }
-
-    TimeSpan CalculateTimeDifference(int aHr, int bHr, int aMin, int bMin)
+    TimeSpan CalculateTimeDifference(DateTime a, DateTime b)
     {
         TimeSpan returnData = new TimeSpan();
-        DateTime aTime = new DateTime();
-        aTime = Convert.ToDateTime(aHr + ":" + aMin);
-        DateTime bTime = new DateTime();
-        bTime = Convert.ToDateTime(bHr + ":" + bMin);
-        returnData = (aTime - bTime);
+        returnData = (a - b);
         return returnData;
-    }
-
-    int CalculateMinuteDifference(int aHr, int bHr, int aMin, int bMin)
-    {
-        double returnData = 0;
-        DateTime aTime = new DateTime();
-        aTime = Convert.ToDateTime(aHr + ":" + aMin);
-        DateTime bTime = new DateTime();
-        bTime = Convert.ToDateTime(bHr + ":" + bMin);
-        returnData = (aTime - bTime).Minutes;
-        return (int)returnData;
     }
 
     public void PlayPress()
@@ -125,20 +97,17 @@ public class MainMenu : MonoBehaviour
     }
     private bool coinTimerChecked;
 
-    public int timeUsedMins, timeUsedHrs, timeNeededHrs;
-    public int currentTimeMins, currentTimeHrs;
+    public DateTime timeUsed;
+    public int timeNeededHrs;
+    public DateTime currentTime;
     public void CheckCoinTimer()
     {
         coinTimerChecked = true;
-        int minsLeft = System.DateTime.UtcNow.Minute;
-        int hrsLeft = System.DateTime.UtcNow.Hour;
-        int secsLeft = System.DateTime.UtcNow.Second;
-        currentTimeMins = minsLeft;
-        currentTimeHrs = hrsLeft;
+        string currentServerTime = System.DateTime.UtcNow.ToString();
+        currentTime = Convert.ToDateTime(currentServerTime);
 
         timeNeededHrs = Int32.Parse(InfoManager.GetInfo("timeNeededHrs"));
-        timeUsedHrs = Int32.Parse(InfoManager.GetInfo("timeUsedHrs"));
-        timeUsedMins = Int32.Parse(InfoManager.GetInfo("timeUsedMins"));
+        timeUsed = Convert.ToDateTime(InfoManager.GetInfo("timeUsed"));
     }
 
     public void RewardCallback(ShowResult result)
@@ -150,10 +119,8 @@ public class MainMenu : MonoBehaviour
 
                 coins += 20;
                 timeNeededHrs = 4;
-                timeUsedHrs = currentTimeHrs;
-                timeUsedMins = currentTimeMins;
-                InfoManager.SetInfo("timeUsedMins", currentTimeMins.ToString());
-                InfoManager.SetInfo("timeUsedHrs", currentTimeHrs.ToString());
+                timeUsed = currentTime;
+                InfoManager.SetInfo("timeUsed", timeUsed.ToString());
                 InfoManager.SetInfo("timeNeededHrs", timeNeededHrs.ToString());
                 InfoManager.SetInfo("coins", coins.ToString());
 

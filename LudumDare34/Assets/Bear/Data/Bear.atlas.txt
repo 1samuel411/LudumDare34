@@ -4,93 +4,107 @@ size: 256,128
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-Layer 18 copy
-  rotate: true
-  xy: 70, 76
-  size: 50, 82
-  orig: 50, 82
-  offset: 0, 0
-  index: -1
-Layer 25
+Head
   rotate: false
   xy: 2, 55
   size: 66, 71
   orig: 66, 71
   offset: 0, 0
   index: -1
+Layer 18 copy
+  rotate: true
+  xy: 2, 3
+  size: 50, 82
+  orig: 50, 82
+  offset: 0, 0
+  index: -1
+Layer 25
+  rotate: false
+  xy: 70, 55
+  size: 66, 71
+  orig: 66, 71
+  offset: 0, 0
+  index: -1
 Layer 29 copy
   rotate: false
-  xy: 154, 87
+  xy: 138, 58
   size: 45, 39
   orig: 45, 39
   offset: 0, 0
   index: -1
 Layer 34
   rotate: false
-  xy: 201, 78
+  xy: 185, 40
   size: 37, 23
   orig: 37, 23
   offset: 0, 0
   index: -1
 Layer 35
   rotate: false
-  xy: 70, 47
+  xy: 138, 99
   size: 101, 27
   orig: 101, 27
   offset: 0, 0
   index: -1
 Left lower Leg
   rotate: true
-  xy: 145, 27
+  xy: 144, 2
   size: 18, 29
   orig: 18, 29
   offset: 0, 0
   index: -1
 Left upper Leg
-  rotate: false
-  xy: 35, 11
+  rotate: true
+  xy: 185, 65
   size: 32, 42
   orig: 32, 42
   offset: 0, 0
   index: -1
 lower right leg
   rotate: true
-  xy: 145, 10
+  xy: 175, 5
   size: 15, 27
   orig: 15, 27
   offset: 0, 0
   index: -1
 lower_right_hand
   rotate: false
-  xy: 2, 2
+  xy: 86, 2
   size: 31, 51
   orig: 31, 51
   offset: 0, 0
   index: -1
-right lower arm
+mouth5
   rotate: true
-  xy: 103, 20
+  xy: 241, 106
+  size: 20, 11
+  orig: 20, 11
+  offset: 0, 0
+  index: -1
+right lower arm
+  rotate: false
+  xy: 229, 57
   size: 25, 40
   orig: 25, 40
   offset: 0, 0
   index: -1
 right upper arm
   rotate: true
-  xy: 103, 2
+  xy: 178, 22
   size: 16, 34
   orig: 16, 34
   offset: 0, 0
   index: -1
 upper left hand
   rotate: false
-  xy: 69, 11
+  xy: 144, 22
   size: 32, 34
   orig: 32, 34
   offset: 0, 0
   index: -1
 upper right leg
-  rotate: true
-  xy: 201, 103
+  rotate: false
+  xy: 119, 9
   size: 23, 44
   orig: 23, 44
   offset: 0, 0

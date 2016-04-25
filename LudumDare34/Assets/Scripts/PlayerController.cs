@@ -26,6 +26,7 @@ public class PlayerController : BaseEntity
     private bool _holdingStrafeRightKey;
     private bool _holdingKeys;
     private bool _strafing;
+    private bool _strafingAnim;
 
     public int boostDamage = 1;
 
@@ -75,7 +76,7 @@ public class PlayerController : BaseEntity
         {
             animator.SetBool("oneHanded", false);
         }
-        animator.SetBool("strafing", _strafing);
+        animator.SetBool("strafing", _strafingAnim);
         if (baseHealth._died)
             return;
 
@@ -144,6 +145,7 @@ public class PlayerController : BaseEntity
                     // Move left
                     _holdingRightKey = false;
                     _strafing = true;
+                    _strafingAnim = true;
                     maxVelocity = originalMaxVelocity * 0.6f;
                     MoveRight(true, 1);
                 }
@@ -171,6 +173,7 @@ public class PlayerController : BaseEntity
                     if (!_strafing)
                     {
                         maxVelocity = originalMaxVelocity;
+                        _strafingAnim = false;
                         MoveLeft();
                     }
                 }
@@ -204,6 +207,7 @@ public class PlayerController : BaseEntity
                     // Move left
                     _holdingLeftKey = false;
                     _strafing = true;
+                    _strafingAnim = true;
                     maxVelocity = originalMaxVelocity * 0.6f;
                     MoveLeft(true, -1);
                 }
@@ -231,6 +235,7 @@ public class PlayerController : BaseEntity
                     if (!_strafing)
                     {
                         maxVelocity = originalMaxVelocity;
+                        _strafingAnim = false;
                         MoveRight();
                     }
                 }
