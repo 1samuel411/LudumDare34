@@ -148,6 +148,7 @@ public class PlayerController : BaseEntity
                     _strafingAnim = true;
                     maxVelocity = originalMaxVelocity * 0.6f;
                     MoveRight(true, 1);
+                    Tutorial.instance.strafedRight = true;
                 }
             }
             else
@@ -175,6 +176,8 @@ public class PlayerController : BaseEntity
                         maxVelocity = originalMaxVelocity;
                         _strafingAnim = false;
                         MoveLeft();
+                        Tutorial.instance.movedLeft = true;
+                        Tutorial.instance.movingLeft = true;
                     }
                 }
                 else
@@ -186,6 +189,7 @@ public class PlayerController : BaseEntity
         else
         {
             _holdingLeftKey = false;
+            Tutorial.instance.movingLeft = false;
         }
 
         // Check right key
@@ -210,6 +214,7 @@ public class PlayerController : BaseEntity
                     _strafingAnim = true;
                     maxVelocity = originalMaxVelocity * 0.6f;
                     MoveLeft(true, -1);
+                    Tutorial.instance.strafedLeft = true;
                 }
             }
             else
@@ -237,6 +242,8 @@ public class PlayerController : BaseEntity
                         maxVelocity = originalMaxVelocity;
                         _strafingAnim = false;
                         MoveRight();
+                        Tutorial.instance.movedRight = true;
+                        Tutorial.instance.movingRight = true;
                     }
                 }
                 else
@@ -248,6 +255,7 @@ public class PlayerController : BaseEntity
         else
         {
             _holdingRightKey = false;
+            Tutorial.instance.movingRight = false;
         }
 
 
@@ -276,6 +284,7 @@ public class PlayerController : BaseEntity
                     rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
                     Jump();
                     _holdingKeys = false;
+                    Tutorial.instance.jumped = true;
                 }
                 else
                 {
@@ -294,6 +303,7 @@ public class PlayerController : BaseEntity
                 rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
                 Jump();
                 _holdingKeys = false;
+                Tutorial.instance.jumped = true;
             }
         }
 
@@ -318,6 +328,7 @@ public class PlayerController : BaseEntity
                     // Jump
                     BoostDown(2);
                     _holdingKeys = false;
+                    Tutorial.instance.boosted = true;
                 }
                 else
                 {
@@ -335,6 +346,7 @@ public class PlayerController : BaseEntity
                 // Jump
                 BoostDown(2);
                 _holdingKeys = false;
+                Tutorial.instance.boosted = true;
             }
         }
 

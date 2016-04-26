@@ -122,6 +122,41 @@ public class TouchController : MonoBehaviour
         }
         return touching;
     }
+
+    public bool GetTouchDown(TouchLocations location, int xIgnoreDist = 0, int yIgnoreDist = 0)
+    {
+        if (Input.touchCount <= 0)
+            return false;
+
+        bool touching = false;
+        for (int i = 0; i < Input.touches.Length; i++)
+        {
+            if (Input.touches[i].phase == TouchPhase.Began)
+            {
+                Vector2 position = Input.GetTouch(i).position;
+                // Left and Right
+                if (location == TouchLocations.Left || location == TouchLocations.Right)
+                    touching = (position.x <= (screenWidthHalf - xIgnoreDist)) ? (location == TouchLocations.Left) ? true : false : (position.x >= (screenWidthHalf + xIgnoreDist)) ? (location == TouchLocations.Right) ? true : false : false;
+
+                // Up and Down
+                if (location == TouchLocations.Up || location == TouchLocations.Down)
+                    touching = (position.y <= (screenHeightHalf - yIgnoreDist)) ? (location == TouchLocations.Down) ? true : false : (position.y >= (screenHeightHalf + yIgnoreDist)) ? (location == TouchLocations.Up) ? true : false : false;
+
+                // Left Quads
+                if (location == TouchLocations.LowerLeft || location == TouchLocations.UpperLeft)
+                    if (position.x <= (screenWidthHalf - xIgnoreDist))
+                        touching = (position.y <= (screenHeightHalf - yIgnoreDist)) ? (location == TouchLocations.LowerLeft) ? true : false : (location == TouchLocations.UpperLeft) ? (position.y >= (screenHeightHalf + yIgnoreDist)) ? true : false : false;
+
+                // Right Quads
+                if (location == TouchLocations.LowerRight || location == TouchLocations.UpperRight)
+                    if (position.x >= (screenWidthHalf + xIgnoreDist))
+                        touching = (position.y <= (screenHeightHalf - yIgnoreDist)) ? (location == TouchLocations.LowerRight) ? true : false : (location == TouchLocations.UpperRight) ? (position.y >= (screenHeightHalf + yIgnoreDist)) ? true : false : false;
+                if (touching)
+                    return touching;
+            }
+        }
+        return touching;
+    }
 }
 
 public enum TouchLocations

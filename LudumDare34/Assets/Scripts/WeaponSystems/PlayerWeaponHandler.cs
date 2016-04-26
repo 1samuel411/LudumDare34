@@ -162,9 +162,10 @@ public class PlayerWeaponHandler : MonoBehaviour
     {
         if (!controller)
             controller = LevelManager.instance.player.GetComponent<PlayerController>();
-        if (Input.GetKeyDown(controller.toggleWeaponKey) || (TouchController.controller.GetSwipe(SwipeLocations.Down) && LevelManager.instance.player.grounded && Time.time > toggleTimer))
+        if (Input.GetKeyDown(controller.toggleWeaponKey) || TouchController.controller.GetTouchDown(TouchLocations.Down, 0, 200))
         {
             toggleTimer = toggleTime + Time.time;
+            Tutorial.instance.toggled = true;
             LevelManager.instance.wepsEnabled = !LevelManager.instance.wepsEnabled;
         }
     }

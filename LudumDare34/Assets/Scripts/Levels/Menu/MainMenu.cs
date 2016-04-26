@@ -60,16 +60,15 @@ public class MainMenu : MonoBehaviour
 
             TimeSpan timeSpan = new TimeSpan();
             timeSpan = CalculateTimeDifference(currentTime, timeUsed);
-
             DateTime timeSpanDateTime = new DateTime();
-            if(timeSpan.Hours >= 0)
+            if (timeSpan.Hours >= 0)
                 timeSpanDateTime = Convert.ToDateTime(timeSpan.Hours + ":" + timeSpan.Minutes);
 
             TimeSpan displayTimeSpan = timeNeededDateTime - timeSpanDateTime;
 
             timeLeftCoinsText.text = "Hours: " + (displayTimeSpan.Hours) + "  Minutes: " + (displayTimeSpan.Minutes);
 
-            if (timeNeededHrs <= 0 || (displayTimeSpan.Hours < 0 || displayTimeSpan.Minutes < 0 || (displayTimeSpan.Hours == 0 && displayTimeSpan.Minutes == 0)))
+            if (timeNeededHrs <= 0 || (displayTimeSpan.Hours < 0 || displayTimeSpan.Minutes < 0 || (displayTimeSpan.Hours == 0 && displayTimeSpan.Minutes == 0)) || timeSpan.TotalHours > timeNeededHrs)
             {
                 timeLeftCoinsText.text = "Ready!";
                 watchAdsButton.interactable = true;
