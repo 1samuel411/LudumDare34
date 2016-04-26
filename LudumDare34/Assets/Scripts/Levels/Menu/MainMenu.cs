@@ -20,9 +20,12 @@ public class MainMenu : MonoBehaviour
     public int totalKills;
     public int totalScore;
 
+    public CognitoIdentitySync cognitoIdentitySync;
+
     public void Awake()
     {
         instance = this;
+        cognitoIdentitySync = new CognitoIdentitySync();
         playButton = playButton.GetComponent<Button>();
         if (!InfoManager.NewPlayer())
         {

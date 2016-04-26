@@ -55,6 +55,7 @@ public class CognitoIdentitySync {
     }
 
     private void AddFacebookTokenToCognito() {
+        Debug.Log("Facebook is logged in. adding login to Cognito...");
         credentials.AddLogin("graph.facebook.com", AccessToken.CurrentAccessToken.TokenString);
     }
 }
