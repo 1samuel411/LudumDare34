@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityStandardAssets.ImageEffects;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class CameraManager : MonoBehaviour
 {
@@ -44,6 +45,10 @@ public class CameraManager : MonoBehaviour
 
     private Vector3 _position;
 
+    public bool loading;
+    public float timeToWait;
+    public string levelToLoad;
+
     private new Transform transform;
     private VignetteAndChromaticAberration vignette;
 
@@ -57,6 +62,17 @@ public class CameraManager : MonoBehaviour
         vignette = GetComponent<VignetteAndChromaticAberration>();
         fadeImgColor = Color.black;
         fadeImgColor.a = 1;
+
+        if (loading)
+            StartCoroutine(LoadLevel());
+    }
+
+    IEnumerator LoadLevel()
+    {
+        yield return new WaitForSeconds(timeToWait);
+        FadeOut();
+        yield return new WaitForSeconds(0.6f);
+        SceneManager.LoadScene(levelToLoad);
     }
 
     void Update()
