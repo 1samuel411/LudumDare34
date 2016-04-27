@@ -18,7 +18,7 @@ public class LevelManager : MonoBehaviour
     public GameObject gameInfoPrefab;
 
     [HideInInspector]
-    public BaseEntity player;
+    public PlayerController player;
 
     public Image healthImage;
 
@@ -41,12 +41,25 @@ public class LevelManager : MonoBehaviour
     private int _groundSpawner;
     private int _weaponSpawner;
     public int _wave;
+    public bool spawnEnemies;
     public bool spawnNextWave = false;
 
     public SVGImage[] wepImages;
 
     public GameObject coinObj;
+    public GameObject explosionObj;
+    public GameObject burnObj;
+    public SpawnObject explosionSpawnObj;
+    public SpawnObject burnSpawnObj;
     public SpawnObject coinsSpawnObj;
+
+    public bool wepsEnabled = true;
+    public List<int> boughtItems = new List<int>();
+    public int ammoAddition;
+    public float timeAddition;
+    public int boostDamageAddition;
+    public int pistolDamageAddition;
+    public int healthAddition;
 
     [System.Serializable]
     public struct Enemy
@@ -59,13 +72,15 @@ public class LevelManager : MonoBehaviour
 
 	void Awake ()
     {
-        coins = Int32.Parse(InfoManager.GetInfo("coins"));
         instance = this;
+        coins = Int32.Parse(InfoManager.GetInfo("coins"));
         spawnNextWave = true;
 	    poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<PoolManager>();
         spawnObjects = new List<SpawnObject>();
         coinsSpawnObj = poolManager.AddToSpawnPool(coinObj);
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<BaseEntity>();
+        explosionSpawnObj = poolManager.AddToSpawnPool(explosionObj);
+        burnSpawnObj = poolManager.AddToSpawnPool(burnObj);
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         InitializeEnemySpawners();
         InitializeEffectSpawners();
     }
@@ -179,7 +194,8 @@ public class LevelManager : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        poolManager.Spawn(spawnObjects.ElementAt(GetRandomEnemy()));
+        if(spawnEnemies)
+            poolManager.Spawn(spawnObjects.ElementAt(GetRandomEnemy()));
         totalEnmiesInWave++;
     }
 

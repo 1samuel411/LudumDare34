@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &172018
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,6 +309,7 @@ MonoBehaviour:
   name: UZI
   itemType: 0
   itemTexture: {fileID: 0}
+  wepEnabled: 1
   weapon_image: {fileID: 0}
   weapon_background: {fileID: 0}
   weapon_asset: {fileID: 11400000, guid: f45824fa8883f974099f08ed737f6760, type: 2}
@@ -328,15 +329,20 @@ MonoBehaviour:
   projectile: {fileID: 170152, guid: 7b1d882a69f5ae648821c9df2c801cf2, type: 2}
   bulletSpawnBox: {fileID: 172018}
   weaponAttribute:
+    _currentAmmo: 0
     checkTimer: 0
+    _currentTime: 0
     usingAmmo: 1
     usingTimer: 0
     coreWeapon: 0
     maxAmountForTime: 0
-    maxAmountForAmmo: 40
+    originalMaxAmountForTime: 0
+    maxAmountForAmmo: 70
+    originalMaxAmountForAmmo: 0
     TimeToAddPerPickUp: 0
-    ammoToAddPerPickUp: 15
+    ammoToAddPerPickUp: 0
   weapon: 0
+  despawnTimer: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

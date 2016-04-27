@@ -54,7 +54,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &424818
 Transform:
   m_ObjectHideFlags: 1
@@ -74,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06, y: -0.22, z: 0}
+  m_LocalPosition: {x: 5.08, y: -1.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 424818}
@@ -286,6 +286,7 @@ MonoBehaviour:
   name: M16
   itemType: 0
   itemTexture: {fileID: 0}
+  wepEnabled: 1
   weapon_image: {fileID: 0}
   weapon_background: {fileID: 0}
   weapon_asset: {fileID: 11400000, guid: d5296963862aa9e43baada1bd3840662, type: 2}
@@ -305,15 +306,20 @@ MonoBehaviour:
   projectile: {fileID: 170152, guid: dd3d2774a586afa4a96e041e77cf45b6, type: 2}
   bulletSpawnBox: {fileID: 170054}
   weaponAttribute:
+    _currentAmmo: 0
     checkTimer: 0
+    _currentTime: 0
     usingAmmo: 1
     usingTimer: 0
     coreWeapon: 0
     maxAmountForTime: 0
-    maxAmountForAmmo: 32
+    originalMaxAmountForTime: 0
+    maxAmountForAmmo: 54
+    originalMaxAmountForAmmo: 0
     TimeToAddPerPickUp: 0
-    ammoToAddPerPickUp: 12
+    ammoToAddPerPickUp: 0
   weapon: 1
+  despawnTimer: 0
 --- !u!114 &11499556
 MonoBehaviour:
   m_ObjectHideFlags: 1

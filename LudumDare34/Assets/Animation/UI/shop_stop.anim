@@ -26,13 +26,13 @@ AnimationClip:
         tangentMode: 10
       - time: 0.083333336
         value: 14
-        inSlope: -1784
-        outSlope: -1784
+        inSlope: -4593.0005
+        outSlope: -4593.0005
         tangentMode: 10
-      - time: 0.33333334
-        value: -920
-        inSlope: -3736
-        outSlope: -3736
+      - time: 0.25
+        value: -1545
+        inSlope: -9354.001
+        outSlope: -9354.001
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -62,7 +62,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.33333334
+    m_StopTime: 0.25
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -88,13 +88,13 @@ AnimationClip:
         tangentMode: 10
       - time: 0.083333336
         value: 14
-        inSlope: -1784
-        outSlope: -1784
+        inSlope: -4593.0005
+        outSlope: -4593.0005
         tangentMode: 10
-      - time: 0.33333334
-        value: -920
-        inSlope: -3736
-        outSlope: -3736
+      - time: 0.25
+        value: -1545
+        inSlope: -9354.001
+        outSlope: -9354.001
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2

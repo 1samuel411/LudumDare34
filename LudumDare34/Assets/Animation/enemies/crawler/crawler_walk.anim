@@ -10,164 +10,146 @@ AnimationClip:
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
-  m_RotationCurves: []
-  m_CompressedRotationCurves: []
-  m_EulerCurves:
+  m_RotationCurves:
   - curve:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: 0, y: 0, z: -0.27699998}
-        inSlope: {x: 0, y: 0, z: 197.043}
-        outSlope: {x: 0, y: 0, z: 197.043}
+        value: {x: 0, y: 0, z: 0.023170667, w: 0.99973154}
+        inSlope: {x: 0, y: 0, z: -0.68987614, w: 0.00805378}
+        outSlope: {x: 0, y: 0, z: -0.68987614, w: 0.00805378}
         tangentMode: 0
-      - time: 0.1
-        value: {x: 0, y: 0, z: 19.4273}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+      - time: 0.033333335
+        value: {x: 0, y: 0, z: 0.00017479493, w: 1}
+        inSlope: {x: 0, y: 0, z: -0.7403456, w: -0.0011166926}
+        outSlope: {x: 0, y: 0, z: -0.7403456, w: -0.0011166926}
         tangentMode: 0
-      - time: 0.2
-        value: {x: 0, y: 0, z: -0.27699998}
-        inSlope: {x: 0, y: 0, z: -79.116}
-        outSlope: {x: 0, y: 0, z: -79.116}
+      - time: 0.06666667
+        value: {x: 0, y: 0, z: -0.02618571, w: 0.9996571}
+        inSlope: {x: 0, y: 0, z: -0.790542, w: -0.020708438}
+        outSlope: {x: 0, y: 0, z: -0.790542, w: -0.020708438}
         tangentMode: 0
-      - time: 0.3
-        value: {x: 0, y: 0, z: 3.6041}
-        inSlope: {x: 0, y: 0, z: -0.0000019073486}
-        outSlope: {x: 0, y: 0, z: -0.0000019073486}
+      - time: 0.10000001
+        value: {x: 0, y: 0, z: -0.052528013, w: 0.99861944}
+        inSlope: {x: 0, y: 0, z: -0.7393886, w: -0.037644804}
+        outSlope: {x: 0, y: 0, z: -0.7393886, w: -0.037644804}
         tangentMode: 0
-      - time: 0.4
-        value: {x: 0, y: 0, z: -0.27699998}
-        inSlope: {x: 0, y: 0, z: -38.811}
-        outSlope: {x: 0, y: 0, z: -38.811}
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    path: leg_1
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 0, y: 0, z: -118.61099}
-        outSlope: {x: 0, y: 0, z: -118.61099}
-        tangentMode: 0
-      - time: 0.1
-        value: {x: 0, y: 0, z: -11.861099}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
-      - time: 0.2
-        value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 0, y: 0, z: 59.305496}
-        outSlope: {x: 0, y: 0, z: 59.305496}
-        tangentMode: 0
-      - time: 0.4
-        value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    path: leg_4
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
-      - time: 0.1
-        value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+      - time: 0.13333334
+        value: {x: 0, y: 0, z: -0.075478286, w: 0.99714744}
+        inSlope: {x: 0, y: 0, z: -0.58739996, w: -0.04247457}
+        outSlope: {x: 0, y: 0, z: -0.58739996, w: -0.04247457}
         tangentMode: 0
       - time: 0.16666667
-        value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: -0.09168801, w: 0.9957878}
+        inSlope: {x: 0, y: 0, z: -0.3352821, w: -0.02916545}
+        outSlope: {x: 0, y: 0, z: -0.3352821, w: -0.02916545}
         tangentMode: 0
       - time: 0.2
-        value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 0, y: 0, z: -173.98048}
-        outSlope: {x: 0, y: 0, z: -173.98048}
+        value: {x: 0, y: 0, z: -0.09783042, w: 0.9952031}
+        inSlope: {x: 0, y: 0, z: -0.00000022351742, w: 0}
+        outSlope: {x: 0, y: 0, z: -0.00000022351742, w: 0}
+        tangentMode: 0
+      - time: 0.23333333
+        value: {x: 0, y: 0, z: -0.09168802, w: 0.9957878}
+        inSlope: {x: 0, y: 0, z: 0.3352821, w: 0.02916544}
+        outSlope: {x: 0, y: 0, z: 0.3352821, w: 0.02916544}
+        tangentMode: 0
+      - time: 0.26666668
+        value: {x: 0, y: 0, z: -0.07547828, w: 0.99714744}
+        inSlope: {x: 0, y: 0, z: 0.5874001, w: 0.04247456}
+        outSlope: {x: 0, y: 0, z: 0.5874001, w: 0.04247456}
         tangentMode: 0
       - time: 0.3
-        value: {x: 0, y: 0, z: -34.7961}
-        inSlope: {x: 0, y: 0, z: 0.000030517578}
-        outSlope: {x: 0, y: 0, z: 0.000030517578}
+        value: {x: 0, y: 0, z: -0.05252801, w: 0.99861944}
+        inSlope: {x: 0, y: 0, z: 0.7393887, w: 0.037644807}
+        outSlope: {x: 0, y: 0, z: 0.7393887, w: 0.037644807}
+        tangentMode: 0
+      - time: 0.33333334
+        value: {x: 0, y: 0, z: -0.026185703, w: 0.9996571}
+        inSlope: {x: 0, y: 0, z: 0.7905421, w: 0.020708444}
+        outSlope: {x: 0, y: 0, z: 0.7905421, w: 0.020708444}
+        tangentMode: 0
+      - time: 0.36666667
+        value: {x: 0, y: 0, z: 0.00017479493, w: 1}
+        inSlope: {x: 0, y: 0, z: 0.7403456, w: 0.001116693}
+        outSlope: {x: 0, y: 0, z: 0.7403456, w: 0.001116693}
         tangentMode: 0
       - time: 0.4
-        value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 0, y: 0, z: 347.96103}
-        outSlope: {x: 0, y: 0, z: 347.96103}
+        value: {x: 0, y: 0, z: 0.023170667, w: 0.99973154}
+        inSlope: {x: 0, y: 0, z: 0.6898762, w: -0.0080537805}
+        outSlope: {x: 0, y: 0, z: 0.6898762, w: -0.0080537805}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: leg_3
+    path: spine/head
   - curve:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: 0, y: 0, z: -0.3561}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0.0011021752, w: 0.9999994}
+        inSlope: {x: 0, y: 0, z: -1.1343609, w: -0.020202396}
+        outSlope: {x: 0, y: 0, z: -1.1343609, w: -0.020202396}
+        tangentMode: 0
+      - time: 0.033333335
+        value: {x: 0, y: 0, z: -0.036709856, w: 0.999326}
+        inSlope: {x: 0, y: 0, z: -1.1335733, w: -0.041641295}
+        outSlope: {x: 0, y: 0, z: -1.1335733, w: -0.041641295}
+        tangentMode: 0
+      - time: 0.06666667
+        value: {x: 0, y: 0, z: -0.07446938, w: 0.9972233}
+        inSlope: {x: 0, y: 0, z: -0.8281331, w: -0.05339205}
+        outSlope: {x: 0, y: 0, z: -0.8281331, w: -0.05339205}
+        tangentMode: 0
+      - time: 0.10000001
+        value: {x: 0, y: 0, z: -0.09191874, w: 0.9957665}
+        inSlope: {x: 0, y: 0, z: 0.07037106, w: 0.005088156}
+        outSlope: {x: 0, y: 0, z: 0.07037106, w: 0.005088156}
+        tangentMode: 0
+      - time: 0.13333334
+        value: {x: 0, y: 0, z: -0.06977798, w: 0.9975625}
+        inSlope: {x: 0, y: 0, z: 0.96917015, w: 0.057908896}
+        outSlope: {x: 0, y: 0, z: 0.96917015, w: 0.057908896}
         tangentMode: 0
       - time: 0.16666667
-        value: {x: 0, y: 0, z: -0.3561}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: -0.027307395, w: 0.9996271}
+        inSlope: {x: 0, y: 0, z: 1.0105283, w: 0.03651828}
+        outSlope: {x: 0, y: 0, z: 1.0105283, w: 0.03651828}
         tangentMode: 0
       - time: 0.2
-        value: {x: 0, y: 0, z: -0.3561}
-        inSlope: {x: 0, y: 0, z: 204.37247}
-        outSlope: {x: 0, y: 0, z: 204.37247}
+        value: {x: 0, y: 0, z: -0.0024094249, w: 0.9999971}
+        inSlope: {x: 0, y: 0, z: 0.1263143, w: 0.0029182436}
+        outSlope: {x: 0, y: 0, z: 0.1263143, w: 0.0029182436}
+        tangentMode: 0
+      - time: 0.23333333
+        value: {x: 0, y: 0, z: -0.018886441, w: 0.99982166}
+        inSlope: {x: 0, y: 0, z: -0.7583112, w: -0.021009736}
+        outSlope: {x: 0, y: 0, z: -0.7583112, w: -0.021009736}
+        tangentMode: 0
+      - time: 0.26666668
+        value: {x: 0, y: 0, z: -0.05296352, w: 0.99859643}
+        inSlope: {x: 0, y: 0, z: -0.786397, w: -0.035515122}
+        outSlope: {x: 0, y: 0, z: -0.786397, w: -0.035515122}
         tangentMode: 0
       - time: 0.3
-        value: {x: 0, y: 0, z: 40.5184}
-        inSlope: {x: 0, y: 0, z: -0.000030517578}
-        outSlope: {x: 0, y: 0, z: -0.000030517578}
+        value: {x: 0, y: 0, z: -0.07131292, w: 0.997454}
+        inSlope: {x: 0, y: 0, z: -0.07044661, w: -0.003902615}
+        outSlope: {x: 0, y: 0, z: -0.07044661, w: -0.003902615}
+        tangentMode: 0
+      - time: 0.33333334
+        value: {x: 0, y: 0, z: -0.05765996, w: 0.99833626}
+        inSlope: {x: 0, y: 0, z: 0.6453271, w: 0.032186512}
+        outSlope: {x: 0, y: 0, z: 0.6453271, w: 0.032186512}
+        tangentMode: 0
+      - time: 0.36666667
+        value: {x: 0, y: 0, z: -0.028291116, w: 0.99959975}
+        inSlope: {x: 0, y: 0, z: 0.8814321, w: 0.024947228}
+        outSlope: {x: 0, y: 0, z: 0.8814321, w: 0.024947228}
         tangentMode: 0
       - time: 0.4
-        value: {x: 0, y: 0, z: -0.3561}
-        inSlope: {x: 0, y: 0, z: -408.745}
-        outSlope: {x: 0, y: 0, z: -408.745}
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    path: leg_2
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: {x: 0, y: 0, z: 0.12629999}
-        inSlope: {x: 0, y: 0, z: -106.74299}
-        outSlope: {x: 0, y: 0, z: -106.74299}
-        tangentMode: 0
-      - time: 0.1
-        value: {x: 0, y: 0, z: -10.547999}
-        inSlope: {x: 0, y: 0, z: -2.0119972}
-        outSlope: {x: 0, y: 0, z: -2.0119972}
-        tangentMode: 0
-      - time: 0.2
-        value: {x: 0, y: 0, z: -0.27609998}
-        inSlope: {x: 0, y: 0, z: 11.8460045}
-        outSlope: {x: 0, y: 0, z: 11.8460045}
-        tangentMode: 0
-      - time: 0.3
-        value: {x: 0, y: 0, z: -8.1788}
-        inSlope: {x: 0, y: 0, z: 2.0120087}
-        outSlope: {x: 0, y: 0, z: 2.0120087}
-        tangentMode: 0
-      - time: 0.4
-        value: {x: 0, y: 0, z: 0.12629999}
-        inSlope: {x: 0, y: 0, z: 83.051}
-        outSlope: {x: 0, y: 0, z: 83.051}
+        value: {x: 0, y: 0, z: 0.0011021752, w: 0.9999994}
+        inSlope: {x: 0, y: 0, z: 0.8817988, w: 0.011989475}
+        outSlope: {x: 0, y: 0, z: 0.8817988, w: 0.011989475}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -177,24 +159,292 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: 0, y: 0, z: 2.6554}
-        inSlope: {x: 0, y: 0, z: -69.419495}
-        outSlope: {x: 0, y: 0, z: -69.419495}
+        value: {x: 0, y: 0, z: 0, w: 1}
+        inSlope: {x: 0, y: 0, z: -1.2647184, w: -0.026670096}
+        outSlope: {x: 0, y: 0, z: -1.2647184, w: -0.026670096}
+        tangentMode: 0
+      - time: 0.033333335
+        value: {x: 0, y: 0, z: -0.04215728, w: 0.999111}
+        inSlope: {x: 0, y: 0, z: -1.2635942, w: -0.053316947}
+        outSlope: {x: 0, y: 0, z: -1.2635942, w: -0.053316947}
+        tangentMode: 0
+      - time: 0.06666667
+        value: {x: 0, y: 0, z: -0.08423961, w: 0.99644554}
+        inSlope: {x: 0, y: 0, z: -0.91748416, w: -0.066947035}
+        outSlope: {x: 0, y: 0, z: -0.91748416, w: -0.066947035}
+        tangentMode: 0
+      - time: 0.10000001
+        value: {x: 0, y: 0, z: -0.1033229, w: 0.99464786}
+        inSlope: {x: 0, y: 0, z: 0.05730927, w: 0.0047341064}
+        outSlope: {x: 0, y: 0, z: 0.05730927, w: 0.0047341064}
+        tangentMode: 0
+      - time: 0.13333334
+        value: {x: 0, y: 0, z: -0.080419, w: 0.99676114}
+        inSlope: {x: 0, y: 0, z: 1.0324081, w: 0.071354814}
+        outSlope: {x: 0, y: 0, z: 1.0324081, w: 0.071354814}
+        tangentMode: 0
+      - time: 0.16666667
+        value: {x: 0, y: 0, z: -0.0344957, w: 0.99940485}
+        inSlope: {x: 0, y: 0, z: 1.206285, w: 0.048582856}
+        outSlope: {x: 0, y: 0, z: 1.206285, w: 0.048582856}
         tangentMode: 0
       - time: 0.2
-        value: {x: 0, y: 0, z: -11.228499}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0, w: 1}
+        inSlope: {x: 0, y: 0, z: 0.697132, w: 0.007850827}
+        outSlope: {x: 0, y: 0, z: 0.697132, w: 0.007850827}
+        tangentMode: 0
+      - time: 0.23333333
+        value: {x: 0, y: 0, z: 0.011979762, w: 0.99992824}
+        inSlope: {x: 0, y: 0, z: 0.23000793, w: -0.0017639992}
+        outSlope: {x: 0, y: 0, z: 0.23000793, w: -0.0017639992}
+        tangentMode: 0
+      - time: 0.26666668
+        value: {x: 0, y: 0, z: 0.015333863, w: 0.9998824}
+        inSlope: {x: 0, y: 0, z: 0.014374942, w: -0.00017881359}
+        outSlope: {x: 0, y: 0, z: 0.014374942, w: -0.00017881359}
+        tangentMode: 0
+      - time: 0.3
+        value: {x: 0, y: 0, z: 0.012938093, w: 0.9999163}
+        inSlope: {x: 0, y: 0, z: -0.115000576, w: 0.0013232232}
+        outSlope: {x: 0, y: 0, z: -0.115000576, w: 0.0013232232}
+        tangentMode: 0
+      - time: 0.33333334
+        value: {x: 0, y: 0, z: 0.0076671583, w: 0.9999706}
+        inSlope: {x: 0, y: 0, z: -0.15813126, w: 0.0012123586}
+        outSlope: {x: 0, y: 0, z: -0.15813126, w: 0.0012123586}
+        tangentMode: 0
+      - time: 0.36666667
+        value: {x: 0, y: 0, z: 0.0023960106, w: 0.99999714}
+        inSlope: {x: 0, y: 0, z: -0.115007386, w: 0.00044077638}
+        outSlope: {x: 0, y: 0, z: -0.115007386, w: 0.00044077638}
         tangentMode: 0
       - time: 0.4
-        value: {x: 0, y: 0, z: 2.6554}
-        inSlope: {x: 0, y: 0, z: 69.419495}
-        outSlope: {x: 0, y: 0, z: 69.419495}
+        value: {x: 0, y: 0, z: 0, w: 1}
+        inSlope: {x: 0, y: 0, z: -0.07188032, w: 0.000085830696}
+        outSlope: {x: 0, y: 0, z: -0.07188032, w: 0.000085830696}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: spine/head
+    path: leg_4
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: {x: 0, y: 0, z: 0, w: 1}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
+        tangentMode: 0
+      - time: 0.033333335
+        value: {x: 0, y: 0, z: 0, w: 1}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
+        tangentMode: 0
+      - time: 0.06666667
+        value: {x: 0, y: 0, z: 0, w: 1}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
+        tangentMode: 0
+      - time: 0.10000001
+        value: {x: 0, y: 0, z: 0, w: 1}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
+        tangentMode: 0
+      - time: 0.13333334
+        value: {x: 0, y: 0, z: 0, w: 1}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
+        tangentMode: 0
+      - time: 0.16666667
+        value: {x: 0, y: 0, z: 0, w: 1}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
+        tangentMode: 0
+      - time: 0.2
+        value: {x: 0, y: 0, z: 0, w: 1}
+        inSlope: {x: 0, y: 0, z: -1.5156752, w: -0.07677198}
+        outSlope: {x: 0, y: 0, z: -1.5156752, w: -0.07677198}
+        tangentMode: 0
+      - time: 0.23333333
+        value: {x: 0, y: 0, z: -0.101045005, w: 0.99488187}
+        inSlope: {x: 0, y: 0, z: -3.5097797, w: -0.41639853}
+        outSlope: {x: 0, y: 0, z: -3.5097797, w: -0.41639853}
+        tangentMode: 0
+      - time: 0.26666668
+        value: {x: 0, y: 0, z: -0.23398536, w: 0.9722401}
+        inSlope: {x: 0, y: 0, z: -2.9694495, w: -0.60947025}
+        outSlope: {x: 0, y: 0, z: -2.9694495, w: -0.60947025}
+        tangentMode: 0
+      - time: 0.3
+        value: {x: 0, y: 0, z: -0.29900837, w: 0.9542505}
+        inSlope: {x: 0, y: 0, z: -0.16378689, w: -0.04039319}
+        outSlope: {x: 0, y: 0, z: -0.16378689, w: -0.04039319}
+        tangentMode: 0
+      - time: 0.33333334
+        value: {x: 0, y: 0, z: -0.24490449, w: 0.9695472}
+        inSlope: {x: 0, y: 0, z: 2.6341975, w: 0.5716065}
+        outSlope: {x: 0, y: 0, z: 2.6341975, w: 0.5716065}
+        tangentMode: 0
+      - time: 0.36666667
+        value: {x: 0, y: 0, z: -0.12339521, w: 0.9923576}
+        inSlope: {x: 0, y: 0, z: 3.6735675, w: 0.45679185}
+        outSlope: {x: 0, y: 0, z: 3.6735675, w: 0.45679185}
+        tangentMode: 0
+      - time: 0.4
+        value: {x: 0, y: 0, z: 0, w: 1}
+        inSlope: {x: 0, y: 0, z: 3.7018566, w: 0.22927167}
+        outSlope: {x: 0, y: 0, z: 3.7018566, w: 0.22927167}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: leg_3
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: {x: 0, y: 0, z: -0.003107554, w: 0.9999952}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
+        tangentMode: 0
+      - time: 0.033333335
+        value: {x: 0, y: 0, z: -0.003107554, w: 0.9999952}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
+        tangentMode: 0
+      - time: 0.06666667
+        value: {x: 0, y: 0, z: -0.003107554, w: 0.9999952}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
+        tangentMode: 0
+      - time: 0.10000001
+        value: {x: 0, y: 0, z: -0.003107554, w: 0.9999952}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
+        tangentMode: 0
+      - time: 0.13333334
+        value: {x: 0, y: 0, z: -0.003107554, w: 0.9999952}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
+        tangentMode: 0
+      - time: 0.16666667
+        value: {x: 0, y: 0, z: -0.003107554, w: 0.9999952}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
+        tangentMode: 0
+      - time: 0.2
+        value: {x: 0, y: 0, z: -0.003107554, w: 0.9999952}
+        inSlope: {x: 0, y: 0, z: 1.7796078, w: -0.10037274}
+        outSlope: {x: 0, y: 0, z: 1.7796078, w: -0.10037274}
+        tangentMode: 0
+      - time: 0.23333333
+        value: {x: 0, y: 0, z: 0.11553296, w: 0.99330366}
+        inSlope: {x: 0, y: 0, z: 4.110052, w: -0.56079787}
+        outSlope: {x: 0, y: 0, z: 4.110052, w: -0.56079787}
+        tangentMode: 0
+      - time: 0.26666668
+        value: {x: 0, y: 0, z: 0.27089596, w: 0.96260864}
+        inSlope: {x: 0, y: 0, z: 3.4610207, w: -0.8275186}
+        outSlope: {x: 0, y: 0, z: 3.4610207, w: -0.8275186}
+        tangentMode: 0
+      - time: 0.3
+        value: {x: 0, y: 0, z: 0.34626773, w: 0.93813574}
+        inSlope: {x: 0, y: 0, z: 0.19039571, w: -0.05494058}
+        outSlope: {x: 0, y: 0, z: 0.19039571, w: -0.05494058}
+        tangentMode: 0
+      - time: 0.33333334
+        value: {x: 0, y: 0, z: 0.283589, w: 0.95894593}
+        inSlope: {x: 0, y: 0, z: -3.067996, w: 0.77653444}
+        outSlope: {x: 0, y: 0, z: -3.067996, w: 0.77653444}
+        tangentMode: 0
+      - time: 0.36666667
+        value: {x: 0, y: 0, z: 0.14173467, w: 0.9899047}
+        inSlope: {x: 0, y: 0, z: -4.3004484, w: 0.6157387}
+        outSlope: {x: 0, y: 0, z: -4.3004484, w: 0.6157387}
+        tangentMode: 0
+      - time: 0.4
+        value: {x: 0, y: 0, z: -0.003107554, w: 0.9999952}
+        inSlope: {x: 0, y: 0, z: -4.345267, w: 0.30271414}
+        outSlope: {x: 0, y: 0, z: -4.345267, w: 0.30271414}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: leg_2
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: {x: 0, y: 0, z: -0.0024172787, w: 0.9999971}
+        inSlope: {x: 0, y: 0, z: 2.1000946, w: -0.06850898}
+        outSlope: {x: 0, y: 0, z: 2.1000946, w: -0.06850898}
+        tangentMode: 0
+      - time: 0.033333335
+        value: {x: 0, y: 0, z: 0.06758587, w: 0.99771345}
+        inSlope: {x: 0, y: 0, z: 2.095121, w: -0.14192551}
+        outSlope: {x: 0, y: 0, z: 2.095121, w: -0.14192551}
+        tangentMode: 0
+      - time: 0.06666667
+        value: {x: 0, y: 0, z: 0.13725746, w: 0.9905354}
+        inSlope: {x: 0, y: 0, z: 1.5170752, w: -0.18075225}
+        outSlope: {x: 0, y: 0, z: 1.5170752, w: -0.18075225}
+        tangentMode: 0
+      - time: 0.10000001
+        value: {x: 0, y: 0, z: 0.16872422, w: 0.9856633}
+        inSlope: {x: 0, y: 0, z: -0.1133219, w: 0.01526358}
+        outSlope: {x: 0, y: 0, z: -0.1133219, w: 0.01526358}
+        tangentMode: 0
+      - time: 0.13333334
+        value: {x: 0, y: 0, z: 0.12970267, w: 0.99155295}
+        inSlope: {x: 0, y: 0, z: -1.7453523, w: 0.19446911}
+        outSlope: {x: 0, y: 0, z: -1.7453523, w: 0.19446911}
+        tangentMode: 0
+      - time: 0.16666667
+        value: {x: 0, y: 0, z: 0.05236741, w: 0.9986279}
+        inSlope: {x: 0, y: 0, z: -1.9817994, w: 0.12666197}
+        outSlope: {x: 0, y: 0, z: -1.9817994, w: 0.12666197}
+        tangentMode: 0
+      - time: 0.2
+        value: {x: 0, y: 0, z: -0.0024172787, w: 0.9999971}
+        inSlope: {x: 0, y: 0, z: -0.8434836, w: 0.020469727}
+        outSlope: {x: 0, y: 0, z: -0.8434836, w: 0.020469727}
+        tangentMode: 0
+      - time: 0.23333333
+        value: {x: 0, y: 0, z: -0.0038648285, w: 0.99999255}
+        inSlope: {x: 0, y: 0, z: 0.29959548, w: -0.0022682538}
+        outSlope: {x: 0, y: 0, z: 0.29959548, w: -0.0022682538}
+        tangentMode: 0
+      - time: 0.26666668
+        value: {x: 0, y: 0, z: 0.017555762, w: 0.99984586}
+        inSlope: {x: 0, y: 0, z: 0.5296702, w: -0.007306337}
+        outSlope: {x: 0, y: 0, z: 0.5296702, w: -0.007306337}
+        tangentMode: 0
+      - time: 0.3
+        value: {x: 0, y: 0, z: 0.031446524, w: 0.99950546}
+        inSlope: {x: 0, y: 0, z: 0.11431878, w: -0.0024425986}
+        outSlope: {x: 0, y: 0, z: 0.11431878, w: -0.0024425986}
+        tangentMode: 0
+      - time: 0.33333334
+        value: {x: 0, y: 0, z: 0.025177013, w: 0.999683}
+        inSlope: {x: 0, y: 0, z: -0.30098364, w: 0.006446243}
+        outSlope: {x: 0, y: 0, z: -0.30098364, w: 0.006446243}
+        tangentMode: 0
+      - time: 0.36666667
+        value: {x: 0, y: 0, z: 0.011380949, w: 0.9999352}
+        inSlope: {x: 0, y: 0, z: -0.41391438, w: 0.0047108536}
+        outSlope: {x: 0, y: 0, z: -0.41391438, w: 0.0047108536}
+        tangentMode: 0
+      - time: 0.4
+        value: {x: 0, y: 0, z: -0.0024172787, w: 0.9999971}
+        inSlope: {x: 0, y: 0, z: -0.41394684, w: 0.0018560888}
+        outSlope: {x: 0, y: 0, z: -0.41394684, w: 0.0018560888}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: leg_1
+  m_CompressedRotationCurves: []
+  m_EulerCurves: []
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -449,41 +699,41 @@ AnimationClip:
       classID: 4
       customType: 0
       isPPtrCurve: 0
-    - path: 3078485604
-      attribute: 4
+    - path: 2271549100
+      attribute: 2
       script: {fileID: 0}
       classID: 4
-      customType: 14
-      isPPtrCurve: 0
-    - path: 3340174059
-      attribute: 4
-      script: {fileID: 0}
-      classID: 4
-      customType: 14
-      isPPtrCurve: 0
-    - path: 1500747592
-      attribute: 4
-      script: {fileID: 0}
-      classID: 4
-      customType: 14
-      isPPtrCurve: 0
-    - path: 779397086
-      attribute: 4
-      script: {fileID: 0}
-      classID: 4
-      customType: 14
+      customType: 0
       isPPtrCurve: 0
     - path: 2463100623
-      attribute: 4
+      attribute: 2
       script: {fileID: 0}
       classID: 4
-      customType: 14
+      customType: 0
       isPPtrCurve: 0
-    - path: 2271549100
-      attribute: 4
+    - path: 3340174059
+      attribute: 2
       script: {fileID: 0}
       classID: 4
-      customType: 14
+      customType: 0
+      isPPtrCurve: 0
+    - path: 1500747592
+      attribute: 2
+      script: {fileID: 0}
+      classID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - path: 779397086
+      attribute: 2
+      script: {fileID: 0}
+      classID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - path: 3078485604
+      attribute: 2
+      script: {fileID: 0}
+      classID: 4
+      customType: 0
       isPPtrCurve: 0
     - path: 0
       attribute: 0
@@ -527,111 +777,6 @@ AnimationClip:
     m_HeightFromFeet: 0
     m_Mirror: 0
   m_EditorCurves:
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.2
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.3
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.4
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.x
-    path: leg_1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.2
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.3
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.4
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.y
-    path: leg_1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: -0.27699998
-        inSlope: 197.043
-        outSlope: 197.043
-        tangentMode: 10
-      - time: 0.1
-        value: 19.4273
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.2
-        value: -0.27699998
-        inSlope: -79.116
-        outSlope: -79.116
-        tangentMode: 10
-      - time: 0.3
-        value: 3.6041
-        inSlope: -0.0000019073486
-        outSlope: -0.0000019073486
-        tangentMode: 10
-      - time: 0.4
-        value: -0.27699998
-        inSlope: -38.811
-        outSlope: -38.811
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.z
-    path: leg_1
-    classID: 4
-    script: {fileID: 0}
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -741,96 +886,6 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.2
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.4
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.x
-    path: leg_4
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.2
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.4
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.y
-    path: leg_4
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: -118.61099
-        outSlope: -118.61099
-        tangentMode: 10
-      - time: 0.1
-        value: -11.861099
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.2
-        value: 0
-        inSlope: 59.305496
-        outSlope: 59.305496
-        tangentMode: 10
-      - time: 0.4
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.z
-    path: leg_4
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
         value: 0.73
         inSlope: 0.9200001
         outSlope: 0.9200001
@@ -915,126 +970,6 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
     path: leg_4
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.16666667
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.2
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.3
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.4
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.x
-    path: leg_3
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.16666667
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.2
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.3
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.4
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.y
-    path: leg_3
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.16666667
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.2
-        value: 0
-        inSlope: -173.98048
-        outSlope: -173.98048
-        tangentMode: 10
-      - time: 0.3
-        value: -34.7961
-        inSlope: 0.000030517578
-        outSlope: 0.000030517578
-        tangentMode: 10
-      - time: 0.4
-        value: 0
-        inSlope: 347.96103
-        outSlope: 347.96103
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.z
-    path: leg_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1155,111 +1090,6 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
     path: leg_3
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.16666667
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.2
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.3
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.4
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.x
-    path: leg_2
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.16666667
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.2
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.3
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.4
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.y
-    path: leg_2
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: -0.3561
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.16666667
-        value: -0.3561
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.2
-        value: -0.3561
-        inSlope: 204.37247
-        outSlope: 204.37247
-        tangentMode: 10
-      - time: 0.3
-        value: 40.5184
-        inSlope: -0.000030517578
-        outSlope: -0.000030517578
-        tangentMode: 10
-      - time: 0.4
-        value: -0.3561
-        inSlope: -408.745
-        outSlope: -408.745
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.z
-    path: leg_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1446,111 +1276,6 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.2
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.3
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.4
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.x
-    path: spine
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.2
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.3
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.4
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.y
-    path: spine
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0.12629999
-        inSlope: -106.74299
-        outSlope: -106.74299
-        tangentMode: 10
-      - time: 0.1
-        value: -10.547999
-        inSlope: -2.0119972
-        outSlope: -2.0119972
-        tangentMode: 10
-      - time: 0.2
-        value: -0.27609998
-        inSlope: 11.8460045
-        outSlope: 11.8460045
-        tangentMode: 10
-      - time: 0.3
-        value: -8.1788
-        inSlope: 2.0120087
-        outSlope: 2.0120087
-        tangentMode: 10
-      - time: 0.4
-        value: 0.12629999
-        inSlope: 83.051
-        outSlope: 83.051
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.z
-    path: spine
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
         value: 0.92
         inSlope: 3
         outSlope: 3
@@ -1656,81 +1381,6 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.2
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.4
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.x
-    path: spine/head
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.2
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.4
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.y
-    path: spine/head
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 2.6554
-        inSlope: -69.419495
-        outSlope: -69.419495
-        tangentMode: 10
-      - time: 0.2
-        value: -11.228499
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.4
-        value: 2.6554
-        inSlope: 69.419495
-        outSlope: 69.419495
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.z
-    path: spine/head
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
         value: 1.1299993
         inSlope: 0
         outSlope: 0
@@ -1802,185 +1452,2405 @@ AnimationClip:
     path: spine/head
     classID: 4
     script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.033333335
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.06666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.10000001
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.13333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.16666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.23333333
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.26666668
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.33333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.36666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: spine/head
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.033333335
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.06666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.10000001
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.13333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.16666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.23333333
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.26666668
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.33333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.36666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: spine/head
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0.023170667
+        inSlope: -0.68987614
+        outSlope: -0.68987614
+        tangentMode: 0
+      - time: 0.033333335
+        value: 0.00017479493
+        inSlope: -0.7403456
+        outSlope: -0.7403456
+        tangentMode: 0
+      - time: 0.06666667
+        value: -0.02618571
+        inSlope: -0.790542
+        outSlope: -0.790542
+        tangentMode: 0
+      - time: 0.10000001
+        value: -0.052528013
+        inSlope: -0.7393886
+        outSlope: -0.7393886
+        tangentMode: 0
+      - time: 0.13333334
+        value: -0.075478286
+        inSlope: -0.58739996
+        outSlope: -0.58739996
+        tangentMode: 0
+      - time: 0.16666667
+        value: -0.09168801
+        inSlope: -0.3352821
+        outSlope: -0.3352821
+        tangentMode: 0
+      - time: 0.2
+        value: -0.09783042
+        inSlope: -0.00000022351742
+        outSlope: -0.00000022351742
+        tangentMode: 0
+      - time: 0.23333333
+        value: -0.09168802
+        inSlope: 0.3352821
+        outSlope: 0.3352821
+        tangentMode: 0
+      - time: 0.26666668
+        value: -0.07547828
+        inSlope: 0.5874001
+        outSlope: 0.5874001
+        tangentMode: 0
+      - time: 0.3
+        value: -0.05252801
+        inSlope: 0.7393887
+        outSlope: 0.7393887
+        tangentMode: 0
+      - time: 0.33333334
+        value: -0.026185703
+        inSlope: 0.7905421
+        outSlope: 0.7905421
+        tangentMode: 0
+      - time: 0.36666667
+        value: 0.00017479493
+        inSlope: 0.7403456
+        outSlope: 0.7403456
+        tangentMode: 0
+      - time: 0.4
+        value: 0.023170667
+        inSlope: 0.6898762
+        outSlope: 0.6898762
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.z
+    path: spine/head
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0.99973154
+        inSlope: 0.00805378
+        outSlope: 0.00805378
+        tangentMode: 0
+      - time: 0.033333335
+        value: 1
+        inSlope: -0.0011166926
+        outSlope: -0.0011166926
+        tangentMode: 0
+      - time: 0.06666667
+        value: 0.9996571
+        inSlope: -0.020708438
+        outSlope: -0.020708438
+        tangentMode: 0
+      - time: 0.10000001
+        value: 0.99861944
+        inSlope: -0.037644804
+        outSlope: -0.037644804
+        tangentMode: 0
+      - time: 0.13333334
+        value: 0.99714744
+        inSlope: -0.04247457
+        outSlope: -0.04247457
+        tangentMode: 0
+      - time: 0.16666667
+        value: 0.9957878
+        inSlope: -0.02916545
+        outSlope: -0.02916545
+        tangentMode: 0
+      - time: 0.2
+        value: 0.9952031
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.23333333
+        value: 0.9957878
+        inSlope: 0.02916544
+        outSlope: 0.02916544
+        tangentMode: 0
+      - time: 0.26666668
+        value: 0.99714744
+        inSlope: 0.04247456
+        outSlope: 0.04247456
+        tangentMode: 0
+      - time: 0.3
+        value: 0.99861944
+        inSlope: 0.037644807
+        outSlope: 0.037644807
+        tangentMode: 0
+      - time: 0.33333334
+        value: 0.9996571
+        inSlope: 0.020708444
+        outSlope: 0.020708444
+        tangentMode: 0
+      - time: 0.36666667
+        value: 1
+        inSlope: 0.001116693
+        outSlope: 0.001116693
+        tangentMode: 0
+      - time: 0.4
+        value: 0.99973154
+        inSlope: -0.0080537805
+        outSlope: -0.0080537805
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: spine/head
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.033333335
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.06666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.10000001
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.13333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.16666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.23333333
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.26666668
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.33333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.36666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: spine
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.033333335
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.06666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.10000001
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.13333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.16666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.23333333
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.26666668
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.33333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.36666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: spine
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0.0011021752
+        inSlope: -1.1343609
+        outSlope: -1.1343609
+        tangentMode: 0
+      - time: 0.033333335
+        value: -0.036709856
+        inSlope: -1.1335733
+        outSlope: -1.1335733
+        tangentMode: 0
+      - time: 0.06666667
+        value: -0.07446938
+        inSlope: -0.8281331
+        outSlope: -0.8281331
+        tangentMode: 0
+      - time: 0.10000001
+        value: -0.09191874
+        inSlope: 0.07037106
+        outSlope: 0.07037106
+        tangentMode: 0
+      - time: 0.13333334
+        value: -0.06977798
+        inSlope: 0.96917015
+        outSlope: 0.96917015
+        tangentMode: 0
+      - time: 0.16666667
+        value: -0.027307395
+        inSlope: 1.0105283
+        outSlope: 1.0105283
+        tangentMode: 0
+      - time: 0.2
+        value: -0.0024094249
+        inSlope: 0.1263143
+        outSlope: 0.1263143
+        tangentMode: 0
+      - time: 0.23333333
+        value: -0.018886441
+        inSlope: -0.7583112
+        outSlope: -0.7583112
+        tangentMode: 0
+      - time: 0.26666668
+        value: -0.05296352
+        inSlope: -0.786397
+        outSlope: -0.786397
+        tangentMode: 0
+      - time: 0.3
+        value: -0.07131292
+        inSlope: -0.07044661
+        outSlope: -0.07044661
+        tangentMode: 0
+      - time: 0.33333334
+        value: -0.05765996
+        inSlope: 0.6453271
+        outSlope: 0.6453271
+        tangentMode: 0
+      - time: 0.36666667
+        value: -0.028291116
+        inSlope: 0.8814321
+        outSlope: 0.8814321
+        tangentMode: 0
+      - time: 0.4
+        value: 0.0011021752
+        inSlope: 0.8817988
+        outSlope: 0.8817988
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.z
+    path: spine
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0.9999994
+        inSlope: -0.020202396
+        outSlope: -0.020202396
+        tangentMode: 0
+      - time: 0.033333335
+        value: 0.999326
+        inSlope: -0.041641295
+        outSlope: -0.041641295
+        tangentMode: 0
+      - time: 0.06666667
+        value: 0.9972233
+        inSlope: -0.05339205
+        outSlope: -0.05339205
+        tangentMode: 0
+      - time: 0.10000001
+        value: 0.9957665
+        inSlope: 0.005088156
+        outSlope: 0.005088156
+        tangentMode: 0
+      - time: 0.13333334
+        value: 0.9975625
+        inSlope: 0.057908896
+        outSlope: 0.057908896
+        tangentMode: 0
+      - time: 0.16666667
+        value: 0.9996271
+        inSlope: 0.03651828
+        outSlope: 0.03651828
+        tangentMode: 0
+      - time: 0.2
+        value: 0.9999971
+        inSlope: 0.0029182436
+        outSlope: 0.0029182436
+        tangentMode: 0
+      - time: 0.23333333
+        value: 0.99982166
+        inSlope: -0.021009736
+        outSlope: -0.021009736
+        tangentMode: 0
+      - time: 0.26666668
+        value: 0.99859643
+        inSlope: -0.035515122
+        outSlope: -0.035515122
+        tangentMode: 0
+      - time: 0.3
+        value: 0.997454
+        inSlope: -0.003902615
+        outSlope: -0.003902615
+        tangentMode: 0
+      - time: 0.33333334
+        value: 0.99833626
+        inSlope: 0.032186512
+        outSlope: 0.032186512
+        tangentMode: 0
+      - time: 0.36666667
+        value: 0.99959975
+        inSlope: 0.024947228
+        outSlope: 0.024947228
+        tangentMode: 0
+      - time: 0.4
+        value: 0.9999994
+        inSlope: 0.011989475
+        outSlope: 0.011989475
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: spine
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.033333335
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.06666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.10000001
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.13333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.16666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.23333333
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.26666668
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.33333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.36666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: leg_4
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.033333335
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.06666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.10000001
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.13333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.16666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.23333333
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.26666668
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.33333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.36666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: leg_4
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: -1.2647184
+        outSlope: -1.2647184
+        tangentMode: 0
+      - time: 0.033333335
+        value: -0.04215728
+        inSlope: -1.2635942
+        outSlope: -1.2635942
+        tangentMode: 0
+      - time: 0.06666667
+        value: -0.08423961
+        inSlope: -0.91748416
+        outSlope: -0.91748416
+        tangentMode: 0
+      - time: 0.10000001
+        value: -0.1033229
+        inSlope: 0.05730927
+        outSlope: 0.05730927
+        tangentMode: 0
+      - time: 0.13333334
+        value: -0.080419
+        inSlope: 1.0324081
+        outSlope: 1.0324081
+        tangentMode: 0
+      - time: 0.16666667
+        value: -0.0344957
+        inSlope: 1.206285
+        outSlope: 1.206285
+        tangentMode: 0
+      - time: 0.2
+        value: 0
+        inSlope: 0.697132
+        outSlope: 0.697132
+        tangentMode: 0
+      - time: 0.23333333
+        value: 0.011979762
+        inSlope: 0.23000793
+        outSlope: 0.23000793
+        tangentMode: 0
+      - time: 0.26666668
+        value: 0.015333863
+        inSlope: 0.014374942
+        outSlope: 0.014374942
+        tangentMode: 0
+      - time: 0.3
+        value: 0.012938093
+        inSlope: -0.115000576
+        outSlope: -0.115000576
+        tangentMode: 0
+      - time: 0.33333334
+        value: 0.0076671583
+        inSlope: -0.15813126
+        outSlope: -0.15813126
+        tangentMode: 0
+      - time: 0.36666667
+        value: 0.0023960106
+        inSlope: -0.115007386
+        outSlope: -0.115007386
+        tangentMode: 0
+      - time: 0.4
+        value: 0
+        inSlope: -0.07188032
+        outSlope: -0.07188032
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.z
+    path: leg_4
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: -0.026670096
+        outSlope: -0.026670096
+        tangentMode: 0
+      - time: 0.033333335
+        value: 0.999111
+        inSlope: -0.053316947
+        outSlope: -0.053316947
+        tangentMode: 0
+      - time: 0.06666667
+        value: 0.99644554
+        inSlope: -0.066947035
+        outSlope: -0.066947035
+        tangentMode: 0
+      - time: 0.10000001
+        value: 0.99464786
+        inSlope: 0.0047341064
+        outSlope: 0.0047341064
+        tangentMode: 0
+      - time: 0.13333334
+        value: 0.99676114
+        inSlope: 0.071354814
+        outSlope: 0.071354814
+        tangentMode: 0
+      - time: 0.16666667
+        value: 0.99940485
+        inSlope: 0.048582856
+        outSlope: 0.048582856
+        tangentMode: 0
+      - time: 0.2
+        value: 1
+        inSlope: 0.007850827
+        outSlope: 0.007850827
+        tangentMode: 0
+      - time: 0.23333333
+        value: 0.99992824
+        inSlope: -0.0017639992
+        outSlope: -0.0017639992
+        tangentMode: 0
+      - time: 0.26666668
+        value: 0.9998824
+        inSlope: -0.00017881359
+        outSlope: -0.00017881359
+        tangentMode: 0
+      - time: 0.3
+        value: 0.9999163
+        inSlope: 0.0013232232
+        outSlope: 0.0013232232
+        tangentMode: 0
+      - time: 0.33333334
+        value: 0.9999706
+        inSlope: 0.0012123586
+        outSlope: 0.0012123586
+        tangentMode: 0
+      - time: 0.36666667
+        value: 0.99999714
+        inSlope: 0.00044077638
+        outSlope: 0.00044077638
+        tangentMode: 0
+      - time: 0.4
+        value: 1
+        inSlope: 0.000085830696
+        outSlope: 0.000085830696
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: leg_4
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.033333335
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.06666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.10000001
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.13333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.16666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.23333333
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.26666668
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.33333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.36666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: leg_3
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.033333335
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.06666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.10000001
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.13333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.16666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.23333333
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.26666668
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.33333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.36666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: leg_3
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.033333335
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.06666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.10000001
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.13333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.16666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.2
+        value: 0
+        inSlope: -1.5156752
+        outSlope: -1.5156752
+        tangentMode: 0
+      - time: 0.23333333
+        value: -0.101045005
+        inSlope: -3.5097797
+        outSlope: -3.5097797
+        tangentMode: 0
+      - time: 0.26666668
+        value: -0.23398536
+        inSlope: -2.9694495
+        outSlope: -2.9694495
+        tangentMode: 0
+      - time: 0.3
+        value: -0.29900837
+        inSlope: -0.16378689
+        outSlope: -0.16378689
+        tangentMode: 0
+      - time: 0.33333334
+        value: -0.24490449
+        inSlope: 2.6341975
+        outSlope: 2.6341975
+        tangentMode: 0
+      - time: 0.36666667
+        value: -0.12339521
+        inSlope: 3.6735675
+        outSlope: 3.6735675
+        tangentMode: 0
+      - time: 0.4
+        value: 0
+        inSlope: 3.7018566
+        outSlope: 3.7018566
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.z
+    path: leg_3
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.033333335
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.06666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.10000001
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.13333334
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.16666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.2
+        value: 1
+        inSlope: -0.07677198
+        outSlope: -0.07677198
+        tangentMode: 0
+      - time: 0.23333333
+        value: 0.99488187
+        inSlope: -0.41639853
+        outSlope: -0.41639853
+        tangentMode: 0
+      - time: 0.26666668
+        value: 0.9722401
+        inSlope: -0.60947025
+        outSlope: -0.60947025
+        tangentMode: 0
+      - time: 0.3
+        value: 0.9542505
+        inSlope: -0.04039319
+        outSlope: -0.04039319
+        tangentMode: 0
+      - time: 0.33333334
+        value: 0.9695472
+        inSlope: 0.5716065
+        outSlope: 0.5716065
+        tangentMode: 0
+      - time: 0.36666667
+        value: 0.9923576
+        inSlope: 0.45679185
+        outSlope: 0.45679185
+        tangentMode: 0
+      - time: 0.4
+        value: 1
+        inSlope: 0.22927167
+        outSlope: 0.22927167
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: leg_3
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.033333335
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.06666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.10000001
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.13333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.16666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.23333333
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.26666668
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.33333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.36666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: leg_2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.033333335
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.06666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.10000001
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.13333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.16666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.23333333
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.26666668
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.33333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.36666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: leg_2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -0.003107554
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.033333335
+        value: -0.003107554
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.06666667
+        value: -0.003107554
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.10000001
+        value: -0.003107554
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.13333334
+        value: -0.003107554
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.16666667
+        value: -0.003107554
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.2
+        value: -0.003107554
+        inSlope: 1.7796078
+        outSlope: 1.7796078
+        tangentMode: 0
+      - time: 0.23333333
+        value: 0.11553296
+        inSlope: 4.110052
+        outSlope: 4.110052
+        tangentMode: 0
+      - time: 0.26666668
+        value: 0.27089596
+        inSlope: 3.4610207
+        outSlope: 3.4610207
+        tangentMode: 0
+      - time: 0.3
+        value: 0.34626773
+        inSlope: 0.19039571
+        outSlope: 0.19039571
+        tangentMode: 0
+      - time: 0.33333334
+        value: 0.283589
+        inSlope: -3.067996
+        outSlope: -3.067996
+        tangentMode: 0
+      - time: 0.36666667
+        value: 0.14173467
+        inSlope: -4.3004484
+        outSlope: -4.3004484
+        tangentMode: 0
+      - time: 0.4
+        value: -0.003107554
+        inSlope: -4.345267
+        outSlope: -4.345267
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.z
+    path: leg_2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0.9999952
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.033333335
+        value: 0.9999952
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.06666667
+        value: 0.9999952
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.10000001
+        value: 0.9999952
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.13333334
+        value: 0.9999952
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.16666667
+        value: 0.9999952
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.2
+        value: 0.9999952
+        inSlope: -0.10037274
+        outSlope: -0.10037274
+        tangentMode: 0
+      - time: 0.23333333
+        value: 0.99330366
+        inSlope: -0.56079787
+        outSlope: -0.56079787
+        tangentMode: 0
+      - time: 0.26666668
+        value: 0.96260864
+        inSlope: -0.8275186
+        outSlope: -0.8275186
+        tangentMode: 0
+      - time: 0.3
+        value: 0.93813574
+        inSlope: -0.05494058
+        outSlope: -0.05494058
+        tangentMode: 0
+      - time: 0.33333334
+        value: 0.95894593
+        inSlope: 0.77653444
+        outSlope: 0.77653444
+        tangentMode: 0
+      - time: 0.36666667
+        value: 0.9899047
+        inSlope: 0.6157387
+        outSlope: 0.6157387
+        tangentMode: 0
+      - time: 0.4
+        value: 0.9999952
+        inSlope: 0.30271414
+        outSlope: 0.30271414
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: leg_2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.033333335
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.06666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.10000001
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.13333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.16666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.23333333
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.26666668
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.33333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.36666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: leg_1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.033333335
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.06666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.10000001
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.13333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.16666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.23333333
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.26666668
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.33333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.36666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: leg_1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -0.0024172787
+        inSlope: 2.1000946
+        outSlope: 2.1000946
+        tangentMode: 0
+      - time: 0.033333335
+        value: 0.06758587
+        inSlope: 2.095121
+        outSlope: 2.095121
+        tangentMode: 0
+      - time: 0.06666667
+        value: 0.13725746
+        inSlope: 1.5170752
+        outSlope: 1.5170752
+        tangentMode: 0
+      - time: 0.10000001
+        value: 0.16872422
+        inSlope: -0.1133219
+        outSlope: -0.1133219
+        tangentMode: 0
+      - time: 0.13333334
+        value: 0.12970267
+        inSlope: -1.7453523
+        outSlope: -1.7453523
+        tangentMode: 0
+      - time: 0.16666667
+        value: 0.05236741
+        inSlope: -1.9817994
+        outSlope: -1.9817994
+        tangentMode: 0
+      - time: 0.2
+        value: -0.0024172787
+        inSlope: -0.8434836
+        outSlope: -0.8434836
+        tangentMode: 0
+      - time: 0.23333333
+        value: -0.0038648285
+        inSlope: 0.29959548
+        outSlope: 0.29959548
+        tangentMode: 0
+      - time: 0.26666668
+        value: 0.017555762
+        inSlope: 0.5296702
+        outSlope: 0.5296702
+        tangentMode: 0
+      - time: 0.3
+        value: 0.031446524
+        inSlope: 0.11431878
+        outSlope: 0.11431878
+        tangentMode: 0
+      - time: 0.33333334
+        value: 0.025177013
+        inSlope: -0.30098364
+        outSlope: -0.30098364
+        tangentMode: 0
+      - time: 0.36666667
+        value: 0.011380949
+        inSlope: -0.41391438
+        outSlope: -0.41391438
+        tangentMode: 0
+      - time: 0.4
+        value: -0.0024172787
+        inSlope: -0.41394684
+        outSlope: -0.41394684
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.z
+    path: leg_1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0.9999971
+        inSlope: -0.06850898
+        outSlope: -0.06850898
+        tangentMode: 0
+      - time: 0.033333335
+        value: 0.99771345
+        inSlope: -0.14192551
+        outSlope: -0.14192551
+        tangentMode: 0
+      - time: 0.06666667
+        value: 0.9905354
+        inSlope: -0.18075225
+        outSlope: -0.18075225
+        tangentMode: 0
+      - time: 0.10000001
+        value: 0.9856633
+        inSlope: 0.01526358
+        outSlope: 0.01526358
+        tangentMode: 0
+      - time: 0.13333334
+        value: 0.99155295
+        inSlope: 0.19446911
+        outSlope: 0.19446911
+        tangentMode: 0
+      - time: 0.16666667
+        value: 0.9986279
+        inSlope: 0.12666197
+        outSlope: 0.12666197
+        tangentMode: 0
+      - time: 0.2
+        value: 0.9999971
+        inSlope: 0.020469727
+        outSlope: 0.020469727
+        tangentMode: 0
+      - time: 0.23333333
+        value: 0.99999255
+        inSlope: -0.0022682538
+        outSlope: -0.0022682538
+        tangentMode: 0
+      - time: 0.26666668
+        value: 0.99984586
+        inSlope: -0.007306337
+        outSlope: -0.007306337
+        tangentMode: 0
+      - time: 0.3
+        value: 0.99950546
+        inSlope: -0.0024425986
+        outSlope: -0.0024425986
+        tangentMode: 0
+      - time: 0.33333334
+        value: 0.999683
+        inSlope: 0.006446243
+        outSlope: 0.006446243
+        tangentMode: 0
+      - time: 0.36666667
+        value: 0.9999352
+        inSlope: 0.0047108536
+        outSlope: 0.0047108536
+        tangentMode: 0
+      - time: 0.4
+        value: 0.9999971
+        inSlope: 0.0018560888
+        outSlope: 0.0018560888
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: leg_1
+    classID: 4
+    script: {fileID: 0}
   m_EulerEditorCurves:
   - curve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - time: 0
+        value: -0.3561
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.16666667
+        value: -0.3561
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: -0.3561
+        inSlope: 204.37247
+        outSlope: 204.37247
+        tangentMode: 10
+      - time: 0.3
+        value: 40.5184
+        inSlope: -0.000030517578
+        outSlope: -0.000030517578
+        tangentMode: 10
+      - time: 0.4
+        value: -0.3561
+        inSlope: -408.745
+        outSlope: -408.745
+        tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: leg_1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: leg_1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: leg_1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: leg_4
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: leg_4
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: leg_4
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: leg_3
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: leg_3
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: leg_3
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
+    attribute: localEulerAnglesBaked.z
     path: leg_2
     classID: 4
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.16666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
+    attribute: localEulerAnglesBaked.y
     path: leg_2
     classID: 4
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.16666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
+    attribute: localEulerAnglesBaked.x
     path: leg_2
     classID: 4
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - time: 0
+        value: 0.12629999
+        inSlope: -106.74299
+        outSlope: -106.74299
+        tangentMode: 10
+      - time: 0.1
+        value: -10.547999
+        inSlope: -2.0119972
+        outSlope: -2.0119972
+        tangentMode: 10
+      - time: 0.2
+        value: -0.27609998
+        inSlope: 11.8460045
+        outSlope: 11.8460045
+        tangentMode: 10
+      - time: 0.3
+        value: -8.1788
+        inSlope: 2.0120087
+        outSlope: 2.0120087
+        tangentMode: 10
+      - time: 0.4
+        value: 0.12629999
+        inSlope: 83.051
+        outSlope: 83.051
+        tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
+    attribute: localEulerAnglesBaked.z
     path: spine
     classID: 4
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
+    attribute: localEulerAnglesBaked.y
     path: spine
     classID: 4
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
+    attribute: localEulerAnglesBaked.x
     path: spine
     classID: 4
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: -118.61099
+        outSlope: -118.61099
+        tangentMode: 10
+      - time: 0.1
+        value: -11.861099
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: 0
+        inSlope: 59.305496
+        outSlope: 59.305496
+        tangentMode: 10
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
+    attribute: localEulerAnglesBaked.z
+    path: leg_4
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesBaked.y
+    path: leg_4
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesBaked.x
+    path: leg_4
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.16666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: 0
+        inSlope: -173.98048
+        outSlope: -173.98048
+        tangentMode: 10
+      - time: 0.3
+        value: -34.7961
+        inSlope: 0.000030517578
+        outSlope: 0.000030517578
+        tangentMode: 10
+      - time: 0.4
+        value: 0
+        inSlope: 347.96103
+        outSlope: 347.96103
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesBaked.z
+    path: leg_3
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.16666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesBaked.y
+    path: leg_3
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.16666667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesBaked.x
+    path: leg_3
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 2.6554
+        inSlope: -69.419495
+        outSlope: -69.419495
+        tangentMode: 10
+      - time: 0.2
+        value: -11.228499
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.4
+        value: 2.6554
+        inSlope: 69.419495
+        outSlope: 69.419495
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesBaked.z
     path: spine/head
     classID: 4
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
+    attribute: localEulerAnglesBaked.y
     path: spine/head
     classID: 4
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
+    attribute: localEulerAnglesBaked.x
     path: spine/head
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesBaked.x
+    path: leg_1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.3
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.4
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesBaked.y
+    path: leg_1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -0.27699998
+        inSlope: 197.043
+        outSlope: 197.043
+        tangentMode: 10
+      - time: 0.1
+        value: 19.4273
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.2
+        value: -0.27699998
+        inSlope: -79.116
+        outSlope: -79.116
+        tangentMode: 10
+      - time: 0.3
+        value: 3.6041
+        inSlope: -0.0000019073486
+        outSlope: -0.0000019073486
+        tangentMode: 10
+      - time: 0.4
+        value: -0.27699998
+        inSlope: -38.811
+        outSlope: -38.811
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesBaked.z
+    path: leg_1
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0

@@ -12,13 +12,15 @@ public class SkullEnemy : BaseEntity
     public float skullSpeedInitial;
 
     public override void OnEnable() {
+        transform.localScale = new Vector3(direction, 1, 1);
+        this.GetComponent<Rigidbody2D>().AddForce(new Vector2(((direction == 1) ?
+                -skullSpeedInitial : skullSpeedInitial), -3), ForceMode2D.Impulse);
+        
         changedDirection = false;
-        hitFloorOnce = false;
         hitFloorOnce = false;
         if (!baseHealth)
             baseHealth = GetComponent<BaseHealth>();
-        this.GetComponent<Rigidbody2D>().AddForce(new Vector2(((direction == 1) ?
-                -skullSpeedInitial : skullSpeedInitial), -3), ForceMode2D.Impulse);
+        
         base.OnEnable();
     }
 

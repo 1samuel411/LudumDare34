@@ -73,8 +73,7 @@ public class BirdEnemy : BaseEntity
     public IEnumerator Spawn() {
         while (true) {
             _poolManager.SpawnAt(spawnObject, skullSpawner.transform);
-            spawnObject.gameObject.GetComponent<BaseEntity>().direction = direction;
-            spawnObject.transform.localScale = new Vector3((direction == 1) ? -1 : 1, 1, 1);
+            spawnObject.gameObject.GetComponent<BaseEntity>().direction = -direction;
             yield return new WaitForSeconds(skullSpawningInterval);
         }
     }

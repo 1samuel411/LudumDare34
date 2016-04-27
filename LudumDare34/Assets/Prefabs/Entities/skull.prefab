@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11474670}
   - 114: {fileID: 11481994}
   - 114: {fileID: 11466676}
+  - 82: {fileID: 8292608}
   m_Layer: 11
   m_Name: skull
   m_TagString: Enemy
@@ -46,7 +47,7 @@ Transform:
   m_GameObject: {fileID: 111116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.53, y: -1.8, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 425018}
   m_Father: {fileID: 0}
@@ -127,6 +128,81 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.41, y: 0.44}
+--- !u!82 &8292608
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111116}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300001, guid: fb7413ed850c56e42bc073c7bb31279a,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: bf59b2a161f0d6d4f94ec3570d62072d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 403.09
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &11454256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -173,6 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   currentHealth: 1
+  maxHealth: 0
   dissolveSpeed: 1.5
   zoomable: 1
   dissolveable: 1
@@ -193,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetEntity: {fileID: 0}
-  direction: 1
+  direction: -1
   faceCheck: 1
   faceCheckMask:
     serializedVersion: 2
@@ -205,6 +282,7 @@ MonoBehaviour:
   jumpHeight: 3.09
   speed: 28.2
   maxVelocity: 2
+  originalMaxVelocity: 0
   regSpeed: 0
   jumpCooldownTime: 0.2
   airTimeNeeded: 0
@@ -225,12 +303,22 @@ MonoBehaviour:
   knockedBack: 0
   isJumping: 0
   isBoosting: 0
+  takeDamage: 1
   baseHealth: {fileID: 0}
   rigidbody: {fileID: 0}
   transform: {fileID: 0}
+  audio: {fileID: 0}
+  soundEffects:
+  - {fileID: 8300000, guid: 30781832db15e094cb41f9003555db52, type: 3}
+  - {fileID: 8300000, guid: 72806ae5e7cb33a458c1e1866feac8e9, type: 3}
+  - {fileID: 8300000, guid: 86f1cdd7d5e42b542a51632954c80356, type: 3}
+  - {fileID: 8300000, guid: f1e942bb66373e544b469b94bd5e1104, type: 3}
+  - {fileID: 8300000, guid: 85016ebdeefa36c41a4439d7d114105e, type: 3}
+  - {fileID: 8300000, guid: e728e93e71346f1488fb1453dad084ac, type: 3}
+  - {fileID: 8300000, guid: 9747c0ff71f51ee4a81d0a6007ecd793, type: 3}
   damage: 1
   skullSpeed: 0
-  skullSpeedInitial: 0
+  skullSpeedInitial: 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -238,6 +326,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: soundEffects.Array.size
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: faceCheck
       value: 1
@@ -280,7 +372,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: skullSpeedInitial
-      value: 1.91
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: jumpHeight
@@ -306,6 +398,107 @@ Prefab:
       propertyPath: groundCheckDist
       value: 0.32
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: panLevelCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MinDistance
+      value: 403.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300001, guid: fb7413ed850c56e42bc073c7bb31279a,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: bf59b2a161f0d6d4f94ec3570d62072d, type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: soundEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: c711eb41e66281a4f94091f991ffea68, type: 3}
+    - target: {fileID: 0}
+      propertyPath: soundEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9de08d813cd105c439d821bdc1efa49b, type: 3}
+    - target: {fileID: 0}
+      propertyPath: soundEffects.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: f1ce4003fbc60ce48b44ebc1f51d67b4, type: 3}
+    - target: {fileID: 0}
+      propertyPath: soundEffects.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: c07baa93f1efda94cb91ae10561be3e3, type: 3}
+    - target: {fileID: 0}
+      propertyPath: soundEffects.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 160d67a5200fa4d48bd3cfc45b6f4427, type: 3}
+    - target: {fileID: 0}
+      propertyPath: soundEffects.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: fbba9e1682dc71143a5c12a18570746d, type: 3}
+    - target: {fileID: 0}
+      propertyPath: soundEffects.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 27f5ebd60cbb4d64c8b85d80608a535a, type: 3}
+    - target: {fileID: 0}
+      propertyPath: soundEffects.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 578556d7c76b7c9448cf3b7c34f9dc4a, type: 3}
+    - target: {fileID: 0}
+      propertyPath: soundEffects.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2de2711bf3a36f64bb65e2a086cca3dd, type: 3}
+    - target: {fileID: 0}
+      propertyPath: soundEffects.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: f5c09ddc718910746aeecc65d61c65a5, type: 3}
+    - target: {fileID: 0}
+      propertyPath: soundEffects.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: d599188f517d88144b2eb81a27b33062, type: 3}
+    - target: {fileID: 0}
+      propertyPath: soundEffects.Array.data[11]
+      value: 
+      objectReference: {fileID: 8300000, guid: 30781832db15e094cb41f9003555db52, type: 3}
+    - target: {fileID: 0}
+      propertyPath: soundEffects.Array.data[12]
+      value: 
+      objectReference: {fileID: 8300000, guid: 72806ae5e7cb33a458c1e1866feac8e9, type: 3}
+    - target: {fileID: 0}
+      propertyPath: soundEffects.Array.data[13]
+      value: 
+      objectReference: {fileID: 8300000, guid: 86f1cdd7d5e42b542a51632954c80356, type: 3}
+    - target: {fileID: 0}
+      propertyPath: soundEffects.Array.data[14]
+      value: 
+      objectReference: {fileID: 8300000, guid: f1e942bb66373e544b469b94bd5e1104, type: 3}
+    - target: {fileID: 0}
+      propertyPath: soundEffects.Array.data[15]
+      value: 
+      objectReference: {fileID: 8300000, guid: 85016ebdeefa36c41a4439d7d114105e, type: 3}
+    - target: {fileID: 0}
+      propertyPath: soundEffects.Array.data[16]
+      value: 
+      objectReference: {fileID: 8300000, guid: e728e93e71346f1488fb1453dad084ac, type: 3}
+    - target: {fileID: 0}
+      propertyPath: soundEffects.Array.data[17]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9747c0ff71f51ee4a81d0a6007ecd793, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 111116}

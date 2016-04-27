@@ -275,6 +275,7 @@ MonoBehaviour:
   name: Thundergun
   itemType: 0
   itemTexture: {fileID: 0}
+  wepEnabled: 1
   weapon_image: {fileID: 0}
   weapon_background: {fileID: 0}
   weapon_asset: {fileID: 11400000, guid: cb1c15ecba0d38d429173674309959aa, type: 2}
@@ -294,13 +295,17 @@ MonoBehaviour:
   projectile: {fileID: 146998, guid: fee2e72b63869f74eaed0a088a7ee7b4, type: 2}
   bulletSpawnBox: {fileID: 168914}
   weaponAttribute:
+    _currentAmmo: 0
     checkTimer: 1
+    _currentTime: 0
     usingAmmo: 0
     usingTimer: 1
     coreWeapon: 0
-    maxAmountForTime: 8
+    maxAmountForTime: 12
+    originalMaxAmountForTime: 0
     maxAmountForAmmo: 0
-    TimeToAddPerPickUp: 2
+    originalMaxAmountForAmmo: 0
+    TimeToAddPerPickUp: 0
     ammoToAddPerPickUp: 0
   weapon: 3
   despawnTimer: 0

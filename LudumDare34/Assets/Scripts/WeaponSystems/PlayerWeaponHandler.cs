@@ -7,6 +7,8 @@ public class PlayerWeaponHandler : MonoBehaviour
 {
     public List<string> weaponsOwned;
     public bool pickingUpWep;
+    public int ammoAddition;
+    public float timeAddition;
 
     public void AddFirstWeapon(ref BaseWeapon firstWeapon)
     {
@@ -21,7 +23,7 @@ public class PlayerWeaponHandler : MonoBehaviour
             string.CompareOrdinal(weapon.gameObject.transform.parent.tag, "SpawnHandler") == 0) {
             // Add effect
             CameraManager.ShakeScreen(2, 1.5f);
-            CameraManager.ZoomIn(8, 3.2f, 4, 0.3f, transform.position, 5, 1);
+            CameraManager.ZoomIn(8, 4.5f, 4, 0.3f, transform.position, 5, 1);
             StartCoroutine(UIPickup(weapon));
             StartCoroutine(UISpin(weapon));
 
@@ -50,9 +52,11 @@ public class PlayerWeaponHandler : MonoBehaviour
                 BaseWeapon[] ownedWeapons = gameObject.GetComponentsInChildren<BaseWeapon>(true);
                 BaseWeapon matchingWeapon = ownedWeapons.First(w => string.CompareOrdinal(w.name, weapon.name) == 0);
                 matchingWeapon.weaponAttribute.AddTimeOrAmmo();
+                matchingWeapon.ResetWeaponAttributes();
                 weapon.DestroyWeapon(); //------------Weapon is DESTROYED
             }
-        } else {
+        }
+        else {
             Debug.Log("Weapon belongs to a parent!");
             //do not pick up weapon.
         }
@@ -129,6 +133,7 @@ public class PlayerWeaponHandler : MonoBehaviour
 
         BaseWeapon baseWeapon;
         weapon.ActivateGun(false);  //deactivate the current gun.
+        weapon.wepEnabled = true;
         BaseWeapon[] ownedWeapons = gameObject.GetComponentsInChildren<BaseWeapon>(true);
         IEnumerable<BaseWeapon> availableWeapons = ownedWeapons.Where(w => w.weaponAttribute.CheckIfWeaponAvailable() == true);
         if (availableWeapons.Count() > 1) // check that we have more then just the core weapon.
@@ -148,5 +153,20 @@ public class PlayerWeaponHandler : MonoBehaviour
 
         baseWeapon.ActivateGun(true);
         return baseWeapon;
+    }
+
+    private PlayerController controller;
+    private float toggleTimer;
+    private float toggleTime = 0.4f;
+    public void Update()
+    {
+        if (!controller)
+            controller = LevelManager.instance.player.GetComponent<PlayerController>();
+        if (Input.GetKeyDown(controller.toggleWeaponKey) || TouchController.controller.GetTouchUp(TouchLocations.Down, 0, 120))
+        {
+            toggleTimer = toggleTime + Time.time;
+            Tutorial.instance.toggled = true;
+            LevelManager.instance.wepsEnabled = !LevelManager.instance.wepsEnabled;
+        }
     }
 }
