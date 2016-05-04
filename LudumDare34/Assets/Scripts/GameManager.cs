@@ -1,22 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-
-    void Awake() {
+    public SyncManager syncManager;
+    
+    public void Awake() {
+        Initialize();
     }
 
-	//this is an extra test.
-
-	// Update is called once per frame
-	void Update () {
-
-	}
-	// Suck my nuts
+    private void Initialize() {
+        if(syncManager == null)
+            syncManager = new SyncManager();
+    }
 }

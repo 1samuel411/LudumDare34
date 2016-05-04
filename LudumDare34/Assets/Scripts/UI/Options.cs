@@ -18,6 +18,7 @@ public class Options : MonoBehaviour
     public Image voiceImage;
     public Image musicImage;
     public Image soundImage;
+    public Image googleImage;
 
     public Sprite musicOnSprite;
     public Sprite musicOffSprite;
@@ -134,5 +135,11 @@ public class Options : MonoBehaviour
         {
             exitEvent.Invoke();
         }
+    }
+
+    public void InvokeCognitoGoogle() {
+        SyncManager.syncManager.CognitoIdentitySync.GoogleAuthenticates(() => {
+            googleImage.color = Color.blue;
+        });
     }
 }

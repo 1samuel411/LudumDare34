@@ -90,7 +90,7 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: com.blazewolf.beargame
-  bundleVersion: 1.6
+  bundleVersion: 2.1
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
@@ -98,7 +98,7 @@ PlayerSettings:
   virtualRealitySupported: 0
   productGUID: a8c803807395d13429daf745eb4a99c8
   AndroidBundleVersionCode: 7
-  AndroidMinSdkVersion: 9
+  AndroidMinSdkVersion: 16
   AndroidPreferredInstallLocation: 1
   aotOptions: 
   apiCompatibilityLevel: 2
@@ -158,7 +158,7 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: D:/Dropbox/Dropbox/UNITYSTUFF/KeyStores/BearGame/user.keystore
+  AndroidKeystoreName: C:/Development/LudumDare34/Builds/user.keystore
   AndroidKeyaliasName: game
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
