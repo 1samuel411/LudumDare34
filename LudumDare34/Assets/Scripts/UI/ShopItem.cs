@@ -11,13 +11,14 @@ public class ShopItem : MonoBehaviour
 
     public Button selectedButton;
 
-    public int cost;
+    public float cost;
     public string title;
     public string desc;
     public int index;
     public bool maxed;
     public int timesBought;
     public Sprite icon;
+    public bool iap = false;
 
     void Start()
     {
@@ -26,7 +27,8 @@ public class ShopItem : MonoBehaviour
 
     void Update()
     {
-        selectedCostText.text = cost.ToString();
+        selectedCostText.text = (iap) ? "$" : "";
+        selectedCostText.text += cost.ToString();
         selectedTitleText.text = title;
         selectedIconImage.sprite = icon;
         selectedButton.interactable = !maxed;

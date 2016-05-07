@@ -162,7 +162,7 @@ public class PlayerWeaponHandler : MonoBehaviour
     {
         if (!controller)
             controller = LevelManager.instance.player.GetComponent<PlayerController>();
-        if (Input.GetKeyDown(controller.toggleWeaponKey) || TouchController.controller.GetTouchUp(TouchLocations.Down, 0, 120))
+        if (Input.GetKeyDown(controller.toggleWeaponKey) || TouchController.controller.GetTouchUp(TouchLocations.Down, 250, 120))
         {
             toggleTimer = toggleTime + Time.time;
             Tutorial.instance.toggled = true;

@@ -106,7 +106,8 @@ public class TouchController : MonoBehaviour
 
             // Up and Down
             if (location == TouchLocations.Up || location == TouchLocations.Down)
-                touching = (position.y <= (screenHeightHalf - yIgnoreDist)) ? (location == TouchLocations.Down) ? true : false : (position.y >= (screenHeightHalf + yIgnoreDist)) ? (location == TouchLocations.Up) ? true : false : false;
+                if (position.x <= (Screen.width - xIgnoreDist) && position.x >= xIgnoreDist)
+                    touching = (position.y <= (screenHeightHalf - yIgnoreDist)) ? (location == TouchLocations.Down) ? true : false : (position.y >= (screenHeightHalf + yIgnoreDist)) ? (location == TouchLocations.Up) ? true : false : false;
 
             // Left Quads
             if (location == TouchLocations.LowerLeft || location == TouchLocations.UpperLeft)
@@ -140,7 +141,8 @@ public class TouchController : MonoBehaviour
 
                 // Up and Down
                 if (location == TouchLocations.Up || location == TouchLocations.Down)
-                    touching = (position.y <= (screenHeightHalf - yIgnoreDist)) ? (location == TouchLocations.Down) ? true : false : (position.y >= (screenHeightHalf + yIgnoreDist)) ? (location == TouchLocations.Up) ? true : false : false;
+                    if (position.x <= (Screen.width - xIgnoreDist) && position.x >= xIgnoreDist)
+                        touching = (position.y <= (screenHeightHalf - yIgnoreDist)) ? (location == TouchLocations.Down) ? true : false : (position.y >= (screenHeightHalf + yIgnoreDist)) ? (location == TouchLocations.Up) ? true : false : false;
 
                 // Left Quads
                 if (location == TouchLocations.LowerLeft || location == TouchLocations.UpperLeft)
@@ -163,6 +165,8 @@ public class TouchController : MonoBehaviour
         if (Input.touchCount <= 0)
             return false;
 
+        Debug.Log(xIgnoreDist);
+
         bool touching = false;
         for (int i = 0; i < Input.touches.Length; i++)
         {
@@ -175,7 +179,8 @@ public class TouchController : MonoBehaviour
 
                 // Up and Down
                 if (location == TouchLocations.Up || location == TouchLocations.Down)
-                    touching = (position.y <= (screenHeightHalf - yIgnoreDist)) ? (location == TouchLocations.Down) ? true : false : (position.y >= (screenHeightHalf + yIgnoreDist)) ? (location == TouchLocations.Up) ? true : false : false;
+                    if(position.x <= (Screen.width - xIgnoreDist) && position.x >= xIgnoreDist)
+                        touching = (position.y <= (screenHeightHalf - yIgnoreDist)) ? (location == TouchLocations.Down) ? true : false : (position.y >= (screenHeightHalf + yIgnoreDist)) ? (location == TouchLocations.Up) ? true : false : false;
 
                 // Left Quads
                 if (location == TouchLocations.LowerLeft || location == TouchLocations.UpperLeft)

@@ -8,6 +8,9 @@ public class Tutorial : MonoBehaviour
     public static Tutorial instance;
     public bool jumped, boosted, movedLeft, movedRight, strafedLeft, strafedRight, toggled, movingLeft, movingRight;
     public bool finishedTutorial;
+
+    public GameObject mainUI;
+
     public GameObject jumpedObj, boostedObj, moveLeftObj, movedRightObj, strafedLeftObj, strafedRightObj, toggledObj;
     public Sprite completedIcon;
 
@@ -23,6 +26,7 @@ public class Tutorial : MonoBehaviour
     {
         if (finishedTutorial)
         {
+            mainUI.SetActive(true);
             jumpedObj.SetActive(false);
             boostedObj.SetActive(false);
             moveLeftObj.SetActive(false);
@@ -33,19 +37,33 @@ public class Tutorial : MonoBehaviour
         }
         else
         {
-            jumpedObj.SetActive(!jumped);
+            mainUI.SetActive(false);
+            if (!boosted)
+                jumpedObj.SetActive(!jumped);
+            else
+                jumpedObj.SetActive(false);
             if (jumped)
                 boostedObj.SetActive(!boosted);
-            else
+            else if(!boosted)
                 boostedObj.SetActive(false);
 
-            if(!strafedLeft)
-                moveLeftObj.SetActive(!movingRight);
+            if (!strafedLeft)
+            {
+                if (movingLeft)
+                    moveLeftObj.SetActive(false);
+                else
+                    moveLeftObj.SetActive(!movingRight);
+            }
             else
                 moveLeftObj.SetActive(!movingLeft);
 
             if (!strafedRight)
-                movedRightObj.SetActive(!movingLeft);
+            {
+                if (movingRight)
+                    movedRightObj.SetActive(false);
+                else
+                    movedRightObj.SetActive(!movingLeft);
+            }
             else
                 movedRightObj.SetActive(!movingRight);
 

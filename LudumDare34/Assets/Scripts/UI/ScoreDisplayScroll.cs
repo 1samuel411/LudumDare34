@@ -18,8 +18,11 @@ public class ScoreDisplayScroll : MonoBehaviour
     void Start()
     {
         transform = GetComponent<RectTransform>();
+        if (type == Type.horizontal)
+            transform.position = new Vector2(10000, transform.position.y);
     }
 
+    private int lastChildCount;
     void Update()
     {
         int children = transform.childCount;
@@ -35,5 +38,12 @@ public class ScoreDisplayScroll : MonoBehaviour
         }
         
         transform.sizeDelta = new Vector2((type == Type.horizontal) ? size : transform.sizeDelta.x, (type == Type.vertical) ? size : transform.sizeDelta.y);
+         
+        if (transform.childCount != lastChildCount)
+        {
+            lastChildCount = transform.childCount;
+            if (type == Type.horizontal)
+                transform.position = new Vector2(1000, transform.position.y);
+        }
     }
 }

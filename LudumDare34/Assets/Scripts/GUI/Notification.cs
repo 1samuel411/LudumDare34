@@ -21,7 +21,7 @@ public class Notification : MonoBehaviour
     {
         animation = GetComponentInChildren<Animation>();
         animation.Play("notification_start");
-        disposeTimer = Time.time + 1;
+        disposeTimer = Time.time + 2;
 	}
 	
 	void Update ()

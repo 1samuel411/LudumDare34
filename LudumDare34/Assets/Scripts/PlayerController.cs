@@ -258,6 +258,7 @@ public class PlayerController : BaseEntity
             Tutorial.instance.movingRight = false;
         }
 
+        Tutorial.instance.jumped = isJumping;
 
         // Jumping
         if (canJump && !isJumping)
@@ -303,7 +304,6 @@ public class PlayerController : BaseEntity
                 rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
                 Jump();
                 _holdingKeys = false;
-                Tutorial.instance.jumped = true;
             }
         }
 

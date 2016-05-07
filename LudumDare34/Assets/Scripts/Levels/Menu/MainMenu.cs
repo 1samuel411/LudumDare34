@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
 
     public Text coinsText;
     public Text shopCoinsText;
+    public Text iapShopCoinsText;
     public Text scoreDisplayText;
     public Text killsDisplayText;
 
@@ -43,6 +44,7 @@ public class MainMenu : MonoBehaviour
         killsDisplayText.text = totalKills.ToString();
         coinsText.text = coins.ToString();
         shopCoinsText.text = coins.ToString();
+        iapShopCoinsText.text = coins.ToString();
 
         if (Advertisement.isSupported && Advertisement.isInitialized)
             adsButton.gameObject.SetActive(true);
@@ -87,7 +89,6 @@ public class MainMenu : MonoBehaviour
 
     public void PlayPress()
     {
-        StartCoroutine(LoadLevel());
     }
 
     public void WatchAd()
@@ -135,13 +136,13 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    IEnumerator LoadLevel()
+    public static IEnumerator LoadLevel(int level)
     {
-        InfoManager.SetInfo("coins", coins.ToString());
-        InfoManager.SetInfo("kills", totalKills.ToString());
-        InfoManager.SetInfo("score", totalScore.ToString());
+        InfoManager.SetInfo("coins", MainMenu.instance.coins.ToString());
+        InfoManager.SetInfo("kills", MainMenu.instance.totalKills.ToString());
+        InfoManager.SetInfo("score", MainMenu.instance.totalScore.ToString());
         CameraManager.instance.FadeOut();
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 }

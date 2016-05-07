@@ -177,6 +177,7 @@ public class BaseWeapon : BaseItem
 
             while (isGunActive)
             {
+                transform.rotation = Quaternion.identity;
                 if (wepEnabled)
                 {
                     if (PlayerController.instance.baseHealth._died)

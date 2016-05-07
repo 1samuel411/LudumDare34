@@ -23,11 +23,11 @@ public class InfoManager : MonoBehaviour
     {
         bool returnInfo = false;
 
-        if (PlayerPrefs.HasKey("newUser010"))
+        if (PlayerPrefs.HasKey("newUser021"))
             returnInfo = false;
         else
         {
-            PlayerPrefs.SetString("newUser010", "true");
+            PlayerPrefs.SetString("newUser021", "true");
             InfoManager.SetInfo("bought", "");
             InfoManager.SetInfo("timeNeededHrs", "0");
             InfoManager.SetInfo("finishedTutorial", "0");
@@ -35,6 +35,7 @@ public class InfoManager : MonoBehaviour
             InfoManager.SetInfo("coins", "0");
             InfoManager.SetInfo("kills", "0");
             InfoManager.SetInfo("score", "0");
+            InfoManager.SetInfo("unlockedLevels", "0");
             returnInfo = true;
         }
         return returnInfo;

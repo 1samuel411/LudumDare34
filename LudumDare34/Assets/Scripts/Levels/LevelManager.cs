@@ -74,7 +74,7 @@ public class LevelManager : MonoBehaviour
     {
         instance = this;
         coins = Int32.Parse(InfoManager.GetInfo("coins"));
-        spawnNextWave = true;
+        spawnNextWave = false;
 	    poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<PoolManager>();
         spawnObjects = new List<SpawnObject>();
         coinsSpawnObj = poolManager.AddToSpawnPool(coinObj);
@@ -180,6 +180,11 @@ public class LevelManager : MonoBehaviour
     float randomEnemy;
     private IEnumerator SpawnObjects()
     {
+        while (Tutorial.instance.finishedTutorial == false)
+        {
+            waveCooldownTimer = Time.time + 1;
+            yield return null;
+        }
         _wave++;
         spawnNextWave = false;
         waveCooldownTimer = 99999999999;
