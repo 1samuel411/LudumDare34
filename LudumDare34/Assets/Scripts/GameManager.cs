@@ -3,14 +3,16 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-    public SyncManager syncManager;
+    private SyncManager _syncManager;
+
+    public SyncManager syncManager {
+        get {
+            if (_syncManager == null)
+                _syncManager = gameObject.AddComponent<SyncManager>();
+            return _syncManager;
+        }
+    }
     
     public void Awake() {
-        Initialize();
-    }
-
-    private void Initialize() {
-        if(syncManager == null)
-            syncManager = new SyncManager();
     }
 }

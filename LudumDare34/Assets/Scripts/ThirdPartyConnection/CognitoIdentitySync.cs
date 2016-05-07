@@ -66,8 +66,7 @@ public class CognitoIdentitySync {
                 AddGoogleTokenToCognito();
             } else
                 Debug.Log("Login Failed!");
-            if(callback != null)
-                callback.Invoke();
+            if(callback != null) callback.Invoke();
         });
     }
 

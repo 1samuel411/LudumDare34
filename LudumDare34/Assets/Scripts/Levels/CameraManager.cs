@@ -54,10 +54,17 @@ public class CameraManager : MonoBehaviour
 
     private new Transform transform;
     private VignetteAndChromaticAberration vignette;
-    public GameManager gameManager;
+    private GameManager _gameManager;
+
+    public GameManager gameManager {
+        get {
+            if (_gameManager == null)
+                _gameManager = (gameObject.GetComponent<GameManager>()) ?? gameObject.AddComponent<GameManager>();
+            return _gameManager;
+        }
+    }
 
     void Awake() {
-        gameManager = GetComponent<GameManager>();
         PlayGamesPlatform.Activate();
         transform = GetComponent<Transform>();
         instance = this;
@@ -77,7 +84,8 @@ public class CameraManager : MonoBehaviour
 
     IEnumerator LoadLevel()
     {
-        yield return new WaitForSeconds(timeToWait);
+        //yield return new WaitForSeconds(timeToWait);
+        Debug.Log("Triggered LoadLevel");
         FadeOut();
         yield return new WaitForSeconds(0.6f);
         SceneManager.LoadScene(levelToLoad);

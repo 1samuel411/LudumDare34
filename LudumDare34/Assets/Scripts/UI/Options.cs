@@ -138,7 +138,8 @@ public class Options : MonoBehaviour
     }
 
     public void InvokeCognitoGoogle() {
-        SyncManager.syncManager.CognitoIdentitySync.GoogleAuthenticates(() => {
+        //This is messy, but it has somewhat control. need a proper gameManager to prevent this.
+        CameraManager.instance.gameManager.syncManager.CognitoIdentitySync.GoogleAuthenticates(() => {
             googleImage.color = Color.blue;
         });
     }
