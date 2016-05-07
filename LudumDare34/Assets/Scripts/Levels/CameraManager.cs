@@ -2,7 +2,10 @@
 using UnityEngine.UI;
 using UnityStandardAssets.ImageEffects;
 using System.Collections;
+using Amazon.CognitoSync.SyncManager;
 using UnityEngine.SceneManagement;
+using GooglePlayGames;
+using UnityEngine.SocialPlatforms;
 
 public class CameraManager : MonoBehaviour
 {
@@ -51,9 +54,18 @@ public class CameraManager : MonoBehaviour
 
     private new Transform transform;
     private VignetteAndChromaticAberration vignette;
+    private GameManager _gameManager;
 
-    void Awake()
-    {
+    public GameManager gameManager {
+        get {
+            if (_gameManager == null)
+                _gameManager = (gameObject.GetComponent<GameManager>()) ?? gameObject.AddComponent<GameManager>();
+            return _gameManager;
+        }
+    }
+
+    void Awake() {
+        PlayGamesPlatform.Activate();
         transform = GetComponent<Transform>();
         instance = this;
         ourCam = this.GetComponent<Camera>();
@@ -63,13 +75,17 @@ public class CameraManager : MonoBehaviour
         fadeImgColor = Color.black;
         fadeImgColor.a = 1;
 
-        if (loading)
-            StartCoroutine(LoadLevel());
+        if (loading) {
+            gameManager.syncManager.CognitoIdentitySync.GoogleAuthenticates(() => {
+                StartCoroutine(LoadLevel());
+            });
+        }
     }
 
     IEnumerator LoadLevel()
     {
-        yield return new WaitForSeconds(timeToWait);
+        //yield return new WaitForSeconds(timeToWait);
+        Debug.Log("Triggered LoadLevel");
         FadeOut();
         yield return new WaitForSeconds(0.6f);
         SceneManager.LoadScene(levelToLoad);

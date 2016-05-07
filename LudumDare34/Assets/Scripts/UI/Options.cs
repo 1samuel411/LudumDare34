@@ -18,6 +18,7 @@ public class Options : MonoBehaviour
     public Image voiceImage;
     public Image musicImage;
     public Image soundImage;
+    public Image googleImage;
 
     public Sprite musicOnSprite;
     public Sprite musicOffSprite;
@@ -89,6 +90,10 @@ public class Options : MonoBehaviour
         PlayerPrefs.SetInt("effectsEnabled", (soundEffectsEnabled == true) ? 1 : 0);
     }
 
+    public void ToggleFacebookConnect() {
+        
+    }
+
     void Update()
     {
         voiceImage.sprite = (voiceEnabled == true) ? musicOnSprite : musicOffSprite;
@@ -130,5 +135,12 @@ public class Options : MonoBehaviour
         {
             exitEvent.Invoke();
         }
+    }
+
+    public void InvokeCognitoGoogle() {
+        //This is messy, but it has somewhat control. need a proper gameManager to prevent this.
+        CameraManager.instance.gameManager.syncManager.CognitoIdentitySync.GoogleAuthenticates(() => {
+            googleImage.color = Color.blue;
+        });
     }
 }

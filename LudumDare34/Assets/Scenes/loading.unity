@@ -275,8 +275,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 6652.3, y: 3298}
+  m_AnchoredPosition: {x: 1, y: -40}
+  m_SizeDelta: {x: 2258, y: 1202}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1137414577
 MonoBehaviour:
@@ -385,6 +385,7 @@ GameObject:
   - 124: {fileID: 1461626858}
   - 81: {fileID: 1461626857}
   - 114: {fileID: 1461626862}
+  - 114: {fileID: 1461626863}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -479,3 +480,16 @@ MonoBehaviour:
   loading: 1
   timeToWait: 1.5
   levelToLoad: mainMenu
+  gameManager: {fileID: 0}
+--- !u!114 &1461626863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1461626856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 915dfad78f183674797fd1f27108f5c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncManager: {fileID: 0}
