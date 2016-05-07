@@ -62,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 164426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.28, y: 0.28, z: 1}
+  m_LocalScale: {x: 0.28, y: 0.28, z: 0.82}
   m_Children: []
   m_Father: {fileID: 447654}
   m_RootOrder: 1
@@ -73,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198962}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.36, y: -2.23, z: 0}
+  m_LocalPosition: {x: 1.46, y: -2.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 489822}
@@ -271,9 +271,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485ddf2c093d74abf922b2a83a6cd235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lastTimeModified: 635871456380364346
-  _vectorGraphics: {fileID: 11400000, guid: 015921e693711274794cdde8e26d83f7, type: 2}
-  _color: {r: 1, g: 1, b: 1, a: 1}
+  _lastTimeModified: 635871470746263944
+  _vectorGraphics: {fileID: 11400000, guid: e4b5dd72daa725448bfae0dd8ba69da8, type: 2}
+  _color: {r: 0, g: 0, b: 0, a: 1}
   _opaqueMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b, type: 2}
   _transparentMaterial: {fileID: 2100000, guid: 66b2d9f948fa66a4dae4bf4c4939f51b,
     type: 2}
@@ -293,9 +293,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9ea85bc2049e94595f81afa4411ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Beam
+  name: beamWeapon
   itemType: 0
   itemTexture: {fileID: 0}
+  wepEnabled: 1
   weapon_image: {fileID: 0}
   weapon_background: {fileID: 0}
   weapon_asset: {fileID: 11400000, guid: e4b5dd72daa725448bfae0dd8ba69da8, type: 2}
@@ -305,7 +306,7 @@ MonoBehaviour:
   isAutomatic: 1
   CanShoot: 1
   muzzleFlash: {fileID: 190704, guid: aed79bf96858ac64f933f19bf2089701, type: 2}
-  pickupPosition: {x: 0, y: 0}
+  pickupPosition: {x: -0.84, y: 0.3}
   pickupScale: 0.82
   force: 0.45
   shootSound: {fileID: 8300000, guid: 29259a33130bafb4fb56adb135ed9dff, type: 3}
@@ -315,14 +316,20 @@ MonoBehaviour:
   projectile: {fileID: 170152, guid: c761b684b83e1304d9ed9a4496c2774b, type: 2}
   bulletSpawnBox: {fileID: 169038}
   weaponAttribute:
+    _currentAmmo: 0
     checkTimer: 1
+    _currentTime: 0
     usingAmmo: 0
     usingTimer: 1
     coreWeapon: 0
-    maxAmountForTime: 6
+    maxAmountForTime: 10
+    originalMaxAmountForTime: 0
     maxAmountForAmmo: 0
-    TimeToAddPerPickUp: 1
+    originalMaxAmountForAmmo: 0
+    TimeToAddPerPickUp: 0
     ammoToAddPerPickUp: 0
+  weapon: 4
+  despawnTimer: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -362,6 +369,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: scale
       value: 76.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: weapon
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

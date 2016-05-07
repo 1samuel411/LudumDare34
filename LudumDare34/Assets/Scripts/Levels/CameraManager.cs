@@ -1,8 +1,19 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityStandardAssets.ImageEffects;
 using System.Collections;
+using Amazon.CognitoSync.SyncManager;
+using UnityEngine.SceneManagement;
+using GooglePlayGames;
+using UnityEngine.SocialPlatforms;
 
 public class CameraManager : MonoBehaviour
 {
+
+    public Image fadeImg;
+    public float fadeSpeed;
+    public bool fadeOut;
+    public Color fadeImgColor;
 
     public static Camera ourCam;
     public static CameraManager instance;
@@ -33,24 +44,76 @@ public class CameraManager : MonoBehaviour
 
     private bool _zoomingIn;
     private bool _zoomingOut;
+    private bool _died;
 
     private Vector3 _position;
 
-    private new Transform transform;
+    public bool loading;
+    public float timeToWait;
+    public string levelToLoad;
 
-    void Awake()
-    {
+    private new Transform transform;
+    private VignetteAndChromaticAberration vignette;
+    //private GameManager _gameManager;
+
+    //public GameManager gameManager {
+    //    get {
+    //        if (_gameManager == null)
+    //            _gameManager = (gameObject.GetComponent<GameManager>()) ?? gameObject.AddComponent<GameManager>();
+    //        return _gameManager;
+    //    }
+    //}
+
+    void Awake() {
+        PlayGamesPlatform.Activate();
         transform = GetComponent<Transform>();
         instance = this;
         ourCam = this.GetComponent<Camera>();
         _position = transform.position;
         _regZoom = ourCam.orthographicSize;
+        vignette = GetComponent<VignetteAndChromaticAberration>();
+        fadeImgColor = Color.black;
+        fadeImgColor.a = 1;
+
+        if (loading) {
+            GameManager.syncManager.GoogleAuthenticates(() => {
+            //gameManager.syncManager.GoogleAuthenticates(() => {
+                StartCoroutine(LoadLevel());
+            });
+        }
+    }
+
+    IEnumerator LoadLevel()
+    {
+        //yield return new WaitForSeconds(timeToWait);
+        Debug.Log("Triggered LoadLevel");
+        FadeOut();
+        yield return new WaitForSeconds(0.6f);
+        SceneManager.LoadScene(levelToLoad);
     }
 
     void Update()
     {
+        if(fadeOut)
+        {
+            fadeImgColor.a += fadeSpeed * Time.deltaTime;
+        }
+        else
+        {
+            // Fade in at start
+            fadeImgColor.a -= fadeSpeed * Time.deltaTime;
+        }
+        fadeImg.color = fadeImgColor;
+
         if (!PlayerController.instance)
             return;
+
+        if (PlayerController.instance.baseHealth._died)
+        {
+            _curTimeScale = 0.9f;
+            _targetTimeToWaitZoom = Time.time + 9999;
+            vignette.intensity += 4 * Time.deltaTime;
+        }
         _position.x = PlayerController.instance.transform.position.x;
         _position.x = Mathf.Clamp(_position.x, maxLeft, maxRight);
         if(!_zoomingIn && !_zoomingOut)
@@ -69,7 +132,7 @@ public class CameraManager : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, new Vector3(_targetPosition.x + Random.Range(-screenshakeAmount, screenshakeAmount), _targetPosition.y + Random.Range(-screenshakeAmount, screenshakeAmount), -10), _moveSpeed * Time.deltaTime);
             ourCam.orthographicSize = _currentZoom;
             Time.timeScale = _curTimeScale;
-            _curTimeToWaitZoom += Time.deltaTime / Time.timeScale;
+            _curTimeToWaitZoom += Time.deltaTime/Time.timeScale;
 
             if(_curTimeToWaitZoom > _targetTimeToWaitZoom)
             {
@@ -91,7 +154,7 @@ public class CameraManager : MonoBehaviour
             ourCam.orthographicSize = _currentZoom;
             Time.timeScale = _curTimeScale;
 
-            _curTimeToWaitZoom += Time.deltaTime / Time.timeScale;
+            _curTimeToWaitZoom += Time.deltaTime;
 
             if (_curTimeToWaitZoom > _targetTimeToWaitZoom)
             {
@@ -104,8 +167,9 @@ public class CameraManager : MonoBehaviour
 
     public static void ZoomIn(float zoomSpeed, float zoomTarget, float timeScaleSpeed, float timeScale, Vector3 targetPos, float moveSpeed, float timeTaken)
     {
-        if (!CameraManager.instance)
+        if (!CameraManager.instance || LevelManager.instance.player.baseHealth._died)
             return;
+
         CameraManager.instance._zoomingIn = true;
         CameraManager.instance._targetTimeToWaitZoom = Time.time + timeTaken;
         CameraManager.instance._curTimeToWaitZoom = Time.time;
@@ -122,9 +186,15 @@ public class CameraManager : MonoBehaviour
 
     public static void ShakeScreen(float amount, float reduceAmount)
     {
-        if (!CameraManager.instance)
+        if (!CameraManager.instance || LevelManager.instance.player.baseHealth._died)
             return;
         CameraManager.instance.screenshakeAmount = amount;
         CameraManager.instance.screenshakeReduceAmount = reduceAmount;
+    }
+
+    public void FadeOut()
+    {
+        fadeImgColor.a = 0;
+        fadeOut = true;
     }
 }

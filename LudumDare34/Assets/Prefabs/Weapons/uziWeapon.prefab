@@ -14,6 +14,7 @@ GameObject:
   - 111: {fileID: 11115382}
   - 114: {fileID: 11433454}
   - 82: {fileID: 8205616}
+  - 114: {fileID: 11428010}
   m_Layer: 14
   m_Name: uziWeapon
   m_TagString: Weapon
@@ -283,6 +284,17 @@ MonoBehaviour:
   _sortingOrder: 6
   _overrideSorter: 0
   _overrideSorterChildren: 0
+--- !u!114 &11428010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 116610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce62cc0df556f649abd1979ea62e9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11433454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -297,6 +309,7 @@ MonoBehaviour:
   name: UZI
   itemType: 0
   itemTexture: {fileID: 0}
+  wepEnabled: 1
   weapon_image: {fileID: 0}
   weapon_background: {fileID: 0}
   weapon_asset: {fileID: 11400000, guid: f45824fa8883f974099f08ed737f6760, type: 2}
@@ -316,14 +329,20 @@ MonoBehaviour:
   projectile: {fileID: 170152, guid: 7b1d882a69f5ae648821c9df2c801cf2, type: 2}
   bulletSpawnBox: {fileID: 172018}
   weaponAttribute:
+    _currentAmmo: 0
     checkTimer: 0
+    _currentTime: 0
     usingAmmo: 1
     usingTimer: 0
     coreWeapon: 0
     maxAmountForTime: 0
-    maxAmountForAmmo: 40
+    originalMaxAmountForTime: 0
+    maxAmountForAmmo: 70
+    originalMaxAmountForAmmo: 0
     TimeToAddPerPickUp: 0
-    ammoToAddPerPickUp: 15
+    ammoToAddPerPickUp: 0
+  weapon: 0
+  despawnTimer: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

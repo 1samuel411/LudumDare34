@@ -12,6 +12,8 @@ TagManager:
   - SkySpawner
   - GroundSpawner
   - PoolManager
+  - SpawnHandler
+  - GameInfo
   layers:
   - Default
   - TransparentFX

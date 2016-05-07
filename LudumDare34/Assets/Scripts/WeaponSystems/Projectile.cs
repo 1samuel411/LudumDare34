@@ -3,15 +3,17 @@ using System.Collections;
 
 public class Projectile : MonoBehaviour
 {
-    public GameObject impact_effect;
+    public enum ImpactType { thunder, explosion };
+    public ImpactType impactType;
     public GameObject[] blood_effects;
     public float impactEffectSize;
     public float impactScreenshake;
-    public int damage;
+    public int damage, originalDamage;
     public float knockbackForce;
     public float knockbackTime;
     public float projectileSpeed;
     public float bulletLife;
+    public int impactAmounts = 1;
 
     private float currentBulletLife;
 
@@ -19,27 +21,40 @@ public class Projectile : MonoBehaviour
 
     private float updatedTime;
 
-    public void Start()
-    {
-        updatedTime = Time.time;
-        currentBulletLife = Time.time + bulletLife;
-        direction = PlayerController.instance.direction;
+    private TrailRenderer rendererTrail;
+
+    public void Start() {
     }
 
     public void Update()
     {
         float speed = ((direction == 1) ? -projectileSpeed : projectileSpeed);
-        this.transform.position += new Vector3(speed * Time.deltaTime, ((PlayerController.instance.direction == 1) ? 1 : 1) * Mathf.Sin(transform.rotation.z));
+        this.transform.position += new Vector3(speed * Time.deltaTime, ((PlayerController.instance.direction == 1) ? 1 : 1) * Mathf.Sin(transform.rotation.z) * Time.timeScale);
 
         updatedTime += Time.deltaTime;
         if (updatedTime > currentBulletLife)
-            RemoveBullet();
+            this.gameObject.SetActive(false);
     }
+
+    public void OnEnable() {
+        if(!rendererTrail)
+        {
+            rendererTrail = GetComponent<TrailRenderer>();
+        }
+        rendererTrail.Clear();
+        updatedTime = Time.time;
+        currentBulletLife = Time.time + bulletLife;
+        direction = PlayerController.instance.direction;
+        transform.localScale = new Vector3((direction == 1) ? 1 : -1, 1, 1);
+    }
+
+    public void OnDisable() { }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.tag == "Enemy")
         {
+            impactAmounts--;
             BaseHealth enemyHealth = collider.GetComponent<BaseHealth>();
             if (enemyHealth._died == false)
             {
@@ -48,26 +63,41 @@ public class Projectile : MonoBehaviour
                 enemyHealth.DealDamage(damage);
 
                 SpawnImpact();
+
+                if (enemyEntity.baseHealth.currentHealth <= 0 && enemyEntity.baseHealth.type != BaseHealth.Type.skull && enemyEntity.baseHealth.type != BaseHealth.Type.cloud && enemyEntity.baseHealth.type != BaseHealth.Type.bat)
+                    SpawnBlood();
             }
         }
-        RemoveBullet();
+
+        if(impactAmounts <= 0)
+            this.gameObject.SetActive(false);
+    }
+
+    void SpawnBlood()
+    {
+        int randomBlood = Random.Range(7, 9);
+        GameObject impactBloodEffect = LevelManager.instance.poolManager.SpawnAt(LevelManager.instance.spawnEffects[randomBlood], transform).gameObject;
+        impactBloodEffect.transform.localScale = new Vector3(impactEffectSize, impactEffectSize, impactEffectSize);
+        impactBloodEffect.transform.position = transform.position;
     }
 
     void SpawnImpact()
     {
-        int bloodEffect = Random.Range(0, blood_effects.Length);
-        GameObject impactBloodEffect = Instantiate(blood_effects[bloodEffect], transform.position, Quaternion.identity) as GameObject;
+        int randomBlood = Random.Range(3, 6);
+        GameObject impactBloodEffect = LevelManager.instance.poolManager.SpawnAt(LevelManager.instance.spawnEffects[randomBlood], transform).gameObject;
+        impactBloodEffect.transform.localEulerAngles = new Vector3(0, 0, Random.Range(0, 360));
         impactBloodEffect.transform.localScale = new Vector3(impactEffectSize, impactEffectSize, impactEffectSize);
+        impactBloodEffect.transform.position = transform.position;
 
-        GameObject impactEffectObj = Instantiate(impact_effect, transform.position, Quaternion.identity) as GameObject;
-        impactEffectObj.transform.localScale = new Vector3(impactEffectSize, impactEffectSize, impactEffectSize);
-        Animation impactEffectAnimation = impactEffectObj.GetComponent<Animation>();
+        int explosion = (impactType == ImpactType.explosion) ? 2 : 0;
+        GameObject impactEffect = LevelManager.instance.poolManager.SpawnAt(LevelManager.instance.spawnEffects[explosion], transform).gameObject;
+        impactEffect.transform.localEulerAngles = new Vector3(0, 0, Random.Range(0, 360));
+        impactEffect.transform.localScale = new Vector3(impactEffectSize, impactEffectSize, impactEffectSize);
+        impactEffect.transform.position = transform.position;
+
+        Animation impactEffectAnimation = impactEffect.GetComponent<Animation>();
+
         CameraManager.ShakeScreen(impactScreenshake, 3);
-    }
-
-    void RemoveBullet()
-    {
-        GameObject.Destroy(this.gameObject);
     }
 }
 

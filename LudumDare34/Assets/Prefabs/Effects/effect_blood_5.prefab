@@ -8,8 +8,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 443870}
-  - 114: {fileID: 11405048}
   - 95: {fileID: 9538048}
+  - 114: {fileID: 11437950}
+  - 114: {fileID: 11441702}
   m_Layer: 0
   m_Name: effect_blood_5
   m_TagString: Untagged
@@ -39,8 +40,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118706}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.249, y: -0.429, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.0122958105, w: 0.9999244}
+  m_LocalPosition: {x: -13.339197, y: -2.7209907, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 492366}
@@ -75,7 +76,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11405048
+--- !u!114 &11437950
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -84,6 +85,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aeecce890110ed94184b638941086183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  descruct: 0
+--- !u!114 &11441702
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce62cc0df556f649abd1979ea62e9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &21209766

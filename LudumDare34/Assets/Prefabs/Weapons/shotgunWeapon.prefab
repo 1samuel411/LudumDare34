@@ -29,6 +29,7 @@ GameObject:
   - 114: {fileID: 11476770}
   - 82: {fileID: 8261838}
   - 111: {fileID: 11120288}
+  - 114: {fileID: 11414336}
   m_Layer: 14
   m_Name: shotgunWeapon
   m_TagString: Weapon
@@ -260,6 +261,17 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &11414336
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce62cc0df556f649abd1979ea62e9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11476770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -274,6 +286,7 @@ MonoBehaviour:
   name: Shotgun
   itemType: 0
   itemTexture: {fileID: 0}
+  wepEnabled: 1
   weapon_image: {fileID: 0}
   weapon_background: {fileID: 0}
   weapon_asset: {fileID: 11400000, guid: 74481f3effb3a5e43b4016d0214090ba, type: 2}
@@ -287,21 +300,27 @@ MonoBehaviour:
   pickupScale: 1
   force: 0.67
   shootSound: {fileID: 8300000, guid: a7d709e502b0fe34d96adabc89c7e32b, type: 3}
-  weaponTriggerSpeed: 1.15
+  weaponTriggerSpeed: 0.7
   weaponEffect: 0
   weaponType: 0
   projectile: {fileID: 170152, guid: 603701bd28e1dbb48b6e5b0040f0f780, type: 2}
   bulletSpawnBox: {fileID: 107506}
   weaponAttribute:
+    _currentAmmo: 0
     checkTimer: 0
+    _currentTime: 0
     usingAmmo: 1
     usingTimer: 0
     coreWeapon: 0
     maxAmountForTime: 0
-    maxAmountForAmmo: 6
+    originalMaxAmountForTime: 0
+    maxAmountForAmmo: 8
+    originalMaxAmountForAmmo: 0
     TimeToAddPerPickUp: 0
-    ammoToAddPerPickUp: 3
-  spraySpread: 2
+    ammoToAddPerPickUp: 0
+  weapon: 2
+  despawnTimer: 0
+  spraySpread: 3.12
   sprayAmount: 3
 --- !u!114 &11497990
 MonoBehaviour:
@@ -365,6 +384,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: scale
       value: 76.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: weapon
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

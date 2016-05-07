@@ -8,8 +8,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 482374}
-  - 114: {fileID: 11423570}
   - 95: {fileID: 9585148}
+  - 114: {fileID: 11439532}
+  - 114: {fileID: 11493614}
   m_Layer: 0
   m_Name: effect_pistol
   m_TagString: Untagged
@@ -53,7 +54,7 @@ Transform:
   m_GameObject: {fileID: 125564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 467728}
   m_Father: {fileID: 0}
@@ -75,7 +76,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11423570
+--- !u!114 &11439532
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce62cc0df556f649abd1979ea62e9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11493614
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -86,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeecce890110ed94184b638941086183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  descruct: 0
 --- !u!212 &21274164
 SpriteRenderer:
   m_ObjectHideFlags: 1

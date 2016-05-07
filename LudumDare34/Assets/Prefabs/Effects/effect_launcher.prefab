@@ -8,9 +8,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 481520}
-  - 114: {fileID: 11415728}
   - 95: {fileID: 9516036}
   - 82: {fileID: 8296834}
+  - 114: {fileID: 11412270}
+  - 114: {fileID: 11484326}
   m_Layer: 0
   m_Name: effect_launcher
   m_TagString: Untagged
@@ -151,7 +152,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11415728
+--- !u!114 &11412270
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -160,6 +161,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aeecce890110ed94184b638941086183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  descruct: 0
+--- !u!114 &11484326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce62cc0df556f649abd1979ea62e9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &21291166

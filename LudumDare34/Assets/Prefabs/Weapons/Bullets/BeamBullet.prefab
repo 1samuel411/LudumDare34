@@ -29,6 +29,7 @@ GameObject:
   - 61: {fileID: 6134612}
   - 96: {fileID: 9681968}
   - 114: {fileID: 11419482}
+  - 114: {fileID: 11451162}
   m_Layer: 10
   m_Name: BeamBullet
   m_TagString: Bullet
@@ -44,7 +45,7 @@ Transform:
   m_GameObject: {fileID: 146998}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.359, y: -3.564, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 0}
   m_Children:
   - {fileID: 444192}
   m_Father: {fileID: 0}
@@ -118,7 +119,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1070858827
   m_SortingOrder: 0
-  m_Time: 0.08
+  m_Time: 0.09
   m_StartWidth: 0.28
   m_EndWidth: 0.12
   m_Colors:
@@ -164,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc82cb80c25d5f94481d30459e5d67f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impact_effect: {fileID: 149054, guid: 6bfd8ef49b0501e488cfe77f90f71cbb, type: 2}
+  impactType: 0
   blood_effects:
   - {fileID: 169934, guid: 92f616201a48cb34abe29c5336256b08, type: 2}
   - {fileID: 183274, guid: 8ad22e2e21a56c14eb308df07e8fb4ea, type: 2}
@@ -173,10 +174,23 @@ MonoBehaviour:
   impactEffectSize: 1
   impactScreenshake: 0
   damage: 14
+  originalDamage: 14
   knockbackForce: 16.5
   knockbackTime: 0.26
   projectileSpeed: 18
-  bulletLife: 0.62
+  bulletLife: 0.38
+  impactAmounts: 4
+--- !u!114 &11451162
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce62cc0df556f649abd1979ea62e9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21250664
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -249,6 +263,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: bulletLife
       value: 0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Time
+      value: 0.09
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

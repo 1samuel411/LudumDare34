@@ -4,7 +4,7 @@ using System.Collections;
 [System.Serializable]
 public class WeaponAttributes {
     #region Handles Ammo Settings
-    private int _currentAmmo;
+    public int _currentAmmo;
     private int _currentMaxAmmo;
 
     public int currentMaxAmmo
@@ -12,11 +12,8 @@ public class WeaponAttributes {
         get { return _currentMaxAmmo; }
         set
         {
-            if (value >= maxAmountForAmmo)
-                _currentMaxAmmo = maxAmountForAmmo;
-            else
-                _currentMaxAmmo += value;
-                _currentAmmo = _currentMaxAmmo;
+            _currentMaxAmmo = value;
+            _currentAmmo = _currentMaxAmmo;
         }
     }
 
@@ -31,23 +28,21 @@ public class WeaponAttributes {
 
     public bool checkTimer = false;
     private float _currentMaxTime;
-    private float _currentTime;
+    public float _currentTime;
 
     public float CurMaxAlottedTime
     {
         get { return _currentMaxTime; }
         set
         {
-            if (value >= maxAmountForTime)
-                _currentMaxTime = maxAmountForTime;
-            else
-                _currentMaxTime += value;
+            _currentMaxTime = value;
             _currentTime = _currentMaxTime;
         }
     }
 
     public float CurAlottedTime {
         get { return _currentTime; }
+        set { _currentTime = value;  }
     }
     #endregion
 
@@ -56,7 +51,9 @@ public class WeaponAttributes {
     public bool coreWeapon;
 
     public float maxAmountForTime;  //this is the set time cap by the developer
+    public float originalMaxAmountForTime;
     public int maxAmountForAmmo;    //this is the set ammo cap by the developer.
+    public int originalMaxAmountForAmmo;
 
     public float TimeToAddPerPickUp;//this is the amount of time to be added per pickup
     public int ammoToAddPerPickUp;  //this is the amount of ammo to be added per pickup
@@ -68,9 +65,7 @@ public class WeaponAttributes {
             if (usingTimer)
                 CurMaxAlottedTime += TimeToAddPerPickUp;
             else
-            {
                 Debug.Log("This is set to use Ammo only!");
-            }
         } else 
             Debug.Log("This is a Core Weapon! Timer is not needed.");
     }
@@ -87,7 +82,7 @@ public class WeaponAttributes {
             Debug.Log("This is a Core Weapon! Ammo is not needed.");
     }
 
-    public void AddTimeOrAmmo()
+    public void AddTimeOrAmmo(int ammoAddition = 0, float timeAddition = 0)
     {
         if (!coreWeapon)
         {
