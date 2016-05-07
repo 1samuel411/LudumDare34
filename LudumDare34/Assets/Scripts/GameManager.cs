@@ -1,18 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameManager : MonoBehaviour {
+public static class GameManager {
 
-    private SyncManager _syncManager;
+    private static SyncManager _syncManager;
 
-    public SyncManager syncManager {
+    public static SyncManager syncManager {
         get {
             if (_syncManager == null)
-                _syncManager = gameObject.AddComponent<SyncManager>();
+                _syncManager = new SyncManager();
             return _syncManager;
         }
-    }
-    
-    public void Awake() {
     }
 }

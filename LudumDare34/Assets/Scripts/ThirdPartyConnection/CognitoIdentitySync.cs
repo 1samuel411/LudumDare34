@@ -58,24 +58,12 @@ public class CognitoIdentitySync {
         //    AddFacebookTokenToCognito();
     }
 
-    public void GoogleAuthenticates(Action callback) {
-        PlayGamesPlatform.DebugLogEnabled = true;
-        Social.localUser.Authenticate((bool success) => {
-            if(success) {
-                Debug.Log("Successfully Logged in!");
-                AddGoogleTokenToCognito();
-            } else
-                Debug.Log("Login Failed!");
-            if(callback != null) callback.Invoke();
-        });
-    }
-
     private void AddFacebookTokenToCognito() {
         Debug.Log("Facebook is logged in. adding login to Cognito...");
         credentials.AddLogin("graph.facebook.com", AccessToken.CurrentAccessToken.TokenString);
     }
 
-    private void AddGoogleTokenToCognito() {
+    public void AddGoogleTokenToCognito(string token) {
         Debug.Log("Google is logged in, Adding Login to Cognito...");
         //credentials.AddLogin("Google stuff", "");
     }

@@ -54,15 +54,15 @@ public class CameraManager : MonoBehaviour
 
     private new Transform transform;
     private VignetteAndChromaticAberration vignette;
-    private GameManager _gameManager;
+    //private GameManager _gameManager;
 
-    public GameManager gameManager {
-        get {
-            if (_gameManager == null)
-                _gameManager = (gameObject.GetComponent<GameManager>()) ?? gameObject.AddComponent<GameManager>();
-            return _gameManager;
-        }
-    }
+    //public GameManager gameManager {
+    //    get {
+    //        if (_gameManager == null)
+    //            _gameManager = (gameObject.GetComponent<GameManager>()) ?? gameObject.AddComponent<GameManager>();
+    //        return _gameManager;
+    //    }
+    //}
 
     void Awake() {
         PlayGamesPlatform.Activate();
@@ -76,7 +76,8 @@ public class CameraManager : MonoBehaviour
         fadeImgColor.a = 1;
 
         if (loading) {
-            gameManager.syncManager.CognitoIdentitySync.GoogleAuthenticates(() => {
+            GameManager.syncManager.GoogleAuthenticates(() => {
+            //gameManager.syncManager.GoogleAuthenticates(() => {
                 StartCoroutine(LoadLevel());
             });
         }

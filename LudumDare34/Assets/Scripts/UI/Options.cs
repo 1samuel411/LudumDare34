@@ -138,9 +138,10 @@ public class Options : MonoBehaviour
     }
 
     public void InvokeCognitoGoogle() {
-        //This is messy, but it has somewhat control. need a proper gameManager to prevent this.
-        CameraManager.instance.gameManager.syncManager.CognitoIdentitySync.GoogleAuthenticates(() => {
-            googleImage.color = Color.blue;
+        GameManager.syncManager.LoginOrLogout(() => {
+            googleImage.color = 
+                (GameManager.syncManager.isGoogleLoggedIn) 
+                ? Color.blue : Color.white;
         });
     }
 }

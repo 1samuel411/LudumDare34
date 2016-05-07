@@ -836,7 +836,7 @@ MonoBehaviour:
   adsButton: {fileID: 1991622361}
   coinsText: {fileID: 1757295908}
   shopCoinsText: {fileID: 612975603}
-  iapShopCoinsText: {fileID: 1286325686}
+  iapShopCoinsText: {fileID: 1757295908}
   scoreDisplayText: {fileID: 74819561}
   killsDisplayText: {fileID: 99731336}
   timeLeftCoinsText: {fileID: 1174232399}
@@ -1271,7 +1271,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 461836580}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.22531153
+  m_Size: 0.22531141
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3415,7 +3415,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 171.91492, y: -12.139999}
+  m_AnchoredPosition: {x: -171.91516, y: -12.139999}
   m_SizeDelta: {x: 443.83, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &471992962
@@ -5477,7 +5477,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 669101984}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.22531153
+  m_Size: 0.22531141
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9226,7 +9226,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 865793791}
   m_HandleRect: {fileID: 865793790}
   m_Direction: 0
-  m_Value: 0.0000002662733
+  m_Value: 1
   m_Size: 0.22531152
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -10207,6 +10207,7 @@ MonoBehaviour:
   voiceImage: {fileID: 336270806}
   musicImage: {fileID: 900904627}
   soundImage: {fileID: 271302080}
+  googleImage: {fileID: 1798006720}
   musicOnSprite: {fileID: 21300000, guid: 324d62833857d164b8a6a45302867a51, type: 3}
   musicOffSprite: {fileID: 21300000, guid: 31d3341f8b88c14479b43a1302fd22cb, type: 3}
   defaultVolumeVoice: 0
@@ -10543,6 +10544,7 @@ GameObject:
   - 224: {fileID: 1798006719}
   - 222: {fileID: 1798006721}
   - 114: {fileID: 1798006720}
+  - 114: {fileID: 1798006722}
   m_Layer: 5
   m_Name: google_image
   m_TagString: Untagged
@@ -10600,6 +10602,58 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1798006718}
+--- !u!114 &1798006722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1798006718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1798006720}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1745876853}
+        m_MethodName: InvokeCognitoGoogle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1812362605
 GameObject:
   m_ObjectHideFlags: 0
