@@ -7,7 +7,8 @@ using GooglePlayGames;
 public class SyncManager {
 
     public SyncManager() {
-        _isGoogleLoggedIn = false;
+        PlayGamesPlatform.DebugLogEnabled = true;
+        PlayGamesPlatform.Activate();
     }
 
     private bool _isGoogleLoggedIn;
@@ -21,14 +22,15 @@ public class SyncManager {
     #endregion
 
     public void GoogleAuthenticates(Action callback = null) {
-        PlayGamesPlatform.DebugLogEnabled = true;
         Social.localUser.Authenticate((bool success) => {
+            _isGoogleLoggedIn = Social.localUser.authenticated;
             if(success) {
                 Debug.Log("Successfully Logged in!");
-                CognitoIdentitySync.AddGoogleTokenToCognito("");
+                PlayGamesPlatform.Instance.GetIdToken((token) => {
+                        CognitoIdentitySync.AddGoogleTokenToCognito(token);
+                });
             } else
                 Debug.Log("Login Failed!");
-            _isGoogleLoggedIn = success;
             if(callback != null)
                 callback.Invoke();
         });

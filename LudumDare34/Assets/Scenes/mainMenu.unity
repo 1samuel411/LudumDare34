@@ -3415,7 +3415,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -171.91516, y: -12.139999}
+  m_AnchoredPosition: {x: -171.91504, y: -12.139999}
   m_SizeDelta: {x: 443.83, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &471992962
@@ -9227,7 +9227,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 865793790}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.22531152
+  m_Size: 0.22531138
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10207,7 +10207,7 @@ MonoBehaviour:
   voiceImage: {fileID: 336270806}
   musicImage: {fileID: 900904627}
   soundImage: {fileID: 271302080}
-  googleImage: {fileID: 1798006720}
+  googleButton: {fileID: 1798006722}
   musicOnSprite: {fileID: 21300000, guid: 324d62833857d164b8a6a45302867a51, type: 3}
   musicOffSprite: {fileID: 21300000, guid: 31d3341f8b88c14479b43a1302fd22cb, type: 3}
   defaultVolumeVoice: 0
@@ -10546,7 +10546,7 @@ GameObject:
   - 114: {fileID: 1798006720}
   - 114: {fileID: 1798006722}
   m_Layer: 5
-  m_Name: google_image
+  m_Name: google_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

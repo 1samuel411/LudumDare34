@@ -10,7 +10,6 @@ using Amazon.CognitoSync;
 using Amazon.CognitoSync.SyncManager;
 using Amazon.SecurityToken;
 using Facebook.Unity;
-using GooglePlayGames;
 
 public class CognitoIdentityGameCredentials {
     public static string IDENTITY_POOL = "us-east-1:93b8b4a5-57fe-4e2d-98ec-783016def8aa";
@@ -51,7 +50,6 @@ public class CognitoIdentitySync {
     //The facebook sync already takes care of the initialization, and logging in, their 
     //is no need to continue it from here. either they are logged in, or they are not.
     public CognitoIdentitySync() {
-        PlayGamesPlatform.Activate();
         //_facebookSync = new FacebookSync();
         
         //if(FB.IsLoggedIn)
@@ -64,7 +62,7 @@ public class CognitoIdentitySync {
     }
 
     public void AddGoogleTokenToCognito(string token) {
-        Debug.Log("Google is logged in, Adding Login to Cognito...");
-        //credentials.AddLogin("Google stuff", "");
+        Debug.Log("Google is logged in, Adding Login to Cognito..." + token);
+        credentials.AddLogin("accounts.google.com", token);
     }
 }

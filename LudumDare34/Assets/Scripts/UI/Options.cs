@@ -18,7 +18,8 @@ public class Options : MonoBehaviour
     public Image voiceImage;
     public Image musicImage;
     public Image soundImage;
-    public Image googleImage;
+    
+    public Button googleButton;
 
     public Sprite musicOnSprite;
     public Sprite musicOffSprite;
@@ -31,8 +32,8 @@ public class Options : MonoBehaviour
 
     public UnityEvent exitEvent;
 
-    void Awake()
-    {
+    void Awake() {
+        Initialize();
         if (!PlayerPrefs.HasKey("defaultVolumeVoice"))
         {
             voiceListener.GetFloat("volume", out defaultVolumeVoice);
@@ -65,6 +66,10 @@ public class Options : MonoBehaviour
         {
             soundEffectsEnabled = (PlayerPrefs.GetInt("effectsEnabled") == 1) ? true : false;
         }
+    }
+
+    private void Initialize() {
+        googleButton.colors = GoogleColorBlock(googleButton.colors);
     }
 
     public void ToggleOptions()
@@ -139,9 +144,15 @@ public class Options : MonoBehaviour
 
     public void InvokeCognitoGoogle() {
         GameManager.syncManager.LoginOrLogout(() => {
-            googleImage.color = 
-                (GameManager.syncManager.isGoogleLoggedIn) 
-                ? Color.blue : Color.white;
+            googleButton.colors = GoogleColorBlock(googleButton.colors);
         });
+    }
+
+    private ColorBlock GoogleColorBlock(ColorBlock originalCb) {
+        ColorBlock cb = originalCb;
+        cb.normalColor = (GameManager.syncManager.isGoogleLoggedIn) ? Color.green : Color.red;
+        cb.highlightedColor = cb.normalColor;
+        cb.pressedColor = Color.blue;
+        return cb;
     }
 }
