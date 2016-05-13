@@ -3,10 +3,13 @@ using UnityEngine;
 using System.Collections;
 using System.Linq;
 using GooglePlayGames;
+using GooglePlayGames.BasicApi;
 
 public class SyncManager {
 
     public SyncManager() {
+        var config = new PlayGamesClientConfiguration.Builder().Build();
+        PlayGamesPlatform.InitializeInstance(config);
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
     }
@@ -22,18 +25,29 @@ public class SyncManager {
     #endregion
 
     public void GoogleAuthenticates(Action callback = null) {
-        Social.localUser.Authenticate((bool success) => {
-            _isGoogleLoggedIn = Social.localUser.authenticated;
-            if(success) {
-                Debug.Log("Successfully Logged in!");
-                PlayGamesPlatform.Instance.GetIdToken((token) => {
-                        CognitoIdentitySync.AddGoogleTokenToCognito(token);
-                });
-            } else
-                Debug.Log("Login Failed!");
-            if(callback != null)
-                callback.Invoke();
-        });
+		try {
+			Social.localUser.Authenticate((bool success) => {
+				_isGoogleLoggedIn = Social.localUser.authenticated;
+				if(success) {
+					Debug.Log("Successfully Logged in!");
+					try {
+						//string token = PlayGamesPlatform.Instance.GetToken();
+						PlayGamesPlatform.Instance.GetIdToken((token) => {
+						CognitoIdentitySync.AddGoogleTokenToCognito(token);
+						CognitoIdentitySync.SyncDataSetTest(); //This is a test.
+						});
+					} catch (UnityException e) {
+						string t = e.Message;
+						Debug.Log("Error " + t);
+					}
+				} else
+					Debug.Log("Login Failed!");
+				if(callback != null)
+					callback.Invoke();
+			});
+		} catch (Exception ex) {
+			Debug.LogFormat("Error: {0}", ex.Message);
+		}
     }
 
     public void LoginOrLogout(Action callback) {
@@ -41,8 +55,8 @@ public class SyncManager {
         if (_isGoogleLoggedIn) {
             PlayGamesPlatform.Instance.SignOut();
             _isGoogleLoggedIn = false;
+			callback.Invoke();
         } else
-            GoogleAuthenticates();
-        callback.Invoke();
+			GoogleAuthenticates(callback);
     }
 }

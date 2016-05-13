@@ -6,6 +6,7 @@ using Amazon.CognitoSync.SyncManager;
 using UnityEngine.SceneManagement;
 using GooglePlayGames;
 using UnityEngine.SocialPlatforms;
+using Amazon;
 
 public class CameraManager : MonoBehaviour
 {
@@ -55,6 +56,18 @@ public class CameraManager : MonoBehaviour
     private new Transform transform;
     private VignetteAndChromaticAberration vignette;
 
+	private GameManager _gameManager;
+	public GameManager gameManager {
+		get {
+			if(_gameManager == null) {
+				_gameManager = this.gameObject.GetComponent<GameManager>();
+				if(_gameManager == null)
+					_gameManager = this.gameObject.AddComponent<GameManager>();
+			}
+			return _gameManager;
+		}
+	}
+
     void Awake() {
         PlayGamesPlatform.Activate();
         transform = GetComponent<Transform>();
@@ -67,7 +80,7 @@ public class CameraManager : MonoBehaviour
         fadeImgColor.a = 1;
 
         if (loading) {
-            GameManager.syncManager.GoogleAuthenticates(() => {
+			gameManager.syncManager.GoogleAuthenticates(() => {
                 StartCoroutine(LoadLevel());
             });
         }
@@ -93,7 +106,9 @@ public class CameraManager : MonoBehaviour
             // Fade in at start
             fadeImgColor.a -= fadeSpeed * Time.deltaTime;
         }
-        fadeImg.color = fadeImgColor;
+
+		if(fadeImg != null)
+			fadeImg.color = fadeImgColor;
 
         if (!PlayerController.instance)
             return;

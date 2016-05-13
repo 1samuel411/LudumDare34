@@ -8,12 +8,13 @@ using Amazon.CognitoIdentity;
 using Amazon.CognitoIdentity.Model;
 using Amazon.CognitoSync;
 using Amazon.CognitoSync.SyncManager;
+using Amazon.Runtime;
 using Amazon.SecurityToken;
 using Facebook.Unity;
 
 public class CognitoIdentityGameCredentials {
     public static string IDENTITY_POOL = "us-east-1:93b8b4a5-57fe-4e2d-98ec-783016def8aa";
-    public static string PROVIDER_NAME = "www.blazewolf.com";
+    public static string PROVIDER_NAME = "BWolfGameIdentityPool";
     public static readonly RegionEndpoint REGION = RegionEndpoint.USEast1;
 }
 
@@ -27,6 +28,7 @@ public class CognitoIdentitySync {
     private CognitoAWSCredentials _credentials;
     private CognitoSyncManager _syncManager;
 
+    private string _AWSIdentityID;
     public CognitoAWSCredentials credentials {
         get {
             if(_credentials == null)
@@ -64,5 +66,20 @@ public class CognitoIdentitySync {
     public void AddGoogleTokenToCognito(string token) {
         Debug.Log("Google is logged in, Adding Login to Cognito..." + token);
         credentials.AddLogin("accounts.google.com", token);
+        credentials.GetIdentityIdAsync(delegate(AmazonCognitoIdentityResult<string> result)
+        {
+            if (result.Exception != null) {
+                 //Exception.
+            }
+            _AWSIdentityID = result.Response;
+        });
+    }
+
+    public void SyncDataSetTest() {
+        Dataset playerInfo;
+        playerInfo = _syncManager.OpenOrCreateDataset("PlayerInformationTest");
+        playerInfo.SynchronizeOnConnectivity();
+        playerInfo.Put("test", "1234567");
+        playerInfo.SynchronizeAsync();
     }
 }

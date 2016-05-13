@@ -32,6 +32,15 @@ public class Options : MonoBehaviour
 
     public UnityEvent exitEvent;
 
+	private GameManager _gameManager;
+	public GameManager gameManager {
+		get {
+			if(_gameManager == null)
+				_gameManager = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameManager>();
+			return _gameManager;
+		}
+	}
+
     void Awake() {
         Initialize();
         if (!PlayerPrefs.HasKey("defaultVolumeVoice"))
@@ -143,14 +152,14 @@ public class Options : MonoBehaviour
     }
 
     public void InvokeCognitoGoogle() {
-        GameManager.syncManager.LoginOrLogout(() => {
+		gameManager.syncManager.LoginOrLogout(() => {
             googleButton.colors = GoogleColorBlock(googleButton.colors);
         });
     }
 
     private ColorBlock GoogleColorBlock(ColorBlock originalCb) {
         ColorBlock cb = originalCb;
-        cb.normalColor = (GameManager.syncManager.isGoogleLoggedIn) ? Color.green : Color.red;
+        cb.normalColor = (gameManager.syncManager.isGoogleLoggedIn) ? Color.green : Color.red;
         cb.highlightedColor = cb.normalColor;
         cb.pressedColor = Color.blue;
         return cb;
