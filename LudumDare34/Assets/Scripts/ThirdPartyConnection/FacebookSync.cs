@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using Facebook.Unity;
 
-public class FacebookSync {
+namespace FS.SyncManager.FacebookSync {
+	public class FacebookSync {
 
     private string message = string.Empty;
     public FacebookSync() {
@@ -74,4 +75,5 @@ public class FacebookSync {
             Debug.Log("User cancelled login.");
         }
     }
+}
 }

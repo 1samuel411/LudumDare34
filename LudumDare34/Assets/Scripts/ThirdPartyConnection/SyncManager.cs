@@ -4,8 +4,12 @@ using System.Collections;
 using System.Linq;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
+using Google.Developers;
 
-public class SyncManager {
+namespace FS.SyncManager {
+	using CognitoSync;
+
+	public class SyncManager {
 
     public SyncManager() {
         var config = new PlayGamesClientConfiguration.Builder().Build();
@@ -26,22 +30,13 @@ public class SyncManager {
 
     public void GoogleAuthenticates(Action callback = null) {
 		try {
-			Social.localUser.Authenticate((bool success) => {
-				_isGoogleLoggedIn = Social.localUser.authenticated;
+			PlayGamesPlatform.Instance.Authenticate((bool success) => {
+				_isGoogleLoggedIn = PlayGamesPlatform.Instance.IsAuthenticated();
 				if(success) {
-					Debug.Log("Successfully Logged in!");
-					try {
-						//string token = PlayGamesPlatform.Instance.GetToken();
-						PlayGamesPlatform.Instance.GetIdToken((token) => {
-						CognitoIdentitySync.AddGoogleTokenToCognito(token);
-						CognitoIdentitySync.SyncDataSetTest(); //This is a test.
-						});
-					} catch (UnityException e) {
-						string t = e.Message;
-						Debug.Log("Error " + t);
-					}
+					Debug.Log("Unity: Successfully Logged in!");
+					PlayGamesPlatform.Instance.GetIdToken(GetGoogleIDToken);
 				} else
-					Debug.Log("Login Failed!");
+					Debug.Log("Unity: Login Failed!");
 				if(callback != null)
 					callback.Invoke();
 			});
@@ -56,7 +51,14 @@ public class SyncManager {
             PlayGamesPlatform.Instance.SignOut();
             _isGoogleLoggedIn = false;
 			callback.Invoke();
-        } else
+		} else
 			GoogleAuthenticates(callback);
     }
+		
+	public void GetGoogleIDToken(string token) {
+		Debug.Log("Unity: This is the google Token for amazon " + token);
+		CognitoIdentitySync.AddGoogleTokenToCognito(token);
+		CognitoIdentitySync.SyncDataSetTest(); //This is a test.
+	}
+}
 }

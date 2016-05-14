@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Amazon;
+using GooglePlayGames;
+using FS.SyncManager;
 
 public class GameManager: MonoBehaviour {
 
@@ -15,16 +17,16 @@ public class GameManager: MonoBehaviour {
         }
     }
 
-	private bool _bInitializedAmazon = false;
+	public static bool bInitializedAmazon = false;
 
 	public void Awake() {
-		if(!_bInitializedAmazon)
+		if(!bInitializedAmazon)
 			TriggerUnityInitializer();
 	}
 
 	public void TriggerUnityInitializer() {
 		UnityInitializer.AttachToGameObject(this.gameObject);
 		Debug.Log("Triggered Initializer");
-		_bInitializedAmazon = true;
+		bInitializedAmazon = true;
 	}
 }

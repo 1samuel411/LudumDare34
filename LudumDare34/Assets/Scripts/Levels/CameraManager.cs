@@ -69,7 +69,6 @@ public class CameraManager : MonoBehaviour
 	}
 
     void Awake() {
-        PlayGamesPlatform.Activate();
         transform = GetComponent<Transform>();
         instance = this;
         ourCam = this.GetComponent<Camera>();

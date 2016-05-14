@@ -10,15 +10,6 @@ public class InfoManager : MonoBehaviour
     public int totalKills;
     public int totalScore;
 
-    void Start()
-    {
-    }
-
-    void Update()
-    {
-
-    }
-
     public static bool NewPlayer()
     {
         bool returnInfo = false;
