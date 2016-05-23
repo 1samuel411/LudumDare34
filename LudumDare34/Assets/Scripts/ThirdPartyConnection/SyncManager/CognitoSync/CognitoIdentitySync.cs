@@ -27,6 +27,7 @@ namespace FS.SyncManager.CognitoSync {
 	 */
 	public class CognitoIdentitySync {
 
+	    public bool isGoogleAuthenticated;
 	    private FacebookSync _facebookSync;
 
 		#region CognitoAWSCredentials credentials;
@@ -44,25 +45,29 @@ namespace FS.SyncManager.CognitoSync {
 		#endregion
 
 		#region CognitoSyncManager syncManager
-		private CognitoSyncManager _syncManager;
-	    public CognitoSyncManager syncManager {
+		private CognitoSyncManager _cognitoSyncManager;
+	    public CognitoSyncManager cognitoSyncManager {
 	        get {
-	            if(_syncManager == null)
-	                _syncManager = new CognitoSyncManager(credentials, new AmazonCognitoSyncConfig() 
+				if(_cognitoSyncManager == null)
+					_cognitoSyncManager = new CognitoSyncManager(credentials, new AmazonCognitoSyncConfig() 
 	                { RegionEndpoint = CognitoIdentityGameCredentials.REGION });
-	            return _syncManager;
+				return _cognitoSyncManager;
 	        }
 	    }
 		#endregion
 
+	    public CognitoIdentitySync() {
+	        isGoogleAuthenticated = false;
+	    }
+
 	    //The facebook sync already takes care of the initialization, and logging in, their 
 	    //is no need to continue it from here. either they are logged in, or they are not.
-	    public CognitoIdentitySync() {
+	    //public CognitoIdentitySync() {
 	        //_facebookSync = new FacebookSync();
 	        
 	        //if(FB.IsLoggedIn)
 	        //    AddFacebookTokenToCognito();
-	    }
+	    //}
 
 	    private void AddFacebookTokenToCognito() {
 	        Debug.Log("Facebook is logged in. adding login to Cognito...");
@@ -72,11 +77,12 @@ namespace FS.SyncManager.CognitoSync {
 	    public void AddGoogleTokenToCognito(string token) {
 	        Debug.Log("Google is logged in, Adding Login to Cognito..." + token);
 	        credentials.AddLogin("accounts.google.com", token);
+	        isGoogleAuthenticated = true;
 	    }
 
 	    public void SyncDataSetTest() {
 	        Dataset playerInfo;
-	        playerInfo = _syncManager.OpenOrCreateDataset("PlayerInformationTest");
+			playerInfo = cognitoSyncManager.OpenOrCreateDataset("PlayerInformationTest");
 	        playerInfo.SynchronizeOnConnectivity();
 	        playerInfo.Put("test", "1234567");
 	        playerInfo.SynchronizeAsync();

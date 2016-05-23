@@ -1,32 +1,41 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Amazon;
-using GooglePlayGames;
-using FS.SyncManager;
+using Assets.Scripts.DataObjectLayer;
+using Assets.Scripts.ThirdPartyConnection.SyncManager;
 
-public class GameManager: MonoBehaviour {
+public class GameManager: MonoBehaviour, ISyncAcessor {
 
-    private SyncManager _syncManager;
-    public SyncManager syncManager {
+    #region Datasets
+    public PlayerDetails playerDetails;
+
+    #endregion
+
+    public static GameManager instance;
+
+    public void Awake() {
+        instance = this;
+    }
+
+    public void AuthenticateAndLoad(IEnumerator action) {
+        syncInitializer.AuthenticateAndLoad(InitializeDatasets(action));
+    }
+
+    #region ISyncAcessor Members
+    private SyncInitializer _syncInitializer;
+    public SyncInitializer syncInitializer {
         get {
-			if (_syncManager == null) {
-				_syncManager = new SyncManager();
-				TriggerUnityInitializer();
-			}
-            return _syncManager;
+            if(_syncInitializer == null)
+                _syncInitializer = this.gameObject.AddComponent<SyncInitializer>();
+            return _syncInitializer;
         }
     }
 
-	public static bool bInitializedAmazon = false;
-
-	public void Awake() {
-		if(!bInitializedAmazon)
-			TriggerUnityInitializer();
-	}
-
-	public void TriggerUnityInitializer() {
-		UnityInitializer.AttachToGameObject(this.gameObject);
-		Debug.Log("Triggered Initializer");
-		bInitializedAmazon = true;
-	}
+    public IEnumerator InitializeDatasets(IEnumerator action = null) {
+        playerDetails = new PlayerDetails(syncInitializer.OpenOrCreateDataset("PlayerDetails"));
+        yield return new WaitUntil(() => playerDetails.isFirstSyncStatus != SyncStatus.Pending);
+        yield return new WaitForSeconds(1.0f);
+        if(action != null)
+            StartCoroutine(action);
+    }
+    #endregion
 }

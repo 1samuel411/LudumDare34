@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using Amazon.CognitoSync.SyncManager;
 
 public class Shop : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class Shop : MonoBehaviour
     public Transform layout;
 
     public List<int> boughtItems = new List<int>();
+    public Dataset purchasedItems;
+
+
 
     public Item[] items;
     public static Item[] itemDatabase;
@@ -31,7 +35,7 @@ public class Shop : MonoBehaviour
         public int cost;
         public string desc;
         public Sprite icon;
-        public bool repurshable;
+        public bool repurchasable;
         public int maxPurchases;
         public int multiplyer;
         public ItemType itemType;
@@ -45,18 +49,18 @@ public class Shop : MonoBehaviour
     void Start()
     {
         itemDatabase = items;
+        //purchasedItems = CameraManager.instance.gameManager.syncManager.OpenOrCreateDataset("Purchases");
     }
 
     public void Open()
     {
         boughtItems = GetBoughtItems(InfoManager.GetInfo("bought"));
-
         Close();
         selectedItem = -1;
         layout.position = new Vector2(0, layout.position.y);
         for (int i = 0; i < items.Length; i++)
         {
-            if (boughtItems.Contains(i) && !items[i].repurshable)
+            if (boughtItems.Contains(i) && !items[i].repurchasable)
                 return;
 
             GameObject newShopItemObj = Instantiate(Resources.Load("ShopItem")) as GameObject;
@@ -65,7 +69,7 @@ public class Shop : MonoBehaviour
             newShopItemObj.transform.localScale = Vector3.one;
             ShopItem newShopItem = newShopItemObj.GetComponent<ShopItem>();
             newShopItem.title = items[i].title;
-            if (items[i].repurshable)
+            if (items[i].repurchasable)
             {
                 int timesBought = 0;
                 for (int x = 0; x < boughtItems.Count; x++)
@@ -135,7 +139,7 @@ public class Shop : MonoBehaviour
                 shopItem.cost = shopItem.cost * ((timesBought == 0) ? 1 : (timesBought + 1));
 
                 Debug.Log(shopItem.cost);
-                if (shopItem.cost > MainMenu.instance.coins)
+                if (shopItem.cost > MainMenu.instance.Coins)
                 {
                     Debug.Log("Not enough money!");
                     Popup.Create("Not Enough Coins", "You do not have enough coins to afford this item!", "Okay", "", true);
@@ -143,13 +147,13 @@ public class Shop : MonoBehaviour
                 }
                 Debug.Log("Purchased Items: " + shopItem.title);
 
-                MainMenu.instance.coins -= shopItem.cost;
+                MainMenu.instance.Coins -= shopItem.cost;
                 boughtItems.Add(selectedItem);
 
                 for (int i = 0; i < shopItems.Count; i++)
                 {
                     if (shopItems[i].index == selectedItem)
-                        if (items[i].repurshable)
+                        if (items[i].repurchasable)
                         {
                             timesBought = 0;
                             for (int x = 0; x < boughtItems.Count; x++)
@@ -168,18 +172,20 @@ public class Shop : MonoBehaviour
                             shopItems[i].cost = items[i].cost;
                         }
 
-                    if (shopItems[i].index == selectedItem && !items[shopItems[i].index].repurshable)
+                    if (shopItems[i].index == selectedItem && !items[shopItems[i].index].repurchasable)
                     {
                         selectedItem = -1;
                         Destroy(shopItems[i].gameObject);
                     }
                 }
+                //Creates a CSV Of purchased Items.
                 InfoManager.SetInfo("bought", GetBoughtItemsString(boughtItems.ToArray()));
-                InfoManager.SetInfo("coins", MainMenu.instance.coins.ToString());
+                //InfoManager.SetInfo("coins", MainMenu.instance._coins.ToString());
             }
         }
     }
 
+    //UnParses the CSV Line.
     public static List<int> GetBoughtItems(string items)
     {
         List<int> boughtItems = new List<int>();
@@ -194,7 +200,8 @@ public class Shop : MonoBehaviour
         }
         return boughtItems;
     }
-
+    
+    //Creates a CSV.
     public static string GetBoughtItemsString(int[] items)
     {
         string itemsBoughtString = "";
@@ -217,7 +224,7 @@ public class Shop : MonoBehaviour
 
             selectedTitleText.text = items[selectedItem].title;
             int cost = 0;
-            if (items[selectedItem].repurshable)
+            if (items[selectedItem].repurchasable)
             {
                 int timesBought = 0;
                 for (int x = 0; x < boughtItems.Count; x++)

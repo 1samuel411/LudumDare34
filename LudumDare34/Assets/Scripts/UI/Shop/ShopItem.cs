@@ -20,11 +20,6 @@ public class ShopItem : MonoBehaviour
     public Sprite icon;
     public bool iap = false;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         selectedCostText.text = (iap) ? "$" : "";

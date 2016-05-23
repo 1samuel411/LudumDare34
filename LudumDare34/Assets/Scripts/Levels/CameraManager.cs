@@ -61,8 +61,6 @@ public class CameraManager : MonoBehaviour
 		get {
 			if(_gameManager == null) {
 				_gameManager = this.gameObject.GetComponent<GameManager>();
-				if(_gameManager == null)
-					_gameManager = this.gameObject.AddComponent<GameManager>();
 			}
 			return _gameManager;
 		}
@@ -79,9 +77,11 @@ public class CameraManager : MonoBehaviour
         fadeImgColor.a = 1;
 
         if (loading) {
-			gameManager.syncManager.GoogleAuthenticates(() => {
-                StartCoroutine(LoadLevel());
-            });
+#if UNITY_ANDROID || UNITY_IOS
+            gameManager.AuthenticateAndLoad(LoadLevel());
+#else 
+            StartCoroutine(LoadLevel());
+#endif
         }
     }
 

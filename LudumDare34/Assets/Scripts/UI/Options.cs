@@ -152,14 +152,18 @@ public class Options : MonoBehaviour
     }
 
     public void InvokeCognitoGoogle() {
-		gameManager.syncManager.LoginOrLogout(() => {
+		gameManager.syncInitializer.syncManager.LoginOrLogout(() => {
             googleButton.colors = GoogleColorBlock(googleButton.colors);
         });
     }
 
     private ColorBlock GoogleColorBlock(ColorBlock originalCb) {
         ColorBlock cb = originalCb;
-        cb.normalColor = (gameManager.syncManager.isGoogleLoggedIn) ? Color.green : Color.red;
+        #if UNITY_ANDROID || UNITY_IOS
+        cb.normalColor = (gameManager.syncInitializer.syncManager.isGoogleLoggedIn) ? Color.green : Color.red;
+#else
+        cb.normalColor = Color.red;
+#endif
         cb.highlightedColor = cb.normalColor;
         cb.pressedColor = Color.blue;
         return cb;
