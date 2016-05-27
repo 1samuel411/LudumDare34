@@ -1,12 +1,11 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
-using System.Threading;
 using Amazon;
 using Amazon.CognitoSync.SyncManager;
 using FS.SyncManager;
 using FS.SyncManager.CognitoSync;
-using Assets.Scripts.ThirdPartyConnection.SyncManager;
+using GooglePlayGames;
 
 public class SyncInitializer : MonoBehaviour {
 
@@ -24,17 +23,17 @@ public class SyncInitializer : MonoBehaviour {
         UnityInitializer.AttachToGameObject(gameObject);
     }
 
-    public void AuthenticateAndLoad(IEnumerator action) {
-        syncManager.GoogleAuthenticates();
+    public void AuthenticateAndLoad(IEnumerator action, Action callback = null) {
+        syncManager.GoogleAuthenticates(callback);
         StartCoroutine(LoadDatasets(action));
     }
 
-    public IEnumerator LoadDatasets(IEnumerator action) {
+    private IEnumerator LoadDatasets(IEnumerator action) {
         float waitTime = 0.0f;
         //Wait Until google is authenticated or time runs out.
         yield return new WaitUntil(() => {
             bool bOk = syncManager.cognitoIdentitySync.isGoogleAuthenticated;
-            if (waitTime <= 10.0f)
+            if (waitTime <= 5.0f)
                 waitTime += Time.deltaTime;
             else
                 bOk = true;
@@ -43,6 +42,16 @@ public class SyncInitializer : MonoBehaviour {
         Debug.Log("triggered loadDatasets");
         if(action != null)
             StartCoroutine(action);
+    }
+
+    public void LoginOrLougout(IEnumerator action, Action callback) {
+        bool bOk = false;
+        if (syncManager.isGoogleLoggedIn) {
+            PlayGamesPlatform.Instance.SignOut();
+            syncManager.isGoogleLoggedIn = false;
+            callback.Invoke();
+        } else
+            AuthenticateAndLoad(action, callback);
     }
 
     /// <summary>

@@ -85,9 +85,7 @@ public class CameraManager : MonoBehaviour
         }
     }
 
-    IEnumerator LoadLevel()
-    {
-        //yield return new WaitForSeconds(timeToWait);
+    IEnumerator LoadLevel() {
         Debug.Log("Triggered LoadLevel");
         FadeOut();
         yield return new WaitForSeconds(0.6f);

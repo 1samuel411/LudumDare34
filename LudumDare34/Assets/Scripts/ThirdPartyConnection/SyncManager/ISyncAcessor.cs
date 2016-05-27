@@ -17,5 +17,10 @@ namespace Assets.Scripts.ThirdPartyConnection.SyncManager {
         /// The developer is responsible in handling the null action if any.</param>
         /// <returns></returns>
         IEnumerator InitializeDatasets(IEnumerator action = null);
+
+        /// <summary>
+        /// Resyncs all datasets from AWS, and the local cache.
+        /// </summary>
+        void ResyncDatasets();
     }
 }

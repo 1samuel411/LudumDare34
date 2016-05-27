@@ -242,9 +242,8 @@ public class IAPShop : MonoBehaviour, IStoreListener
         itemDatabase = items;
     }
 
-    public void Open()
-    {
-        boughtItems = GetBoughtItems(InfoManager.GetInfo("bought"));
+    public void Open() {
+        boughtItems = GetBoughtItems(GameManager.instance.playerPurchases.Bought);
 
         Close();
         selectedItem = -1;
@@ -345,16 +344,6 @@ public class IAPShop : MonoBehaviour, IStoreListener
             }
         }
         return boughtItems;
-    }
-
-    public static string GetBoughtItemsString(int[] items)
-    {
-        string itemsBoughtString = "";
-        for(int i = 0; i < items.Length; i ++)
-        {
-            itemsBoughtString += ((i == 0) ? "" : ",") + items[i];
-        }
-        return itemsBoughtString;
     }
 
     void Update()

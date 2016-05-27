@@ -11,25 +11,70 @@ namespace Assets.Scripts.DataObjectLayer {
     public class BaseAmazonDataset: INotifyPropertyChanged {
 
         protected Dataset _dataset;
+        private bool _reSync;
 
         public SyncStatus isFirstSyncStatus;
 
         public BaseAmazonDataset(Dataset dataset) {
             _dataset = dataset;
-            _dataset.SynchronizeOnConnectivity();
+            _reSync = true;
             isFirstSyncStatus = SyncStatus.Pending;
             PropertyChanged += OnPropertyChanged;
             _dataset.OnSyncSuccess += DatasetOnOnSyncSuccess;
             _dataset.OnSyncFailure += DatasetOnOnSyncFailure;
+            _dataset.OnSyncConflict = this.HandleSyncConflict;
+            _dataset.OnDatasetDeleted = this.HandleDatasetDeleted;
+            _dataset.SynchronizeOnConnectivity();
         }
 
-        private void DatasetOnOnSyncFailure(object sender, SyncFailureEventArgs syncFailureEventArgs) {
-            isFirstSyncStatus = SyncStatus.Failed;
+        protected virtual void Initialize() {
         }
 
-        private void DatasetOnOnSyncSuccess(object sender, SyncSuccessEventArgs syncSuccessEventArgs) {
-            isFirstSyncStatus = SyncStatus.Success;
+        #region Dataset Handlers
+        private void DatasetOnOnSyncSuccess(object sender, SyncSuccessEventArgs e) {
+            var s = sender as Dataset;
+            Debug.Log("Successfully synced for Dataset: " + s.Metadata);
+            if (_reSync) {
+                isFirstSyncStatus = SyncStatus.Success;
+                Initialize();
+                _reSync = false;
+            }
         }
+
+        private void DatasetOnOnSyncFailure(object sender, SyncFailureEventArgs e) {
+            Dataset dataset = sender as Dataset;
+            if(dataset.Metadata != null)
+                Debug.Log("Sync Failed for dataset: " + dataset.Metadata.DatasetName);
+            else
+                Debug.Log("Sync Failed");
+            Debug.LogException(e.Exception);
+            if(_reSync) {
+                isFirstSyncStatus = SyncStatus.Failed;
+                Initialize();
+                _reSync = false;
+            }
+        }
+
+        public virtual bool HandleSyncConflict(Dataset dataset, List<SyncConflict> conflicts) {
+            if(dataset.Metadata != null) {
+                Debug.LogWarningFormat("Sync Conflict {0}", dataset.Metadata.DatasetName);
+            } else {
+                Debug.LogWarning("Sync Conflict");
+            }
+
+            List<Record> resolvedRecords = new List<Record>();
+            foreach(SyncConflict conflictRecord in conflicts) {
+                resolvedRecords.Add(conflictRecord.ResolveWithRemoteRecord());
+            }
+            dataset.Resolve(resolvedRecords);
+            return true;
+        }
+
+        public bool HandleDatasetDeleted(Dataset dataset) {
+            Debug.Log(dataset.Metadata.DatasetName + " Dataset has been deleted");
+            return true;
+        }
+        #endregion
 
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -69,24 +114,29 @@ namespace Assets.Scripts.DataObjectLayer {
             _dataset.SynchronizeAsync();
         }
 
+        public void SynchronizeAndResync() {
+            _reSync = true;
+            SynchronizeData();
+        }
+
         protected void SyncPropertyChange(string propertyName) {
             PropertyValueChange(propertyName);
             SynchronizeData();
         }
 
-        protected string GetPropertyValue(object property) {
-            string ret = property.GetType().Name;
-            return _dataset.Get(ret);
+        protected string GetPropertyValue(string propertyName) {
+            //string ret = propertyName.GetType().Name;
+            return _dataset.Get(propertyName);
         }
 
-        protected int GetPropertyValueInt(object property) {
+        protected int GetPropertyValueInt(string property) {
             int ret;
             string value = GetPropertyValue(property);
             ret = (string.IsNullOrEmpty(value)) ? 0 : Convert.ToInt32(value);
             return ret;
         }
 
-        protected float GetPropertyValueFloat(object property) {
+        protected float GetPropertyValueFloat(string property) {
             float ret = 0.0f;
             string value = GetPropertyValue(property);
             if (!string.IsNullOrEmpty(value))
@@ -94,7 +144,7 @@ namespace Assets.Scripts.DataObjectLayer {
             return ret;
         }
 
-        protected DateTime GetPropertyValueDateTime(object property) {
+        protected DateTime GetPropertyValueDateTime(string property) {
             string value = GetPropertyValue(property);
             return Convert.ToDateTime(value);
         }

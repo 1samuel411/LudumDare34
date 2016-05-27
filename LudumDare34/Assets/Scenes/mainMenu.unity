@@ -840,10 +840,6 @@ MonoBehaviour:
   scoreDisplayText: {fileID: 74819561}
   killsDisplayText: {fileID: 99731336}
   timeLeftCoinsText: {fileID: 1174232399}
-  coins: 0
-  totalKills: 0
-  totalScore: 0
-  timeNeededHrs: 0
 --- !u!1 &66863944
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,7 +1267,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 461836580}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.22531149
+  m_Size: 0.22531147
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4312,7 +4308,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -171.91504, y: -12.139999}
+  m_AnchoredPosition: {x: -171.91496, y: -12.139999}
   m_SizeDelta: {x: 443.83, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &610572566
@@ -5477,7 +5473,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 669101984}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.22531149
+  m_Size: 0.22531158
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7680,6 +7676,14 @@ Prefab:
     - target: {fileID: 486708, guid: 5879637a92e76c341a26d6112545e5d4, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.0036289606
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386386, guid: 5879637a92e76c341a26d6112545e5d4, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 128128, guid: 5879637a92e76c341a26d6112545e5d4, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5879637a92e76c341a26d6112545e5d4, type: 2}

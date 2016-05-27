@@ -36,16 +36,6 @@ public class MainMenu : MonoBehaviour
         set { GameManager.instance.playerDetails.HighScore = value; }
     }
 
-    public int timeNeededHrs {
-        get { return GameManager.instance.playerDetails.TimeNeededHours; }
-        set { GameManager.instance.playerDetails.TimeNeededHours = value; }
-    }
-
-    public DateTime currentTime {
-        get { return GameManager.instance.playerDetails.CurrentTime; }
-        set { GameManager.instance.playerDetails.CurrentTime = value; }
-    }
-
     public void Awake()
     {
         instance = this;
@@ -68,13 +58,13 @@ public class MainMenu : MonoBehaviour
         // Ad Timer
         if (coinTimerChecked)
         {
-            currentTime = System.DateTime.UtcNow;
+            GameManager.instance.playerDetails.CurrentTime = System.DateTime.UtcNow;
 
             DateTime timeNeededDateTime = new DateTime();
-            timeNeededDateTime = Convert.ToDateTime(timeNeededHrs + ":00");
+            timeNeededDateTime = Convert.ToDateTime(GameManager.instance.playerDetails.TimeNeededHours + ":00");
 
             TimeSpan timeSpan = new TimeSpan();
-            timeSpan = CalculateTimeDifference(currentTime, timeUsed);
+            timeSpan = CalculateTimeDifference(GameManager.instance.playerDetails.CurrentTime, timeUsed);
             DateTime timeSpanDateTime = new DateTime();
             if (timeSpan.Hours >= 0)
                 timeSpanDateTime = Convert.ToDateTime(timeSpan.Hours + ":" + timeSpan.Minutes);
@@ -83,7 +73,9 @@ public class MainMenu : MonoBehaviour
 
             timeLeftCoinsText.text = "Hours: " + (displayTimeSpan.Hours) + "  Minutes: " + (displayTimeSpan.Minutes);
 
-            if (timeNeededHrs <= 0 || (displayTimeSpan.Hours < 0 || displayTimeSpan.Minutes < 0 || (displayTimeSpan.Hours == 0 && displayTimeSpan.Minutes == 0)) || timeSpan.TotalHours > timeNeededHrs)
+            if(GameManager.instance.playerDetails.TimeNeededHours <= 0 || (displayTimeSpan.Hours < 0 || displayTimeSpan.Minutes < 0 ||
+                (displayTimeSpan.Hours == 0 && displayTimeSpan.Minutes == 0)) ||
+                timeSpan.TotalHours > GameManager.instance.playerDetails.TimeNeededHours)
             {
                 timeLeftCoinsText.text = "Ready!";
                 watchAdsButton.interactable = true;
@@ -116,7 +108,7 @@ public class MainMenu : MonoBehaviour
     {
         coinTimerChecked = true;
         string currentServerTime = System.DateTime.UtcNow.ToString();
-        currentTime = Convert.ToDateTime(currentServerTime);
+        GameManager.instance.playerDetails.CurrentTime = Convert.ToDateTime(currentServerTime);
     }
 
     public void RewardCallback(ShowResult result)
@@ -125,8 +117,8 @@ public class MainMenu : MonoBehaviour
         {
             case ShowResult.Finished:
                 Debug.Log("The ad was successfully shown.");
-                Coins += 20;
-                timeNeededHrs = 4;
+                GameManager.instance.playerDetails.Coins += 20;
+                GameManager.instance.playerDetails.TimeNeededHours = 4;
                 break;
             case ShowResult.Skipped:
                 Debug.Log("The ad was skipped before reaching the end.");

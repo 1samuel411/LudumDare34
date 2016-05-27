@@ -8,13 +8,19 @@ using Assets.Scripts.DataObjectLayer;
 
 public class PlayerDetails : BaseAmazonDataset {
 
-    public PlayerDetails(Dataset dataset) 
-        : base (dataset) {
-        _coins = GetPropertyValueInt(Coins);
-        _timeNeededHours = GetPropertyValueInt(TimeNeededHours);
-        _timeUsed = GetPropertyValueInt(TimeUsed);
-        _maxKills = GetPropertyValueInt(MaxKills);
-        _highScore = GetPropertyValueInt(HighScore);
+    public PlayerDetails(Dataset dataset)
+        : base(dataset) {
+        _timeNeededHours = _timeUsed = 0;
+        _coins = _maxKills = _highScore = 0;
+    }
+
+    protected override void Initialize() {
+        _coins = GetPropertyValueInt("Coins");
+        _timeNeededHours = GetPropertyValueInt("TimeNeededHours");
+        _timeUsed = GetPropertyValueInt("TimeUsed");
+        _maxKills = GetPropertyValueInt("MaxKills");
+        Debug.Log("Max Kills: " + _maxKills);
+        _highScore = GetPropertyValueInt("HighScore");
     }
 
     private int _coins;

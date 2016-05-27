@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 using Amazon.CognitoSync.SyncManager;
 
 public class Shop : MonoBehaviour
@@ -19,9 +20,6 @@ public class Shop : MonoBehaviour
     public Transform layout;
 
     public List<int> boughtItems = new List<int>();
-    public Dataset purchasedItems;
-
-
 
     public Item[] items;
     public static Item[] itemDatabase;
@@ -46,22 +44,22 @@ public class Shop : MonoBehaviour
         health, ammo, timer, damagePistol, damageBoost
     }
 
-    void Start()
-    {
+    void Start() {
         itemDatabase = items;
-        //purchasedItems = CameraManager.instance.gameManager.syncManager.OpenOrCreateDataset("Purchases");
     }
 
     public void Open()
     {
-        boughtItems = GetBoughtItems(InfoManager.GetInfo("bought"));
+        boughtItems = GetBoughtItems(GameManager.instance.playerPurchases.Bought);
+        Debug.Log("boughtItems: " + boughtItems.Count);
         Close();
         selectedItem = -1;
         layout.position = new Vector2(0, layout.position.y);
         for (int i = 0; i < items.Length; i++)
         {
-            if (boughtItems.Contains(i) && !items[i].repurchasable)
-                return;
+            //Why are you hiding it?
+            //if (boughtItems.Contains(i) && !items[i].repurchasable)
+            //    return;
 
             GameObject newShopItemObj = Instantiate(Resources.Load("ShopItem")) as GameObject;
             newShopItemObj.transform.SetParent(layout);
@@ -147,7 +145,7 @@ public class Shop : MonoBehaviour
                 }
                 Debug.Log("Purchased Items: " + shopItem.title);
 
-                MainMenu.instance.Coins -= shopItem.cost;
+                GameManager.instance.playerDetails.Coins -= shopItem.cost;
                 boughtItems.Add(selectedItem);
 
                 for (int i = 0; i < shopItems.Count; i++)
@@ -179,8 +177,8 @@ public class Shop : MonoBehaviour
                     }
                 }
                 //Creates a CSV Of purchased Items.
-                InfoManager.SetInfo("bought", GetBoughtItemsString(boughtItems.ToArray()));
-                //InfoManager.SetInfo("coins", MainMenu.instance._coins.ToString());
+                GameManager.instance.playerPurchases.Bought = GetBoughtItemsString(boughtItems.ToArray());
+                GameManager.instance.playerPurchases.SynchronizeData();
             }
         }
     }
@@ -190,13 +188,14 @@ public class Shop : MonoBehaviour
     {
         List<int> boughtItems = new List<int>();
         boughtItems.Clear();
-        if (items != "")
-        {
-            string[] individualItems = items.Split(',');
-            for (int i = 0; i < individualItems.Length; i++)
-            {
-                boughtItems.Add(Int32.Parse(individualItems[i]));
-            }
+        if (!string.IsNullOrEmpty(items)) {
+            boughtItems = items.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(s => Convert.ToInt32(s.Trim())).ToList();
+            //string[] individualItems = items.Split(',');
+            //for (int i = 0; i < individualItems.Length; i++)
+            //{
+            //    boughtItems.Add(Int32.Parse(individualItems[i]));
+            //}
         }
         return boughtItems;
     }

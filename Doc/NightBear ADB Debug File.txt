@@ -1,0 +1,765 @@
+05-26 10:39:22.996: V/BaseAuthAsyncOperation(23537): All scopes had been granted in the past, skip access token fetching
+05-26 10:39:23.016: V/GoogleSignatureVerifier(23537): com.blazewolf.beargame signature not valid.  Found: 
+05-26 10:39:23.016: V/GoogleSignatureVerifier(23537): MIIBozCCAQygAwIBAgIEQUab6jANBgkqhkiG9w0BAQUFADAVMRMwEQYDVQQKDApCbGF6ZSBXb2xm
+05-26 10:39:23.016: V/GoogleSignatureVerifier(23537): MCAXDTE2MDQyMTAxMzAzOVoYDzIwNjYwNDA5MDEzMDM5WjAVMRMwEQYDVQQKDApCbGF6ZSBXb2xm
+05-26 10:39:23.016: V/GoogleSignatureVerifier(23537): MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDo00e//MT0grLEh8y3BWSjQ1fiw4pV3KuDu/gE
+05-26 10:39:23.016: V/GoogleSignatureVerifier(23537): kB4Mn67zCI/XyHSNDhV7LA5Rs+U07jYmq0rjMhmjzek6J1CcJlQ3GAY7vGwYx03Ew3rHpzyfiCOH
+05-26 10:39:23.016: V/GoogleSignatureVerifier(23537): mCPUFnOcm8K0zvFUa5q2yH85IoVKRhsPBncx+hUuJZwN0i7cStDThpmJBwIDAQABMA0GCSqGSIb3
+05-26 10:39:23.016: V/GoogleSignatureVerifier(23537): DQEBBQUAA4GBAAZw3n8qnvBHBOFfu8/bcCdJb5dIh5UkjqlBv7eaeowjlhb0UTZP+yQwGBlEh0h4
+05-26 10:39:23.016: V/GoogleSignatureVerifier(23537): Ah20BnKiCkadXJr3D+D1/kubHCL4SmzPDIFt5I7gC8E8pOGawQwjqSYYXDKokRLLmemclXYNmpuI
+05-26 10:39:23.016: V/GoogleSignatureVerifier(23537): 7ukuvYOEkHcxRGfk9M7nekFdM0inZREX
+05-26 10:39:23.016: V/GoogleSignatureVerifier(23537): com.blazewolf.beargame signature not valid.  Found: 
+05-26 10:39:23.016: V/GoogleSignatureVerifier(23537): MIIBozCCAQygAwIBAgIEQUab6jANBgkqhkiG9w0BAQUFADAVMRMwEQYDVQQKDApCbGF6ZSBXb2xm
+05-26 10:39:23.016: V/GoogleSignatureVerifier(23537): MCAXDTE2MDQyMTAxMzAzOVoYDzIwNjYwNDA5MDEzMDM5WjAVMRMwEQYDVQQKDApCbGF6ZSBXb2xm
+05-26 10:39:23.016: V/GoogleSignatureVerifier(23537): MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDo00e//MT0grLEh8y3BWSjQ1fiw4pV3KuDu/gE
+05-26 10:39:23.016: V/GoogleSignatureVerifier(23537): kB4Mn67zCI/XyHSNDhV7LA5Rs+U07jYmq0rjMhmjzek6J1CcJlQ3GAY7vGwYx03Ew3rHpzyfiCOH
+05-26 10:39:23.016: V/GoogleSignatureVerifier(23537): mCPUFnOcm8K0zvFUa5q2yH85IoVKRhsPBncx+hUuJZwN0i7cStDThpmJBwIDAQABMA0GCSqGSIb3
+05-26 10:39:23.016: V/GoogleSignatureVerifier(23537): DQEBBQUAA4GBAAZw3n8qnvBHBOFfu8/bcCdJb5dIh5UkjqlBv7eaeowjlhb0UTZP+yQwGBlEh0h4
+05-26 10:39:23.016: V/GoogleSignatureVerifier(23537): Ah20BnKiCkadXJr3D+D1/kubHCL4SmzPDIFt5I7gC8E8pOGawQwjqSYYXDKokRLLmemclXYNmpuI
+05-26 10:39:23.016: V/GoogleSignatureVerifier(23537): 7ukuvYOEkHcxRGfk9M7nekFdM0inZREX
+05-26 10:39:23.046: V/GoogleSignatureVerifier(23537): com.blazewolf.beargame signature not valid.  Found: 
+05-26 10:39:23.046: V/GoogleSignatureVerifier(23537): MIIBozCCAQygAwIBAgIEQUab6jANBgkqhkiG9w0BAQUFADAVMRMwEQYDVQQKDApCbGF6ZSBXb2xm
+05-26 10:39:23.046: V/GoogleSignatureVerifier(23537): MCAXDTE2MDQyMTAxMzAzOVoYDzIwNjYwNDA5MDEzMDM5WjAVMRMwEQYDVQQKDApCbGF6ZSBXb2xm
+05-26 10:39:23.046: V/GoogleSignatureVerifier(23537): MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDo00e//MT0grLEh8y3BWSjQ1fiw4pV3KuDu/gE
+05-26 10:39:23.046: V/GoogleSignatureVerifier(23537): kB4Mn67zCI/XyHSNDhV7LA5Rs+U07jYmq0rjMhmjzek6J1CcJlQ3GAY7vGwYx03Ew3rHpzyfiCOH
+05-26 10:39:23.046: V/GoogleSignatureVerifier(23537): mCPUFnOcm8K0zvFUa5q2yH85IoVKRhsPBncx+hUuJZwN0i7cStDThpmJBwIDAQABMA0GCSqGSIb3
+05-26 10:39:23.046: V/GoogleSignatureVerifier(23537): DQEBBQUAA4GBAAZw3n8qnvBHBOFfu8/bcCdJb5dIh5UkjqlBv7eaeowjlhb0UTZP+yQwGBlEh0h4
+05-26 10:39:23.046: V/GoogleSignatureVerifier(23537): Ah20BnKiCkadXJr3D+D1/kubHCL4SmzPDIFt5I7gC8E8pOGawQwjqSYYXDKokRLLmemclXYNmpuI
+05-26 10:39:23.046: V/GoogleSignatureVerifier(23537): 7ukuvYOEkHcxRGfk9M7nekFdM0inZREX
+05-26 10:39:23.046: V/BaseAuthAsyncOperation(23537): access token request successful
+05-26 10:39:23.046: V/GoogleSignatureVerifier(23537): com.blazewolf.beargame signature not valid.  Found: 
+05-26 10:39:23.046: V/GoogleSignatureVerifier(23537): MIIBozCCAQygAwIBAgIEQUab6jANBgkqhkiG9w0BAQUFADAVMRMwEQYDVQQKDApCbGF6ZSBXb2xm
+05-26 10:39:23.046: V/GoogleSignatureVerifier(23537): MCAXDTE2MDQyMTAxMzAzOVoYDzIwNjYwNDA5MDEzMDM5WjAVMRMwEQYDVQQKDApCbGF6ZSBXb2xm
+05-26 10:39:23.046: V/GoogleSignatureVerifier(23537): MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDo00e//MT0grLEh8y3BWSjQ1fiw4pV3KuDu/gE
+05-26 10:39:23.046: V/GoogleSignatureVerifier(23537): kB4Mn67zCI/XyHSNDhV7LA5Rs+U07jYmq0rjMhmjzek6J1CcJlQ3GAY7vGwYx03Ew3rHpzyfiCOH
+05-26 10:39:23.046: V/GoogleSignatureVerifier(23537): mCPUFnOcm8K0zvFUa5q2yH85IoVKRhsPBncx+hUuJZwN0i7cStDThpmJBwIDAQABMA0GCSqGSIb3
+05-26 10:39:23.046: V/GoogleSignatureVerifier(23537): DQEBBQUAA4GBAAZw3n8qnvBHBOFfu8/bcCdJb5dIh5UkjqlBv7eaeowjlhb0UTZP+yQwGBlEh0h4
+05-26 10:39:23.046: V/GoogleSignatureVerifier(23537): Ah20BnKiCkadXJr3D+D1/kubHCL4SmzPDIFt5I7gC8E8pOGawQwjqSYYXDKokRLLmemclXYNmpuI
+05-26 10:39:23.046: V/GoogleSignatureVerifier(23537): 7ukuvYOEkHcxRGfk9M7nekFdM0inZREX
+05-26 10:39:23.086: D/TokenFragment(24345): onConnected:null
+05-26 10:39:23.086: D/TokenFragment(24345): Pending map in processRequests is 1
+05-26 10:39:23.086: D/TokenFragment(24345): Calling doGetToken for Alex Morenoe: false a:false i:true
+05-26 10:39:23.086: D/TokenFragment(24345): Done with processRequests!
+05-26 10:39:23.106: I/System.out(24345): (HTTPLog)-Static: isSBSettingEnabled false
+05-26 10:39:23.106: I/System.out(24345): (HTTPLog)-Static: isSBSettingEnabled false
+05-26 10:39:23.106: D/EnterpriseController(973): netId is 0
+05-26 10:39:23.106: D/Netd(973): getNetworkForDns: using netid 638 for uid 10253
+05-26 10:39:23.126: D/TokenFragment(24345): Calling getAccountName
+05-26 10:39:23.136: D/TokenFragment(24345): Getting ID token.  Scope = audience:server:client_id:104708994607-dratm8pq4vht61bkc4nlb2r3cng2avkn.apps.googleusercontent.com email: alexmoreno777@gmail.com
+05-26 10:39:23.156: I/System.out(24345): (HTTPLog)-Static: isSBSettingEnabled false
+05-26 10:39:23.156: I/System.out(24345): (HTTPLog)-Static: isSBSettingEnabled false
+05-26 10:39:23.166: D/EnterpriseController(973): netId is 0
+05-26 10:39:23.166: D/Netd(973): getNetworkForDns: using netid 638 for uid 10253
+05-26 10:39:23.166: I/WebViewFactory(24345): Loading com.google.android.webview version 50.0.2661.86 (code 266108650)
+05-26 10:39:23.166: V/GoogleSignatureVerifier(18207): com.blazewolf.beargame signature not valid.  Found: 
+05-26 10:39:23.166: V/GoogleSignatureVerifier(18207): MIIBozCCAQygAwIBAgIEQUab6jANBgkqhkiG9w0BAQUFADAVMRMwEQYDVQQKDApCbGF6ZSBXb2xm
+05-26 10:39:23.166: V/GoogleSignatureVerifier(18207): MCAXDTE2MDQyMTAxMzAzOVoYDzIwNjYwNDA5MDEzMDM5WjAVMRMwEQYDVQQKDApCbGF6ZSBXb2xm
+05-26 10:39:23.166: V/GoogleSignatureVerifier(18207): MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDo00e//MT0grLEh8y3BWSjQ1fiw4pV3KuDu/gE
+05-26 10:39:23.166: V/GoogleSignatureVerifier(18207): kB4Mn67zCI/XyHSNDhV7LA5Rs+U07jYmq0rjMhmjzek6J1CcJlQ3GAY7vGwYx03Ew3rHpzyfiCOH
+05-26 10:39:23.166: V/GoogleSignatureVerifier(18207): mCPUFnOcm8K0zvFUa5q2yH85IoVKRhsPBncx+hUuJZwN0i7cStDThpmJBwIDAQABMA0GCSqGSIb3
+05-26 10:39:23.166: V/GoogleSignatureVerifier(18207): DQEBBQUAA4GBAAZw3n8qnvBHBOFfu8/bcCdJb5dIh5UkjqlBv7eaeowjlhb0UTZP+yQwGBlEh0h4
+05-26 10:39:23.166: V/GoogleSignatureVerifier(18207): Ah20BnKiCkadXJr3D+D1/kubHCL4SmzPDIFt5I7gC8E8pOGawQwjqSYYXDKokRLLmemclXYNmpuI
+05-26 10:39:23.166: V/GoogleSignatureVerifier(18207): 7ukuvYOEkHcxRGfk9M7nekFdM0inZREX
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): com.blazewolf.beargame signature not valid.  Found: 
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): MIIBozCCAQygAwIBAgIEQUab6jANBgkqhkiG9w0BAQUFADAVMRMwEQYDVQQKDApCbGF6ZSBXb2xm
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): MCAXDTE2MDQyMTAxMzAzOVoYDzIwNjYwNDA5MDEzMDM5WjAVMRMwEQYDVQQKDApCbGF6ZSBXb2xm
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDo00e//MT0grLEh8y3BWSjQ1fiw4pV3KuDu/gE
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): kB4Mn67zCI/XyHSNDhV7LA5Rs+U07jYmq0rjMhmjzek6J1CcJlQ3GAY7vGwYx03Ew3rHpzyfiCOH
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): mCPUFnOcm8K0zvFUa5q2yH85IoVKRhsPBncx+hUuJZwN0i7cStDThpmJBwIDAQABMA0GCSqGSIb3
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): DQEBBQUAA4GBAAZw3n8qnvBHBOFfu8/bcCdJb5dIh5UkjqlBv7eaeowjlhb0UTZP+yQwGBlEh0h4
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): Ah20BnKiCkadXJr3D+D1/kubHCL4SmzPDIFt5I7gC8E8pOGawQwjqSYYXDKokRLLmemclXYNmpuI
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): 7ukuvYOEkHcxRGfk9M7nekFdM0inZREX
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): com.blazewolf.beargame signature not valid.  Found: 
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): MIIBozCCAQygAwIBAgIEQUab6jANBgkqhkiG9w0BAQUFADAVMRMwEQYDVQQKDApCbGF6ZSBXb2xm
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): MCAXDTE2MDQyMTAxMzAzOVoYDzIwNjYwNDA5MDEzMDM5WjAVMRMwEQYDVQQKDApCbGF6ZSBXb2xm
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDo00e//MT0grLEh8y3BWSjQ1fiw4pV3KuDu/gE
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): kB4Mn67zCI/XyHSNDhV7LA5Rs+U07jYmq0rjMhmjzek6J1CcJlQ3GAY7vGwYx03Ew3rHpzyfiCOH
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): mCPUFnOcm8K0zvFUa5q2yH85IoVKRhsPBncx+hUuJZwN0i7cStDThpmJBwIDAQABMA0GCSqGSIb3
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): DQEBBQUAA4GBAAZw3n8qnvBHBOFfu8/bcCdJb5dIh5UkjqlBv7eaeowjlhb0UTZP+yQwGBlEh0h4
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): Ah20BnKiCkadXJr3D+D1/kubHCL4SmzPDIFt5I7gC8E8pOGawQwjqSYYXDKokRLLmemclXYNmpuI
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): 7ukuvYOEkHcxRGfk9M7nekFdM0inZREX
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): com.blazewolf.beargame signature not valid.  Found: 
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): MIIBozCCAQygAwIBAgIEQUab6jANBgkqhkiG9w0BAQUFADAVMRMwEQYDVQQKDApCbGF6ZSBXb2xm
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): MCAXDTE2MDQyMTAxMzAzOVoYDzIwNjYwNDA5MDEzMDM5WjAVMRMwEQYDVQQKDApCbGF6ZSBXb2xm
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDo00e//MT0grLEh8y3BWSjQ1fiw4pV3KuDu/gE
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): kB4Mn67zCI/XyHSNDhV7LA5Rs+U07jYmq0rjMhmjzek6J1CcJlQ3GAY7vGwYx03Ew3rHpzyfiCOH
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): mCPUFnOcm8K0zvFUa5q2yH85IoVKRhsPBncx+hUuJZwN0i7cStDThpmJBwIDAQABMA0GCSqGSIb3
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): DQEBBQUAA4GBAAZw3n8qnvBHBOFfu8/bcCdJb5dIh5UkjqlBv7eaeowjlhb0UTZP+yQwGBlEh0h4
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): Ah20BnKiCkadXJr3D+D1/kubHCL4SmzPDIFt5I7gC8E8pOGawQwjqSYYXDKokRLLmemclXYNmpuI
+05-26 10:39:23.176: V/GoogleSignatureVerifier(18207): 7ukuvYOEkHcxRGfk9M7nekFdM0inZREX
+05-26 10:39:23.186: D/TokenFragment(24345): Done with tokenRequest status: 0
+05-26 10:39:23.186: W/ResourcesManager(24345): getTopLevelResources: /data/app/com.google.android.webview-1/base.apk / 1.0 running in com.blazewolf.beargame rsrc of package com.google.android.webview
+05-26 10:39:23.186: D/ResourcesManager(24345): For user 0 new overlays fetched Null
+05-26 10:39:23.196: I/InjectionManager(24345): Inside getClassLibPath caller 
+05-26 10:39:23.206: I/cr_LibraryLoader(24345): Time to load native libraries: 7 ms (timestamps 5471-5478)
+05-26 10:39:23.216: I/cr_LibraryLoader(24345): Expected native library version number "50.0.2661.86", actual native library version number "50.0.2661.86"
+05-26 10:39:23.246: V/WebViewChromiumFactoryProvider(24345): Binding Chromium to main looper Looper (main, tid 1) {ecd941e}
+05-26 10:39:23.256: I/cr_LibraryLoader(24345): Expected native library version number "50.0.2661.86", actual native library version number "50.0.2661.86"
+05-26 10:39:23.256: I/chromium(24345): [INFO:library_loader_hooks.cc(143)] Chromium logging enabled: level = 0, default verbosity = 0
+05-26 10:39:23.276: I/Unity(24345):  [Play Games Plugin DLL] 05/26/16 10:39:23 -07:00 DEBUG: idt = eyJhbGciOiJSUzI1NiIsImtpZCI6ImRmNmRiZDJmZTRlZjdmMjgwZmQyNThmNGY5YmE0ZDBjNDcwODRlNDUifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXVkIjoiMTA0NzA4OTk0NjA3LWRyYXRtOHBxNHZodDYxYmtjNG5sYjJyM2NuZzJhdmtuLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTA3MjE1NDYwNzAxNTU0MjM3MzgyIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF6cCI6IjEwNDcwODk5NDYwNy1nM3ZtanBlZ21jYTZwOG11dTQ4OWtqajZzZmxhdHI3cS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImVtYWlsIjoiYWxleG1vcmVubzc3N0BnbWFpbC5jb20iLCJpYXQiOjE0NjQyODIzMDAsImV4cCI6MTQ2NDI4NTkwMCwibmFtZSI6IkFsZXggTW9yZW5vIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS8tTDhaTFFNTVAyN0UvQUFBQUFBQUFBQUkvQUFBQUFBQUFBRGcvZzgyWWt1RlBMdFEvczk2LWMvcGhvdG8uanBnIiwiZ2l2ZW5fbmFtZSI6IkFsZXgiLCJmYW1pbHlfbmFtZSI6Ik1vcmVubyJ9.fR8Eht1vu-Oz8rDX7hfK2EFEzFfDERVKyYQiLnEbduVHtmRi-wjXPltGverTAFzjF3oJ9uBuPGzYWqNURofRroLZitlYJs92ZLFh-g8S7SBN5l8QPrUMW0rlsc5N1U6IMbCEKcmfNY3hHE6wHtlQCxSpPWs7b1w0kXk6Uk3nsL41WUpUQ3WPFZfSoD-rxmNbtSfeW2JYYFPBV5AT7hpqrz8-mUjdBaw6
+05-26 10:39:23.276: I/Unity(24345): Google is logged in, Adding Login to Cognito...eyJhbGciOiJSUzI1NiIsImtpZCI6ImRmNmRiZDJmZTRlZjdmMjgwZmQyNThmNGY5YmE0ZDBjNDcwODRlNDUifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXVkIjoiMTA0NzA4OTk0NjA3LWRyYXRtOHBxNHZodDYxYmtjNG5sYjJyM2NuZzJhdmtuLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTA3MjE1NDYwNzAxNTU0MjM3MzgyIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF6cCI6IjEwNDcwODk5NDYwNy1nM3ZtanBlZ21jYTZwOG11dTQ4OWtqajZzZmxhdHI3cS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImVtYWlsIjoiYWxleG1vcmVubzc3N0BnbWFpbC5jb20iLCJpYXQiOjE0NjQyODIzMDAsImV4cCI6MTQ2NDI4NTkwMCwibmFtZSI6IkFsZXggTW9yZW5vIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS8tTDhaTFFNTVAyN0UvQUFBQUFBQUFBQUkvQUFBQUFBQUFBRGcvZzgyWWt1RlBMdFEvczk2LWMvcGhvdG8uanBnIiwiZ2l2ZW5fbmFtZSI6IkFsZXgiLCJmYW1pbHlfbmFtZSI6Ik1vcmVubyJ9.fR8Eht1vu-Oz8rDX7hfK2EFEzFfDERVKyYQiLnEbduVHtmRi-wjXPltGverTAFzjF3oJ9uBuPGzYWqNURofRroLZitlYJs92ZLFh-g8S7SBN5l8QPrUMW0rlsc5N1U6IMbCEKcmfNY3hHE6wHtlQCxSpPWs7b1w0kXk6Uk3nsL41WUpUQ3WPFZfSoD-rxmNbtSfeW2JYYFPBV5AT7hpqrz8-mUjdBaw68TPAVfFTelgqUWP9
+05-26 10:39:23.286: I/cr_BrowserStartup(24345): Initializing chromium process, singleProcess=true
+05-26 10:39:23.336: D/NetworkController.MobileSignalController(0/1)(2326): onSignalStrengthsChanged signalStrength=SignalStrength: 99 99 -120 -160 -120 -1 -1 19 -101 -9 172 -1 2147483647 0x3000 gsm|lte level=3
+05-26 10:39:23.336: D/NetworkController.MobileSignalController(0/1)(2326): getMobileIconGroup(): 13
+05-26 10:39:23.336: D/NetworkController.MobileSignalController(0/1)(2326): updateVZWMobileIconGroup(): 13
+05-26 10:39:23.336: I/qti_sensorhub_hal(992): OEM_1_REPORT_IND
+05-26 10:39:23.336: D/qti_sensorhub_hal(992): AutoRotation 255 ts: 3946728471
+05-26 10:39:23.336: D/SensorHubManager(1379): onGetSensorHubDataLocked: library(4) = 1, 1, 7, -1
+05-26 10:39:23.336: D/CAE(1379): onGetSensorHubData(SensorHubParserProvider.java:92) - onGetSensorHubData Event [event buffer len :4], AP_WAKEUP
+05-26 10:39:23.336: I/CAE(1379): parse(SensorHubParserProvider.java:188) - buffer size = 4
+05-26 10:39:23.336: I/CAE(1379): parse(SensorHubParserProvider.java:199) - 1, 1, 7, -1,
+05-26 10:39:23.336: D/CAE(1379): display(ContextProvider.java:375) - ================= AUTO_ROTATION =================
+05-26 10:39:23.336: I/CAE(1379): display(ContextProvider.java:391) - Angle=[-1]
+05-26 10:39:23.336: D/SContextService(1379): updateSContext() : event = Auto Rotation
+05-26 10:39:23.346: D/EPDG -- [SMARTWIFI](1379): onSignalStrengthsChanged: Received signal strength change, phone type is: 2
+05-26 10:39:23.346: D/EPDG -- [SMARTWIFI](1379): lastLteRSRP is -101currentLteRSRP is -101
+05-26 10:39:23.346: D/EPDG -- [SMARTWIFI](1379): lastCdmaDb is -16currentCdmaDb is -16
+05-26 10:39:23.346: V/EPDG -- [SMARTWIFI](1379): Radio oldest entry removed
+05-26 10:39:23.346: V/EPDG -- [SMARTWIFI](1379): New entry : (SignalStrength: 99 99 -120 -160 -120 -1 -1 19 -101 -9 172 -1 2147483647 0x3000 gsm|lte : 0 )
+05-26 10:39:23.346: V/EPDG -- [SMARTWIFI](1379): Radio entry added
+05-26 10:39:23.346: V/WindowOrientationListener(1379): OrientationSensorJudge.onSContextChanged, Rotation: -1
+05-26 10:39:23.346: D/NetworkController.MobileSignalController(0/1)(2326): callState:0, callStateByPhone:false voLTECall:false voiceNetTpe:13 dataNetType:13, ine911:false, emergencyCallbackMode:false
+05-26 10:39:23.356: D/libEGL(24345): eglInitialize EGLDisplay = 0xff8f4f04
+05-26 10:39:23.416: D/EPDG -- [NETMGMT](1379): Interface wlan0 limitName globalAlert
+05-26 10:39:23.416: D/NtpTrustedTime(1379): currentTimeMillis() cache hit
+05-26 10:39:23.416: V/NetworkStats(1379): performPollLocked(flags=0x1)
+05-26 10:39:23.416: D/ActivityManager(1379): The following uid has registered to recieve broadcast for proxy related updates 10253
+05-26 10:39:23.416: W/ContextImpl(1379): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:845 com.android.server.am.ActivityManagerService.requestKnoxVpnToSendProxyBroadcast:29671 com.android.server.am.ActivityManagerService.registerReceiver:22542 android.app.ActivityManagerNative.onTransact:431 com.android.server.am.ActivityManagerService.onTransact:3986 
+05-26 10:39:23.436: W/cr_media(24345): Requires BLUETOOTH permission
+05-26 10:39:23.436: D/NetworkStats(1379): IMS LinkProperties is not null
+05-26 10:39:23.436: D/NetworkStatsRecorder(1379): entry.iface is null
+05-26 10:39:23.436: D/NetworkStatsRecorder(1379): entry.iface is null
+05-26 10:39:23.446: D/NetworkStatsRecorder(1379): entry.iface is null
+05-26 10:39:23.446: D/NetworkStatsRecorder(1379): entry.iface is null
+05-26 10:39:23.466: D/NetworkPolicy(1379): isUidForegroundLocked: 10018, mScreenOn: true, uidstate: 2, mProxSensorScreenOff: false
+05-26 10:39:23.476: D/NtpTrustedTime(1379): currentTimeMillis() cache hit
+05-26 10:39:23.476: V/NetworkStats(1379): performPollLocked() took 60ms
+05-26 10:39:23.486: D/ConnectivityManager(24345): requestNetwork; getAppId(CallingUid) : 10253, CallingPid : 24345
+05-26 10:39:23.496: D/NtpTrustedTime(1379): currentTimeMillis() cache hit
+05-26 10:39:23.496: D/NtpTrustedTime(1379): currentTimeMillis() cache hit
+05-26 10:39:23.496: D/ConnectivityService(1379): listenForNetwork for Listen from uid/pid:10253/24345 for NetworkRequest [ id=2076, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ]
+05-26 10:39:23.496: D/ConnectivityService(1379): rematching NetworkAgentInfo [WIFI () - 638]
+05-26 10:39:23.496: D/ConnectivityService(1379):  network has: NetworkAgentInfo{ ni{[type: WIFI[] - WIFI, state: CONNECTED/CONNECTED, reason: (unspecified), extra: "HB NATION", roaming: false, failover: false, isAvailable: true]}  network{638}  lp{{InterfaceName: wlan0 LinkAddresses: [fe80::62f1:89ff:fe65:9282/64,192.168.1.20/24,]  Routes: [fe80::/64 -> :: wlan0,192.168.1.0/24 -> 0.0.0.0 wlan0,0.0.0.0/0 -> 192.168.1.1 wlan0,] DnsAddresses: [192.168.1.1,] Domains:  MTU: 0 TcpBufferSizes: 524288,1048576,2097120,524288,1048576,4194240}}  nc{[ Transports: WIFI Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&VALIDATED LinkUpBandwidth>=1048576Kbps LinkDnBandwidth>=1048576Kbps SignalStrength: -56]}  Score{60}  everValidated{true}  lastValidated{true}  created{true} lingering{false} explicitlySelected{false} acceptUnvalidated{false} everCaptivePortalDetected{false} lastCaptivePortalDetected{false} }
+05-26 10:39:23.496: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2069, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.496: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=5, legacyType=-1, [ Transports: WIFI Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.496: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2076, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.496: D/ConnectivityService(1379): Network NetworkAgentInfo [WIFI () - 638] was already satisfying request 1. No change.
+05-26 10:39:23.496: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=3, legacyType=-1, [] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.496: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=4, legacyType=-1, [ Transports: CELLULAR Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.496: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=1077, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.496: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2060, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.506: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2058, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.506: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2044, legacyType=5, [ Transports: CELLULAR Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: true
+05-26 10:39:23.506: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2073, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.506: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=6, legacyType=-1, [ Transports: WIFI Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.506: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=989, legacyType=11, [ Transports: CELLULAR Capabilities: IMS&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: true
+05-26 10:39:23.506: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2059, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.506: D/ConnectivityService(1379): sending notification AVAILABLE for NetworkRequest [ id=2076, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ]
+05-26 10:39:23.506: D/ConnectivityService(1379): rematching NetworkAgentInfo [MOBILE (LTE) - 602]
+05-26 10:39:23.516: E/CSLegacyTypeTracker(1379): add() : Adding agent NetworkAgentInfo{ ni{[type: MOBILE[LTE] - MOBILE_IMS, state: CONNECTED/CONNECTED, reason: (unspecified), extra: VZWIMS, roaming: false, failover: false, isAvailable: true]}  network{602}  lp{{InterfaceName: rmnet_data0 LinkAddresses: [2600:1012:8164:67db:0:21:7ac3:b301/64,]  Routes: [::/0 -> fe80::3cda:7570:46b2:ea43 rmnet_data0,] DnsAddresses: [2001:4888:65:ff00:62e:d::,2001:4888:64:ff00:620:d::,] Domains: null MTU: 0 TcpBufferSizes: 2097152,6294156,12582912,524288,1048576,2560000}}  nc{[ Transports: CELLULAR Capabilities: IMS&TRUSTED&NOT_VPN&VALIDATED LinkUpBandwidth>=51200Kbps LinkDnBandwidth>=102400Kbps Specifier: <1>]}  Score{50}  everValidated{true}  lastValidated{true}  created{true} lingering{false} explicitlySelected{false} acceptUnvalidated{false} everCaptivePortalDetected{false} lastCaptivePortalDetected{false} } for legacy network type 11
+05-26 10:39:23.516: D/ConnectivityService(1379):  network has: NetworkAgentInfo{ ni{[type: MOBILE[LTE] - MOBILE_IMS, state: CONNECTED/CONNECTED, reason: (unspecified), extra: VZWIMS, roaming: false, failover: false, isAvailable: true]}  network{602}  lp{{InterfaceName: rmnet_data0 LinkAddresses: [2600:1012:8164:67db:0:21:7ac3:b301/64,]  Routes: [::/0 -> fe80::3cda:7570:46b2:ea43 rmnet_data0,] DnsAddresses: [2001:4888:65:ff00:62e:d::,2001:4888:64:ff00:620:d::,] Domains: null MTU: 0 TcpBufferSizes: 2097152,6294156,12582912,524288,1048576,2560000}}  nc{[ Transports: CELLULAR Capabilities: IMS&TRUSTED&NOT_VPN&VALIDATED LinkUpBandwidth>=51200Kbps LinkDnBandwidth>=102400Kbps Specifier: <1>]}  Score{50}  everValidated{true}  lastValidated{true}  created{true} lingering{false} explicitlySelected{false} acceptUnvalidated{false} everCaptivePortalDetected{false} lastCaptivePortalDetected{false} }
+05-26 10:39:23.516: D/cr_Ime(24345): [InputMethodManagerWrapper.java:30] Constructor
+05-26 10:39:23.516: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2069, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.516: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=5, legacyType=-1, [ Transports: WIFI Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.526: E/CSLegacyTypeTracker(1379): add() : Adding agent NetworkAgentInfo{ ni{[type: MOBILE[LTE] - MOBILE, state: CONNECTED/CONNECTED, reason: connected, extra: VZWINTERNET, roaming: false, failover: false, isAvailable: true]}  network{639}  lp{{InterfaceName: rmnet_data1 LinkAddresses: [100.84.244.200/32,2600:1012:b11b:9cdc:e077:e46:961a:4081/64,]  Routes: [0.0.0.0/0 -> 100.84.244.201 rmnet_data1,::/0 -> fe80::fd7b:55fb:985a:1877 rmnet_data1,] DnsAddresses: [198.224.171.135,198.224.169.135,2001:4888:65:ff00:62e:d::,2001:4888:64:ff00:620:d::,] Domains: null MTU: 0 TcpBufferSizes: 2097152,6294156,12582912,524288,1048576,2560000}}  nc{[ Transports: CELLULAR Capabilities: SUPL&DUN&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&VALIDATED LinkUpBandwidth>=51200Kbps LinkDnBandwidth>=102400Kbps Specifier: <1>]}  Score{50}  everValidated{true}  lastValidated{true}  created{true} lingering{false} explicitlySelected{false} acceptUnvalidated{false} everCaptivePortalDetected{false} lastCaptivePortalDetected{false} } for legacy network type 5
+05-26 10:39:23.516: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2076, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.516: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=1, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: true
+05-26 10:39:23.516: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=3, legacyType=-1, [] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.516: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=4, legacyType=-1, [ Transports: CELLULAR Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.516: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=1077, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.516: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2060, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.516: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2058, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.516: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2044, legacyType=5, [ Transports: CELLULAR Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: true
+05-26 10:39:23.536: W/cr_AwContents(24345): onDetachedFromWindow called when already detached. Ignoring
+05-26 10:39:23.516: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2073, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.536: D/cr_Ime(24345): [InputMethodManagerWrapper.java:59] isActive: false
+05-26 10:39:23.516: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=6, legacyType=-1, [ Transports: WIFI Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.536: D/NtpTrustedTime(1379): currentTimeMillis() cache hit
+05-26 10:39:23.516: D/ConnectivityService(1379): Network NetworkAgentInfo [MOBILE (LTE) - 602] was already satisfying request 989. No change.
+05-26 10:39:23.516: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2059, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.516: D/ConnectivityService(1379): rematching NetworkAgentInfo [MOBILE (LTE) - 639]
+05-26 10:39:23.516: D/ConnectivityService(1379):  network has: NetworkAgentInfo{ ni{[type: MOBILE[LTE] - MOBILE, state: CONNECTED/CONNECTED, reason: connected, extra: VZWINTERNET, roaming: false, failover: false, isAvailable: true]}  network{639}  lp{{InterfaceName: rmnet_data1 LinkAddresses: [100.84.244.200/32,2600:1012:b11b:9cdc:e077:e46:961a:4081/64,]  Routes: [0.0.0.0/0 -> 100.84.244.201 rmnet_data1,::/0 -> fe80::fd7b:55fb:985a:1877 rmnet_data1,] DnsAddresses: [198.224.171.135,198.224.169.135,2001:4888:65:ff00:62e:d::,2001:4888:64:ff00:620:d::,] Domains: null MTU: 0 TcpBufferSizes: 2097152,6294156,12582912,524288,1048576,2560000}}  nc{[ Transports: CELLULAR Capabilities: SUPL&DUN&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&VALIDATED LinkUpBandwidth>=51200Kbps LinkDnBandwidth>=102400Kbps Specifier: <1>]}  Score{50}  everValidated{true}  lastValidated{true}  created{true} lingering{false} explicitlySelected{false} acceptUnvalidated{false} everCaptivePortalDetected{false} lastCaptivePortalDetected{false} }
+05-26 10:39:23.516: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2069, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.516: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=5, legacyType=-1, [ Transports: WIFI Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.516: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2076, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.516: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=1, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: true
+05-26 10:39:23.526: D/ConnectivityService(1379): currentScore = 60, newScore = 50
+05-26 10:39:23.526: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=3, legacyType=-1, [] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.526: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=4, legacyType=-1, [ Transports: CELLULAR Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.526: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=1077, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.526: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2060, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.526: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2058, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.526: D/ConnectivityService(1379): Network NetworkAgentInfo [MOBILE (LTE) - 639] was already satisfying request 2044. No change.
+05-26 10:39:23.526: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2073, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.526: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=6, legacyType=-1, [ Transports: WIFI Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.526: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=989, legacyType=11, [ Transports: CELLULAR Capabilities: IMS&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: true
+05-26 10:39:23.526: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2059, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.526: D/ConnectivityService(1379): sending notification AVAILABLE for NetworkRequest [ id=2076, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ]
+05-26 10:39:23.566: I/cr_Ime(24345): ImeThread is not enabled.
+05-26 10:39:23.596: D/ConnectivityManager(24345): requestNetwork; getAppId(CallingUid) : 10253, CallingPid : 24345
+05-26 10:39:23.596: D/ConnectivityService(1379): listenForNetwork for Listen from uid/pid:10253/24345 for NetworkRequest [ id=2077, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ]
+05-26 10:39:23.596: D/ConnectivityService(1379): rematching NetworkAgentInfo [WIFI () - 638]
+05-26 10:39:23.596: D/ConnectivityService(1379):  network has: NetworkAgentInfo{ ni{[type: WIFI[] - WIFI, state: CONNECTED/CONNECTED, reason: (unspecified), extra: "HB NATION", roaming: false, failover: false, isAvailable: true]}  network{638}  lp{{InterfaceName: wlan0 LinkAddresses: [fe80::62f1:89ff:fe65:9282/64,192.168.1.20/24,]  Routes: [fe80::/64 -> :: wlan0,192.168.1.0/24 -> 0.0.0.0 wlan0,0.0.0.0/0 -> 192.168.1.1 wlan0,] DnsAddresses: [192.168.1.1,] Domains:  MTU: 0 TcpBufferSizes: 524288,1048576,2097120,524288,1048576,4194240}}  nc{[ Transports: WIFI Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&VALIDATED LinkUpBandwidth>=1048576Kbps LinkDnBandwidth>=1048576Kbps SignalStrength: -56]}  Score{60}  everValidated{true}  lastValidated{true}  created{true} lingering{false} explicitlySelected{false} acceptUnvalidated{false} everCaptivePortalDetected{false} lastCaptivePortalDetected{false} }
+05-26 10:39:23.596: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2069, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.596: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=5, legacyType=-1, [ Transports: WIFI Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.596: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2076, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.596: D/ConnectivityService(1379): Network NetworkAgentInfo [WIFI () - 638] was already satisfying request 1. No change.
+05-26 10:39:23.596: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=3, legacyType=-1, [] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.596: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=4, legacyType=-1, [ Transports: CELLULAR Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.596: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=1077, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.606: E/CSLegacyTypeTracker(1379): add() : Adding agent NetworkAgentInfo{ ni{[type: MOBILE[LTE] - MOBILE_IMS, state: CONNECTED/CONNECTED, reason: (unspecified), extra: VZWIMS, roaming: false, failover: false, isAvailable: true]}  network{602}  lp{{InterfaceName: rmnet_data0 LinkAddresses: [2600:1012:8164:67db:0:21:7ac3:b301/64,]  Routes: [::/0 -> fe80::3cda:7570:46b2:ea43 rmnet_data0,] DnsAddresses: [2001:4888:65:ff00:62e:d::,2001:4888:64:ff00:620:d::,] Domains: null MTU: 0 TcpBufferSizes: 2097152,6294156,12582912,524288,1048576,2560000}}  nc{[ Transports: CELLULAR Capabilities: IMS&TRUSTED&NOT_VPN&VALIDATED LinkUpBandwidth>=51200Kbps LinkDnBandwidth>=102400Kbps Specifier: <1>]}  Score{50}  everValidated{true}  lastValidated{true}  created{true} lingering{false} explicitlySelected{false} acceptUnvalidated{false} everCaptivePortalDetected{false} lastCaptivePortalDetected{false} } for legacy network type 11
+05-26 10:39:23.596: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2060, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.596: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2058, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.596: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2044, legacyType=5, [ Transports: CELLULAR Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: true
+05-26 10:39:23.596: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2077, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.596: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2073, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.596: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=6, legacyType=-1, [ Transports: WIFI Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.596: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=989, legacyType=11, [ Transports: CELLULAR Capabilities: IMS&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: true
+05-26 10:39:23.596: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2059, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.596: D/ConnectivityService(1379): sending notification AVAILABLE for NetworkRequest [ id=2077, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ]
+05-26 10:39:23.606: D/ConnectivityService(1379): rematching NetworkAgentInfo [MOBILE (LTE) - 602]
+05-26 10:39:23.606: D/ConnectivityService(1379):  network has: NetworkAgentInfo{ ni{[type: MOBILE[LTE] - MOBILE_IMS, state: CONNECTED/CONNECTED, reason: (unspecified), extra: VZWIMS, roaming: false, failover: false, isAvailable: true]}  network{602}  lp{{InterfaceName: rmnet_data0 LinkAddresses: [2600:1012:8164:67db:0:21:7ac3:b301/64,]  Routes: [::/0 -> fe80::3cda:7570:46b2:ea43 rmnet_data0,] DnsAddresses: [2001:4888:65:ff00:62e:d::,2001:4888:64:ff00:620:d::,] Domains: null MTU: 0 TcpBufferSizes: 2097152,6294156,12582912,524288,1048576,2560000}}  nc{[ Transports: CELLULAR Capabilities: IMS&TRUSTED&NOT_VPN&VALIDATED LinkUpBandwidth>=51200Kbps LinkDnBandwidth>=102400Kbps Specifier: <1>]}  Score{50}  everValidated{true}  lastValidated{true}  created{true} lingering{false} explicitlySelected{false} acceptUnvalidated{false} everCaptivePortalDetected{false} lastCaptivePortalDetected{false} }
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2069, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=5, legacyType=-1, [ Transports: WIFI Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2076, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=1, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: true
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=3, legacyType=-1, [] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=4, legacyType=-1, [ Transports: CELLULAR Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=1077, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2060, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2058, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2044, legacyType=5, [ Transports: CELLULAR Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: true
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2077, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2073, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=6, legacyType=-1, [ Transports: WIFI Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.606: E/CSLegacyTypeTracker(1379): add() : Adding agent NetworkAgentInfo{ ni{[type: MOBILE[LTE] - MOBILE, state: CONNECTED/CONNECTED, reason: connected, extra: VZWINTERNET, roaming: false, failover: false, isAvailable: true]}  network{639}  lp{{InterfaceName: rmnet_data1 LinkAddresses: [100.84.244.200/32,2600:1012:b11b:9cdc:e077:e46:961a:4081/64,]  Routes: [0.0.0.0/0 -> 100.84.244.201 rmnet_data1,::/0 -> fe80::fd7b:55fb:985a:1877 rmnet_data1,] DnsAddresses: [198.224.171.135,198.224.169.135,2001:4888:65:ff00:62e:d::,2001:4888:64:ff00:620:d::,] Domains: null MTU: 0 TcpBufferSizes: 2097152,6294156,12582912,524288,1048576,2560000}}  nc{[ Transports: CELLULAR Capabilities: SUPL&DUN&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&VALIDATED LinkUpBandwidth>=51200Kbps LinkDnBandwidth>=102400Kbps Specifier: <1>]}  Score{50}  everValidated{true}  lastValidated{true}  created{true} lingering{false} explicitlySelected{false} acceptUnvalidated{false} everCaptivePortalDetected{false} lastCaptivePortalDetected{false} } for legacy network type 5
+05-26 10:39:23.606: D/ConnectivityService(1379): Network NetworkAgentInfo [MOBILE (LTE) - 602] was already satisfying request 989. No change.
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2059, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379): rematching NetworkAgentInfo [MOBILE (LTE) - 639]
+05-26 10:39:23.606: D/ConnectivityService(1379):  network has: NetworkAgentInfo{ ni{[type: MOBILE[LTE] - MOBILE, state: CONNECTED/CONNECTED, reason: connected, extra: VZWINTERNET, roaming: false, failover: false, isAvailable: true]}  network{639}  lp{{InterfaceName: rmnet_data1 LinkAddresses: [100.84.244.200/32,2600:1012:b11b:9cdc:e077:e46:961a:4081/64,]  Routes: [0.0.0.0/0 -> 100.84.244.201 rmnet_data1,::/0 -> fe80::fd7b:55fb:985a:1877 rmnet_data1,] DnsAddresses: [198.224.171.135,198.224.169.135,2001:4888:65:ff00:62e:d::,2001:4888:64:ff00:620:d::,] Domains: null MTU: 0 TcpBufferSizes: 2097152,6294156,12582912,524288,1048576,2560000}}  nc{[ Transports: CELLULAR Capabilities: SUPL&DUN&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&VALIDATED LinkUpBandwidth>=51200Kbps LinkDnBandwidth>=102400Kbps Specifier: <1>]}  Score{50}  everValidated{true}  lastValidated{true}  created{true} lingering{false} explicitlySelected{false} acceptUnvalidated{false} everCaptivePortalDetected{false} lastCaptivePortalDetected{false} }
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2069, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=5, legacyType=-1, [ Transports: WIFI Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2076, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=1, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: true
+05-26 10:39:23.606: D/ConnectivityService(1379): currentScore = 60, newScore = 50
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=3, legacyType=-1, [] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=4, legacyType=-1, [ Transports: CELLULAR Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=1077, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2060, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2058, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379): Network NetworkAgentInfo [MOBILE (LTE) - 639] was already satisfying request 2044. No change.
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2077, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2073, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=6, legacyType=-1, [ Transports: WIFI Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=989, legacyType=11, [ Transports: CELLULAR Capabilities: IMS&TRUSTED&NOT_VPN] ] satisfies: false nri.isRequest: true
+05-26 10:39:23.606: D/ConnectivityService(1379):   checking if request is: NetworkRequest [ id=2059, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] satisfies: true nri.isRequest: false
+05-26 10:39:23.606: D/ConnectivityService(1379): sending notification AVAILABLE for NetworkRequest [ id=2077, legacyType=-1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ]
+05-26 10:39:23.646: E/libEGL(24345): validate_display:255 error 3008 (EGL_BAD_DISPLAY)
+05-26 10:39:23.646: D/libEGL(24345): eglInitialize EGLDisplay = 0xd26023e4
+05-26 10:39:23.676: I/WifiTrafficPoller(1379): Dynamic booster is mCpuFreqIndex_2. mCpuFreqIndex_2 is 11
+05-26 10:39:23.676: D/CustomFrequencyManagerService(1379): acquireDVFSLockLocked : type : DVFS_MIN_LIMIT  frequency : 1190400  uid : 1000  pid : 1379  pkgName : WIFI_TP@9
+05-26 10:39:23.696: D/SensorManager(1379): Proximity, val = 0.0  [close]
+05-26 10:39:23.696: I/MotionRecognitionService(1379):  ril.backoffstate = 1024
+05-26 10:39:23.696: D/MotionRecognitionService(1379): path changed
+05-26 10:39:23.696: I/MotionRecognitionService(1379):  ril.backoffstate = 1024
+05-26 10:39:23.696: D/MotionRecognitionService(1379): PATH = false
+05-26 10:39:23.696: D/MotionRecognitionService(1379): PROX_SENSOR far,  1024
+05-26 10:39:23.696: E/MotionRecognitionService(1379): handleMessage: event 200 value : 1024
+05-26 10:39:23.706: D/MotionRecognitionService(1379): Call setTransmitPower  value : 1024
+05-26 10:39:23.726: D/libEGL(653): eglTerminate EGLDisplay = 0x7f9a686ea8
+05-26 10:39:23.726: W/cr_BindingManager(24345): Cannot call determinedVisibility() - never saw a connection for the pid: 24345
+05-26 10:39:23.726: D/cr_Ime(24345): [InputMethodManagerWrapper.java:59] isActive: false
+05-26 10:39:23.736: D/libEGL(2402): eglTerminate EGLDisplay = 0x7fa285f228
+05-26 10:39:23.946: I/qti_sensorhub_hal(992): OEM_1_REPORT_IND
+05-26 10:39:23.946: D/qti_sensorhub_hal(992): AutoRotation 3 ts: 3946748931
+05-26 10:39:23.946: D/SensorHubManager(1379): onGetSensorHubDataLocked: library(4) = 1, 1, 7, 3
+05-26 10:39:23.956: D/CAE(1379): onGetSensorHubData(SensorHubParserProvider.java:92) - onGetSensorHubData Event [event buffer len :4], AP_WAKEUP
+05-26 10:39:23.956: I/CAE(1379): parse(SensorHubParserProvider.java:188) - buffer size = 4
+05-26 10:39:23.956: I/CAE(1379): parse(SensorHubParserProvider.java:199) - 1, 1, 7, 3,
+05-26 10:39:23.956: D/CAE(1379): display(ContextProvider.java:375) - ================= AUTO_ROTATION =================
+05-26 10:39:23.956: I/CAE(1379): display(ContextProvider.java:391) - Angle=[3]
+05-26 10:39:23.956: D/SContextService(1379): updateSContext() : event = Auto Rotation
+05-26 10:39:23.956: V/WindowOrientationListener(1379): OrientationSensorJudge.onSContextChanged, Rotation: 3
+05-26 10:39:23.956: V/WindowOrientationListener(1379): OrientationSensorJudge.getProposedRotation, Rotation: 3
+05-26 10:39:23.956: V/WindowManager(1379): rotationForOrientationLw(orient=0, last=1); user=0  sensorRotation=3 mLidState=-1 mDockMode=0 mHdmiPlugged=false mMobileKeyboardEnabled=false displayId=0
+05-26 10:39:23.956: V/WindowOrientationListener(1379): OrientationSensorJudge.getProposedRotation, Rotation: 3
+05-26 10:39:23.956: D/KnoxTimeoutHandler(1379): notifyActivityDrawn [MsgParam] userId: 0 fullscreen is true showWhenlocked is true
+05-26 10:39:23.956: D/KnoxTimeoutHandler(1379): activityDrawn [MsgParam] userId: 0 fullscreen is true showWhenlocked is true
+05-26 10:39:23.966: I/KnoxTimeoutHandler(1379): SD activityfalse
+05-26 10:39:23.976: I/Unity(24345): Google is logged in, Adding Login to Cognito...eyJhbGciOiJSUzI1NiIsImtpZCI6ImRmNmRiZDJmZTRlZjdmMjgwZmQyNThmNGY5YmE0ZDBjNDcwODRlNDUifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXVkIjoiMTA0NzA4OTk0NjA3LWRyYXRtOHBxNHZodDYxYmtjNG5sYjJyM2NuZzJhdmtuLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTA3MjE1NDYwNzAxNTU0MjM3MzgyIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF6cCI6IjEwNDcwODk5NDYwNy1nM3ZtanBlZ21jYTZwOG11dTQ4OWtqajZzZmxhdHI3cS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImVtYWlsIjoiYWxleG1vcmVubzc3N0BnbWFpbC5jb20iLCJpYXQiOjE0NjQyODIzMDAsImV4cCI6MTQ2NDI4NTkwMCwibmFtZSI6IkFsZXggTW9yZW5vIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS8tTDhaTFFNTVAyN0UvQUFBQUFBQUFBQUkvQUFBQUFBQUFBRGcvZzgyWWt1RlBMdFEvczk2LWMvcGhvdG8uanBnIiwiZ2l2ZW5fbmFtZSI6IkFsZXgiLCJmYW1pbHlfbmFtZSI6Ik1vcmVubyJ9.fR8Eht1vu-Oz8rDX7hfK2EFEzFfDERVKyYQiLnEbduVHtmRi-wjXPltGverTAFzjF3oJ9uBuPGzYWqNURofRroLZitlYJs92ZLFh-g8S7SBN5l8QPrUMW0rlsc5N1U6IMbCEKcmfNY3hHE6wHtlQCxSpPWs7b1w0kXk6Uk3nsL41WUpUQ3WPFZfSoD-rxmNbtSfeW2JYYFPBV5AT7hpqrz8-mUjdBaw68TPAVfFTelgqUWP9
+05-26 10:39:23.986: I/Unity(24345): triggered loadDatasets
+05-26 10:39:23.986: I/Unity(24345): UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+05-26 10:39:23.986: I/Unity(24345): UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+05-26 10:39:23.986: I/Unity(24345): UnityEngine.Logger:Log(LogType, Object)
+05-26 10:39:23.986: I/Unity(24345): UnityEngine.Debug:Log(Object)
+05-26 10:39:23.986: I/Unity(24345): <LoadDatasets>c__Iterator15:MoveNext() (at C:\Development\LudumDare34\LudumDare34\Assets\Scripts\ThirdPartyConnection\SyncManager\SyncInitializer.cs:42)
+05-26 10:39:23.986: I/Unity(24345):  
+05-26 10:39:23.986: I/Unity(24345): (Filename: C Line: 0)
+05-26 10:39:23.996: I/Unity(24345): BlazeWolf: Datasets are being Initialized
+05-26 10:39:23.996: I/Unity(24345): UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+05-26 10:39:23.996: I/Unity(24345): UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+05-26 10:39:23.996: I/Unity(24345): UnityEngine.Logger:Log(LogType, Object)
+05-26 10:39:23.996: I/Unity(24345): UnityEngine.Debug:Log(Object)
+05-26 10:39:23.996: I/Unity(24345): <InitializeDatasets>c__IteratorF:MoveNext() (at C:\Development\LudumDare34\LudumDare34\Assets\Scripts\GameManager.cs:40)
+05-26 10:39:23.996: I/Unity(24345): UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+05-26 10:39:23.996: I/Unity(24345): UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at /Users/builduser/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs:60)
+05-26 10:39:23.996: I/Unity(24345): <LoadDatasets>c__Iterator15:MoveNext() (at C:\Development\LudumDare34\LudumDare34\Assets\Scripts\ThirdPartyConnection\SyncManager\SyncInitializer.cs:44)
+05-26 10:39:23.996: I/Unity(24345):  
+05-26 10:39:23.996: I/Unity(24345): (Filename: C Line: 0)
+05-26 10:39:23.996: D/Unity(24345): Platform assembly: /data/app/com.blazewolf.beargame-2/base.apk/assets/bin/Data/Managed/Mono.Data.Sqlite.dll (this message is harmless)
+05-26 10:39:24.016: D/EPDG -- [NETMGMT](1379): Interface wlan0 limitName globalAlert
+05-26 10:39:24.016: D/NtpTrustedTime(1379): currentTimeMillis() cache hit
+05-26 10:39:24.016: V/NetworkStats(1379): performPollLocked(flags=0x1)
+05-26 10:39:24.016: D/TokenFragment(24345): onPostExecute for the token fetch
+05-26 10:39:24.026: D/Unity(24345): Platform assembly: /data/app/com.blazewolf.beargame-2/base.apk/assets/bin/Data/Managed/System.Data.dll (this message is harmless)
+05-26 10:39:24.036: D/NetworkStats(1379): IMS LinkProperties is not null
+05-26 10:39:24.036: D/NetworkStatsRecorder(1379): entry.iface is null
+05-26 10:39:24.036: D/NetworkStatsRecorder(1379): entry.iface is null
+05-26 10:39:24.036: D/NetworkStatsRecorder(1379): entry.iface is null
+05-26 10:39:24.036: D/NetworkStatsRecorder(1379): entry.iface is null
+05-26 10:39:24.046: D/NtpTrustedTime(1379): currentTimeMillis() cache hit
+05-26 10:39:24.046: V/NetworkStats(1379): performPollLocked() took 36ms
+05-26 10:39:24.056: D/Unity(24345): Platform assembly: /data/app/com.blazewolf.beargame-2/base.apk/assets/bin/Data/Managed/System.Transactions.dll (this message is harmless)
+05-26 10:39:24.056: D/NtpTrustedTime(1379): currentTimeMillis() cache hit
+05-26 10:39:24.056: D/NtpTrustedTime(1379): currentTimeMillis() cache hit
+05-26 10:39:24.086: D/NtpTrustedTime(1379): currentTimeMillis() cache hit
+05-26 10:39:24.116: I/chromium(24345): [INFO:CONSOLE(8620)] "Resize handler called", source: http://static.applifier.com/impact/webview/production/impact/index.html?version=9a872bcdb989fe7033aa16207facee3a955ba00f (8620)
+05-26 10:39:24.146: D/Unity(24345): Unable to lookup library path for 'sqlite3', native render plugin support disabled.
+05-26 10:39:24.146: E/Unity(24345): Unable to find sqlite3
+05-26 10:39:24.196: I/Unity(24345): DllNotFoundException: sqlite3
+05-26 10:39:24.196: I/Unity(24345):   at (wrapper managed-to-native) Mono.Data.Sqlite.UnsafeNativeMethods:sqlite3_open_v2 (byte[],intptr&,int,intptr)
+05-26 10:39:24.196: I/Unity(24345):   at Mono.Data.Sqlite.SQLite3.Open (System.String strFilename, SQLiteOpenFlagsEnum flags, Int32 maxPoolSize, Boolean usePool) [0x00040] in /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/Mono.Data.Sqlite/Mono.Data.Sqlite_2.0/SQLite3.cs:119 
+05-26 10:39:24.196: I/Unity(24345):   at Mono.Data.Sqlite.SqliteConnection.Open () [0x0021a] in /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/Mono.Data.Sqlite/Mono.Data.Sqlite_2.0/SQLiteConnection.cs:876 
+05-26 10:39:24.196: I/Unity(24345):   at Amazon.CognitoSync.SyncManager.Internal.SQLiteLocalStorage.SetupDatabase () [0x00000] in <filename unknown>:0 
+05-26 10:39:24.196: I/Unity(24345):   at Amazon.CognitoSync.SyncManager.Internal.SQLiteLocalStorage..ctor () [0x00000] in <filename unknown>:0 
+05-26 10:39:24.196: I/Unity(24345):   at Amazon.CognitoSync.SyncManager.CognitoSyncManager..ctor (Amazon.CognitoIdentity.CognitoAWSCredentials cognitoCredentials, Amazon.CognitoSync.AmazonCognitoSyncConfig config) [0x00000] in <filen
+05-26 10:39:24.246: I/chromium(24345): [INFO:CONSOLE(8037)] "true", source: http://static.applifier.com/impact/webview/production/impact/index.html?version=9a872bcdb989fe7033aa16207facee3a955ba00f (8037)
+05-26 10:39:24.256: I/chromium(24345): [INFO:CONSOLE(8603)] "Hiding all views", source: http://static.applifier.com/impact/webview/production/impact/index.html?version=9a872bcdb989fe7033aa16207facee3a955ba00f (8603)
+05-26 10:39:24.256: I/chromium(24345): [INFO:CONSOLE(8601)] "Showing: none", source: http://static.applifier.com/impact/webview/production/impact/index.html?version=9a872bcdb989fe7033aa16207facee3a955ba00f (8601)
+05-26 10:39:24.366: V/WindowOrientationListener(1379): setCurrentAppOrientation :8
+05-26 10:39:24.366: V/WindowOrientationListener(1379): OrientationSensorJudge.getProposedRotation, Rotation: 3
+05-26 10:39:24.366: V/WindowManager(1379): rotationForOrientationLw(orient=8, last=1); user=0  sensorRotation=3 mLidState=-1 mDockMode=0 mHdmiPlugged=false mMobileKeyboardEnabled=false displayId=0
+05-26 10:39:24.366: V/WindowOrientationListener(1379): OrientationSensorJudge.getProposedRotation, Rotation: 3
+05-26 10:39:24.366: D/SamsungWindowManager(1379): setRotationLw() : rotation=3
+05-26 10:39:24.366: D/CustomFrequencyManagerService(1379): acquireDVFSLockLocked : type : DVFS_MIN_LIMIT  frequency : 2150400  uid : 1000  pid : 1379  pkgName : ROTATION_BOOSTER@54
+05-26 10:39:24.376: D/InputDispatcher(1379): setInputDispatchMode: enabled=1, frozen=1
+05-26 10:39:24.376: I/SurfaceFlinger(653): id=13304 createSurf (1440x2560),2 flag=4, TcreenshotS
+05-26 10:39:24.386: D/libEGL(653): eglInitialize EGLDisplay = 0x7fcb743688
+05-26 10:39:24.396: E/CocktailBarPositionManager(13032): Window direction: 3
+05-26 10:39:24.396: D/CocktailBarTriggerContainerView(13032): setContainerGravityState: 1 --> 1
+05-26 10:39:24.396: D/TrayStateController(13032): putInputRect mDynamicInputRegion=239805905@LastEvent=t=1464284356650Rect(8, 0 - 64, 588),Rect=Rect(0, 0 - 0, 0)
+05-26 10:39:24.396: I/SurfaceFlinger(653): Disp[0] Orientation 1=>3
+05-26 10:39:24.396: I/InputReader(1379): Reconfiguring input devices.  changes=0x00000004
+05-26 10:39:24.396: I/InputReader(1379): Device reconfigured: id=6, name='sec_touchscreen', size 1440x2560, orientation 3, mode 1, display id 0
+05-26 10:39:24.396: D/InputReader(1379): Wrote command set_rotation_status,3
+05-26 10:39:24.406: D/KnoxTimeoutHandler(1379): notifyActivityDrawn [MsgParam] userId: 0 fullscreen is true showWhenlocked is true
+05-26 10:39:24.406: W/ResourcesManager(13032): getTopLevelResources: /system/priv-app/TaskEdgePanel/TaskEdgePanel.apk / 1.0 running in com.samsung.android.app.cocktailbarservice rsrc of package com.samsung.android.app.taskedge
+05-26 10:39:24.406: D/KnoxTimeoutHandler(1379): activityDrawn [MsgParam] userId: 0 fullscreen is true showWhenlocked is true
+05-26 10:39:24.406: I/KnoxTimeoutHandler(1379): SD activityfalse
+05-26 10:39:24.406: W/ResourcesManager(13032): getTopLevelResources: /system/priv-app/TaskEdgePanel/TaskEdgePanel.apk / 1.0 running in com.samsung.android.app.cocktailbarservice rsrc of package com.samsung.android.app.taskedge
+05-26 10:39:24.406: D/PanelDescriptionView(13032): updateHelpView: Tasks edge2130903047 --> 2130903047 helpview reapplied:0
+05-26 10:39:24.406: W/ResourcesManager(13032): getTopLevelResources: /system/priv-app/TaskEdgePanel/TaskEdgePanel.apk / 1.0 running in com.samsung.android.app.cocktailbarservice rsrc of package com.samsung.android.app.taskedge
+05-26 10:39:24.406: D/AbstractCocktailPanelView(13032): setPanelVisible: CocktailPortraitRemotePanelViewfalse will be hiden: 9
+05-26 10:39:24.406: D/CocktailBarPanelVisibilityManager(13032): updateActivePanelView:  vis=false screenOn=true onTransit=false -hide: 9 current Active: 9
+05-26 10:39:24.406: E/CocktailBarContainerView(13032): updateContainerVisibility: 0
+05-26 10:39:24.406: I/Utils(13032): isCurrentUser current = 0, ownerId = 0
+05-26 10:39:24.406: I/TrayVisibilityController(13032): updateTrayVisible : State : 257 visible = 2 mCurrentVisible = 2
+05-26 10:39:24.406: D/TrayStateController(13032): setUiState: hide on landscape, requested=2
+05-26 10:39:24.406: D/KnoxTimeoutHandler(1379): notifyActivityDrawn [MsgParam] userId: 0 fullscreen is true showWhenlocked is true
+05-26 10:39:24.406: D/KnoxTimeoutHandler(1379): activityDrawn [MsgParam] userId: 0 fullscreen is true showWhenlocked is true
+05-26 10:39:24.416: I/KnoxTimeoutHandler(1379): SD activityfalse
+05-26 10:39:24.416: W/ResourcesManager(13032): getTopLevelResources: /system/priv-app/TaskEdgePanel/TaskEdgePanel.apk / 1.0 running in com.samsung.android.app.cocktailbarservice rsrc of package com.samsung.android.app.taskedge
+05-26 10:39:24.416: W/ResourcesManager(13032): getTopLevelResources: /system/priv-app/TaskEdgePanel/TaskEdgePanel.apk / 1.0 running in com.samsung.android.app.cocktailbarservice rsrc of package com.samsung.android.app.taskedge
+05-26 10:39:24.416: D/PanelDescriptionView(13032): updateHelpView: Tasks edge-1 --> 2130903047 helpview applied:2
+05-26 10:39:24.416: D/TrayStateController(13032): setUiState: hide on landscape, requested=2
+05-26 10:39:24.416: W/ResourcesManager(13032): getTopLevelResources: /system/priv-app/TaskEdgePanel/TaskEdgePanel.apk / 1.0 running in com.samsung.android.app.cocktailbarservice rsrc of package com.samsung.android.app.taskedge
+05-26 10:39:24.416: D/KnoxTimeoutHandler(1379): notifyActivityDrawn [MsgParam] userId: 0 fullscreen is true showWhenlocked is true
+05-26 10:39:24.416: D/KnoxTimeoutHandler(1379): activityDrawn [MsgParam] userId: 0 fullscreen is true showWhenlocked is true
+05-26 10:39:24.416: I/KnoxTimeoutHandler(1379): SD activityfalse
+05-26 10:39:24.416: I/WindowManager(1379): Screen frozen for +46ms due to Window{a88414d u0 d0 Starting com.blazewolf.beargame}
+05-26 10:39:24.426: I/SurfaceFlinger(653): id=13305 createSurf (5120x1440),-1 flag=20004, ClackSurfac
+05-26 10:39:24.426: I/SurfaceFlinger(653): id=13306 createSurf (2560x2880),-1 flag=20004, ClackSurfac
+05-26 10:39:24.426: I/SurfaceFlinger(653): id=13307 createSurf (5120x1440),-1 flag=20004, ClackSurfac
+05-26 10:39:24.426: I/SurfaceFlinger(653): id=13308 createSurf (2560x2880),-1 flag=20004, ClackSurfac
+05-26 10:39:24.426: D/InputDispatcher(1379): setInputDispatchMode: enabled=1, frozen=0
+05-26 10:39:24.456: E/AbstractCocktailPanelView(13032): notifyPanelVisibilityChanged: visibility not changed 2 id: 9
+05-26 10:39:24.466: D/KnoxTimeoutHandler(1379): notifyActivityDrawn [MsgParam] userId: 0 fullscreen is true showWhenlocked is true
+05-26 10:39:24.466: D/KnoxTimeoutHandler(1379): activityDrawn [MsgParam] userId: 0 fullscreen is true showWhenlocked is true
+05-26 10:39:24.466: I/KnoxTimeoutHandler(1379): SD activityfalse
+05-26 10:39:24.666: I/SurfaceFlinger(653): id=13304 Removed TcreenshotS (10/16)
+05-26 10:39:24.666: I/SurfaceFlinger(653): id=13304 Removed TcreenshotS (-2/16)
+05-26 10:39:24.666: I/SurfaceFlinger(653): id=13305 Removed ClackSurfac (10/15)
+05-26 10:39:24.666: I/SurfaceFlinger(653): id=13306 Removed ClackSurfac (10/14)
+05-26 10:39:24.666: I/SurfaceFlinger(653): id=13305 Removed ClackSurfac (-2/14)
+05-26 10:39:24.666: I/SurfaceFlinger(653): id=13307 Removed ClackSurfac (10/13)
+05-26 10:39:24.666: I/SurfaceFlinger(653): id=13306 Removed ClackSurfac (-2/13)
+05-26 10:39:24.666: I/SurfaceFlinger(653): id=13308 Removed ClackSurfac (10/12)
+05-26 10:39:24.666: I/SurfaceFlinger(653): id=13307 Removed ClackSurfac (-2/12)
+05-26 10:39:24.666: I/SurfaceFlinger(653): id=13308 Removed ClackSurfac (-2/12)
+05-26 10:39:24.666: D/KnoxTimeoutHandler(1379): notifyActivityDrawn [MsgParam] userId: 0 fullscreen is true showWhenlocked is true
+05-26 10:39:24.666: D/KnoxTimeoutHandler(1379): activityDrawn [MsgParam] userId: 0 fullscreen is true showWhenlocked is true
+05-26 10:39:24.666: I/KnoxTimeoutHandler(1379): SD activityfalse
+05-26 10:39:24.666: V/WindowOrientationListener(1379): OrientationSensorJudge.getProposedRotation, Rotation: 3
+05-26 10:39:24.666: V/WindowManager(1379): rotationForOrientationLw(orient=8, last=3); user=0  sensorRotation=3 mLidState=-1 mDockMode=0 mHdmiPlugged=false mMobileKeyboardEnabled=false displayId=0
+05-26 10:39:24.666: V/WindowOrientationListener(1379): OrientationSensorJudge.getProposedRotation, Rotation: 3
+05-26 10:39:24.676: I/WifiTrafficPoller(1379): Dynamic booster is mCpuFreqIndex_2. mCpuFreqIndex_2 is 11
+05-26 10:39:24.676: D/CustomFrequencyManagerService(1379): releaseDVFSLockLocked : Getting Lock type frm List : DVFS_MIN_LIMIT  frequency : 1190400  uid : 1000  pid : 1379  tag : WIFI_TP@9
+05-26 10:39:24.676: D/CustomFrequencyManagerService(1379): acquireDVFSLockLocked : type : DVFS_MIN_LIMIT  frequency : 1190400  uid : 1000  pid : 1379  pkgName : WIFI_TP@9
+05-26 10:39:24.676: D/libEGL(653): eglTerminate EGLDisplay = 0x7fcb743758
+05-26 10:39:24.926: D/NetworkController.MobileSignalController(0/1)(2326): onSignalStrengthsChanged signalStrength=SignalStrength: 99 99 -120 -160 -120 -1 -1 17 -102 -8 124 -1 2147483647 0x3000 gsm|lte level=3
+05-26 10:39:24.926: D/NetworkController.MobileSignalController(0/1)(2326): getMobileIconGroup(): 13
+05-26 10:39:24.926: D/NetworkController.MobileSignalController(0/1)(2326): updateVZWMobileIconGroup(): 13
+05-26 10:39:24.926: D/EPDG -- [SMARTWIFI](1379): onSignalStrengthsChanged: Received signal strength change, phone type is: 2
+05-26 10:39:24.926: D/EPDG -- [SMARTWIFI](1379): lastLteRSRP is -101currentLteRSRP is -102
+05-26 10:39:24.926: D/EPDG -- [SMARTWIFI](1379): lastCdmaDb is -16currentCdmaDb is -16
+05-26 10:39:24.926: V/EPDG -- [SMARTWIFI](1379): Radio oldest entry removed
+05-26 10:39:24.926: V/EPDG -- [SMARTWIFI](1379): New entry : (SignalStrength: 99 99 -120 -160 -120 -1 -1 17 -102 -8 124 -1 2147483647 0x3000 gsm|lte : 0 )
+05-26 10:39:24.926: V/EPDG -- [SMARTWIFI](1379): Radio entry added
+05-26 10:39:24.926: D/NetworkController.MobileSignalController(0/1)(2326): callState:0, callStateByPhone:false voLTECall:false voiceNetTpe:13 dataNetType:13, ine911:false, emergencyCallbackMode:false
+05-26 10:39:25.376: D/SSRM:n(1379): SIOP:: AP = 410, PST = 326 (W:6), CP = 36, CUR = -33, LCD = 82
+05-26 10:39:25.386: D/ConnectivityService(1379): returning getNetworkInfo for network type 1 : [type: WIFI[] - WIFI, state: CONNECTED/CONNECTED, reason: (unspecified), extra: "HB NATION", roaming: false, failover: false, isAvailable: true]
+05-26 10:39:25.486: D/ConnectivityService(1379): returning getNetworkInfo for network type 1 : [type: WIFI[] - WIFI, state: CONNECTED/CONNECTED, reason: (unspecified), extra: "HB NATION", roaming: false, failover: false, isAvailable: true]
+05-26 10:39:26.376: D/CustomFrequencyManagerService(1379): releaseDVFSLockLocked : Getting Lock type frm List : DVFS_MIN_LIMIT  frequency : 2150400  uid : 1000  pid : 1379  tag : ROTATION_BOOSTER@54
+05-26 10:39:26.436: I/art(1379): Starting a blocking GC Explicit
+05-26 10:39:26.526: D/NetworkController.MobileSignalController(0/1)(2326): onSignalStrengthsChanged signalStrength=SignalStrength: 99 99 -120 -160 -120 -1 -1 19 -101 -8 168 -1 2147483647 0x3000 gsm|lte level=3
+05-26 10:39:26.526: D/NetworkController.MobileSignalController(0/1)(2326): getMobileIconGroup(): 13
+05-26 10:39:26.526: D/NetworkController.MobileSignalController(0/1)(2326): updateVZWMobileIconGroup(): 13
+05-26 10:39:26.536: D/NetworkController.MobileSignalController(0/1)(2326): callState:0, callStateByPhone:false voLTECall:false voiceNetTpe:13 dataNetType:13, ine911:false, emergencyCallbackMode:false
+05-26 10:39:26.536: D/EPDG -- [SMARTWIFI](1379): onSignalStrengthsChanged: Received signal strength change, phone type is: 2
+05-26 10:39:26.536: D/EPDG -- [SMARTWIFI](1379): lastLteRSRP is -102currentLteRSRP is -101
+05-26 10:39:26.536: D/EPDG -- [SMARTWIFI](1379): lastCdmaDb is -16currentCdmaDb is -16
+05-26 10:39:26.536: V/EPDG -- [SMARTWIFI](1379): Radio oldest entry removed
+05-26 10:39:26.536: V/EPDG -- [SMARTWIFI](1379): New entry : (SignalStrength: 99 99 -120 -160 -120 -1 -1 19 -101 -8 168 -1 2147483647 0x3000 gsm|lte : 0 )
+05-26 10:39:26.536: V/EPDG -- [SMARTWIFI](1379): Radio entry added
+05-26 10:39:26.616: I/art(1379): Explicit concurrent mark sweep GC freed 69959(4MB) AllocSpace objects, 8(160KB) LOS objects, 20% free, 61MB/77MB, paused 1.706ms total 180.373ms
+05-26 10:39:26.676: D/SensorManager(1379): Proximity, val = 8.000183  [far]
+05-26 10:39:26.676: I/MotionRecognitionService(1379):  ril.backoffstate = 1024
+05-26 10:39:26.676: D/MotionRecognitionService(1379): path changed
+05-26 10:39:26.676: I/MotionRecognitionService(1379):  ril.backoffstate = 1024
+05-26 10:39:26.676: D/MotionRecognitionService(1379): PATH = false
+05-26 10:39:26.676: D/MotionRecognitionService(1379): PROX_SENSOR far,  1024
+05-26 10:39:26.676: E/MotionRecognitionService(1379): handleMessage: event 200 value : 1024
+05-26 10:39:26.676: D/CustomFrequencyManagerService(1379): releaseDVFSLockLocked : Getting Lock type frm List : DVFS_MIN_LIMIT  frequency : 1190400  uid : 1000  pid : 1379  tag : WIFI_TP@9
+05-26 10:39:26.686: D/MotionRecognitionService(1379): Call setTransmitPower  value : 1024
+05-26 10:39:27.086: I/qti_sensorhub_hal(992): OEM_1_REPORT_IND
+05-26 10:39:27.086: D/qti_sensorhub_hal(992): AutoRotation 255 ts: 3946851231
+05-26 10:39:27.096: D/SensorHubManager(1379): onGetSensorHubDataLocked: library(4) = 1, 1, 7, -1
+05-26 10:39:27.096: D/CAE(1379): onGetSensorHubData(SensorHubParserProvider.java:92) - onGetSensorHubData Event [event buffer len :4], AP_WAKEUP
+05-26 10:39:27.096: I/CAE(1379): parse(SensorHubParserProvider.java:188) - buffer size = 4
+05-26 10:39:27.096: I/CAE(1379): parse(SensorHubParserProvider.java:199) - 1, 1, 7, -1,
+05-26 10:39:27.096: D/CAE(1379): display(ContextProvider.java:375) - ================= AUTO_ROTATION =================
+05-26 10:39:27.096: I/CAE(1379): display(ContextProvider.java:391) - Angle=[-1]
+05-26 10:39:27.096: D/SContextService(1379): updateSContext() : event = Auto Rotation
+05-26 10:39:27.106: V/WindowOrientationListener(1379): OrientationSensorJudge.onSContextChanged, Rotation: -1
+05-26 10:39:27.176: D/NetworkController.MobileSignalController(0/1)(2326): onSignalStrengthsChanged signalStrength=SignalStrength: 99 99 -120 -160 -120 -1 -1 15 -102 -7 102 -1 2147483647 0x3000 gsm|lte level=3
+05-26 10:39:27.176: D/NetworkController.MobileSignalController(0/1)(2326): getMobileIconGroup(): 13
+05-26 10:39:27.176: D/NetworkController.MobileSignalController(0/1)(2326): updateVZWMobileIconGroup(): 13
+05-26 10:39:27.196: D/EPDG -- [SMARTWIFI](1379): onSignalStrengthsChanged: Received signal strength change, phone type is: 2
+05-26 10:39:27.196: D/EPDG -- [SMARTWIFI](1379): lastLteRSRP is -101currentLteRSRP is -102
+05-26 10:39:27.196: D/EPDG -- [SMARTWIFI](1379): lastCdmaDb is -16currentCdmaDb is -16
+05-26 10:39:27.196: V/EPDG -- [SMARTWIFI](1379): Radio oldest entry removed
+05-26 10:39:27.196: V/EPDG -- [SMARTWIFI](1379): New entry : (SignalStrength: 99 99 -120 -160 -120 -1 -1 15 -102 -7 102 -1 2147483647 0x3000 gsm|lte : 0 )
+05-26 10:39:27.196: V/EPDG -- [SMARTWIFI](1379): Radio entry added
+05-26 10:39:27.196: D/NetworkController.MobileSignalController(0/1)(2326): callState:0, callStateByPhone:false voLTECall:false voiceNetTpe:13 dataNetType:13, ine911:false, emergencyCallbackMode:false
+05-26 10:39:27.626: D/QC-time-services(8725): Lib:time_genoff_operation: pargs->base = 12
+05-26 10:39:27.626: D/QC-time-services(8725): Lib:time_genoff_operation: pargs->operation = 0
+05-26 10:39:27.626: D/QC-time-services(8725): Lib:time_genoff_operation: pargs->ts_val = 1464284368344
+05-26 10:39:27.626: D/QC-time-services(8725): Lib:time_genoff_operation: Send to server  passed!!
+05-26 10:39:27.636: D/QC-time-services(1040): Daemon: Connection accepted:time_genoff
+05-26 10:39:27.636: D/AlarmManager(1379): setTimeZone : America/Los_Angeles calling from uid: 1001 pid :2877
+05-26 10:39:27.636: D/AlarmManagerService(1379): Kernel timezone updated to 420 minutes west of GMT
+05-26 10:39:27.636: D/QC-time-services(1040): Daemon: genoff_handler: Process name is rild
+05-26 10:39:27.636: D/QC-time-services(1040): Daemon:Received base = 12, unit = 1, operation = 0,value = 1464284368344
+05-26 10:39:27.636: D/QC-time-services(1040): Daemon:genoff_opr: Base = 12, val = 1464284368344, operation = 0
+05-26 10:39:27.636: D/QC-time-services(1040): Daemon:Value read from QTimer mseconds = 1169024935
+05-26 10:39:27.636: D/QC-time-services(1040): Daemon:Value read from RTC mseconds on boot = 2440208000
+05-26 10:39:27.636: D/QC-time-services(1040): Daemon:Delta read on boot mseconds = 2440198366
+05-26 10:39:27.636: D/QC-time-services(1040): Daemon:new time 1464284368344 
+05-26 10:39:27.636: D/QC-time-services(1040): Daemon: delta 1460675145043 genoff 1460675145043 
+05-26 10:39:27.646: D/QC-time-services(1040): Daemon:genoff_persistent_update: Writing genoff = 1460675145043 to memory
+05-26 10:39:27.646: D/QC-time-services(1040): Daemon:Opening File: /data/time/ats_12
+05-26 10:39:27.646: D/QC-time-services(1040): Daemon:time_persistent_memory_opr:Genoff write operation 
+05-26 10:39:27.646: E/QC-time-services(1040): Daemon: Time-services: Waiting to acceptconnection
+05-26 10:39:27.646: E/QC-time-services(8725): Receive Passed == base = 12, unit = 1, operation = 0, result = 0
+05-26 10:39:27.656: D/AlarmManagerService(1379): Setting time of day to sec=1464284368
+05-26 10:39:27.656: D/AlarmManager(1379): setTime : 1464284368039 calling from uid: 1001 pid :2877
+05-26 10:39:27.656: D/AlarmManagerService(1379): Trying to open a file
+05-26 10:39:28.039: V/AlarmManager(1379): Expired Alarm result :65536
+05-26 10:39:27.656: E/AlarmManagerService(1379): File Open Failed
+05-26 10:39:28.039: W/AlarmManagerService(1379): Unable to set rtc to 1464284368: Invalid argument
+05-26 10:39:28.048: E/Zygote(24478): v2
+05-26 10:39:28.048: I/libpersona(24478): KNOX_SDCARD checking this for 1000
+05-26 10:39:28.048: I/libpersona(24478): KNOX_SDCARD not a persona
+05-26 10:39:28.048: W/SELinux(24478): Function: selinux_compare_spd_ram, index[1], priority [2], priority version is VE=SEPF_SECMOBILE_6.0.1_0010
+05-26 10:39:28.058: E/Zygote(24478): accessInfo : 0
+05-26 10:39:28.058: I/art(24478): Late-enabling -Xcheck:jni
+05-26 10:39:28.058: I/ActivityManager(1379): Start proc 24478:com.sec.android.app.popupuireceiver/1000 for broadcast-3 com.sec.android.app.popupuireceiver/.PopupuiReceiver
+05-26 10:39:28.058: W/art(24345): Native thread exiting without having called DetachCurrentThread (maybe it's going to use a pthread_key_create destructor?): Thread[14,tid=24409,Native,Thread*=0xdb263900,peer=0x12e890a0,"main_dispatch"]
+05-26 10:39:28.058: V/GamesNativeSDK(24345): Detaching from JVM on thread main_dispatch
+05-26 10:39:28.068: I/DrmEventService(1379): handleNitztimeUpdation
+05-26 10:39:28.098: D/TimaKeyStoreProvider(24478): TimaSignature is unavailable
+05-26 10:39:28.098: D/ActivityThread(24478): Added TimaKeyStore provider
+05-26 10:39:28.108: V/BroadcastQueue(1379): [background] Process cur broadcast BroadcastRecord{f9ce3ce u-1 android.intent.action.NETWORK_SET_TIMEZONE qIdx=4}, state= (APP_RECEIVE) DELIVERED for app ProcessRecord{289f2ef 24478:com.sec.android.app.popupuireceiver/1000}
+05-26 10:39:28.118: D/ContextRelationManager(24478): ContextRelationManager() : FEATURE_ENABLED=true
+05-26 10:39:28.118: D/RelationGraph(24478): garbageCollect()
+05-26 10:39:28.118: W/ResourcesManager(24478): getTopLevelResources: /system/app/PopupuiReceiver_M/PopupuiReceiver_M.apk / 1.0 running in com.sec.android.app.popupuireceiver rsrc of package com.sec.android.app.popupuireceiver
+05-26 10:39:28.118: I/InjectionManagerService -AppFeature(1379): getCoreFeaturePkgList :[]
+05-26 10:39:28.128: I/InjectionManager(24478): Inside getClassLibPath + mLibMap{0=, 1=}
+05-26 10:39:28.138: D/ResourcesManager(24478): For user 0 new overlays fetched [/data/overlays/style/com.samsung.Forest_aod/com.samsung.Forest_aod.touchwiz.apk, /data/overlays/style/com.samsung.Forest_aod/com.samsung.Forest_aod.common.apk]
+05-26 10:39:28.148: I/InjectionManager(24478): Inside getClassLibPath caller 
+05-26 10:39:28.158: W/System(24478): ClassLoader referenced unknown path: /system/app/PopupuiReceiver_M/lib/arm64
+05-26 10:39:28.158: D/InjectionManager(24478): InjectionManager
+05-26 10:39:28.158: D/InjectionManager(24478): fillFeatureStoreMap com.sec.android.app.popupuireceiver
+05-26 10:39:28.158: I/InjectionManager(24478): Constructor com.sec.android.app.popupuireceiver, Feature store :{}
+05-26 10:39:28.158: I/InjectionManager(24478): featureStore :{}
+05-26 10:39:28.168: D/PR.PopupuiReceiver(24478): >> onReceive() : android.intent.action.NETWORK_SET_TIMEZONE
+05-26 10:39:28.168: D/SecContentProvider2(1379): query(), uri = -1 selection = getSealedState
+05-26 10:39:28.168: D/SecContentProvider2(1379): query(), uri = 15 selection = getSealedHideNotificationMessages
+05-26 10:39:28.178: D/SecContentProvider2(1379): query(), uri = 15 selection = getCheckCoverPopupState
+05-26 10:39:28.178: I/PR.PopupuiReceiver_KNOX(24478): knoxSealedHideNotiMsg : 0, knoxCheckCoverPopupState : true
+05-26 10:39:28.178: D/PR.PopupuiReceiver(24478): actionNetworkSetTime()
+05-26 10:39:29.268: E/NetlinkEvent(973): NetlinkEvent::FindParam(): Parameter 'LABEL' not found
+05-26 10:39:29.268: D/BatteryStatsImpl(1379): poolsize= 1, curBatteryRealtime= 19388645000, mUpdateTime= 19388645000, mTimeout= 0, mNesting= 1, mTotalTime= 6017655000
+05-26 10:39:29.288: D/EPDG -- [NETMGMT](1379): Interface Data activity changed : label: 0 : active: false
+05-26 10:39:29.298: D/NetworkPolicy(1379): isUidForegroundLocked: 10018, mScreenOn: true, uidstate: 3, mProxSensorScreenOff: false
+05-26 10:39:29.528: I/System.out(2877): Broadcasting: Intent { act=com.sec.intent.action.SARDEVICE_CP flg=0x10000000 VirtualScreenParam=Params{mDisplayId=-1, null, mFlags=0x00000000)} (has extras) }
+05-26 10:39:29.528: D/MotionRecognitionService(1379):   mReceiver.onReceive :CALL_ACTION_CHANGED : SARDEVICE_CP, callAction = off deviceID = 2
+05-26 10:39:29.528: W/MotionRecognitionService(1379): SAR_PROX
+05-26 10:39:29.538: E/Sensors(1379): ~SensorEventQueue 0
+05-26 10:39:29.538: E/MotionRecognitionService(1379): disableProxSensor, backoffstate = 1024
+05-26 10:39:29.538: E/(1379): BitTube(): close sendFd (425)
+05-26 10:39:29.538: E/MotionRecognitionService(1379): handleMessage: event 200 value : 1024
+05-26 10:39:29.538: E/(1379): BitTube(): close receivedFd (402)
+05-26 10:39:29.538: D/SensorManager(1379): unregisterListener ::   
+05-26 10:39:29.538: I/System.out(2877): Broadcast completed: result=0
+05-26 10:39:29.548: D/MotionRecognitionService(1379): Call setTransmitPower  value : 1024
+05-26 10:39:30.078: D/NetworkController.MobileSignalController(0/1)(2326): onSignalStrengthsChanged signalStrength=SignalStrength: 99 99 -120 -160 -120 -1 -1 21 -101 -7 180 -1 2147483647 0x3000 gsm|lte level=3
+05-26 10:39:30.078: D/NetworkController.MobileSignalController(0/1)(2326): getMobileIconGroup(): 13
+05-26 10:39:30.078: D/NetworkController.MobileSignalController(0/1)(2326): updateVZWMobileIconGroup(): 13
+05-26 10:39:30.108: D/EPDG -- [SMARTWIFI](1379): onSignalStrengthsChanged: Received signal strength change, phone type is: 2
+05-26 10:39:30.108: D/EPDG -- [SMARTWIFI](1379): lastLteRSRP is -102currentLteRSRP is -101
+05-26 10:39:30.108: D/EPDG -- [SMARTWIFI](1379): lastCdmaDb is -16currentCdmaDb is -16
+05-26 10:39:30.108: D/NetworkController.MobileSignalController(0/1)(2326): callState:0, callStateByPhone:false voLTECall:false voiceNetTpe:13 dataNetType:13, ine911:false, emergencyCallbackMode:false
+05-26 10:39:30.108: V/EPDG -- [SMARTWIFI](1379): Radio oldest entry removed
+05-26 10:39:30.108: V/EPDG -- [SMARTWIFI](1379): New entry : (SignalStrength: 99 99 -120 -160 -120 -1 -1 21 -101 -7 180 -1 2147483647 0x3000 gsm|lte : 0 )
+05-26 10:39:30.108: V/EPDG -- [SMARTWIFI](1379): Radio entry added
+05-26 10:39:30.638: D/ContactsProvider_EventLog(18239): contents_sample_state: [ contacts(564) data(3387) accounts({vnd.sec.contact.phone (1)=126, com.whatsapp (12)=35, com.google (2)=444}) accounts deleted({}) calls([logtype:100 cnt:277])  ]
+05-26 10:39:30.638: D/ContactsProvider_EventLog(18239): contents_sample_state: [ agr({[1 ,1 ,12]=1, [1 ,1 ,1 ,1]=1, [2]=442, [1]=84, [2 ,1]=2, [1 ,12]=34})  ]
+05-26 10:39:30.798: E/ContactsProvider_EventLog(18239): Flush buffer to file cnt : 12 size : 5Kb duration : 156ms lastUpdatedAfter : 180846ms
+05-26 10:39:30.828: I/ActivityManager(1379): Waited long enough for: ServiceRecord{b3ac7e0 u0 com.sec.android.daemonapp/.appservice.WeatherService}
+05-26 10:39:30.918: D/BatteryService(1379): !@BatteryListener : batteryPropertiesChanged!
+05-26 10:39:30.918: D/BatteryService(1379): level:78, scale:100, status:2, health:2, present:true, voltage: 4090, temperature: 281, technology: Li-ion, AC powered:false, USB powered:true, POGO powered:false, Wireless powered:false, icon:17303419, invalid charger:0, maxChargingCurrent:0
+05-26 10:39:30.918: D/BatteryService(1379): online:4, current avg:-112, charge type:1, power sharing:false, high voltage charger:false, capacity:280000, batterySWSelfDischarging:false, current_now:-339
+05-26 10:39:30.918: D/BatteryService(1379): Sending ACTION_BATTERY_CHANGED.
+05-26 10:39:30.928: I/MotionRecognitionService(1379): Plugged
+05-26 10:39:30.928: D/MotionRecognitionService(1379):   cableConnection= 1
+05-26 10:39:30.928: D/MotionRecognitionService(1379): setPowerConnected | current backoffstate  = 1024 , state =1024
+05-26 10:39:30.928: D/MotionRecognitionService(1379): skip setTransmitPower. 
+05-26 10:39:30.928: D/WifiController(1379): ApOrStaEnabledState  msg.what= 155652
+05-26 10:39:30.928: D/KeyguardUpdateMonitor(2326): received broadcast android.intent.action.BATTERY_CHANGED
+05-26 10:39:30.928: D/KeyguardUpdateMonitor(2326): handleBatteryUpdate
+05-26 10:39:30.938: D/PowerUI(2326): priorPlugType = 2 mPlugType =  2
+05-26 10:39:30.938: D/PowerUI.Notification(2326): showChargingNotice oldChargingType : 1 currentChargingType : 1 oldChargingTime : 6070000 mChargingTime : 6070000
+05-26 10:39:30.938: D/PowerUI.Notification(2326): There is no change about charging status, so return!
+05-26 10:39:30.948: D/BatteryMeterView(2326): ACTION_BATTERY_CHANGED : level:78 status:2 health:2
+05-26 10:39:30.948: D/BatteryMonitor(3017): new battery level: 78
+05-26 10:39:30.958: D/PhoneApp(2877): PhoneAppBroadcastReceiver onReceive android.intent.action.BATTERY_CHANGED
+05-26 10:39:30.958: V/HeadsetService(3653): HeadsetService - Received Intent.ACTION_BATTERY_CHANGED
+05-26 10:39:30.958: D/HeadsetStateMachine(3653): Disconnected process message: 10, size: 0
+05-26 10:39:30.968: D/BatteryMeterView(2326): ACTION_BATTERY_CHANGED : level:78 status:2 health:2
+05-26 10:39:30.978: V/AlarmManager(1379):  remove PendingIntent] PendingIntent{9b71fc: PendingIntentRecord{36699fe com.android.phone broadcastIntent}}
+05-26 10:39:30.978: D/TelephonyExtension(2877): Not stopping low battery tone
+05-26 10:39:31.388: D/NetworkController.MobileSignalController(0/1)(2326): onSignalStrengthsChanged signalStrength=SignalStrength: 99 99 -120 -160 -120 -1 -1 21 -100 -7 180 -1 2147483647 0x4000 gsm|lte level=4
+05-26 10:39:31.388: D/NetworkController.MobileSignalController(0/1)(2326): getMobileIconGroup(): 13
+05-26 10:39:31.388: D/NetworkController.MobileSignalController(0/1)(2326): updateVZWMobileIconGroup(): 13
+05-26 10:39:31.388: D/EPDG -- [SMARTWIFI](1379): onSignalStrengthsChanged: Received signal strength change, phone type is: 2
+05-26 10:39:31.388: D/EPDG -- [SMARTWIFI](1379): lastLteRSRP is -101currentLteRSRP is -100
+05-26 10:39:31.388: D/EPDG -- [SMARTWIFI](1379): lastCdmaDb is -16currentCdmaDb is -16
+05-26 10:39:31.388: V/EPDG -- [SMARTWIFI](1379): Radio oldest entry removed
+05-26 10:39:31.398: V/EPDG -- [SMARTWIFI](1379): New entry : (SignalStrength: 99 99 -120 -160 -120 -1 -1 21 -100 -7 180 -1 2147483647 0x4000 gsm|lte : 0 )
+05-26 10:39:31.398: V/EPDG -- [SMARTWIFI](1379): Radio entry added
+05-26 10:39:31.408: D/NetworkController.MobileSignalController(0/1)(2326): callState:0, callStateByPhone:false voLTECall:false voiceNetTpe:13 dataNetType:13, ine911:false, emergencyCallbackMode:false
+05-26 10:39:35.228: D/NetworkController.MobileSignalController(0/1)(2326): onSignalStrengthsChanged signalStrength=SignalStrength: 99 99 -120 -160 -120 -1 -1 21 -97 -7 180 -1 2147483647 0x4000 gsm|lte level=4
+05-26 10:39:35.238: D/NetworkController.MobileSignalController(0/1)(2326): getMobileIconGroup(): 13
+05-26 10:39:35.238: D/NetworkController.MobileSignalController(0/1)(2326): updateVZWMobileIconGroup(): 13
+05-26 10:39:35.238: D/EPDG -- [SMARTWIFI](1379): onSignalStrengthsChanged: Received signal strength change, phone type is: 2
+05-26 10:39:35.238: D/EPDG -- [SMARTWIFI](1379): lastLteRSRP is -100currentLteRSRP is -97
+05-26 10:39:35.238: D/EPDG -- [SMARTWIFI](1379): lastCdmaDb is -16currentCdmaDb is -16
+05-26 10:39:35.238: V/EPDG -- [SMARTWIFI](1379): Radio oldest entry removed
+05-26 10:39:35.238: V/EPDG -- [SMARTWIFI](1379): New entry : (SignalStrength: 99 99 -120 -160 -120 -1 -1 21 -97 -7 180 -1 2147483647 0x4000 gsm|lte : 0 )
+05-26 10:39:35.238: V/EPDG -- [SMARTWIFI](1379): Radio entry added
+05-26 10:39:35.248: D/NetworkController.MobileSignalController(0/1)(2326): callState:0, callStateByPhone:false voLTECall:false voiceNetTpe:13 dataNetType:13, ine911:false, emergencyCallbackMode:false
+05-26 10:39:35.808: D/SSRM:n(1379): SIOP:: AP = 370, PST = 338 (W:14), CP = 36, CUR = -112, LCD = 82
+05-26 10:39:39.068: D/NetworkController.MobileSignalController(0/1)(2326): onSignalStrengthsChanged signalStrength=SignalStrength: 99 99 -120 -160 -120 -1 -1 21 -96 -7 144 -1 2147483647 0x4000 gsm|lte level=4
+05-26 10:39:39.078: D/NetworkController.MobileSignalController(0/1)(2326): getMobileIconGroup(): 13
+05-26 10:39:39.078: D/NetworkController.MobileSignalController(0/1)(2326): updateVZWMobileIconGroup(): 13
+05-26 10:39:39.088: D/EPDG -- [SMARTWIFI](1379): onSignalStrengthsChanged: Received signal strength change, phone type is: 2
+05-26 10:39:39.088: D/EPDG -- [SMARTWIFI](1379): lastLteRSRP is -97currentLteRSRP is -96
+05-26 10:39:39.088: D/EPDG -- [SMARTWIFI](1379): lastCdmaDb is -16currentCdmaDb is -16
+05-26 10:39:39.088: V/EPDG -- [SMARTWIFI](1379): Radio oldest entry removed
+05-26 10:39:39.088: V/EPDG -- [SMARTWIFI](1379): New entry : (SignalStrength: 99 99 -120 -160 -120 -1 -1 21 -96 -7 144 -1 2147483647 0x4000 gsm|lte : 0 )
+05-26 10:39:39.088: V/EPDG -- [SMARTWIFI](1379): Radio entry added
+05-26 10:39:39.098: D/NetworkController.MobileSignalController(0/1)(2326): callState:0, callStateByPhone:false voLTECall:false voiceNetTpe:13 dataNetType:13, ine911:false, emergencyCallbackMode:false
+05-26 10:39:41.168: D/BatteryService(1379): !@BatteryListener : batteryPropertiesChanged!
+05-26 10:39:41.168: D/BatteryService(1379): level:78, scale:100, status:2, health:2, present:true, voltage: 4093, temperature: 282, technology: Li-ion, AC powered:false, USB powered:true, POGO powered:false, Wireless powered:false, icon:17303419, invalid charger:0, maxChargingCurrent:0
+05-26 10:39:41.168: D/BatteryService(1379): online:4, current avg:14, charge type:1, power sharing:false, high voltage charger:false, capacity:280000, batterySWSelfDischarging:false, current_now:106
+05-26 10:39:41.168: D/BatteryService(1379): Sending ACTION_BATTERY_CHANGED.
+05-26 10:39:41.178: D/WifiController(1379): ApOrStaEnabledState  msg.what= 155652
+05-26 10:39:41.178: I/MotionRecognitionService(1379): Plugged
+05-26 10:39:41.178: D/KeyguardUpdateMonitor(2326): received broadcast android.intent.action.BATTERY_CHANGED
+05-26 10:39:41.178: D/MotionRecognitionService(1379):   cableConnection= 1
+05-26 10:39:41.178: D/KeyguardUpdateMonitor(2326): handleBatteryUpdate
+05-26 10:39:41.178: D/MotionRecognitionService(1379): setPowerConnected | current backoffstate  = 1024 , state =1024
+05-26 10:39:41.178: D/MotionRecognitionService(1379): skip setTransmitPower. 
+05-26 10:39:41.178: D/PowerUI(2326): priorPlugType = 2 mPlugType =  2
+05-26 10:39:41.178: D/PowerUI.Notification(2326): showChargingNotice oldChargingType : 1 currentChargingType : 1 oldChargingTime : 6070000 mChargingTime : 6070000
+05-26 10:39:41.178: D/PowerUI.Notification(2326): There is no change about charging status, so return!
+05-26 10:39:41.188: D/BatteryMonitor(3017): new battery level: 78
+05-26 10:39:41.188: D/PhoneApp(2877): PhoneAppBroadcastReceiver onReceive android.intent.action.BATTERY_CHANGED
+05-26 10:39:41.198: V/HeadsetService(3653): HeadsetService - Received Intent.ACTION_BATTERY_CHANGED
+05-26 10:39:41.198: D/HeadsetStateMachine(3653): Disconnected process message: 10, size: 0
+05-26 10:39:41.198: V/AlarmManager(1379):  remove PendingIntent] PendingIntent{3d28085: PendingIntentRecord{36699fe com.android.phone broadcastIntent}}
+05-26 10:39:41.208: D/TelephonyExtension(2877): Not stopping low battery tone
+05-26 10:39:41.208: D/BatteryMeterView(2326): ACTION_BATTERY_CHANGED : level:78 status:2 health:2
+05-26 10:39:41.208: D/BatteryMeterView(2326): ACTION_BATTERY_CHANGED : level:78 status:2 health:2
+05-26 10:39:41.528: D/InputReader(1379): Input event(6): value=1 when=673703420720000
+05-26 10:39:41.528: D/InputReader(1379): Input event(6): value=1 when=673703420720000
+05-26 10:39:41.528: I/InputReader(1379): Touch event's action is 0x0 (deviceType=0) [pCnt=1, s=0.4386 ] when=673703420720000
+05-26 10:39:41.528: D/InputReader(1379): lastThreadEndTime = 673686670149185, currentThreadStartTime = 673686670151685, diff = 0
+05-26 10:39:41.528: I/InputDispatcher(1379): Delivering touch to (24345): action: 0x0, toolType: 1
+05-26 10:39:41.528: D/ViewRootImpl(24345): ViewPostImeInputStage processPointer 0
+05-26 10:39:41.528: D/lights(1379): button : 1 +
+05-26 10:39:41.558: D/lights(1379): button : 1 -
+05-26 10:39:41.618: D/InputReader(1379): Input event(6): value=0 when=673703516827000
+05-26 10:39:41.618: D/InputReader(1379): Input event(6): value=0 when=673703516827000
+05-26 10:39:41.618: I/InputReader(1379): Touch event's action is 0x1 (deviceType=0) [pCnt=1, s=] when=673703516827000
+05-26 10:39:41.618: I/InputDispatcher(1379): Delivering touch to (24345): action: 0x1, toolType: 1
+05-26 10:39:41.618: D/ViewRootImpl(24345): ViewPostImeInputStage processPointer 1
+05-26 10:39:41.618: D/CustomFrequencyManagerService(1379): acquireDVFSLockLocked : type : DVFS_MIN_LIMIT  frequency : 806400  uid : 1000  pid : 1379  pkgName : GESTURE_DETECTED@CPU_MIN@48
+05-26 10:39:41.628: D/CustomFrequencyManagerService(1379): releaseDVFSLockLocked : Getting Lock type frm List : DVFS_MIN_LIMIT  frequency : 806400  uid : 1000  pid : 1379  tag : GESTURE_DETECTED@CPU_MIN@48
+05-26 10:39:41.628: D/CustomFrequencyManagerService(1379): acquireDVFSLockLocked : type : DVFS_MIN_LIMIT  frequency : 806400  uid : 1000  pid : 1379  pkgName : GESTURE_DETECTED@CPU_MIN@48
+05-26 10:39:42.238: D/CustomFrequencyManagerService(1379): releaseDVFSLockLocked : Getting Lock type frm List : DVFS_MIN_LIMIT  frequency : 806400  uid : 1000  pid : 1379  tag : GESTURE_DETECTED@CPU_MIN@48
+05-26 10:39:42.908: D/NetworkController.MobileSignalController(0/1)(2326): onSignalStrengthsChanged signalStrength=SignalStrength: 99 99 -120 -160 -120 -1 -1 21 -97 -10 168 -1 2147483647 0x4000 gsm|lte level=4
+05-26 10:39:42.908: D/NetworkController.MobileSignalController(0/1)(2326): getMobileIconGroup(): 13
+05-26 10:39:42.908: D/NetworkController.MobileSignalController(0/1)(2326): updateVZWMobileIconGroup(): 13
+05-26 10:39:42.918: D/EPDG -- [SMARTWIFI](1379): onSignalStrengthsChanged: Received signal strength change, phone type is: 2
+05-26 10:39:42.918: D/EPDG -- [SMARTWIFI](1379): lastLteRSRP is -96currentLteRSRP is -97
+05-26 10:39:42.918: D/EPDG -- [SMARTWIFI](1379): lastCdmaDb is -16currentCdmaDb is -16
+05-26 10:39:42.918: V/EPDG -- [SMARTWIFI](1379): Radio oldest entry removed
+05-26 10:39:42.918: V/EPDG -- [SMARTWIFI](1379): New entry : (SignalStrength: 99 99 -120 -160 -120 -1 -1 21 -97 -10 168 -1 2147483647 0x4000 gsm|lte : 0 )
+05-26 10:39:42.918: V/EPDG -- [SMARTWIFI](1379): Radio entry added
+05-26 10:39:42.918: D/NetworkController.MobileSignalController(0/1)(2326): callState:0, callStateByPhone:false voLTECall:false voiceNetTpe:13 dataNetType:13, ine911:false, emergencyCallbackMode:false
+05-26 10:39:43.028: D/lights(1379): button : 0 +
+05-26 10:39:43.058: D/lights(1379): button : 0 -
+05-26 10:39:45.458: D/NetworkController.MobileSignalController(0/1)(2326): onSignalStrengthsChanged signalStrength=SignalStrength: 99 99 -120 -160 -120 -1 -1 21 -97 -8 126 -1 2147483647 0x4000 gsm|lte level=4
+05-26 10:39:45.468: D/NetworkController.MobileSignalController(0/1)(2326): getMobileIconGroup(): 13
+05-26 10:39:45.468: D/NetworkController.MobileSignalController(0/1)(2326): updateVZWMobileIconGroup(): 13
+05-26 10:39:45.478: D/EPDG -- [SMARTWIFI](1379): onSignalStrengthsChanged: Received signal strength change, phone type is: 2
+05-26 10:39:45.478: D/EPDG -- [SMARTWIFI](1379): lastLteRSRP is -97currentLteRSRP is -97
+05-26 10:39:45.478: D/EPDG -- [SMARTWIFI](1379): lastCdmaDb is -16currentCdmaDb is -16
+05-26 10:39:45.478: V/EPDG -- [SMARTWIFI](1379): Radio oldest entry removed
+05-26 10:39:45.478: V/EPDG -- [SMARTWIFI](1379): New entry : (SignalStrength: 99 99 -120 -160 -120 -1 -1 21 -97 -8 126 -1 2147483647 0x4000 gsm|lte : 0 )
+05-26 10:39:45.478: V/EPDG -- [SMARTWIFI](1379): Radio entry added
+05-26 10:39:45.488: D/NetworkController.MobileSignalController(0/1)(2326): callState:0, callStateByPhone:false voLTECall:false voiceNetTpe:13 dataNetType:13, ine911:false, emergencyCallbackMode:false
+05-26 10:39:45.848: D/SSRM:n(1379): SIOP:: AP = 360, PST = 360 (W:14), CP = 35, CUR = 14, LCD = 82
+05-26 10:39:45.878: D/ConnectivityService(1379): returning getNetworkInfo for network type 1 : [type: WIFI[] - WIFI, state: CONNECTED/CONNECTED, reason: (unspecified), extra: "HB NATION", roaming: false, failover: false, isAvailable: true]
+05-26 10:39:46.738: D/NetworkController.MobileSignalController(0/1)(2326): onSignalStrengthsChanged signalStrength=SignalStrength: 99 99 -120 -160 -120 -1 -1 21 -97 -8 168 -1 2147483647 0x4000 gsm|lte level=4
+05-26 10:39:46.738: D/NetworkController.MobileSignalController(0/1)(2326): getMobileIconGroup(): 13
+05-26 10:39:46.738: D/NetworkController.MobileSignalController(0/1)(2326): updateVZWMobileIconGroup(): 13
+05-26 10:39:46.748: D/EPDG -- [SMARTWIFI](1379): onSignalStrengthsChanged: Received signal strength change, phone type is: 2
+05-26 10:39:46.748: D/NetworkController.MobileSignalController(0/1)(2326): callState:0, callStateByPhone:false voLTECall:false voiceNetTpe:13 dataNetType:13, ine911:false, emergencyCallbackMode:false
+05-26 10:39:46.748: D/EPDG -- [SMARTWIFI](1379): lastLteRSRP is -97currentLteRSRP is -97
+05-26 10:39:46.748: D/EPDG -- [SMARTWIFI](1379): lastCdmaDb is -16currentCdmaDb is -16
+05-26 10:39:46.748: V/EPDG -- [SMARTWIFI](1379): Radio oldest entry removed
+05-26 10:39:46.748: V/EPDG -- [SMARTWIFI](1379): New entry : (SignalStrength: 99 99 -120 -160 -120 -1 -1 21 -97 -8 168 -1 2147483647 0x4000 gsm|lte : 0 )
+05-26 10:39:46.748: V/EPDG -- [SMARTWIFI](1379): Radio entry added
+05-26 10:39:47.748: W/ResourcesManager(22980): getTopLevelResources: /system/priv-app/SecMms_Epic_Common/SecMms_Epic_Common.apk / 1.0 running in com.verizon.messaging.vzmsgs rsrc of package com.android.mms
+05-26 10:39:47.758: W/ResourcesManager(22980): getTopLevelResources: /data/app/com.verizon.messaging.vzmsgs-1/base.apk / 1.0 running in com.verizon.messaging.vzmsgs rsrc of package com.verizon.messaging.vzmsgs
+05-26 10:39:47.768: W/ResourcesManager(22980): getTopLevelResources: /data/app/com.google.android.talk-1/base.apk / 1.0 running in com.verizon.messaging.vzmsgs rsrc of package com.google.android.talk
+05-26 10:39:47.768: W/ResourcesManager(22980): getTopLevelResources: /data/app/com.vzw.hss.myverizon-1/base.apk / 1.0 running in com.verizon.messaging.vzmsgs rsrc of package com.vzw.hss.myverizon
+05-26 10:39:47.768: W/ResourcesManager(22980): getTopLevelResources: /data/app/com.facebook.orca-2/base.apk / 1.0 running in com.verizon.messaging.vzmsgs rsrc of package com.facebook.orca
+05-26 10:39:48.378: E/Watchdog(1379): !@Sync 22449 [05-26 10:39:48.389]
+05-26 10:39:50.588: D/NetworkController.MobileSignalController(0/1)(2326): onSignalStrengthsChanged signalStrength=SignalStrength: 99 99 -120 -160 -120 -1 -1 19 -98 -7 98 -1 2147483647 0x4000 gsm|lte level=4
+05-26 10:39:50.588: D/NetworkController.MobileSignalController(0/1)(2326): getMobileIconGroup(): 13
+05-26 10:39:50.588: D/NetworkController.MobileSignalController(0/1)(2326): updateVZWMobileIconGroup(): 13
+05-26 10:39:50.608: D/EPDG -- [SMARTWIFI](1379): onSignalStrengthsChanged: Received signal strength change, phone type is: 2
+05-26 10:39:50.608: D/EPDG -- [SMARTWIFI](1379): lastLteRSRP is -97currentLteRSRP is -98
+05-26 10:39:50.608: D/EPDG -- [SMARTWIFI](1379): lastCdmaDb is -16currentCdmaDb is -16
+05-26 10:39:50.608: V/EPDG -- [SMARTWIFI](1379): Radio oldest entry removed
+05-26 10:39:50.608: V/EPDG -- [SMARTWIFI](1379): New entry : (SignalStrength: 99 99 -120 -160 -120 -1 -1 19 -98 -7 98 -1 2147483647 0x4000 gsm|lte : 0 )
+05-26 10:39:50.608: V/EPDG -- [SMARTWIFI](1379): Radio entry added
+05-26 10:39:50.618: D/NetworkController.MobileSignalController(0/1)(2326): callState:0, callStateByPhone:false voLTECall:false voiceNetTpe:13 dataNetType:13, ine911:false, emergencyCallbackMode:false
+05-26 10:39:51.418: D/BatteryService(1379): !@BatteryListener : batteryPropertiesChanged!
+05-26 10:39:51.428: D/BatteryService(1379): level:78, scale:100, status:2, health:2, present:true, voltage: 4094, temperature: 283, technology: Li-ion, AC powered:false, USB powered:true, POGO powered:false, Wireless powered:false, icon:17303419, invalid charger:0, maxChargingCurrent:0
+05-26 10:39:51.428: D/BatteryService(1379): online:4, current avg:65, charge type:1, power sharing:false, high voltage charger:false, capacity:280000, batterySWSelfDischarging:false, current_now:-28
+05-26 10:39:51.428: D/BatteryService(1379): Sending ACTION_BATTERY_CHANGED.
+05-26 10:39:51.428: I/MotionRecognitionService(1379): Plugged
+05-26 10:39:51.428: D/MotionRecognitionService(1379):   cableConnection= 1
+05-26 10:39:51.428: D/MotionRecognitionService(1379): setPowerConnected | current backoffstate  = 1024 , state =1024
+05-26 10:39:51.428: D/MotionRecognitionService(1379): skip setTransmitPower. 
+05-26 10:39:51.428: D/WifiController(1379): ApOrStaEnabledState  msg.what= 155652
+05-26 10:39:51.438: D/KeyguardUpdateMonitor(2326): received broadcast android.intent.action.BATTERY_CHANGED
+05-26 10:39:51.438: D/PowerUI(2326): priorPlugType = 2 mPlugType =  2
+05-26 10:39:51.438: D/KeyguardUpdateMonitor(2326): handleBatteryUpdate
+05-26 10:39:51.438: D/PowerUI.Notification(2326): showChargingNotice oldChargingType : 1 currentChargingType : 1 oldChargingTime : 6070000 mChargingTime : 6070000
+05-26 10:39:51.438: D/PowerUI.Notification(2326): There is no change about charging status, so return!
+05-26 10:39:51.448: D/BatteryMonitor(3017): new battery level: 78
+05-26 10:39:51.448: D/PhoneApp(2877): PhoneAppBroadcastReceiver onReceive android.intent.action.BATTERY_CHANGED
+05-26 10:39:51.448: V/HeadsetService(3653): HeadsetService - Received Intent.ACTION_BATTERY_CHANGED
+05-26 10:39:51.448: D/HeadsetStateMachine(3653): Disconnected process message: 10, size: 0
+05-26 10:39:51.458: D/BatteryMeterView(2326): ACTION_BATTERY_CHANGED : level:78 status:2 health:2
+05-26 10:39:51.458: D/BatteryMeterView(2326): ACTION_BATTERY_CHANGED : level:78 status:2 health:2
+05-26 10:39:51.458: V/AlarmManager(1379):  remove PendingIntent] PendingIntent{fa76eda: PendingIntentRecord{36699fe com.android.phone broadcastIntent}}
+05-26 10:39:51.468: D/TelephonyExtension(2877): Not stopping low battery tone
+05-26 10:39:53.148: D/NetworkController.MobileSignalController(0/1)(2326): onSignalStrengthsChanged signalStrength=SignalStrength: 99 99 -120 -160 -120 -1 -1 19 -98 -7 162 -1 2147483647 0x4000 gsm|lte level=4
+05-26 10:39:53.158: D/NetworkController.MobileSignalController(0/1)(2326): getMobileIconGroup(): 13
+05-26 10:39:53.158: D/EPDG -- [SMARTWIFI](1379): onSignalStrengthsChanged: Received signal strength change, phone type is: 2
+05-26 10:39:53.168: D/NetworkController.MobileSignalController(0/1)(2326): updateVZWMobileIconGroup(): 13
+05-26 10:39:53.168: D/EPDG -- [SMARTWIFI](1379): lastLteRSRP is -98currentLteRSRP is -98
+05-26 10:39:53.168: D/EPDG -- [SMARTWIFI](1379): lastCdmaDb is -16currentCdmaDb is -16
+05-26 10:39:53.168: V/EPDG -- [SMARTWIFI](1379): Radio oldest entry removed
+05-26 10:39:53.168: V/EPDG -- [SMARTWIFI](1379): New entry : (SignalStrength: 99 99 -120 -160 -120 -1 -1 19 -98 -7 162 -1 2147483647 0x4000 gsm|lte : 0 )
+05-26 10:39:53.168: V/EPDG -- [SMARTWIFI](1379): Radio entry added
+05-26 10:39:53.188: D/NetworkController.MobileSignalController(0/1)(2326): callState:0, callStateByPhone:false voLTECall:false voiceNetTpe:13 dataNetType:13, ine911:false, emergencyCallbackMode:false
+05-26 10:39:55.708: D/NetworkController.MobileSignalController(0/1)(2326): onSignalStrengthsChanged signalStrength=SignalStrength: 99 99 -120 -160 -120 -1 -1 19 -99 -7 162 -1 2147483647 0x4000 gsm|lte level=4
+05-26 10:39:55.708: D/NetworkController.MobileSignalController(0/1)(2326): getMobileIconGroup(): 13
+05-26 10:39:55.708: D/NetworkController.MobileSignalController(0/1)(2326): updateVZWMobileIconGroup(): 13
+05-26 10:39:55.718: D/NetworkController.MobileSignalController(0/1)(2326): callState:0, callStateByPhone:false voLTECall:false voiceNetTpe:13 dataNetType:13, ine911:false, emergencyCallbackMode:false
+05-26 10:39:55.728: D/EPDG -- [SMARTWIFI](1379): onSignalStrengthsChanged: Received signal strength change, phone type is: 2
+05-26 10:39:55.728: D/EPDG -- [SMARTWIFI](1379): lastLteRSRP is -98currentLteRSRP is -99
+05-26 10:39:55.728: D/EPDG -- [SMARTWIFI](1379): lastCdmaDb is -16currentCdmaDb is -16
+05-26 10:39:55.728: V/EPDG -- [SMARTWIFI](1379): Radio oldest entry removed
+05-26 10:39:55.728: V/EPDG -- [SMARTWIFI](1379): New entry : (SignalStrength: 99 99 -120 -160 -120 -1 -1 19 -99 -7 162 -1 2147483647 0x4000 gsm|lte : 0 )
+05-26 10:39:55.728: V/EPDG -- [SMARTWIFI](1379): Radio entry added
+05-26 10:39:55.938: D/SSRM:n(1379): SIOP:: AP = 360, PST = 365 (W:14), CP = 35, CUR = 65, LCD = 82
+05-26 10:40:00.358: V/AlarmManager(1379): Expired Alarm result :8
+05-26 10:40:00.378: D/KeyguardUpdateMonitor(2326): received broadcast android.intent.action.TIME_TICK
+05-26 10:40:00.378: D/KeyguardUpdateMonitor(2326): handleTimeUpdate
+05-26 10:40:00.378: D/SecKeyguardClockSingleImageView(2326): min:40, hour:10, hour_day:10
+05-26 10:40:00.398: D/Clock(2326): received broadcast android.intent.action.TIME_TICK
+05-26 10:40:00.468: D/DateView(2326): received broadcast android.intent.action.TIME_TICK
+05-26 10:40:00.488: D/[WeatherWidget(1155)]  WeatherService(22650): {[EC3334F14841398C8B464A72D0E61AB7948E844A51B2F10E7C31A850CCA08F880ABEEF87F6E6A4C1C58A024DF4C59CCB8CD3484ABF03CCB972707336A9A23198]}
+05-26 10:40:00.488: D/[WeatherWidget(1155)](22650): {[3AE6950019B083611567B0F9442DB03E59646CBA355B4C260B75423E37A3701A]}
+05-26 10:40:00.508: D/[WeatherWidget(1155)](22650): {[3AE6950019B083611567B0F9442DB03E0F7D6DF8FAB8AEDDA9C52FD622CBE93BD3B3C821E02768ECE7D54B13E96560EDB802D29C56DFCCD38F937DDED36C9453D7EB27B6F39D87A8055411ED5842039503D55887E78F2064ABA764E74DE20156]}
+05-26 10:40:00.508: D/[WeatherWidget(1155)](22650): {[DF00664B5BF2DD508EC3D0ADB8B43C9FB429631765284D8658CE62A4AFFAA963]}
+05-26 10:40:00.828: D/NetworkController.MobileSignalController(0/1)(2326): onSignalStrengthsChanged signalStrength=SignalStrength: 99 99 -120 -160 -120 -1 -1 20 -99 -7 180 -1 2147483647 0x4000 gsm|lte level=4
+05-26 10:40:00.838: D/NetworkController.MobileSignalController(0/1)(2326): getMobileIconGroup(): 13
+05-26 10:40:00.838: D/NetworkController.MobileSignalController(0/1)(2326): updateVZWMobileIconGroup(): 13
+05-26 10:40:00.848: D/EPDG -- [SMARTWIFI](1379): onSignalStrengthsChanged: Received signal strength change, phone type is: 2
+05-26 10:40:00.848: D/EPDG -- [SMARTWIFI](1379): lastLteRSRP is -99currentLteRSRP is -99
+05-26 10:40:00.848: D/EPDG -- [SMARTWIFI](1379): lastCdmaDb is -16currentCdmaDb is -16
+05-26 10:40:00.848: V/EPDG -- [SMARTWIFI](1379): Radio oldest entry removed
+05-26 10:40:00.848: V/EPDG -- [SMARTWIFI](1379): New entry : (SignalStrength: 99 99 -120 -160 -120 -1 -1 20 -99 -7 180 -1 2147483647 0x4000 gsm|lte : 0 )
+05-26 10:40:00.848: V/EPDG -- [SMARTWIFI](1379): Radio entry added
+05-26 10:40:00.848: D/NetworkController.MobileSignalController(0/1)(2326): callState:0, callStateByPhone:false voLTECall:false voiceNetTpe:13 dataNetType:13, ine911:false, emergencyCallbackMode:false
+05-26 10:40:01.628: D/PreciseAlarmManager(3017): expiring message 3 from ResipMiscHandler timeout=1464284401334
+05-26 10:40:01.628: D/ResipMiscHandler(3017): ALARM_WAKE_UP id=14860
+05-26 10:40:01.638: D/PreciseAlarmManager(3017): remaining timers 3
+05-26 10:40:01.638: D/PreciseAlarmManager(3017): next the soonest timer: 3 from ResipMiscHandler timeout=1464285466646 after msec=1065001
+05-26 10:40:01.638: D/AlarmTimer(3017): start: com.sec.internal.ims.imsservice.alarmmanager millis 1065000
+05-26 10:40:01.678: D/BatteryService(1379): !@BatteryListener : batteryPropertiesChanged!
+05-26 10:40:01.678: D/BatteryService(1379): level:78, scale:100, status:2, health:2, present:true, voltage: 4065, temperature: 283, technology: Li-ion, AC powered:false, USB powered:true, POGO powered:false, Wireless powered:false, icon:17303419, invalid charger:0, maxChargingCurrent:0
+05-26 10:40:01.678: D/BatteryService(1379): online:4, current avg:47, charge type:1, power sharing:false, high voltage charger:false, capacity:280000, batterySWSelfDischarging:false, current_now:-401
+05-26 10:40:01.678: D/BatteryService(1379): Sending ACTION_BATTERY_CHANGED.
+05-26 10:40:01.678: I/MotionRecognitionService(1379): Plugged
+05-26 10:40:01.678: D/MotionRecognitionService(1379):   cableConnection= 1

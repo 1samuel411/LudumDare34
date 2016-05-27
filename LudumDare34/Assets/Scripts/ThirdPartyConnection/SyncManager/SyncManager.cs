@@ -24,7 +24,11 @@ namespace FS.SyncManager {
 	    }
 
 	    private bool _isGoogleLoggedIn;
-	    public bool isGoogleLoggedIn { get { return _isGoogleLoggedIn; } }
+
+	    public bool isGoogleLoggedIn {
+	        get { return _isGoogleLoggedIn; } 
+	        set { _isGoogleLoggedIn = value; }
+	    }
 
 	    #region Amazon Cognito Sync
 	    private CognitoIdentitySync _cognitoIdentitySync;
@@ -58,20 +62,6 @@ namespace FS.SyncManager {
 				callback.Invoke();
 			} else
 				GoogleAuthenticates(callback);
-	    }
-
-	    public bool AuthenticateAndLoad() {
-	        bool ret = false;
-            PlayGamesPlatform.Instance.Authenticate((bool success) => {
-                _isGoogleLoggedIn = PlayGamesPlatform.Instance.IsAuthenticated();
-                if(success) {
-                    Debug.Log("Unity: Successfully Logged in!");
-                    PlayGamesPlatform.Instance.GetIdToken(cognitoIdentitySync.AddGoogleTokenToCognito);
-                } else
-                    Debug.Log("Unity: Login Failed!");
-                //Load DataSets
-            });
-	        return ret;
 	    }
 	}
 }
