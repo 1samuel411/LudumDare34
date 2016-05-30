@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 using System.Collections.Generic;
 using System;
 using System.Linq;
-using Amazon.CognitoSync.SyncManager;
 
 public class Shop : MonoBehaviour
 {
@@ -24,7 +22,7 @@ public class Shop : MonoBehaviour
     public Item[] items;
     public static Item[] itemDatabase;
 
-    private List<ShopItem> shopItems = new List<ShopItem>();
+    private List<GameShopItem> shopItems = new List<GameShopItem>();
 
     [System.Serializable]
     public struct Item
@@ -46,6 +44,7 @@ public class Shop : MonoBehaviour
 
     void Start() {
         itemDatabase = items;
+        SelectItem(selectedItem);
     }
 
     public void Open()
@@ -55,39 +54,31 @@ public class Shop : MonoBehaviour
         Close();
         selectedItem = -1;
         layout.position = new Vector2(0, layout.position.y);
-        for (int i = 0; i < items.Length; i++)
-        {
+        for (int i = 0; i < items.Length; i++) {
             //Why are you hiding it?
             //if (boughtItems.Contains(i) && !items[i].repurchasable)
             //    return;
 
-            GameObject newShopItemObj = Instantiate(Resources.Load("ShopItem")) as GameObject;
+            GameObject newShopItemObj = Instantiate(Resources.Load("GameShopItem")) as GameObject;
             newShopItemObj.transform.SetParent(layout);
             newShopItemObj.transform.position = Vector3.zero;
             newShopItemObj.transform.localScale = Vector3.one;
-            ShopItem newShopItem = newShopItemObj.GetComponent<ShopItem>();
-            newShopItem.title = items[i].title;
-            if (items[i].repurchasable)
-            {
+            GameShopItem newShopItem = newShopItemObj.GetComponent<GameShopItem>();
+            newShopItem.SetTitle(items[i].title);
+            if (items[i].repurchasable) {
                 int timesBought = 0;
-                for (int x = 0; x < boughtItems.Count; x++)
-                {
+                for (int x = 0; x < boughtItems.Count; x++) {
                     if (boughtItems[x] == i)
                         timesBought++;
                 }
-                newShopItem.cost = items[i].cost * ((timesBought == 0) ? 1 : (timesBought + 1));
+                newShopItem.SetCost(items[i].cost * ((timesBought == 0) ? 1 : (timesBought + 1)));
+                newShopItem.SetMaxed(timesBought > items[i].maxPurchases);
                 newShopItem.timesBought = timesBought;
-                if (timesBought > items[i].maxPurchases)
-                    newShopItem.maxed = true;
-                else
-                    newShopItem.maxed = false;
-            }
-            else
-            {
-                newShopItem.cost = items[i].cost;
+            } else {
+                newShopItem.SetCost(items[i].cost);
             }
             newShopItem.desc = items[i].desc;
-            newShopItem.icon = items[i].icon;
+            newShopItem.SetIcon(items[i].icon);
             newShopItem.index = i;
             newShopItem.selectedButton.onClick.AddListener(() => { SelectItem(newShopItem.index); });
             shopItems.Add(newShopItem);
@@ -97,15 +88,44 @@ public class Shop : MonoBehaviour
     public void Close()
     {
         shopItems.Clear();
-        for(int i = 0; i < layout.childCount; i++)
-        {
+        for(int i = 0; i < layout.childCount; i++) {
             GameObject.Destroy(layout.GetChild(i).gameObject);
         }
     }
 
-    public void SelectItem(int shopItem)
-    {
+    public void SelectItem(int shopItem) {
         selectedItem = shopItem;
+        if(selectedItem != -1) {
+            selectedTitleText.gameObject.SetActive(true);
+            selectedCostText.gameObject.SetActive(true);
+            selectedDescText.gameObject.SetActive(true);
+            selectedCoinsImage.gameObject.SetActive(true);
+            selectedIconImage.gameObject.SetActive(true);
+
+            selectedTitleText.text = items[selectedItem].title;
+            int cost = 0;
+            if (items[selectedItem].repurchasable) {
+                int timesBought = 0;
+                for (int x = 0; x < boughtItems.Count; x++) {
+                    if (boughtItems[x] == selectedItem)
+                        timesBought++;
+                }
+                cost = items[selectedItem].cost * ((timesBought == 0) ? 1 : (timesBought + 1));
+            }
+            else
+            {
+                cost = items[selectedItem].cost;
+            }
+            selectedCostText.text = cost.ToString();
+            selectedDescText.text = items[selectedItem].desc;
+            selectedIconImage.sprite = items[selectedItem].icon;
+        } else {
+            selectedTitleText.gameObject.SetActive(false);
+            selectedCostText.gameObject.SetActive(false);
+            selectedDescText.gameObject.SetActive(false);
+            selectedCoinsImage.gameObject.SetActive(false);
+            selectedIconImage.gameObject.SetActive(false);
+        }
     }
 
     private bool purchasing;
@@ -154,8 +174,7 @@ public class Shop : MonoBehaviour
                         if (items[i].repurchasable)
                         {
                             timesBought = 0;
-                            for (int x = 0; x < boughtItems.Count; x++)
-                            {
+                            for (int x = 0; x < boughtItems.Count; x++) {
                                 if (boughtItems[x] == i)
                                     timesBought++;
                             }
@@ -191,11 +210,6 @@ public class Shop : MonoBehaviour
         if (!string.IsNullOrEmpty(items)) {
             boughtItems = items.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(s => Convert.ToInt32(s.Trim())).ToList();
-            //string[] individualItems = items.Split(',');
-            //for (int i = 0; i < individualItems.Length; i++)
-            //{
-            //    boughtItems.Add(Int32.Parse(individualItems[i]));
-            //}
         }
         return boughtItems;
     }
@@ -211,43 +225,43 @@ public class Shop : MonoBehaviour
         return itemsBoughtString;
     }
 
-    void Update()
-    {
-        if(selectedItem != -1)
-        {
-            selectedTitleText.gameObject.SetActive(true);
-            selectedCostText.gameObject.SetActive(true);
-            selectedDescText.gameObject.SetActive(true);
-            selectedCoinsImage.gameObject.SetActive(true);
-            selectedIconImage.gameObject.SetActive(true);
+    //void Update()
+    //{
+    //    if(selectedItem != -1)
+    //    {
+    //        selectedTitleText.gameObject.SetActive(true);
+    //        selectedCostText.gameObject.SetActive(true);
+    //        selectedDescText.gameObject.SetActive(true);
+    //        selectedCoinsImage.gameObject.SetActive(true);
+    //        selectedIconImage.gameObject.SetActive(true);
 
-            selectedTitleText.text = items[selectedItem].title;
-            int cost = 0;
-            if (items[selectedItem].repurchasable)
-            {
-                int timesBought = 0;
-                for (int x = 0; x < boughtItems.Count; x++)
-                {
-                    if (boughtItems[x] == selectedItem)
-                        timesBought++;
-                }
-                cost = items[selectedItem].cost * ((timesBought == 0) ? 1 : (timesBought + 1));
-            }
-            else
-            {
-                cost = items[selectedItem].cost;
-            }
-            selectedCostText.text = cost.ToString();
-            selectedDescText.text = items[selectedItem].desc;
-            selectedIconImage.sprite = items[selectedItem].icon;
-        }
-        else
-        {
-            selectedTitleText.gameObject.SetActive(false);
-            selectedCostText.gameObject.SetActive(false);
-            selectedDescText.gameObject.SetActive(false);
-            selectedCoinsImage.gameObject.SetActive(false);
-            selectedIconImage.gameObject.SetActive(false);
-        }
-    }
+    //        selectedTitleText.text = items[selectedItem].title;
+    //        int cost = 0;
+    //        if (items[selectedItem].repurchasable)
+    //        {
+    //            int timesBought = 0;
+    //            for (int x = 0; x < boughtItems.Count; x++)
+    //            {
+    //                if (boughtItems[x] == selectedItem)
+    //                    timesBought++;
+    //            }
+    //            cost = items[selectedItem].cost * ((timesBought == 0) ? 1 : (timesBought + 1));
+    //        }
+    //        else
+    //        {
+    //            cost = items[selectedItem].cost;
+    //        }
+    //        selectedCostText.text = cost.ToString();
+    //        selectedDescText.text = items[selectedItem].desc;
+    //        selectedIconImage.sprite = items[selectedItem].icon;
+    //    }
+    //    else
+    //    {
+    //        selectedTitleText.gameObject.SetActive(false);
+    //        selectedCostText.gameObject.SetActive(false);
+    //        selectedDescText.gameObject.SetActive(false);
+    //        selectedCoinsImage.gameObject.SetActive(false);
+    //        selectedIconImage.gameObject.SetActive(false);
+    //    }
+    //}
 }

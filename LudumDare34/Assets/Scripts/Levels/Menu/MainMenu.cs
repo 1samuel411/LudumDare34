@@ -54,7 +54,6 @@ public class MainMenu : MonoBehaviour
         else
             adsButton.gameObject.SetActive(false);
 
-
         // Ad Timer
         if (coinTimerChecked)
         {

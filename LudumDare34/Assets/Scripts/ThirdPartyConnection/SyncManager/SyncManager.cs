@@ -13,8 +13,6 @@ namespace FS.SyncManager {
 
 	public sealed class SyncManager {
 
-        
-
 	    public SyncManager() {
 	        var config = new PlayGamesClientConfiguration.Builder().Build();
 	        PlayGamesPlatform.InitializeInstance(config);

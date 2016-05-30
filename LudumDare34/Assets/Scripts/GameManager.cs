@@ -42,7 +42,6 @@ public class GameManager: MonoBehaviour, ISyncAcessor {
         playerPurchases = new PlayerPurchases(syncInitializer.OpenOrCreateDataset("PlayerPurchases"));
         playerDetails = new PlayerDetails(syncInitializer.OpenOrCreateDataset("PlayerDetails"));
         yield return new WaitUntil(() => playerDetails.isFirstSyncStatus != SyncStatus.Pending);
-        yield return new WaitForSeconds(1.0f);
         Debug.Log("BlazeWolf: Datasets have been Initialized");
         if(action != null)
             StartCoroutine(action);
