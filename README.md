@@ -97,7 +97,7 @@ xx--Bear Import
 ----Enemies: Dying, Attacking
 
 #Milestone 6
-
+added shop UI.
 Menu's
 
 Main Menu	- Play ->	Story (hold down 2 scs to skip) ->	Game;
