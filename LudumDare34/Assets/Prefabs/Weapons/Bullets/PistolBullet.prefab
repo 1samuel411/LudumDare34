@@ -159,8 +159,8 @@ MonoBehaviour:
   - {fileID: 169934, guid: 92f616201a48cb34abe29c5336256b08, type: 2}
   impactEffectSize: 1
   impactScreenshake: 0
-  damage: 198
-  originalDamage: 198
+  damage: 201
+  originalDamage: 200
   knockbackForce: 6.76
   knockbackTime: 0.2
   projectileSpeed: 18

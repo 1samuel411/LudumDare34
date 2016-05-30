@@ -23,45 +23,47 @@ public class MainMenu : MonoBehaviour
 
     public static MainMenu instance;
 
-    public int coins;
-    public int totalKills;
-    public int totalScore;
+    public int Coins {
+        get { return GameManager.instance.playerDetails.Coins; }
+        set { GameManager.instance.playerDetails.Coins = value; }
+    }
+    public int totalKills {
+        get { return GameManager.instance.playerDetails.MaxKills; }
+        set { GameManager.instance.playerDetails.MaxKills = value; }
+    }
+    public int totalScore {
+        get { return GameManager.instance.playerDetails.HighScore; }
+        set { GameManager.instance.playerDetails.HighScore = value; }
+    }
 
     public void Awake()
     {
         instance = this;
-        if (!InfoManager.NewPlayer())
-        {
-            coins = Int32.Parse(InfoManager.GetInfo("coins"));
-            totalKills = Int32.Parse(InfoManager.GetInfo("kills"));
-            totalScore = Int32.Parse(InfoManager.GetInfo("score"));
-        }
     }
 
     public void Update()
     {
         scoreDisplayText.text = totalScore.ToString();
         killsDisplayText.text = totalKills.ToString();
-        coinsText.text = coins.ToString();
-        shopCoinsText.text = coins.ToString();
-        iapShopCoinsText.text = coins.ToString();
+        coinsText.text = Coins.ToString();
+        shopCoinsText.text = Coins.ToString();
+        iapShopCoinsText.text = Coins.ToString();
 
         if (Advertisement.isSupported && Advertisement.isInitialized)
             adsButton.gameObject.SetActive(true);
         else
             adsButton.gameObject.SetActive(false);
 
-
         // Ad Timer
         if (coinTimerChecked)
         {
-            currentTime = System.DateTime.UtcNow;
+            GameManager.instance.playerDetails.CurrentTime = System.DateTime.UtcNow;
 
             DateTime timeNeededDateTime = new DateTime();
-            timeNeededDateTime = Convert.ToDateTime(timeNeededHrs + ":00");
+            timeNeededDateTime = Convert.ToDateTime(GameManager.instance.playerDetails.TimeNeededHours + ":00");
 
             TimeSpan timeSpan = new TimeSpan();
-            timeSpan = CalculateTimeDifference(currentTime, timeUsed);
+            timeSpan = CalculateTimeDifference(GameManager.instance.playerDetails.CurrentTime, timeUsed);
             DateTime timeSpanDateTime = new DateTime();
             if (timeSpan.Hours >= 0)
                 timeSpanDateTime = Convert.ToDateTime(timeSpan.Hours + ":" + timeSpan.Minutes);
@@ -70,7 +72,9 @@ public class MainMenu : MonoBehaviour
 
             timeLeftCoinsText.text = "Hours: " + (displayTimeSpan.Hours) + "  Minutes: " + (displayTimeSpan.Minutes);
 
-            if (timeNeededHrs <= 0 || (displayTimeSpan.Hours < 0 || displayTimeSpan.Minutes < 0 || (displayTimeSpan.Hours == 0 && displayTimeSpan.Minutes == 0)) || timeSpan.TotalHours > timeNeededHrs)
+            if(GameManager.instance.playerDetails.TimeNeededHours <= 0 || (displayTimeSpan.Hours < 0 || displayTimeSpan.Minutes < 0 ||
+                (displayTimeSpan.Hours == 0 && displayTimeSpan.Minutes == 0)) ||
+                timeSpan.TotalHours > GameManager.instance.playerDetails.TimeNeededHours)
             {
                 timeLeftCoinsText.text = "Ready!";
                 watchAdsButton.interactable = true;
@@ -98,16 +102,12 @@ public class MainMenu : MonoBehaviour
     private bool coinTimerChecked;
 
     public DateTime timeUsed;
-    public int timeNeededHrs;
-    public DateTime currentTime;
+
     public void CheckCoinTimer()
     {
         coinTimerChecked = true;
         string currentServerTime = System.DateTime.UtcNow.ToString();
-        currentTime = Convert.ToDateTime(currentServerTime);
-
-        timeNeededHrs = Int32.Parse(InfoManager.GetInfo("timeNeededHrs"));
-        timeUsed = Convert.ToDateTime(InfoManager.GetInfo("timeUsed"));
+        GameManager.instance.playerDetails.CurrentTime = Convert.ToDateTime(currentServerTime);
     }
 
     public void RewardCallback(ShowResult result)
@@ -116,14 +116,8 @@ public class MainMenu : MonoBehaviour
         {
             case ShowResult.Finished:
                 Debug.Log("The ad was successfully shown.");
-
-                coins += 20;
-                timeNeededHrs = 4;
-                timeUsed = currentTime;
-                InfoManager.SetInfo("timeUsed", timeUsed.ToString());
-                InfoManager.SetInfo("timeNeededHrs", timeNeededHrs.ToString());
-                InfoManager.SetInfo("coins", coins.ToString());
-
+                GameManager.instance.playerDetails.Coins += 20;
+                GameManager.instance.playerDetails.TimeNeededHours = 4;
                 break;
             case ShowResult.Skipped:
                 Debug.Log("The ad was skipped before reaching the end.");
@@ -138,9 +132,12 @@ public class MainMenu : MonoBehaviour
 
     public static IEnumerator LoadLevel(int level)
     {
-        InfoManager.SetInfo("coins", MainMenu.instance.coins.ToString());
-        InfoManager.SetInfo("kills", MainMenu.instance.totalKills.ToString());
-        InfoManager.SetInfo("score", MainMenu.instance.totalScore.ToString());
+        //MainMenu.instance.playerInformation.Put("coins", MainMenu.instance.Coins.ToString());
+        //MainMenu.instance.playerInformation.Put("maxKills", MainMenu.instance.totalKills.ToString());
+        //MainMenu.instance.playerInformation.Put("highScore", MainMenu.instance.totalScore.ToString());
+        //InfoManager.SetInfo("coins", MainMenu.instance.coins.ToString());
+        //InfoManager.SetInfo("kills", MainMenu.instance.totalKills.ToString());
+        //InfoManager.SetInfo("score", MainMenu.instance.totalScore.ToString());
         CameraManager.instance.FadeOut();
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(2);

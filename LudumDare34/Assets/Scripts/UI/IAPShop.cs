@@ -207,24 +207,25 @@ public class IAPShop : MonoBehaviour, IStoreListener
         if (String.Equals(args.purchasedProduct.definition.id, kProductIDFifty, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));//If the consumable item has been successfully purchased, add 100 coins to the player's in-game score.
-            MainMenu.instance.coins += 50;
+            MainMenu.instance.Coins += 50;
         }
 
         // A consumable product has been purchased by this user.
         if (String.Equals(args.purchasedProduct.definition.id, kProductIDFiveHundred, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));//If the consumable item has been successfully purchased, add 100 coins to the player's in-game score.
-            MainMenu.instance.coins += 500;
+            MainMenu.instance.Coins += 500;
         }
 
         // A consumable product has been purchased by this user.
         if (String.Equals(args.purchasedProduct.definition.id, kProductIDTwoThousand, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));//If the consumable item has been successfully purchased, add 100 coins to the player's in-game score.
-            MainMenu.instance.coins += 2000;
+            MainMenu.instance.Coins += 2000;
         }
 
-        InfoManager.SetInfo("coins", MainMenu.instance.coins.ToString());
+        //We dont need this as the MainMenu now handles the info set.
+        //InfoManager.SetInfo("coins", MainMenu.instance.Coins.ToString());
 
         return PurchaseProcessingResult.Complete;
     }
@@ -241,9 +242,8 @@ public class IAPShop : MonoBehaviour, IStoreListener
         itemDatabase = items;
     }
 
-    public void Open()
-    {
-        boughtItems = GetBoughtItems(InfoManager.GetInfo("bought"));
+    public void Open() {
+        boughtItems = GetBoughtItems(GameManager.instance.playerPurchases.Bought);
 
         Close();
         selectedItem = -1;
@@ -344,16 +344,6 @@ public class IAPShop : MonoBehaviour, IStoreListener
             }
         }
         return boughtItems;
-    }
-
-    public static string GetBoughtItemsString(int[] items)
-    {
-        string itemsBoughtString = "";
-        for(int i = 0; i < items.Length; i ++)
-        {
-            itemsBoughtString += ((i == 0) ? "" : ",") + items[i];
-        }
-        return itemsBoughtString;
     }
 
     void Update()

@@ -90,14 +90,14 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: com.blazewolf.beargame
-  bundleVersion: 1.9.3
+  bundleVersion: 1.9.8
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
   virtualRealitySupported: 0
   productGUID: a8c803807395d13429daf745eb4a99c8
-  AndroidBundleVersionCode: 14
+  AndroidBundleVersionCode: 19
   AndroidMinSdkVersion: 16
   AndroidPreferredInstallLocation: 0
   aotOptions: 
@@ -177,7 +177,10 @@ PlayerSettings:
       m_Width: 128
       m_Height: 128
   m_BuildTargetBatching: []
-  m_BuildTargetGraphicsAPIs: []
+  m_BuildTargetGraphicsAPIs:
+  - m_BuildTarget: AndroidPlayer
+    m_APIs: 0b00000008000000
+    m_Automatic: 1
   webPlayerTemplate: APPLICATION:Default
   m_TemplateCustomTags: {}
   wiiUTitleID: 0005000011000000

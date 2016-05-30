@@ -478,9 +478,8 @@ MonoBehaviour:
   maxLeft: 0
   maxRight: 0
   loading: 1
-  timeToWait: 1.5
+  timeToWait: 6
   levelToLoad: mainMenu
-  gameManager: {fileID: 0}
 --- !u!114 &1461626863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,4 +491,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915dfad78f183674797fd1f27108f5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncManager: {fileID: 0}

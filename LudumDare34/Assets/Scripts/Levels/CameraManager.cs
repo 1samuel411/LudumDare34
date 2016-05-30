@@ -6,6 +6,7 @@ using Amazon.CognitoSync.SyncManager;
 using UnityEngine.SceneManagement;
 using GooglePlayGames;
 using UnityEngine.SocialPlatforms;
+using Amazon;
 
 public class CameraManager : MonoBehaviour
 {
@@ -54,18 +55,18 @@ public class CameraManager : MonoBehaviour
 
     private new Transform transform;
     private VignetteAndChromaticAberration vignette;
-    //private GameManager _gameManager;
 
-    //public GameManager gameManager {
-    //    get {
-    //        if (_gameManager == null)
-    //            _gameManager = (gameObject.GetComponent<GameManager>()) ?? gameObject.AddComponent<GameManager>();
-    //        return _gameManager;
-    //    }
-    //}
+	private GameManager _gameManager;
+	public GameManager gameManager {
+		get {
+			if(_gameManager == null) {
+				_gameManager = this.gameObject.GetComponent<GameManager>();
+			}
+			return _gameManager;
+		}
+	}
 
     void Awake() {
-        PlayGamesPlatform.Activate();
         transform = GetComponent<Transform>();
         instance = this;
         ourCam = this.GetComponent<Camera>();
@@ -76,16 +77,15 @@ public class CameraManager : MonoBehaviour
         fadeImgColor.a = 1;
 
         if (loading) {
-            GameManager.syncManager.GoogleAuthenticates(() => {
-            //gameManager.syncManager.GoogleAuthenticates(() => {
-                StartCoroutine(LoadLevel());
-            });
+#if UNITY_ANDROID || UNITY_IOS
+            gameManager.AuthenticateAndLoad(LoadLevel());
+#else 
+            StartCoroutine(LoadLevel());
+#endif
         }
     }
 
-    IEnumerator LoadLevel()
-    {
-        //yield return new WaitForSeconds(timeToWait);
+    IEnumerator LoadLevel() {
         Debug.Log("Triggered LoadLevel");
         FadeOut();
         yield return new WaitForSeconds(0.6f);
@@ -103,7 +103,9 @@ public class CameraManager : MonoBehaviour
             // Fade in at start
             fadeImgColor.a -= fadeSpeed * Time.deltaTime;
         }
-        fadeImg.color = fadeImgColor;
+
+		if(fadeImg != null)
+			fadeImg.color = fadeImgColor;
 
         if (!PlayerController.instance)
             return;
