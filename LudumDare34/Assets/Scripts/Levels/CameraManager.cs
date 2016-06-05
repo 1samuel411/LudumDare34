@@ -4,7 +4,6 @@ using UnityStandardAssets.ImageEffects;
 using System.Collections;
 using Amazon.CognitoSync.SyncManager;
 using UnityEngine.SceneManagement;
-using GooglePlayGames;
 using UnityEngine.SocialPlatforms;
 using Amazon;
 
@@ -54,7 +53,16 @@ public class CameraManager : MonoBehaviour
     public string levelToLoad;
 
     private new Transform transform;
-    private VignetteAndChromaticAberration vignette;
+    private VignetteAndChromaticAberration _vignette;
+
+    public VignetteAndChromaticAberration vignette {
+        get {
+            if (_vignette == null) {
+                _vignette = gameObject.AddComponent<VignetteAndChromaticAberration>();
+            }
+            return _vignette;
+        }
+    }
 
 	private GameManager _gameManager;
 	public GameManager gameManager {
@@ -72,7 +80,7 @@ public class CameraManager : MonoBehaviour
         ourCam = this.GetComponent<Camera>();
         _position = transform.position;
         _regZoom = ourCam.orthographicSize;
-        vignette = GetComponent<VignetteAndChromaticAberration>();
+        _vignette = GetComponent<VignetteAndChromaticAberration>();
         fadeImgColor = Color.black;
         fadeImgColor.a = 1;
 

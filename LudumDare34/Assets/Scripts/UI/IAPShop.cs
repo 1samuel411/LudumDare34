@@ -5,45 +5,8 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.Purchasing;
 
-public class IAPShop : MonoBehaviour, IStoreListener
+public class IAPShop : Shop, IStoreListener
 {
-
-    public Text selectedTitleText;
-    public Text selectedCostText;
-    public Text selectedDescText;
-    public Image selectedIconImage;
-    public Image selectedCoinsImage;
-
-    public int selectedItem = -1;
-
-    public Transform layout;
-
-    public List<int> boughtItems = new List<int>();
-
-    public Item[] items;
-    public static Item[] itemDatabase;
-
-    private List<ShopItem> shopItems = new List<ShopItem>();
-
-    [System.Serializable]
-    public struct Item
-    {
-        public string title;
-        public float cost;
-        public int coinsAdded;
-        public string desc;
-        public Sprite icon;
-        public bool repurshable;
-        public int maxPurchases;
-        public int multiplyer;
-        public ItemType itemType;
-    }
-
-    public enum ItemType
-    {
-        health, ammo, timer, damagePistol, damageBoost, money
-    }
-
     private static IStoreController m_StoreController;                                                                  // Reference to the Purchasing system.
     private static IExtensionProvider m_StoreExtensionProvider;
 
@@ -94,8 +57,7 @@ public class IAPShop : MonoBehaviour, IStoreListener
         return m_StoreController != null && m_StoreExtensionProvider != null;
     }
 
-    public void BuyConsumable(int amount)
-    {
+    public void BuyConsumable(int amount) {
         // Buy the consumable product using its general identifier. Expect a response either through ProcessPurchase or OnPurchaseFailed asynchronously.
         if (amount == 50)
             BuyProductID(kProductIDFifty);
@@ -105,8 +67,7 @@ public class IAPShop : MonoBehaviour, IStoreListener
             BuyProductID(kProductIDTwoThousand);
     }
 
-    void BuyProductID(string productId)
-    {
+    void BuyProductID(string productId) {
         // If the stores throw an unexpected exception, use try..catch to protect my logic here.
         try
         {
@@ -145,8 +106,7 @@ public class IAPShop : MonoBehaviour, IStoreListener
     }
 
     // Restore purchases previously made by this customer. Some platforms automatically restore purchases. Apple currently requires explicit purchase restoration for IAP.
-    public void RestorePurchases()
-    {
+    public void RestorePurchases() {
         // If Purchasing has not yet been set up ...
         if (!IsInitialized())
         {
@@ -201,8 +161,7 @@ public class IAPShop : MonoBehaviour, IStoreListener
     }
 
 
-    public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
-    {
+    public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args) {
         // A consumable product has been purchased by this user.
         if (String.Equals(args.purchasedProduct.definition.id, kProductIDFifty, StringComparison.Ordinal))
         {
@@ -231,87 +190,12 @@ public class IAPShop : MonoBehaviour, IStoreListener
     }
 
 
-    public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)
-    {
+    public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason) {
         // A product purchase attempt did not succeed. Check failureReason for more detail. Consider sharing this reason with the user.
         Debug.Log(string.Format("OnPurchaseFailed: FAIL. Product: '{0}', PurchaseFailureReason: {1}", product.definition.storeSpecificId, failureReason));
     }
 
-    void Start()
-    {
-        itemDatabase = items;
-    }
-
-    public void Open() {
-        boughtItems = GetBoughtItems(GameManager.instance.playerPurchases.Bought);
-
-        Close();
-        selectedItem = -1;
-        layout.position = new Vector2(0, layout.position.y);
-        for (int i = 0; i < items.Length; i++)
-        {
-            if (boughtItems.Contains(i) && !items[i].repurshable)
-                return;
-
-            GameObject newShopItemObj = Instantiate(Resources.Load("ShopItem")) as GameObject;
-            newShopItemObj.transform.SetParent(layout);
-            newShopItemObj.transform.position = Vector3.zero;
-            newShopItemObj.transform.localScale = Vector3.one;
-            ShopItem newShopItem = newShopItemObj.GetComponent<ShopItem>();
-            newShopItem.title = items[i].title;
-            newShopItem.iap = true;
-            if (items[i].repurshable)
-            {
-                int timesBought = 0;
-                for (int x = 0; x < boughtItems.Count; x++)
-                {
-                    if (boughtItems[x] == i)
-                        timesBought++;
-                }
-                newShopItem.cost = items[i].cost * ((timesBought == 0) ? 1 : (timesBought + 1));
-                newShopItem.timesBought = timesBought;
-                if (timesBought > items[i].maxPurchases)
-                    newShopItem.maxed = true;
-                else
-                    newShopItem.maxed = false;
-            }
-            else
-            {
-                newShopItem.cost = items[i].cost;
-            }
-            newShopItem.desc = items[i].desc;
-            newShopItem.icon = items[i].icon;
-            newShopItem.index = i;
-            newShopItem.selectedButton.onClick.AddListener(() => { SelectItem(newShopItem.index); });
-            shopItems.Add(newShopItem);
-        }
-    }
-
-    public void Close()
-    {
-        shopItems.Clear();
-        for(int i = 0; i < layout.childCount; i++)
-        {
-            GameObject.Destroy(layout.GetChild(i).gameObject);
-        }
-    }
-
-    public void SelectItem(int shopItem)
-    {
-        selectedItem = shopItem;
-    }
-
-    private bool purchasing;
-    public void PurchaseItem()
-    {
-        if (!purchasing)
-        {
-            purchasing = true;
-            Popup.Create("Are You Sure?", "Are you sure you want to purchase '" + items[selectedItem].title + "'?", "Yes", "No", false, CallbackPurchase);
-        }
-    }
-
-    public void CallbackPurchase(Popup.ResponseTypes response)
+    public override void CallbackPurchase(Popup.ResponseTypes response)
     {
         purchasing = false;
         if(response == Popup.ResponseTypes.Accepted)
@@ -328,47 +212,6 @@ public class IAPShop : MonoBehaviour, IStoreListener
                 else if (selectedItem == 2)
                     BuyConsumable(2000);
             }
-        }
-    }
-    
-    public static List<int> GetBoughtItems(string items)
-    {
-        List<int> boughtItems = new List<int>();
-        boughtItems.Clear();
-        if (items != "")
-        {
-            string[] individualItems = items.Split(',');
-            for (int i = 0; i < individualItems.Length; i++)
-            {
-                boughtItems.Add(Int32.Parse(individualItems[i]));
-            }
-        }
-        return boughtItems;
-    }
-
-    void Update()
-    {
-        if(selectedItem != -1)
-        {
-            selectedTitleText.gameObject.SetActive(true);
-            selectedCostText.gameObject.SetActive(true);
-            selectedDescText.gameObject.SetActive(true);
-            selectedCoinsImage.gameObject.SetActive(true);
-            selectedIconImage.gameObject.SetActive(true);
-
-            selectedTitleText.text = items[selectedItem].title;
-            float cost = items[selectedItem].cost;
-            selectedCostText.text = "$" + cost.ToString();
-            selectedDescText.text = items[selectedItem].desc;
-            selectedIconImage.sprite = items[selectedItem].icon;
-        }
-        else
-        {
-            selectedTitleText.gameObject.SetActive(false);
-            selectedCostText.gameObject.SetActive(false);
-            selectedDescText.gameObject.SetActive(false);
-            selectedCoinsImage.gameObject.SetActive(false);
-            selectedIconImage.gameObject.SetActive(false);
         }
     }
 }

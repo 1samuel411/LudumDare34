@@ -23,7 +23,7 @@ public class PlayerPurchases : BaseAmazonDataset {
         set {
             if(_bought != value) {
                 _bought = value;
-                PropertyValueChange("Bought");
+                PropertyValueChange("Bought", value);
             }
         }
     }

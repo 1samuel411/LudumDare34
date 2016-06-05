@@ -2,9 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlayerController : BaseEntity
-{
-
+public class PlayerController : BaseEntity {
     // Moving
     public KeyCode leftKey;
     public KeyCode rightKey;
@@ -148,7 +146,6 @@ public class PlayerController : BaseEntity
                     _strafingAnim = true;
                     maxVelocity = originalMaxVelocity * 0.6f;
                     MoveRight(true, 1);
-                    Tutorial.instance.strafedRight = true;
                 }
             }
             else
@@ -176,8 +173,6 @@ public class PlayerController : BaseEntity
                         maxVelocity = originalMaxVelocity;
                         _strafingAnim = false;
                         MoveLeft();
-                        Tutorial.instance.movedLeft = true;
-                        Tutorial.instance.movingLeft = true;
                     }
                 }
                 else
@@ -189,7 +184,6 @@ public class PlayerController : BaseEntity
         else
         {
             _holdingLeftKey = false;
-            Tutorial.instance.movingLeft = false;
         }
 
         // Check right key
@@ -214,7 +208,6 @@ public class PlayerController : BaseEntity
                     _strafingAnim = true;
                     maxVelocity = originalMaxVelocity * 0.6f;
                     MoveLeft(true, -1);
-                    Tutorial.instance.strafedLeft = true;
                 }
             }
             else
@@ -242,8 +235,6 @@ public class PlayerController : BaseEntity
                         maxVelocity = originalMaxVelocity;
                         _strafingAnim = false;
                         MoveRight();
-                        Tutorial.instance.movedRight = true;
-                        Tutorial.instance.movingRight = true;
                     }
                 }
                 else
@@ -255,10 +246,8 @@ public class PlayerController : BaseEntity
         else
         {
             _holdingRightKey = false;
-            Tutorial.instance.movingRight = false;
         }
 
-        Tutorial.instance.jumped = isJumping;
 
         // Jumping
         if (canJump && !isJumping)
@@ -285,7 +274,6 @@ public class PlayerController : BaseEntity
                     rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
                     Jump();
                     _holdingKeys = false;
-                    Tutorial.instance.jumped = true;
                 }
                 else
                 {
@@ -308,14 +296,11 @@ public class PlayerController : BaseEntity
         }
 
         // Boost down
-        if (isJumping && airTime > targetAirTimeBoost && !isBoosting)
-        {
+        if (isJumping && airTime > targetAirTimeBoost && !isBoosting) {
             // Check both keys
-            if (Input.GetKey(jumpKey))
-            {
+            if (Input.GetKey(jumpKey)) {
                 // If this is the first time holding it then set the hold time
-                if (!_holdingKeys)
-                {
+                if (!_holdingKeys) {
                     _curHoldTimeJump = Time.time;
                     _targetHoldTimeJump = Time.time + holdTimeJump;
                 }
@@ -323,30 +308,22 @@ public class PlayerController : BaseEntity
                 _holdingKeys = true;
 
                 // Need to hold these keys for a certain time to allow jumping
-                if (_curHoldTimeJump > _targetHoldTimeJump)
-                {
+                if (_curHoldTimeJump > _targetHoldTimeJump) {
                     // Jump
                     BoostDown(2);
                     _holdingKeys = false;
-                    Tutorial.instance.boosted = true;
-                }
-                else
-                {
+                } else {
                     _curHoldTimeJump = Time.time;
                 }
 
-            }
-            else
-            {
+            } else {
                 _holdingKeys = false;
             }
 
-            if (TouchController.controller.GetSwipe(SwipeLocations.Down))
-            {
+            if (TouchController.controller.GetSwipe(SwipeLocations.Down)) {
                 // Jump
                 BoostDown(2);
                 _holdingKeys = false;
-                Tutorial.instance.boosted = true;
             }
         }
 
@@ -367,43 +344,46 @@ public class PlayerController : BaseEntity
     private bool gotItems;
     public void GetItems()
     {
-        gotItems = true;
-        LevelManager.instance.boughtItems = Shop.GetBoughtItems(InfoManager.GetInfo("bought"));
-        for(int i = 0; i <Shop.itemDatabase.Length; i ++)
-        {
-            if(LevelManager.instance.boughtItems.Contains(i))
-            {
-                int timesBought = 0;
-                for (int x = 0; x < LevelManager.instance.boughtItems.Count; x++)
-                {
-                    if (LevelManager.instance.boughtItems[x] == i)
-                        timesBought++;
-                }
+        //gotItems = true;
+        //LevelManager.instance.boughtItems = Shop.GetBoughtItems(InfoManager.GetInfo("bought"));
+        //foreach (var shopItem in Shop.itemDatabase) {
+        //    LevelManager.instance.boughtItems
+        //}
+        //for(int i = 0; i <Shop.itemDatabase.Length; i ++)
+        //{
+        //    if(LevelManager.instance.boughtItems.Contains(i))
+        //    {
+        //        int timesBought = 0;
+        //        for (int x = 0; x < LevelManager.instance.boughtItems.Count; x++)
+        //        {
+        //            if (LevelManager.instance.boughtItems[x] == i)
+        //                timesBought++;
+        //        }
 
-                if (Shop.itemDatabase[i].itemType == Shop.ItemType.health)
-                {
-                    LevelManager.instance.healthAddition += (timesBought * Shop.itemDatabase[i].multiplyer);
-                }
-                if (Shop.itemDatabase[i].itemType == Shop.ItemType.ammo)
-                {
-                    LevelManager.instance.ammoAddition = (timesBought * Shop.itemDatabase[i].multiplyer);
-                }
-                if (Shop.itemDatabase[i].itemType == Shop.ItemType.timer)
-                {
-                    LevelManager.instance.timeAddition = (timesBought * Shop.itemDatabase[i].multiplyer);
-                }
-                if (Shop.itemDatabase[i].itemType == Shop.ItemType.damageBoost)
-                {
-                    LevelManager.instance.boostDamageAddition = (timesBought * Shop.itemDatabase[i].multiplyer);
-                }
-                if (Shop.itemDatabase[i].itemType == Shop.ItemType.damagePistol)
-                {
-                    LevelManager.instance.pistolDamageAddition = (timesBought * Shop.itemDatabase[i].multiplyer);
-                }
-            }
-        }
-        baseHealth.maxHealth += LevelManager.instance.healthAddition;
-        baseHealth.currentHealth = baseHealth.maxHealth;
-        boostDamage += LevelManager.instance.boostDamageAddition;
+        //        if (Shop.itemDatabase[i].itemType == GameShopItem.ItemType.health)
+        //        {
+        //            LevelManager.instance.healthAddition += (timesBought * Shop.itemDatabase[i].multiplyer);
+        //        }
+        //        if(Shop.itemDatabase[i].itemType == GameShopItem.ItemType.ammo)
+        //        {
+        //            LevelManager.instance.ammoAddition = (timesBought * Shop.itemDatabase[i].multiplyer);
+        //        }
+        //        if(Shop.itemDatabase[i].itemType == GameShopItem.ItemType.timer)
+        //        {
+        //            LevelManager.instance.timeAddition = (timesBought * Shop.itemDatabase[i].multiplyer);
+        //        }
+        //        if(Shop.itemDatabase[i].itemType == GameShopItem.ItemType.damageBoost)
+        //        {
+        //            LevelManager.instance.boostDamageAddition = (timesBought * Shop.itemDatabase[i].multiplyer);
+        //        }
+        //        if(Shop.itemDatabase[i].itemType == GameShopItem.ItemType.damagePistol)
+        //        {
+        //            LevelManager.instance.pistolDamageAddition = (timesBought * Shop.itemDatabase[i].multiplyer);
+        //        }
+        //    }
+        //}
+        //baseHealth.maxHealth += LevelManager.instance.healthAddition;
+        //baseHealth.currentHealth = baseHealth.maxHealth;
+        //boostDamage += LevelManager.instance.boostDamageAddition;
     }
 }

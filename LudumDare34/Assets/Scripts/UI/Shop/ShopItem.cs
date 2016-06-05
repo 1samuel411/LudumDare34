@@ -1,33 +1,28 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
 
-public class ShopItem : MonoBehaviour
-{
-
-    public Text selectedCostText;
-    public Text selectedTitleText;
-    public Image selectedIconImage;
-
-    public Button selectedButton;
-
-    public float cost;
+[System.Serializable]
+public class ShopItem {
+    private int _timeBought;
     public string title;
+    public float originalCost;
     public string desc;
-    public int index;
-    public bool maxed;
-    public int timesBought;
     public Sprite icon;
+    public int maxPurchases;
+    public int timesBought { get { return _timeBought; } }
+    public int multiplier;
     public bool iap = false;
+    public ItemType itemType;
 
-    void Update()
-    {
-        selectedCostText.text = (iap) ? "$" : "";
-        selectedCostText.text += cost.ToString();
-        selectedTitleText.text = title;
-        selectedIconImage.sprite = icon;
-        selectedButton.interactable = !maxed;
-        if(maxed)
-            selectedCostText.text = "Max";
+    public void SetTimesBought(int xBought) {
+        _timeBought = xBought;
+    }
+
+    public enum ItemType {
+        health,
+        ammo,
+        timer,
+        damagePistol,
+        damageBoost,
+        Money
     }
 }

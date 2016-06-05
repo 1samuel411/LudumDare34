@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Amazon.CognitoIdentity;
 using Amazon.CognitoSync.SyncManager;
 using Amazon.Runtime;
 using UnityEngine;
 
 namespace FS.SyncManager.CognitoSync {
 
-	public class FSDatasetHandler : CognitoIdentitySync {
+    public class FSDatasetHandler: SyncManager {
 
 	    public Dataset InitializeDataset(Dataset ds) {
             ds.OnDatasetMerged = this.HandleDatasetMerged;
@@ -16,10 +17,11 @@ namespace FS.SyncManager.CognitoSync {
 	    }
 
         public bool HandleDatasetMerged(Dataset localDataset, List<string> mergedDatasetNames) {
-			foreach(string name in mergedDatasetNames)
-			{
+            Debug.Log("Handling Dataset Merge");
+			foreach(string name in mergedDatasetNames) {
 				Dataset remoteDataset = cognitoSyncManager.OpenOrCreateDataset(name);
-				EventHandler<SyncSuccessEventArgs> lambda;
+                Debug.Log("Remote Dataset Name: " + remoteDataset.Metadata.DatasetName);
+				EventHandler<SyncSuccessEventArgs> lambda = null;
 				lambda = (object sender, SyncSuccessEventArgs e) => {
 					IList<Record> existingValues = localDataset.Records;
 					IList<Record> newValues = remoteDataset.Records;

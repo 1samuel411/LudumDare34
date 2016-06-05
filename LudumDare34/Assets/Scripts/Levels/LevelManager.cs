@@ -73,7 +73,7 @@ public class LevelManager : MonoBehaviour
 	void Awake ()
     {
         instance = this;
-        coins = Int32.Parse(InfoManager.GetInfo("coins"));
+	    coins = 0; //Int32.Parse(InfoManager.GetInfo("coins"));
         spawnNextWave = false;
 	    poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<PoolManager>();
         spawnObjects = new List<SpawnObject>();
@@ -180,11 +180,11 @@ public class LevelManager : MonoBehaviour
     float randomEnemy;
     private IEnumerator SpawnObjects()
     {
-        while (Tutorial.instance.finishedTutorial == false)
-        {
-            waveCooldownTimer = Time.time + 1;
-            yield return null;
-        }
+        //while (Tutorial.instance.finishedTutorial == false)
+        //{
+        //    waveCooldownTimer = Time.time + 1;
+        //    yield return null;
+        //}
         _wave++;
         spawnNextWave = false;
         waveCooldownTimer = 99999999999;

@@ -31,7 +31,7 @@ public class OptionSettings : BaseAmazonDataset {
         set {
             if (value != _voiceVolume) {
                 _voiceVolume = value;
-                PropertyValueChange("VoiceVolume");
+                PropertyValueChange("VoiceVolume", value);
             }
         }
     }
@@ -41,7 +41,7 @@ public class OptionSettings : BaseAmazonDataset {
         set {
             if (value != _musicVolume) {
                 _musicVolume = value;
-                PropertyValueChange("MusicVolume");
+                PropertyValueChange("MusicVolume", value);
             }
         }
     }
@@ -51,7 +51,7 @@ public class OptionSettings : BaseAmazonDataset {
         set {
             if (value != _effectVolume) {
                 _effectVolume = value;
-                PropertyValueChange("EffectVolume");
+                PropertyValueChange("EffectVolume", value);
             }
         }
     }
@@ -61,7 +61,7 @@ public class OptionSettings : BaseAmazonDataset {
         set {
             if (value != _voiceEnabled) {
                 _voiceEnabled = value;
-                PropertyValueChange("VoiceEnabled");
+                PropertyValueChange("VoiceEnabled", value);
             }
         }
     }
@@ -71,7 +71,7 @@ public class OptionSettings : BaseAmazonDataset {
         set {
             if (value != _musicEnabled) {
                 _musicEnabled = value;
-                PropertyValueChange("MusicEnabled");
+                PropertyValueChange("MusicEnabled", value);
             }
         }
     }
@@ -81,7 +81,7 @@ public class OptionSettings : BaseAmazonDataset {
         set {
             if (value != _effectEnabled) {
                 _effectEnabled = value;
-                PropertyValueChange("EffectEnabled");
+                PropertyValueChange("EffectEnabled", value);
             }
         }
     }

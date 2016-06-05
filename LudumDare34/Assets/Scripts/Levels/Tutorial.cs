@@ -6,12 +6,26 @@ public class Tutorial : MonoBehaviour
 {
 
     public static Tutorial instance;
-    public bool jumped, boosted, movedLeft, movedRight, strafedLeft, strafedRight, toggled, movingLeft, movingRight;
+    public bool jumped, 
+                    boosted,
+                    movedLeft,
+                    movedRight, 
+                    strafedLeft, 
+                    strafedRight, 
+                    toggled, 
+                    movingLeft, 
+                    movingRight;
     public bool finishedTutorial;
 
     public GameObject mainUI;
 
-    public GameObject jumpedObj, boostedObj, moveLeftObj, movedRightObj, strafedLeftObj, strafedRightObj, toggledObj;
+    public GameObject jumpedObj, 
+                        boostedObj, 
+                        moveLeftObj,
+                        movedRightObj, 
+                        strafedLeftObj, 
+                        strafedRightObj, 
+                        toggledObj;
     public Sprite completedIcon;
 
     void Awake()
@@ -19,7 +33,7 @@ public class Tutorial : MonoBehaviour
         instance = this;
         Debug.Log(InfoManager.NewPlayer());
 
-        finishedTutorial = (InfoManager.GetInfo("finishedTutorial") == "1") ? true : false;
+        finishedTutorial = (InfoManager.GetInfo("finishedTutorial") == "1");
     }
 
     void Update()

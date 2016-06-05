@@ -2,13 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 public class LevelSelector : MonoBehaviour
 {
 
     public Transform group;
     public Level[] levels;
-    public List<int> unlockedLevels = new List<int>();
+    public int highestUnlockedLevel;
 
     [System.Serializable]
     public struct Level
@@ -19,14 +20,13 @@ public class LevelSelector : MonoBehaviour
         public bool locked;
     }
 
-    void Start()
-    {
+    void Start() {
         RefreshLevels(InfoManager.GetInfo("unlockedLevels"));
     }
 
-    public static void AddLevelUnlocked(string levelIndex)
-    {
-        InfoManager.SetInfo("unlockedLevels", InfoManager.GetInfo("unlockedLevels") + "," + levelIndex);
+    public static void AddLevelUnlocked() {
+        GameManager.instance.playerDetails.UnlockedLevels++;
+        //InfoManager.SetInfo("unlockedLevels", InfoManager.GetInfo("unlockedLevels") + "," + levelIndex);
     }
 
     public void Open()
@@ -49,23 +49,10 @@ public class LevelSelector : MonoBehaviour
         }
     }
 
-    public void RefreshLevels(string unlockedLevel)
-    {
-        this.unlockedLevels.Clear();
-
-        unlockedLevel = unlockedLevel.Replace(",", "");
-        char[] unlockedLevelsChars = unlockedLevel.ToCharArray();
-        for (int i = 0; i < unlockedLevelsChars.Length; i++)
-        {
-            this.unlockedLevels.Add(Int32.Parse(unlockedLevelsChars[i].ToString()));
-        }
-        for(int i = 0; i < this.levels.Length; i++)
-        {
-            this.levels[i].locked = true;
-        }
-        for(int i = 0; i < this.unlockedLevels.Count; i++)
-        {
-            levels[this.unlockedLevels[i]].locked = false;
+    public void RefreshLevels(string unlockedLevel) {
+        int allLevels = levels.Count();
+        for (int i = 0; i < allLevels; i++) {
+            levels[i].locked = (i > highestUnlockedLevel);
         }
     }
 }

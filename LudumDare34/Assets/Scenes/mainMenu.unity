@@ -1199,8 +1199,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 461836581}
   m_HandleRect: {fileID: 461836580}
   m_Direction: 0
-  m_Value: 0.9999998
-  m_Size: 0.22531141
+  m_Value: 0.9999996
+  m_Size: 0.2253114
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4101,46 +4101,47 @@ MonoBehaviour:
   layout: {fileID: 610572565}
   boughtItems: 
   items:
-  - title: Health
-    cost: 15
-    desc: Adds 1 health to your character.
-    icon: {fileID: 21300000, guid: efafdb0755a5f9742a5bf8b2af7a53ed, type: 3}
-    repurchasable: 0
-    maxPurchases: 5
-    multiplyer: 1
+  - title: 
+    originalCost: 0
+    desc: 
+    icon: {fileID: 0}
+    maxPurchases: 0
+    multiplier: 0
+    iap: 0
     itemType: 0
-  - title: Ammunition
-    cost: 15
-    desc: Adds 2 ammunition to all picked up weapons.
-    icon: {fileID: 21300000, guid: 06140c28e469db549b3d860b0bc58683, type: 3}
-    repurchasable: 0
-    maxPurchases: 7
-    multiplyer: 2
-    itemType: 1
-  - title: Timer
-    cost: 20
-    desc: Adds Time to timed weapons that are picked up.
-    icon: {fileID: 21300000, guid: 17cfc512041a7824996deaa695d8b814, type: 3}
-    repurchasable: 0
-    maxPurchases: 7
-    multiplyer: 1
-    itemType: 2
-  - title: Pistol Damage
-    cost: 25
-    desc: Boosts your damage by 1 on your Pistol.
-    icon: {fileID: 21300000, guid: 8d63e948cf2b87a4ba0d3da0d7d65062, type: 3}
-    repurchasable: 0
-    maxPurchases: 6
-    multiplyer: 1
-    itemType: 3
-  - title: Boost down Damage
-    cost: 30
-    desc: Adds 1 damage to the boost down attack.
-    icon: {fileID: 21300000, guid: 3d65906452ab2be40873fb6ede718e73, type: 3}
-    repurchasable: 0
-    maxPurchases: 6
-    multiplyer: 1
-    itemType: 4
+  - title: 
+    originalCost: 0
+    desc: 
+    icon: {fileID: 0}
+    maxPurchases: 0
+    multiplier: 0
+    iap: 0
+    itemType: 0
+  - title: 
+    originalCost: 0
+    desc: 
+    icon: {fileID: 0}
+    maxPurchases: 0
+    multiplier: 0
+    iap: 0
+    itemType: 0
+  - title: 
+    originalCost: 0
+    desc: 
+    icon: {fileID: 0}
+    maxPurchases: 0
+    multiplier: 0
+    iap: 0
+    itemType: 0
+  - title: 
+    originalCost: 0
+    desc: 
+    icon: {fileID: 0}
+    maxPurchases: 0
+    multiplier: 0
+    iap: 0
+    itemType: 0
+  shopItem: {fileID: 0}
 --- !u!114 &549192265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6000,7 +6001,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2131473113}
   m_HandleRect: {fileID: 2131473112}
   m_Direction: 0
-  m_Value: 0.49794066
+  m_Value: 0.49794075
   m_Size: 0.114025086
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -7206,32 +7207,30 @@ MonoBehaviour:
   boughtItems: 
   items:
   - title: 50 Coins
-    cost: 0.99
-    coinsAdded: 50
+    originalCost: 0.99
     desc: Adds 50 coins to your account!
     icon: {fileID: 21300000, guid: d86e39a9eca7d734b9d1d08aeab98c27, type: 3}
-    repurshable: 1
     maxPurchases: 999999
-    multiplyer: 0
+    multiplier: 0
+    iap: 0
     itemType: 5
   - title: 500 Coins
-    cost: 2.99
-    coinsAdded: 0
+    originalCost: 1.99
     desc: Adds 500 coins to your account!
     icon: {fileID: 21300000, guid: d86e39a9eca7d734b9d1d08aeab98c27, type: 3}
-    repurshable: 1
     maxPurchases: 999999
-    multiplyer: 0
+    multiplier: 0
+    iap: 0
     itemType: 5
   - title: 2000 Coins
-    cost: 5.99
-    coinsAdded: 0
+    originalCost: 4.99
     desc: Adds 2000 coins to your account!
     icon: {fileID: 21300000, guid: d86e39a9eca7d734b9d1d08aeab98c27, type: 3}
-    repurshable: 1
     maxPurchases: 999999
-    multiplyer: 0
+    multiplier: 0
+    iap: 0
     itemType: 5
+  shopItem: {fileID: 0}
 --- !u!114 &1062425875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10135,7 +10134,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 14, y: -19}
   m_SizeDelta: {x: 4126, y: 4454}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1546763884
@@ -10279,8 +10278,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 865793791}
   m_HandleRect: {fileID: 865793790}
   m_Direction: 0
-  m_Value: 0.99999994
-  m_Size: 0.22531146
+  m_Value: 1
+  m_Size: 0.22531147
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -13368,45 +13367,46 @@ MonoBehaviour:
   boughtItems: 
   items:
   - title: Health
-    cost: 15
-    desc: Adds 1 health to your character.
+    originalCost: 100
+    desc: Adds +1 to MaxHealth.
     icon: {fileID: 21300000, guid: af629968f88713f47970c08058a632ea, type: 3}
-    repurchasable: 0
-    maxPurchases: 5
-    multiplyer: 1
+    maxPurchases: 10
+    multiplier: 1
+    iap: 0
     itemType: 0
   - title: Ammunition
-    cost: 15
-    desc: Adds 2 ammunition to all picked up weapons.
+    originalCost: 150
+    desc: Adds + 2 to Total Ammunition on ammo weapons.
     icon: {fileID: 21300000, guid: f6d4301522a7a1b46841d55c52b3a532, type: 3}
-    repurchasable: 0
-    maxPurchases: 7
-    multiplyer: 2
+    maxPurchases: 8
+    multiplier: 2
+    iap: 0
     itemType: 1
   - title: Timer
-    cost: 20
-    desc: Adds Time to timed weapons that are picked up.
+    originalCost: 125
+    desc: Adds +1 to Timed Weapons.
     icon: {fileID: 21300000, guid: 63958c5be377a59419a9fa3feba91698, type: 3}
-    repurchasable: 0
-    maxPurchases: 7
-    multiplyer: 1
+    maxPurchases: 10
+    multiplier: 1
+    iap: 0
     itemType: 2
   - title: Pistol Damage
-    cost: 25
-    desc: Boosts your damage by 1 on your Pistol.
+    originalCost: 100
+    desc: Adds +1 Damage to Base Pistol
     icon: {fileID: 21300000, guid: fc92ef4ffc526ef42b711a8830f12874, type: 3}
-    repurchasable: 0
-    maxPurchases: 6
-    multiplyer: 1
+    maxPurchases: 15
+    multiplier: 1
+    iap: 0
     itemType: 3
-  - title: Boost down Damage
-    cost: 30
-    desc: Adds 1 damage to the boost down attack.
+  - title: Damage Boost
+    originalCost: 50
+    desc: Adds a damage boost to all weapons, except pistol.
     icon: {fileID: 21300000, guid: dcece6aa39200a14f93bac3567c2e4cf, type: 3}
-    repurchasable: 0
-    maxPurchases: 6
-    multiplyer: 1
+    maxPurchases: 15
+    multiplier: 1
+    iap: 0
     itemType: 4
+  shopItem: {fileID: 0}
 --- !u!114 &2080202578
 MonoBehaviour:
   m_ObjectHideFlags: 0

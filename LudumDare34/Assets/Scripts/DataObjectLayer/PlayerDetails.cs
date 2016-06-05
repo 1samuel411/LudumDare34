@@ -12,6 +12,7 @@ public class PlayerDetails : BaseAmazonDataset {
         : base(dataset) {
         _timeNeededHours = _timeUsed = 0;
         _coins = _maxKills = _highScore = 0;
+        _unlockedLevels = 0;
     }
 
     protected override void Initialize() {
@@ -19,8 +20,8 @@ public class PlayerDetails : BaseAmazonDataset {
         _timeNeededHours = GetPropertyValueInt("TimeNeededHours");
         _timeUsed = GetPropertyValueInt("TimeUsed");
         _maxKills = GetPropertyValueInt("MaxKills");
-        Debug.Log("Max Kills: " + _maxKills);
         _highScore = GetPropertyValueInt("HighScore");
+        _unlockedLevels = GetPropertyValueInt("UnlockedLevels");
     }
 
     private int _coins;
@@ -28,6 +29,7 @@ public class PlayerDetails : BaseAmazonDataset {
     private int _timeUsed;
     private int _maxKills;
     private int _highScore;
+    private int _unlockedLevels;
     private DateTime _currentTime;
 
     public int Coins {
@@ -35,7 +37,7 @@ public class PlayerDetails : BaseAmazonDataset {
         set {
             if (value != _coins) {
                 _coins = value;
-                SyncPropertyChange("Coins");
+                SyncPropertyChange("Coins", value);
             }
         }
     }
@@ -46,7 +48,7 @@ public class PlayerDetails : BaseAmazonDataset {
             if (value != _timeNeededHours) {
                 _timeNeededHours = value;
                 TimeUsed = value; //Reset the time used with the time Needed.
-                PropertyValueChange("TimeNeededHours");
+                PropertyValueChange("TimeNeededHours", value);
             }
         }
     }
@@ -56,7 +58,7 @@ public class PlayerDetails : BaseAmazonDataset {
         set {
             if (value != _timeUsed) {
                 _timeUsed = value;
-                PropertyValueChange("TimeUsed");
+                PropertyValueChange("TimeUsed", value);
             }
         }
     }
@@ -66,7 +68,7 @@ public class PlayerDetails : BaseAmazonDataset {
         set {
             if (value != _maxKills) {
                 _maxKills = value;
-                PropertyValueChange("MaxKills");
+                PropertyValueChange("MaxKills", value);
             }
         }
     }
@@ -76,7 +78,17 @@ public class PlayerDetails : BaseAmazonDataset {
         set {
             if (HighScore != value) {
                 _highScore = value;
-                PropertyValueChange("HighScore");
+                PropertyValueChange("HighScore", value);
+            }
+        }
+    }
+
+    public int UnlockedLevels {
+        get { return _unlockedLevels; }
+        set {
+            if (_unlockedLevels != value) {
+                _unlockedLevels = value;
+                SyncPropertyChange("UnlockedLevels", value);
             }
         }
     }
@@ -86,7 +98,7 @@ public class PlayerDetails : BaseAmazonDataset {
         set {
             if (CurrentTime != value) {
                 _currentTime = value;
-                PropertyValueChange("CurrentTime");
+                PropertyValueChange("CurrentTime", value);
             }
         }
     }

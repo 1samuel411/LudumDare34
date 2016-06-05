@@ -5,7 +5,9 @@ using Amazon;
 using Amazon.CognitoSync.SyncManager;
 using FS.SyncManager;
 using FS.SyncManager.CognitoSync;
+#if UNITY_ANDROID || UNITY_IOS
 using GooglePlayGames;
+#endif
 
 public class SyncInitializer : MonoBehaviour {
 
@@ -32,7 +34,7 @@ public class SyncInitializer : MonoBehaviour {
         float waitTime = 0.0f;
         //Wait Until google is authenticated or time runs out.
         yield return new WaitUntil(() => {
-            bool bOk = syncManager.cognitoIdentitySync.isGoogleAuthenticated;
+            bool bOk = syncManager.isGoogleLoggedIn;
             if (waitTime <= 5.0f)
                 waitTime += Time.deltaTime;
             else
@@ -47,7 +49,9 @@ public class SyncInitializer : MonoBehaviour {
     public void LoginOrLougout(IEnumerator action, Action callback) {
         bool bOk = false;
         if (syncManager.isGoogleLoggedIn) {
+#if UNITY_ANDROID || UNITY_IOS
             PlayGamesPlatform.Instance.SignOut();
+#endif
             syncManager.isGoogleLoggedIn = false;
             callback.Invoke();
         } else
@@ -63,7 +67,7 @@ public class SyncInitializer : MonoBehaviour {
     /// as the defaults are already set. If you need to make your own handlers, or customize them, 
     /// it is best practice to inherit, and override the FSDatasetHandler.</param>
     public Dataset OpenOrCreateDataset(string dataSetName, FSDatasetHandler handlers = null) {
-        Dataset ds = syncManager.cognitoIdentitySync.cognitoSyncManager.OpenOrCreateDataset(dataSetName);
+        Dataset ds = syncManager.cognitoSyncManager.OpenOrCreateDataset(dataSetName);
         if(handlers == null) {
             handlers = new FSDatasetHandler();
         }
