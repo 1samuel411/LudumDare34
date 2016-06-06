@@ -1,8 +1,4 @@
 ﻿using System;
-using UnityEngine;
-using System.Collections;
-using System.ComponentModel;
-using System.Linq;
 using Amazon.CognitoSync.SyncManager;
 using Assets.Scripts.DataObjectLayer;
 
@@ -10,8 +6,11 @@ public class PlayerDetails : BaseAmazonDataset {
 
     public PlayerDetails(Dataset dataset)
         : base(dataset) {
-        _timeNeededHours = _timeUsed = 0;
-        _coins = _maxKills = _highScore = 0;
+        _timeNeededHours = 0;
+        _timeUsed = 0;
+        _coins = 0;
+        _maxKills = 0;
+        _highScore = 0;
         _unlockedLevels = 0;
     }
 

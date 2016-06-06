@@ -102,12 +102,16 @@ public class TouchController : MonoBehaviour
             Vector2 position = Input.GetTouch(i).position;
             // Left and Right
             if (location == TouchLocations.Left || location == TouchLocations.Right)
-                touching = (position.x <= (screenWidthHalf - xIgnoreDist)) ? (location == TouchLocations.Left) ? true : false : (position.x >= (screenWidthHalf + xIgnoreDist)) ? (location == TouchLocations.Right) ? true : false : false;
+                touching = (position.x <= (screenWidthHalf - xIgnoreDist)) ? 
+                    (location == TouchLocations.Left) : 
+                    (position.x >= (screenWidthHalf + xIgnoreDist)) && (location == TouchLocations.Right);
 
             // Up and Down
             if (location == TouchLocations.Up || location == TouchLocations.Down)
                 if (position.x <= (Screen.width - xIgnoreDist) && position.x >= xIgnoreDist)
-                    touching = (position.y <= (screenHeightHalf - yIgnoreDist)) ? (location == TouchLocations.Down) ? true : false : (position.y >= (screenHeightHalf + yIgnoreDist)) ? (location == TouchLocations.Up) ? true : false : false;
+                    touching = (position.y <= (screenHeightHalf - yIgnoreDist)) ? 
+                        (location == TouchLocations.Down) : 
+                        (position.y >= (screenHeightHalf + yIgnoreDist)) && ((location == TouchLocations.Up));
 
             // Left Quads
             if (location == TouchLocations.LowerLeft || location == TouchLocations.UpperLeft)

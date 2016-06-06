@@ -130,16 +130,10 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    public static IEnumerator LoadLevel(int level)
-    {
-        //MainMenu.instance.playerInformation.Put("coins", MainMenu.instance.Coins.ToString());
-        //MainMenu.instance.playerInformation.Put("maxKills", MainMenu.instance.totalKills.ToString());
-        //MainMenu.instance.playerInformation.Put("highScore", MainMenu.instance.totalScore.ToString());
-        //InfoManager.SetInfo("coins", MainMenu.instance.coins.ToString());
-        //InfoManager.SetInfo("kills", MainMenu.instance.totalKills.ToString());
-        //InfoManager.SetInfo("score", MainMenu.instance.totalScore.ToString());
+    public static IEnumerator LoadLevel(int level) {
         CameraManager.instance.FadeOut();
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(level);
+        //SceneManager.LoadScene(2);
     }
 }

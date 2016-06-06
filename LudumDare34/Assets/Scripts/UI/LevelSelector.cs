@@ -11,32 +11,21 @@ public class LevelSelector : MonoBehaviour
     public Level[] levels;
     public int highestUnlockedLevel;
 
-    [System.Serializable]
-    public struct Level
-    {
-        public string levelName;
-        public int levelToLoad;
-        public Sprite image;
-        public bool locked;
-    }
-
     void Start() {
-        RefreshLevels(InfoManager.GetInfo("unlockedLevels"));
+        RefreshLevels(GameManager.instance.playerDetails.UnlockedLevels);
     }
 
     public static void AddLevelUnlocked() {
         GameManager.instance.playerDetails.UnlockedLevels++;
-        //InfoManager.SetInfo("unlockedLevels", InfoManager.GetInfo("unlockedLevels") + "," + levelIndex);
     }
 
-    public void Open()
-    {
+    public void Open() {
+        levels = levels.OrderBy(l => l.Id).ToArray();
         for(int i = 0; i < group.childCount; i++)
         {
             GameObject.Destroy(group.GetChild(i).gameObject);
         }
-        for(int i = 0; i < levels.Length; i++)
-        {
+        for(int i = 0; i < levels.Length; i++) {
             GameObject levelObj = GameObject.Instantiate(Resources.Load("LevelItem")) as GameObject;
             LevelItem levelItem = levelObj.GetComponent<LevelItem>();
             levelItem.levelName = levels[i].levelName;
@@ -49,10 +38,8 @@ public class LevelSelector : MonoBehaviour
         }
     }
 
-    public void RefreshLevels(string unlockedLevel) {
-        int allLevels = levels.Count();
-        for (int i = 0; i < allLevels; i++) {
-            levels[i].locked = (i > highestUnlockedLevel);
-        }
+    public void RefreshLevels(int high) {
+        foreach (var level in levels)
+            level.locked = (level.Id > high);
     }
 }

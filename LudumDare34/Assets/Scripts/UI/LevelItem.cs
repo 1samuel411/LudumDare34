@@ -15,11 +15,6 @@ public class LevelItem : MonoBehaviour
     public Sprite levelImage;
     public bool levelLocked = false;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         locked.SetActive(levelLocked);
@@ -27,8 +22,7 @@ public class LevelItem : MonoBehaviour
         image.sprite = levelImage;
     }
 
-    public void LoadLevel()
-    {
+    public void LoadLevel() {
         StartCoroutine(MainMenu.LoadLevel(levelToLoad));
     }
 }
