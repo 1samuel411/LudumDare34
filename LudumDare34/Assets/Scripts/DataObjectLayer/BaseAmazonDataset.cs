@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 using Amazon.CognitoSync.SyncManager;
-//using System.Reflection;
-using Amazon.Runtime;
 using UnityEngine;
 
 namespace Assets.Scripts.DataObjectLayer {

@@ -72,6 +72,9 @@ public class LevelManager : MonoBehaviour
 
 	void Awake ()
     {
+        if(!TouchController.initialized)
+            TouchController.Initialize();
+
         instance = this;
 	    coins = 0; //Int32.Parse(InfoManager.GetInfo("coins"));
         spawnNextWave = false;

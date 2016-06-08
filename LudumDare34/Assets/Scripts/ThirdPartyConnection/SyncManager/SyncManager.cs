@@ -1,9 +1,7 @@
 ﻿using System;
 using UnityEngine;
-#if UNITY_ANDROID || UNITY_IOS
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
-#endif
 using Amazon.CognitoIdentity;
 using Amazon.CognitoSync;
 using Amazon.CognitoSync.SyncManager;

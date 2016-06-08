@@ -154,4 +154,30 @@ public class PlayerWeaponHandler : MonoBehaviour
         baseWeapon.ActivateGun(true);
         return baseWeapon;
     }
+
+
+    //This code should be moved to the player controller.
+    //First this is a "player event" its not instinctively obvious that the weapon being
+    //disabled is inside of the playerWeaponHandler. the PlayerWeaponHandler is in charge
+    //of handlind weapons, not player events, even if the event corelates to the weapon
+    //handler.
+    //Second, you have a circular reference with this line
+    //controller = LevelManager.instance.player.GetComponent<PlayerController>();
+    //The PlayerController has a reference to the weaponHandler, and the weaponHandler now has
+    //a reference back to the playerController. This is very dangerous as it can cause the application
+    //to crash during runtime if you have an event that references back and forth to each other.
+    //Bugs like this become very difficult to find, and manage, even more so because it can happen
+    //as a random event, and it will not give you a syntax, or a logic error . 
+    //private PlayerController controller;
+    //private float toggleTimer;
+    //private float toggleTime = 0.4f;
+    //public void Update() {
+    //    if(!controller)
+    //        controller = LevelManager.instance.player.GetComponent<PlayerController>();
+    //    if(Input.GetKeyDown(controller.toggleWeaponKey) || TouchController.controller.GetTouchUp(TouchLocations.Down, 250, 120)) {
+    //        toggleTimer = toggleTime + Time.time;
+    //        LevelManager.instance.wepsEnabled = !LevelManager.instance.wepsEnabled;
+    //    }
+    //}
+
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.Audio;
@@ -127,7 +128,11 @@ public class Options : MonoBehaviour
 
     private ColorBlock GoogleColorBlock(ColorBlock originalCb) {
         ColorBlock cb = originalCb;
-        bool bOk = GameManager.instance.syncInitializer.syncManager.isGoogleLoggedIn;
+        bool bOk = false;
+        try {
+            bOk = GameManager.instance.syncInitializer.syncManager.isGoogleLoggedIn;
+        } catch (Exception) {
+        }
 #if UNITY_ANDROID || UNITY_IOS
         cb.normalColor = (bOk) ? Color.green : Color.red;
 #else

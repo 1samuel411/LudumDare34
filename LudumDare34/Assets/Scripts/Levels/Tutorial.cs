@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class Tutorial : MonoBehaviour
-{
+public class Tutorial : MonoBehaviour {
+    
+    //public GameObject
 
-    public static Tutorial instance;
     public bool jumped, 
                     boosted,
                     movedLeft,
@@ -28,14 +29,29 @@ public class Tutorial : MonoBehaviour
                         toggledObj;
     public Sprite completedIcon;
 
-    void Awake()
-    {
-        instance = this;
-        Debug.Log(InfoManager.NewPlayer());
+    private delegate void TutorialHandler ();
+    private event TutorialHandler tutorialEvent;
 
-        finishedTutorial = (InfoManager.GetInfo("finishedTutorial") == "1");
+    void Awake() {
+        tutorialEvent = LeftEvent;
     }
 
+    void Update() {
+        if(tutorialEvent != null)
+            tutorialEvent();
+    }
+
+    public void LeftEvent() {
+        if(TouchController.controller.GetTouch(TouchLocations.Left, 250)) {
+            //First Event Cleared
+        }
+    }
+
+    public void RightEvent() {
+        
+    }
+
+    /*
     void Update()
     {
         if (finishedTutorial)
@@ -105,5 +121,5 @@ public class Tutorial : MonoBehaviour
             }
         }
     }
-
+    */
 }

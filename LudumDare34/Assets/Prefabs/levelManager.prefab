@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &168212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 497180}
+  - 114: {fileID: 11421848}
+  - 114: {fileID: 11412270}
+  m_Layer: 0
+  m_Name: levelManager
+  m_TagString: GameInfo
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &497180
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168212}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.9453087, y: -1.7086992, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11412270
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce62cc0df556f649abd1979ea62e9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11421848
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a341e0708c12a145bb29717833afa0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  scoreText: {fileID: 0}
+  coinsText: {fileID: 0}
+  gameInfoPrefab: {fileID: 153062, guid: fb1289a580711f9448644748613a17d0, type: 2}
+  player: {fileID: 0}
+  healthImage: {fileID: 0}
+  weaponUIList: {fileID: 0}
+  weaponUIElement: {fileID: 199564, guid: 1e78523253a5dd5458a9e201f8102698, type: 2}
+  curWaveText: {fileID: 0}
+  enemies:
+  - prefab: {fileID: 124318, guid: 88962712f1e5d364b8615091ad7bbc43, type: 2}
+    rarity: 40
+    minWave: 3
+    spawnerType: 1
+  - prefab: {fileID: 162986, guid: acc45e9b99e9b7744a1c267895b44b56, type: 2}
+    rarity: 15
+    minWave: 6
+    spawnerType: 0
+  - prefab: {fileID: 149590, guid: 28eb6cc1a5c47644e9323d33a95fad07, type: 2}
+    rarity: 45
+    minWave: 0
+    spawnerType: 1
+  poolManager: {fileID: 0}
+  spawnObjects: []
+  spawnEffects: []
+  effects:
+  - {fileID: 149054, guid: 6bfd8ef49b0501e488cfe77f90f71cbb, type: 2}
+  - {fileID: 196310, guid: daf3a838b6d884b4e891deba629c4b70, type: 2}
+  - {fileID: 149054, guid: 58706a2b821cd6d4aa6572cc3b748c16, type: 2}
+  - {fileID: 169934, guid: 92f616201a48cb34abe29c5336256b08, type: 2}
+  - {fileID: 118706, guid: 6da9c45111cac894b9e44e4c11d76f68, type: 2}
+  - {fileID: 175554, guid: 3b46a2b2710d6334b86a34857dde914d, type: 2}
+  - {fileID: 183274, guid: 8ad22e2e21a56c14eb308df07e8fb4ea, type: 2}
+  - {fileID: 193984, guid: 699021d3d48da094cb6bd0d0b46d3757, type: 2}
+  - {fileID: 159050, guid: 6a3efa4bcf3e9f9498013e02ebbb82c3, type: 2}
+  - {fileID: 139640, guid: 324d83d0b546c934c984c5ab37365ff8, type: 2}
+  totalEnmiesInWave: 0
+  enemySpawnTime: 0.35
+  waveCooldownTimer: 0
+  enemiesKilled: 0
+  coins: 0
+  _wave: 0
+  spawnEnemies: 1
+  spawnNextWave: 0
+  wepImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  coinObj: {fileID: 159184, guid: 4ed2db64fb870e54db626a368937517a, type: 2}
+  explosionObj: {fileID: 149054, guid: 58706a2b821cd6d4aa6572cc3b748c16, type: 2}
+  burnObj: {fileID: 101400, guid: 5119b521387d9044fb773b4f213d5115, type: 2}
+  explosionSpawnObj: {fileID: 0}
+  burnSpawnObj: {fileID: 0}
+  coinsSpawnObj: {fileID: 11412270}
+  wepsEnabled: 1
+  boughtItems: 
+  ammoAddition: 0
+  timeAddition: 0
+  boostDamageAddition: 0
+  pistolDamageAddition: 0
+  healthAddition: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 168212}
+  m_IsPrefabParent: 1

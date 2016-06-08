@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 public class PlayerController : BaseEntity {
     // Moving
@@ -41,9 +39,6 @@ public class PlayerController : BaseEntity {
 
         if (weaponHandler == null)
             weaponHandler = this.GetComponentInChildren<PlayerWeaponHandler>();
-
-        if (!TouchController.initialized)
-            TouchController.Initialize();
     }
 
     public override void StartMethod()

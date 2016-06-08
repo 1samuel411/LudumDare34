@@ -54,6 +54,12 @@ public class Shop : MonoBehaviour {
         }
     }
 
+    //Invoke Synchronize, and Close Shop.
+    public void Exit() {
+        GameManager.instance.playerPurchases.SynchronizeData();
+        Close();
+    }
+
     public void Close() {
         shopItems.Clear();
         for(int i = 0; i < layout.childCount; i++)

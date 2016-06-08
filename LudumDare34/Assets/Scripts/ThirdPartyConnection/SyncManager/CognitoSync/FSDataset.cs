@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Amazon.CognitoIdentity;
 using Amazon.CognitoSync.SyncManager;
-using Amazon.Runtime;
 using UnityEngine;
 
 namespace FS.SyncManager.CognitoSync {
