@@ -29,26 +29,41 @@ public class Tutorial : MonoBehaviour {
                         toggledObj;
     public Sprite completedIcon;
 
-    private delegate void TutorialHandler ();
-    private event TutorialHandler tutorialEvent;
+    private delegate void TutorialHandler();
+    private TutorialHandler TutorialEvent;
 
     void Awake() {
-        tutorialEvent = LeftEvent;
+        TutorialEvent = LeftEvent;
     }
 
     void Update() {
-        if(tutorialEvent != null)
-            tutorialEvent();
+        if(TutorialEvent != null)
+            TutorialEvent();
     }
 
+    private float _timeHeld;
+    private float _timeHoldLimit = 2.0f;
     public void LeftEvent() {
         if(TouchController.controller.GetTouch(TouchLocations.Left, 250)) {
-            //First Event Cleared
+            _timeHeld += Time.deltaTime;
+            if (_timeHoldLimit > _timeHeld) {
+                TutorialEvent = RightEvent;
+            }
+        } else {
+            _timeHeld = 0.0f;
         }
     }
 
+    private string displayMessage;
     public void RightEvent() {
-        
+        displayMessage = "Nice Job!";
+
+    }
+
+    public IEnumerable MovementLeft() {
+        yield return new WaitUntil(
+            () => TouchController.controller.GetTouch(TouchLocations.Left, 250)
+        );
     }
 
     /*
