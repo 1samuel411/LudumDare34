@@ -1,15 +1,19 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System;
 using System.Linq;
 
-public class Shop : MonoBehaviour {
+public class Shop : MonoBehaviour
+{
+    public Text currentMoneyText;
     public Text selectedTitleText;
     public Text selectedCostText;
     public Text selectedDescText;
     public Image selectedIconImage;
     public Image selectedCoinsImage;
+
+    public Button buyButton;
 
     public int selectedItem = -1;
     protected bool purchasing;
@@ -24,9 +28,16 @@ public class Shop : MonoBehaviour {
 
     public GameShopItem shopItem;
 
-    void Start() {
+    void Start()
+    {
         itemDatabase = items;
         SelectItem(selectedItem);
+    }
+
+    void Update()
+    {
+        currentMoneyText.text = GameManager.instance.playerDetails.Coins.ToString();
+        buyButton.gameObject.SetActive((shopItem == null) ? false : true);
     }
 
     public void Open()
@@ -36,8 +47,10 @@ public class Shop : MonoBehaviour {
         Close();
         selectedItem = -1;
         layout.position = new Vector2(0, layout.position.y);
-        if (items.Any()) {
-            for (int i = 0; i < items.Length; i++) {
+        if (items.Any())
+        {
+            for (int i = 0; i < items.Length; i++)
+            {
                 GameObject newShopItemObj = Instantiate(Resources.Load("GameShopItem")) as GameObject;
                 newShopItemObj.transform.SetParent(layout);
                 newShopItemObj.transform.position = Vector3.zero;
@@ -54,15 +67,18 @@ public class Shop : MonoBehaviour {
         }
     }
 
-    public void Close() {
+    public void Close()
+    {
         shopItems.Clear();
-        for(int i = 0; i < layout.childCount; i++)
+        for (int i = 0; i < layout.childCount; i++)
             Destroy(layout.GetChild(i).gameObject);
     }
 
-    public void SelectItem(int item) {
+    public void SelectItem(int item)
+    {
         selectedItem = item;
-        if(selectedItem != -1) {
+        if (selectedItem != -1)
+        {
             selectedTitleText.gameObject.SetActive(true);
             selectedCostText.gameObject.SetActive(true);
             selectedDescText.gameObject.SetActive(true);
@@ -74,7 +90,9 @@ public class Shop : MonoBehaviour {
             selectedCostText.text = shopItem.cost.ToString();
             selectedDescText.text = items[selectedItem].desc;
             selectedIconImage.sprite = items[selectedItem].icon;
-        } else {
+        }
+        else
+        {
             selectedTitleText.gameObject.SetActive(false);
             selectedCostText.gameObject.SetActive(false);
             selectedDescText.gameObject.SetActive(false);
@@ -96,19 +114,22 @@ public class Shop : MonoBehaviour {
     public virtual void CallbackPurchase(Popup.ResponseTypes response)
     {
         purchasing = false;
-        if(response == Popup.ResponseTypes.Accepted)
+        if (response == Popup.ResponseTypes.Accepted)
         {
             Debug.Log("Purchasing item...");
-            if(shopItem != null) {
-                if(shopItem.cost > GameManager.instance.playerDetails.Coins) {
+            if (shopItem != null)
+            {
+                if (shopItem.cost > GameManager.instance.playerDetails.Coins)
+                {
                     Debug.Log("Not enough money!");
                     Popup.Create("Not Enough Coins", "You do not have enough coins to afford this item!", "Okay", "", true);
                     return;
                 }
                 Debug.Log("Purchased Items: " + shopItem.shopItem.title);
                 //can this item be bought?
-                if (shopItem.isRepurchasable) {
-                    GameManager.instance.playerDetails.Coins -= shopItem.cost;
+                if (shopItem.isRepurchasable)
+                {
+                    GameManager.instance.playerDetails.Coins -= (int)shopItem.cost;
                     boughtItems.Add(shopItem.index);
                     int xBought = shopItem.shopItem.timesBought + 1;
                     shopItem.SetTimesBought(xBought);
@@ -122,20 +143,24 @@ public class Shop : MonoBehaviour {
     }
 
     //UnParses the CSV Line.
-    public static List<int> GetBoughtItems(string items) {
+    public static List<int> GetBoughtItems(string items)
+    {
         List<int> boughtItems = new List<int>();
         boughtItems.Clear();
-        if (!string.IsNullOrEmpty(items)) {
+        if (!string.IsNullOrEmpty(items))
+        {
             boughtItems = items.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(s => Convert.ToInt32(s.Trim())).ToList();
         }
         return boughtItems;
     }
-    
+
     //Creates a CSV.
-    public static string GetBoughtItemsString(int[] items) {
+    public static string GetBoughtItemsString(int[] items)
+    {
         string itemsBoughtString = string.Empty;
-        for(int i = 0; i < items.Length; i ++) {
+        for (int i = 0; i < items.Length; i++)
+        {
             itemsBoughtString += ((i == 0) ? string.Empty : ",") + items[i];
         }
         return itemsBoughtString;

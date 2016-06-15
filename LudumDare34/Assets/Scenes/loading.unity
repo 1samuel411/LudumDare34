@@ -472,13 +472,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeImg: {fileID: 1137414577}
-  fadeSpeed: 4
+  fadeSpeed: 2
   fadeOut: 0
   fadeImgColor: {r: 0, g: 0, b: 0, a: 0}
   maxLeft: 0
   maxRight: 0
   loading: 1
-  timeToWait: 6
+  timeToWait: 2
   levelToLoad: mainMenu
 --- !u!114 &1461626863
 MonoBehaviour:
