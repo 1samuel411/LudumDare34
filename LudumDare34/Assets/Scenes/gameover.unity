@@ -3895,6 +3895,7 @@ MonoBehaviour:
   voiceImage: {fileID: 879057806}
   musicImage: {fileID: 1192451373}
   soundImage: {fileID: 911637991}
+  googleButton: {fileID: 0}
   musicOnSprite: {fileID: 21300000, guid: 324d62833857d164b8a6a45302867a51, type: 3}
   musicOffSprite: {fileID: 21300000, guid: 31d3341f8b88c14479b43a1302fd22cb, type: 3}
   defaultVolumeVoice: 0

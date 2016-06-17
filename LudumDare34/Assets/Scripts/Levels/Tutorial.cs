@@ -5,105 +5,134 @@ using System.Collections;
 public class Tutorial : MonoBehaviour
 {
 
-    public static Tutorial instance;
-    public bool jumped, 
-                    boosted,
-                    movedLeft,
-                    movedRight, 
-                    strafedLeft, 
-                    strafedRight, 
-                    toggled, 
-                    movingLeft, 
-                    movingRight;
-    public bool finishedTutorial;
-
     public GameObject mainUI;
 
-    public GameObject jumpedObj, 
-                        boostedObj, 
-                        moveLeftObj,
-                        movedRightObj, 
-                        strafedLeftObj, 
-                        strafedRightObj, 
-                        toggledObj;
+    public static Tutorial instance;
+
+    public bool finishedTutorial;
+    private bool finishedTutorialFinal;
+
+    public TutorialStage[] stages;
+    public int currentStage;
+
     public Sprite completedIcon;
+
+    public string levelToLoad;
+
+    private bool enemySpawned;
 
     void Awake()
     {
         instance = this;
-        Debug.Log(InfoManager.NewPlayer());
+    }
 
-        finishedTutorial = (InfoManager.GetInfo("finishedTutorial") == "1");
+    void Start()
+    {
+        LevelManager.instance.wepsEnabled = false;
+        LevelManager.instance.spawnEnemies = false;
+        LevelManager.instance.moveOn = false;
     }
 
     void Update()
     {
-        if (finishedTutorial)
+        if (finishedTutorial && !finishedTutorialFinal)
         {
-            mainUI.SetActive(true);
-            jumpedObj.SetActive(false);
-            boostedObj.SetActive(false);
-            moveLeftObj.SetActive(false);
-            movedRightObj.SetActive(false);
-            strafedLeftObj.SetActive(false);
-            strafedRightObj.SetActive(false);
-            toggledObj.SetActive(false);
+            finishedTutorialFinal = true;
+            for(int i = 0; i < stages.Length; i++)
+            {
+                stages[i].uiObj.SetActive(false);
+            }
+            LevelManager.instance.spawnEnemies = true;
         }
-        else
+
+        if(LevelManager.instance.enemiesKilled == 2 && !enemySpawned)
         {
-            mainUI.SetActive(false);
-            if (!boosted)
-                jumpedObj.SetActive(!jumped);
-            else
-                jumpedObj.SetActive(false);
-            if (jumped)
-                boostedObj.SetActive(!boosted);
-            else if(!boosted)
-                boostedObj.SetActive(false);
+            enemySpawned = true;
+            StartCoroutine(FinishTutorial());
+        }
 
-            if (!strafedLeft)
+        for (int i = 0; i < stages.Length; i++)
+        {
+            stages[i].uiObj.SetActive(!finishedTutorial ? ((i == currentStage) ? true : false) : false);
+
+            LevelManager.instance.spawnEnemies = (!finishedTutorial) ? stages[i].spawnEnemies : true;
+
+            if (stages[i].spawnEnemy && !stages[i].spawnedEnemy && i == currentStage)
             {
-                if (movingLeft)
-                    moveLeftObj.SetActive(false);
-                else
-                    moveLeftObj.SetActive(!movingRight);
+                Debug.Log("Spawn Enemy!");
+                stages[i].spawnedEnemy = true;
+                LevelManager.instance.SpawnEnemyRegardless();
             }
-            else
-                moveLeftObj.SetActive(!movingLeft);
+        }
 
-            if (!strafedRight)
-            {
-                if (movingRight)
-                    movedRightObj.SetActive(false);
-                else
-                    movedRightObj.SetActive(!movingLeft);
-            }
-            else
-                movedRightObj.SetActive(!movingRight);
-
-            toggledObj.SetActive(!toggled);
-
-            strafedRightObj.SetActive(movingLeft);
-            strafedLeftObj.SetActive(movingRight);
-
-            if (strafedRight)
-            {
-                strafedLeftObj.SetActive(false);
-                movedRightObj.SetActive(false);
-            }
-            if (strafedLeft)
-            {
-                strafedRightObj.SetActive(false);
-                moveLeftObj.SetActive(false);
-            }
-
-            if (boosted && strafedLeft && strafedRight && toggled)
+        if (stages[currentStage].completed)
+        {
+            if (stages[currentStage].nextIndex == -1)
             {
                 finishedTutorial = true;
-                InfoManager.SetInfo("finishedTutorial", "1");
-                Notification.Notify("Controller Master!", "Completed the tutorial!", completedIcon);
+            }
+            else
+            {
+                currentStage = stages[currentStage].nextIndex;
             }
         }
     }
 
+    public IEnumerator FinishTutorial()
+    {
+        InfoManager.SetInfo("finishedTutorial", "1");
+        if(GameManager.instance.playerDetails.UnlockedLevels < 1)
+            GameManager.instance.playerDetails.UnlockedLevels = 1;
+        Notification.Notify("Tutorial Master", "Congratualations you have completed the tutorial!", completedIcon);
+        yield return new WaitForSeconds(3);
+        LevelManager.instance.LoadLevel(levelToLoad, false, true);
+    }
+
+    public void CompleteStage(string stageName)
+    {
+        for (int i = 0; i < stages.Length; i++)
+        {
+            if (stages[i].name == stageName)
+            {
+                if (stages[i].spawnEnemy)
+                {
+                    stages[i].spawnedEnemy = true;
+                    LevelManager.instance.SpawnEnemyRegardless();
+                }
+                stages[i].completed = true;
+                break;
+            }
+        }
+    }
+
+    public void GoToStage(string stageName)
+    {
+        for (int i = 0; i < stages.Length; i++)
+        {
+            if (stages[i].name == stageName)
+            {
+                currentStage = stages[i].index;
+                break;
+            }
+        }
+    }
+
+    public void PreviousStage()
+    {
+        currentStage--;
+    }
+
+    [System.Serializable]
+    public struct TutorialStage
+    {
+        public string name;
+        public GameObject uiObj;
+        public int index;
+        public bool completed;
+        public bool spawnEnemies;
+        public bool spawnEnemy;
+        [HideInInspector]
+        public bool spawnedEnemy;
+        public int nextIndex;
+    } 
 }

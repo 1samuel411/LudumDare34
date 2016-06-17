@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
     public Text coinsText;
     public static LevelManager instance;
     public GameObject gameInfoPrefab;
+    public Slider levelBar;
 
     [HideInInspector]
     public PlayerController player;
@@ -43,6 +44,7 @@ public class LevelManager : MonoBehaviour
     public int _wave;
     public bool spawnEnemies;
     public bool spawnNextWave = false;
+    public bool moveOn = true;
 
     public SVGImage[] wepImages;
 
@@ -168,7 +170,9 @@ public class LevelManager : MonoBehaviour
             NextWave();
         }
 
-        if (totalEnmiesInWave <= 0 && Time.time >= waveCooldownTimer)
+        levelBar.value = _wave / 25.0f; 
+
+        if (totalEnmiesInWave <= 0 && Time.time >= waveCooldownTimer && moveOn)
             spawnNextWave = true;
 	}
 
@@ -180,6 +184,9 @@ public class LevelManager : MonoBehaviour
     float randomEnemy;
     private IEnumerator SpawnObjects()
     {
+        if (!spawnEnemies)
+            yield return null;
+
         //while (Tutorial.instance.finishedTutorial == false)
         //{
         //    waveCooldownTimer = Time.time + 1;
@@ -199,9 +206,17 @@ public class LevelManager : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        if(spawnEnemies)
-            poolManager.Spawn(spawnObjects.ElementAt(GetRandomEnemy()));
+        if (!spawnEnemies)
+            return;
+        poolManager.Spawn(spawnObjects.ElementAt(GetRandomEnemy()));
         totalEnmiesInWave++;
+        Debug.Log("Spawning Object");
+    }
+
+    public void SpawnEnemyRegardless()
+    {
+        totalEnmiesInWave++;
+        poolManager.Spawn(spawnObjects.ElementAt(GetRandomEnemy()));
     }
 
     public int GetRandomEnemy()

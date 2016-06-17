@@ -383,7 +383,6 @@ GameObject:
   - 20: {fileID: 1461626860}
   - 92: {fileID: 1461626859}
   - 124: {fileID: 1461626858}
-  - 81: {fileID: 1461626857}
   - 114: {fileID: 1461626862}
   - 114: {fileID: 1461626863}
   m_Layer: 0
@@ -393,13 +392,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1461626857
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1461626856}
-  m_Enabled: 1
 --- !u!124 &1461626858
 Behaviour:
   m_ObjectHideFlags: 0
@@ -423,7 +415,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.0627451, g: 0.06666667, b: 0.06666667, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0

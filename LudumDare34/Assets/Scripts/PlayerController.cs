@@ -17,6 +17,13 @@ public class PlayerController : BaseEntity {
     public float hardLandingSize = 3;
     public float hardLandingForce = 3;
 
+    // Landing
+    public bool landed;
+
+    // Toggling
+    public float toggleTimer = 0.5f;
+    public float toggleTime;
+
     // Moving
     private bool _holdingLeftKey;
     private bool _holdingRightKey;
@@ -146,6 +153,7 @@ public class PlayerController : BaseEntity {
                     _strafingAnim = true;
                     maxVelocity = originalMaxVelocity * 0.6f;
                     MoveRight(true, 1);
+                    Tutorial.instance.CompleteStage("StrafeRight");
                 }
             }
             else
@@ -173,6 +181,7 @@ public class PlayerController : BaseEntity {
                         maxVelocity = originalMaxVelocity;
                         _strafingAnim = false;
                         MoveLeft();
+                        Tutorial.instance.CompleteStage("MoveLeft");
                     }
                 }
                 else
@@ -208,6 +217,8 @@ public class PlayerController : BaseEntity {
                     _strafingAnim = true;
                     maxVelocity = originalMaxVelocity * 0.6f;
                     MoveLeft(true, -1);
+                    Tutorial.instance.CompleteStage("StrafeLeft");
+                    return;
                 }
             }
             else
@@ -235,6 +246,7 @@ public class PlayerController : BaseEntity {
                         maxVelocity = originalMaxVelocity;
                         _strafingAnim = false;
                         MoveRight();
+                    Tutorial.instance.CompleteStage("MoveRight");
                     }
                 }
                 else
@@ -248,6 +260,15 @@ public class PlayerController : BaseEntity {
             _holdingRightKey = false;
         }
 
+        if (Tutorial.instance.stages[Tutorial.instance.currentStage].name == "StrafeLeft" && !_holdingLeftKey)
+        {
+            Tutorial.instance.GoToStage("MoveLeft");
+        }
+
+        if (Tutorial.instance.stages[Tutorial.instance.currentStage].name == "StrafeRight" && !_holdingRightKey)
+        {
+            Tutorial.instance.GoToStage("MoveRight");
+        }
 
         // Jumping
         if (canJump && !isJumping)
@@ -273,6 +294,8 @@ public class PlayerController : BaseEntity {
                     animator.SetTrigger("jump");
                     rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
                     Jump();
+                    Tutorial.instance.CompleteStage("Jump");
+                    landed = false;
                     _holdingKeys = false;
                 }
                 else
@@ -291,6 +314,8 @@ public class PlayerController : BaseEntity {
                 animator.SetTrigger("jump");
                 rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
                 Jump();
+                Tutorial.instance.CompleteStage("Jump");
+                landed = false;
                 _holdingKeys = false;
             }
         }
@@ -311,6 +336,7 @@ public class PlayerController : BaseEntity {
                 if (_curHoldTimeJump > _targetHoldTimeJump) {
                     // Jump
                     BoostDown(2);
+                    Tutorial.instance.CompleteStage("Boost");
                     _holdingKeys = false;
                 } else {
                     _curHoldTimeJump = Time.time;
@@ -323,12 +349,27 @@ public class PlayerController : BaseEntity {
             if (TouchController.controller.GetSwipe(SwipeLocations.Down)) {
                 // Jump
                 BoostDown(2);
+                Tutorial.instance.CompleteStage("Boost");
                 _holdingKeys = false;
             }
         }
 
+        if(Tutorial.instance.stages[Tutorial.instance.currentStage].name == "Boost" && grounded)
+        {
+            Tutorial.instance.GoToStage("Jump");
+        }
+
+        if(Input.GetKeyDown(toggleWeaponKey) || TouchController.controller.GetTouchUp(TouchLocations.Down, 250, 120))
+        {
+            if (Tutorial.instance.stages[Tutorial.instance.currentStage].name != "WeaponToggle" && !Tutorial.instance.finishedTutorial)
+                return;
+            Tutorial.instance.CompleteStage("WeaponToggle");
+            toggleTimer = toggleTime + Time.time;
+            LevelManager.instance.wepsEnabled = !LevelManager.instance.wepsEnabled;
+        }
+
         //change this to delegate call!
-        if(weapon.wepEnabled)
+        if (weapon.wepEnabled)
             if (!weapon.weaponAttribute.CheckIfWeaponAvailable())
             {
                 EquipNextWeapon(weapon);
