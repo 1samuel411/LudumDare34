@@ -663,6 +663,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IdentityPoolId: 
+  CognitoPoolRegion: us-east-1
+  DynamoRegion: us-east-1
   backButton: {fileID: 1216566832}
   createTableButton: {fileID: 1986945662}
   listTableButton: {fileID: 949987654}

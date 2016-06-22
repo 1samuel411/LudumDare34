@@ -175,7 +175,7 @@ MonoBehaviour:
   knockbackForce: 5.42
   knockbackTime: 0.11
   projectileSpeed: 20
-  bulletLife: 0.4
+  bulletLife: 0.34
   impactAmounts: 2
 --- !u!114 &11463762
 MonoBehaviour:
@@ -246,7 +246,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: bulletLife
-      value: 0.4
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damage

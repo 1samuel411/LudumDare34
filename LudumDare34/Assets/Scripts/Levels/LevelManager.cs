@@ -288,6 +288,17 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void LoadMainMenuFromGame()
+    {
+        Popup.Create("Return to Menu?", "If you leave you will lose all data that has not been saved!", "Accept", "Return", false, CallbackLoadMenuFromGame);
+    }
+
+    void CallbackLoadMenuFromGame(Popup.ResponseTypes response)
+    {
+        if(response == Popup.ResponseTypes.Accepted)
+            LoadLevel("mainMenu", false, true);
+    }
+
     IEnumerator FadeOutAndLoad(string levelName)
     {
         CameraManager.instance.FadeOut();

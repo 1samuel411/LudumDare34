@@ -647,6 +647,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IdentityPoolId: 
+  CognitoPoolRegion: us-east-1
+  DynamoRegion: us-east-1
   resultText: {fileID: 1523469811}
   back: {fileID: 90922945}
   createOperation: {fileID: 1667531101}

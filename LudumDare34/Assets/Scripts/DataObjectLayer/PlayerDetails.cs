@@ -6,8 +6,7 @@ public class PlayerDetails : BaseAmazonDataset {
 
     public PlayerDetails(Dataset dataset)
         : base(dataset) {
-        _timeNeededHours = 0;
-        _timeUsed = 0;
+        _timeNeeded = new DateTime();
         _coins = 0;
         _maxKills = 0;
         _highScore = 0;
@@ -16,20 +15,17 @@ public class PlayerDetails : BaseAmazonDataset {
 
     protected override void Initialize() {
         _coins = GetPropertyValueInt("Coins");
-        _timeNeededHours = GetPropertyValueInt("TimeNeededHours");
-        _timeUsed = GetPropertyValueInt("TimeUsed");
+        _timeNeeded = GetPropertyValueDateTime("TimeNeeded");
         _maxKills = GetPropertyValueInt("MaxKills");
         _highScore = GetPropertyValueInt("HighScore");
         _unlockedLevels = GetPropertyValueInt("UnlockedLevels");
     }
 
     private int _coins;
-    private int _timeNeededHours;
-    private int _timeUsed;
+    private DateTime _timeNeeded;
     private int _maxKills;
     private int _highScore;
     private int _unlockedLevels;
-    private DateTime _currentTime;
 
     public int Coins {
         get { return _coins; }
@@ -41,23 +37,15 @@ public class PlayerDetails : BaseAmazonDataset {
         }
     }
 
-    public int TimeNeededHours {
-        get { return _timeNeededHours; }
-        set {
-            if (value != _timeNeededHours) {
-                _timeNeededHours = value;
-                TimeUsed = value; //Reset the time used with the time Needed.
-                PropertyValueChange("TimeNeededHours", value);
-            }
-        }
-    }
-
-    public int TimeUsed {
-        get { return _timeUsed; }
-        set {
-            if (value != _timeUsed) {
-                _timeUsed = value;
-                PropertyValueChange("TimeUsed", value);
+    public DateTime TimeNeeded
+    {
+        get { return _timeNeeded; }
+        set
+        {
+            if (TimeNeeded != value)
+            {
+                _timeNeeded = value;
+                PropertyValueChange("TimeNeeded", value);
             }
         }
     }
@@ -88,16 +76,6 @@ public class PlayerDetails : BaseAmazonDataset {
             if (_unlockedLevels != value) {
                 _unlockedLevels = value;
                 SyncPropertyChange("UnlockedLevels", value);
-            }
-        }
-    }
-
-    public DateTime CurrentTime {
-        get { return _currentTime; }
-        set {
-            if (CurrentTime != value) {
-                _currentTime = value;
-                PropertyValueChange("CurrentTime", value);
             }
         }
     }

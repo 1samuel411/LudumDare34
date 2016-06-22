@@ -282,6 +282,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IdentityPoolId: 
+  CognitoPoolRegion: us-east-1
+  DynamoRegion: us-east-1
   back: {fileID: 2049227834}
   loadTable: {fileID: 1135822103}
   findRepliesInLast15DaysWithConfig: {fileID: 870929412}

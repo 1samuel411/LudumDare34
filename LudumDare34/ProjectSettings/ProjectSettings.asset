@@ -158,7 +158,7 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Development/LudumDare34/Builds/user.keystore
+  AndroidKeystoreName: D:/Dropbox/Dropbox/UNITYSTUFF/KeyStores/BearGame/user.keystore
   AndroidKeyaliasName: game
   AndroidTVCompatibility: 1
   AndroidIsGame: 1

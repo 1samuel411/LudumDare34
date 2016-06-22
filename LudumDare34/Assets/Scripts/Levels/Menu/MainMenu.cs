@@ -57,24 +57,12 @@ public class MainMenu : MonoBehaviour
         // Ad Timer
         if (coinTimerChecked)
         {
-            GameManager.instance.playerDetails.CurrentTime = System.DateTime.UtcNow;
+            TimeSpan timeSpan = CalculateTimeDifference(timeNeeded, System.DateTime.UtcNow);
+            TimeSpan displayTimeSpan = timeNeeded - System.DateTime.UtcNow;
 
-            DateTime timeNeededDateTime = new DateTime();
-            timeNeededDateTime = Convert.ToDateTime(GameManager.instance.playerDetails.TimeNeededHours + ":00");
+            timeLeftCoinsText.text = (displayTimeSpan.Hours) + ":" + (displayTimeSpan.Minutes) + ":" + (displayTimeSpan.Seconds);
 
-            TimeSpan timeSpan = new TimeSpan();
-            timeSpan = CalculateTimeDifference(GameManager.instance.playerDetails.CurrentTime, timeUsed);
-            DateTime timeSpanDateTime = new DateTime();
-            if (timeSpan.Hours >= 0)
-                timeSpanDateTime = Convert.ToDateTime(timeSpan.Hours + ":" + timeSpan.Minutes);
-
-            TimeSpan displayTimeSpan = timeNeededDateTime - timeSpanDateTime;
-
-            timeLeftCoinsText.text = "Hours: " + (displayTimeSpan.Hours) + "  Minutes: " + (displayTimeSpan.Minutes);
-
-            if(GameManager.instance.playerDetails.TimeNeededHours <= 0 || (displayTimeSpan.Hours < 0 || displayTimeSpan.Minutes < 0 ||
-                (displayTimeSpan.Hours == 0 && displayTimeSpan.Minutes == 0)) ||
-                timeSpan.TotalHours > GameManager.instance.playerDetails.TimeNeededHours)
+            if((timeSpan.Hours <= 0 && timeSpan.Minutes <= 0 && timeSpan.Seconds <= 0) || timeNeeded == new DateTime())
             {
                 timeLeftCoinsText.text = "Ready!";
                 watchAdsButton.interactable = true;
@@ -101,13 +89,18 @@ public class MainMenu : MonoBehaviour
     }
     private bool coinTimerChecked;
 
-    public DateTime timeUsed;
+    private int timeNeededHours = 4;
+    private DateTime timeNeeded;
 
     public void CheckCoinTimer()
     {
         coinTimerChecked = true;
-        string currentServerTime = System.DateTime.UtcNow.ToString();
-        GameManager.instance.playerDetails.CurrentTime = Convert.ToDateTime(currentServerTime);
+        timeNeeded = GameManager.instance.playerDetails.TimeNeeded;
+    }
+
+    public void Sync()
+    {
+        GameManager.instance.playerDetails.SynchronizeData();
     }
 
     public void RewardCallback(ShowResult result)
@@ -117,7 +110,9 @@ public class MainMenu : MonoBehaviour
             case ShowResult.Finished:
                 Debug.Log("The ad was successfully shown.");
                 GameManager.instance.playerDetails.Coins += 20;
-                GameManager.instance.playerDetails.TimeNeededHours = 4;
+                DateTime newTime = System.DateTime.UtcNow.AddHours(timeNeededHours);
+                GameManager.instance.playerDetails.TimeNeeded = newTime;
+                timeNeeded = newTime;
                 break;
             case ShowResult.Skipped:
                 Debug.Log("The ad was skipped before reaching the end.");
