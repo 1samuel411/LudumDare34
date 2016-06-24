@@ -11,6 +11,9 @@ public class OptionSettings : BaseAmazonDataset {
      */
     public OptionSettings(Dataset dataset) 
         : base(dataset) {
+        _voiceEnabled = true;
+        _musicEnabled = true;
+        _effectEnabled = true;
     }
 
     protected override void Initialize() {

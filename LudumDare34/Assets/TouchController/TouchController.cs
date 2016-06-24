@@ -18,6 +18,7 @@ public class TouchController : MonoBehaviour
         touchControllerObj.name = "TouchController";
         touchControllerObj.AddComponent<TouchController>();
         controller = touchControllerObj.GetComponent<TouchController>();
+        DontDestroyOnLoad(touchControllerObj);
     }
 
     void InitializeConfirm()
@@ -74,7 +75,11 @@ public class TouchController : MonoBehaviour
         bool swiped = false;
         if (!tapInitialized || Time.time > swipeTimer || !ended)
             return false;
-
+        if(location == SwipeLocations.Up)
+        {
+            Debug.Log(difference.y);
+            Debug.Log(swipeDifference);
+        }
         if (location == SwipeLocations.Down && difference.y <= -swipeDifference)
             swiped = true;
         else if (location == SwipeLocations.Up && difference.y >= swipeDifference)
@@ -168,8 +173,6 @@ public class TouchController : MonoBehaviour
     {
         if (Input.touchCount <= 0)
             return false;
-
-        Debug.Log(xIgnoreDist);
 
         bool touching = false;
         for (int i = 0; i < Input.touches.Length; i++)

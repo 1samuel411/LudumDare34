@@ -276,6 +276,7 @@ public class PlayerController : BaseEntity {
                 Tutorial.instance.GoToStage("MoveRight");
             }
 
+        Debug.Log("HI0");
         // Jumping
         if (canJump && !isJumping)
         {
@@ -314,9 +315,11 @@ public class PlayerController : BaseEntity {
             {
                 _holdingKeys = false;
             }
+            Debug.Log("HI12");
 
-            if(TouchController.controller.GetSwipe(SwipeLocations.Up))
+            if (TouchController.controller.GetSwipe(SwipeLocations.Up))
             {
+                Debug.Log("HI1");
                 // Jump
                 animator.SetTrigger("jump");
                 rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
@@ -327,6 +330,7 @@ public class PlayerController : BaseEntity {
                 _holdingKeys = false;
             }
         }
+        Debug.Log("HI2");
 
         // Boost down
         if (isJumping && airTime > targetAirTimeBoost && !isBoosting) {
@@ -356,9 +360,11 @@ public class PlayerController : BaseEntity {
             }
 
             if (TouchController.controller.GetSwipe(SwipeLocations.Down)) {
+                Debug.Log("HI3");
                 // Jump
                 BoostDown(2);
-                Tutorial.instance.CompleteStage("Boost");
+                if (Tutorial.instance)
+                    Tutorial.instance.CompleteStage("Boost");
                 _holdingKeys = false;
             }
         }

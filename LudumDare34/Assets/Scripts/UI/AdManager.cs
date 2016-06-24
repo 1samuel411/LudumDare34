@@ -25,12 +25,6 @@ public class AdManager : MonoBehaviour
         }
     }
 
-    void OnLevelWasLoaded(int level)
-    {
-        if(level == 0)
-            GameObject.Destroy(GameObject.Find("AdManagerObject"));
-    }
-
     public void ShowRewardedAd(Action<ShowResult> callback = null)
     {
         Debug.Log("Showing ad...");

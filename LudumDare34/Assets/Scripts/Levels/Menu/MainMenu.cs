@@ -60,7 +60,7 @@ public class MainMenu : MonoBehaviour
             TimeSpan timeSpan = CalculateTimeDifference(timeNeeded, System.DateTime.UtcNow);
             TimeSpan displayTimeSpan = timeNeeded - System.DateTime.UtcNow;
 
-            timeLeftCoinsText.text = (displayTimeSpan.Hours) + ":" + (displayTimeSpan.Minutes) + ":" + (displayTimeSpan.Seconds);
+            timeLeftCoinsText.text = (timeSpan.Hours) + ":" + (timeSpan.Minutes) + ":" + (timeSpan.Seconds);
 
             if((timeSpan.Hours <= 0 && timeSpan.Minutes <= 0 && timeSpan.Seconds <= 0) || timeNeeded == new DateTime())
             {

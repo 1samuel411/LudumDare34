@@ -85,6 +85,7 @@ public class Tutorial : MonoBehaviour
             GameManager.instance.playerDetails.UnlockedLevels = 1;
         Notification.Notify("Tutorial Master", "Congratualations you have completed the tutorial!", completedIcon);
         yield return new WaitForSeconds(3);
+        Tutorial.instance = null;
         LevelManager.instance.LoadLevel(levelToLoad, false, true);
     }
 

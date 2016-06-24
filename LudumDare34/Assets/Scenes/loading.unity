@@ -484,6 +484,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915dfad78f183674797fd1f27108f5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1720005401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1720005403}
+  - 114: {fileID: 1720005402}
+  m_Layer: 0
+  m_Name: AdManagerObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1720005402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1720005401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec74afb89ec20694faddd25e4aae6d8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1720005403
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1720005401}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -2.915501, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
 --- !u!1 &1830687848
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,8 +555,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -52.1, y: 47.1}
-  m_SizeDelta: {x: 83.57, y: 176.5}
+  m_AnchoredPosition: {x: -75, y: 76}
+  m_SizeDelta: {x: 143, y: 302}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!111 &1830687850
 Animation:
