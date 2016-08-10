@@ -7,7 +7,7 @@ using SVGImporter;
 public class BaseHealth : MonoBehaviour, IDamageable
 {
 
-    public enum Type { player, bat, skull, spider, cloud };
+    public enum Type { player, bat, skull, spider, cloud, boss };
     public Type type;
     
     public int currentHealth = 1;
@@ -75,21 +75,31 @@ public class BaseHealth : MonoBehaviour, IDamageable
 
     void Update()
     {
-        if(type == Type.player)
+        if (type == Type.player || type == Type.boss)
         {
             animator.SetBool("dead", _died);
-            LevelManager.instance.healthImage.fillAmount = (float) currentHealth / (float)maxHealth;
+            if (type == Type.player)
+                LevelManager.instance.healthImage.fillAmount = (float)currentHealth / (float)maxHealth;
+            else
+            {
+                if (_died)
+                {
+                    gameObject.layer = 12;
+                    gameObject.tag = "Untagged";
+                }
+            }
         }
-        else if(dissolving)
+        else if (dissolving)
         {
             _dissolveTime += dissolveSpeed * Time.deltaTime;
-            for(int i = 0; i < renderers.Length; i ++) {
+            for (int i = 0; i < renderers.Length; i++)
+            {
                 Color newColor = renderers[i].color;
                 newColor.a = newColor.a - _dissolveTime;
                 renderers[i].color = newColor;
             }
 
-            if(_dissolveTime > 1)
+            if (_dissolveTime > 1)
             {
                 DestroyThisObject();
             }
@@ -102,10 +112,13 @@ public class BaseHealth : MonoBehaviour, IDamageable
         if(type != Type.player && type != Type.skull)
         {
             maxHealth = (defaultHealth * (LevelManager.instance._wave/2));
-            maxHealth = Mathf.Clamp(maxHealth, 1, 8); 
+            //maxHealth = Mathf.Clamp(maxHealth, 1, 8); 
         }
         currentHealth = maxHealth;
         _died = false;
+
+        if (type == Type.boss)
+            currentHealth = 20000;
     }
 
     #region IDamageable Members
@@ -124,7 +137,7 @@ public class BaseHealth : MonoBehaviour, IDamageable
             CameraManager.ZoomIn(8, 2.4f, 4, 0.3f, transform.position, 5, 0.5f);
 
             int zoomInDecider = Random.Range(0, 100);
-            if (zoomInDecider > 60)
+            if (zoomInDecider > 90)
             {
                 VoiceManager.instance.PlayDamagedSound();
             }
@@ -154,6 +167,12 @@ public class BaseHealth : MonoBehaviour, IDamageable
 
     public virtual void SpawnDeath()
     {
+        if (type == Type.boss)
+        {
+            Notification.Notify("Slayer", "You finished the nightmare spawner! But the nightmares keep spawning?");
+            StartCoroutine(LotOfCoinsSpawn());
+            return;
+        }
         if (SpawnWeapon())
         {
             SpawnObject obj = _poolManager.RandomWeapon();
@@ -166,6 +185,17 @@ public class BaseHealth : MonoBehaviour, IDamageable
             spawnedCoin.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-3, 3), Random.Range(3, 6)), ForceMode2D.Impulse);
         }
 
+    }
+
+    public IEnumerator LotOfCoinsSpawn()
+    {
+        for (int i = 0; i < 200; i++)
+        {
+            SpawnObject spawnedCoin = LevelManager.instance.poolManager.SpawnAt(LevelManager.instance.coinsSpawnObj, this.transform);
+            spawnedCoin.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-3, 3), Random.Range(3, 6)), ForceMode2D.Impulse);
+            yield return new WaitForSeconds(0.1f);
+        }
+        LevelManager.instance.totalEnmiesInWave--;
     }
 
     protected bool SpawnWeapon()
@@ -217,8 +247,13 @@ public class BaseHealth : MonoBehaviour, IDamageable
                 dissolving = true;
 
             //gameObject.layer = 12;
-
-            if (type == Type.bat || type == Type.spider || type == Type.bat)
+            if (type == Type.boss)
+            {
+                if (GameManager.instance.playerDetails.UnlockedLevels < 3)
+                    GameManager.instance.playerDetails.UnlockedLevels = 3;
+                SpawnDeath();
+            }
+            if (type == Type.bat || type == Type.spider)
             {
                 LevelManager.instance.totalEnmiesInWave--;
                 SpawnDeath();

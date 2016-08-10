@@ -32,6 +32,15 @@ public class Gameover : MonoBehaviour
     void Start()
     {
         info = GameObject.FindGameObjectWithTag("GameInfo").GetComponent<GameInfo>();
+        GameManager.instance.playerDetails.Coins += info.coins;
+        GameManager.instance.playerDetails.MaxKills += info.enemiesKilled;
+        GameManager.instance.playerDetails.HighScore += info.score;
+
+        if (GameManager.instance.playerDetails.UnlockedLevels < SceneManager.GetSceneByName(info.lastLevel).buildIndex)
+        {
+            GameManager.instance.playerDetails.UnlockedLevels = SceneManager.GetSceneByName(info.lastLevel).buildIndex;
+        }
+
         Notification.Notify("Congrats", "Wave " + info.wave);
 
         InfoManager.SetInfo("coins", info.coins.ToString());

@@ -20,7 +20,9 @@ public class SkullEnemy : BaseEntity
         hitFloorOnce = false;
         if (!baseHealth)
             baseHealth = GetComponent<BaseHealth>();
-        
+
+        canScale = true;
+
         base.OnEnable();
     }
 

@@ -14,6 +14,7 @@ TagManager:
   - PoolManager
   - SpawnHandler
   - GameInfo
+  - BossSpawner
   layers:
   - Default
   - TransparentFX
@@ -34,8 +35,8 @@ TagManager:
   - Platform
   - CloudBorder
   - ParticleUI
-  - 
-  - 
+  - Chain
+  - Axe
   - 
   - 
   - 

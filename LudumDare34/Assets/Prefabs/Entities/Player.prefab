@@ -2609,8 +2609,10 @@ MonoBehaviour:
   baseHealth: {fileID: 0}
   rigidbody: {fileID: 0}
   transform: {fileID: 0}
+  scaleTransform: {fileID: 0}
   audio: {fileID: 0}
   soundEffects: []
+  canBeKnockedback: 1
   leftKey: 97
   rightKey: 100
   jumpKey: 32
@@ -2621,6 +2623,11 @@ MonoBehaviour:
   hardLandingExplosion: {fileID: 196310, guid: daf3a838b6d884b4e891deba629c4b70, type: 2}
   hardLandingSize: 2.07
   hardLandingForce: 11.5
+  landed: 0
+  toggleTimer: 0.5
+  toggleTime: 0
+  canToggleWeapon: 1
+  cinematic: 0
   boostDamage: 1
   weaponHandler: {fileID: 11466016}
   weapon: {fileID: 11471006}

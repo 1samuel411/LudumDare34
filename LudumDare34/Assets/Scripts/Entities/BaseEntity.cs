@@ -9,7 +9,7 @@ public class BaseEntity : MonoBehaviour
 
     // 1 is left || -1 is right
     public int direction = 1;
-
+    
     // Face
     public bool faceCheck = false;
     public LayerMask faceCheckMask;
@@ -70,10 +70,14 @@ public class BaseEntity : MonoBehaviour
     public new Rigidbody2D rigidbody;
     [HideInInspector]
     public new Transform transform;
+    public Transform scaleTransform;
     [HideInInspector]
     public new AudioSource audio;
 
     public AudioClip[] soundEffects;
+
+    [HideInInspector]
+    public bool canBeKnockedback = true;
 
     public virtual void Awake()
     {
@@ -83,6 +87,9 @@ public class BaseEntity : MonoBehaviour
         transform = GetComponent<Transform>();
         baseHealth = GetComponent<BaseHealth>();
         audio = GetComponent<AudioSource>();
+
+        if(!scaleTransform)
+            scaleTransform = transform;
 
         _poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<extWepPoolManager>();
         AwakeMethod();
@@ -148,7 +155,7 @@ public class BaseEntity : MonoBehaviour
         // Update our scale based on direction
         if (canScale)
         {
-            transform.localScale = new Vector3(direction, 1, 1);
+            scaleTransform.localScale = new Vector3(direction, 1, 1);
         }
 
         // Restrict speed
@@ -234,7 +241,7 @@ public class BaseEntity : MonoBehaviour
             rigidbody.AddForce(new Vector2((speed == -1) ? this.speed : speed, 0) * Time.deltaTime, ForceMode2D.Impulse);
     }
 
-    public void Jump()
+    public void Jump(float speed = -1)
     {
         // Disable movement
         canJump = false;
@@ -244,7 +251,7 @@ public class BaseEntity : MonoBehaviour
         targetAirTime = Time.time + airTimeNeeded;
         targetAirTimeBoost = Time.time + airTimeNeededToBoostDown;
 
-        float amount = (jumpHeight * jumpSpeed);
+        float amount = (jumpHeight * ((speed == -1) ? jumpSpeed : speed));
         // Give air boost
         rigidbody.AddForce(new Vector2(0, amount) , ForceMode2D.Impulse);
     }
@@ -276,6 +283,8 @@ public class BaseEntity : MonoBehaviour
 
     public void Knockback(float force, float recoverTime, int inputDir)
     {
+        if (!canBeKnockedback)
+            return;
         _targetRecoverTime = Time.time + recoverTime;
         _currentRecoverTime = Time.time;
         canMove = false;

@@ -39,6 +39,9 @@ public class MainMenu : MonoBehaviour
     public void Awake()
     {
         instance = this;
+
+        if (Tutorial.instance)
+            Tutorial.instance = null;
     }
 
     public void Update()

@@ -37,7 +37,14 @@ public class Shop : MonoBehaviour
     void Update()
     {
         currentMoneyText.text = GameManager.instance.playerDetails.Coins.ToString();
-        buyButton.gameObject.SetActive((shopItem == null) ? false : true);
+        if (selectedItem == -1)
+        {
+            buyButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            buyButton.gameObject.SetActive(true);
+        }
     }
 
     public void Open()
@@ -45,7 +52,6 @@ public class Shop : MonoBehaviour
         boughtItems = GetBoughtItems(GameManager.instance.playerPurchases.Bought);
         Debug.Log("boughtItems: " + boughtItems.Count);
         Close();
-        selectedItem = -1;
         layout.position = new Vector2(0, layout.position.y);
         if (items.Any())
         {

@@ -39,6 +39,7 @@ public class LevelManager : MonoBehaviour
     public int enemiesKilled;
     public int coins;
     private int _skySpawner;
+    private int _bossSpawner;
     private int _groundSpawner;
     private int _weaponSpawner;
     public int _wave;
@@ -63,6 +64,12 @@ public class LevelManager : MonoBehaviour
     public int pistolDamageAddition;
     public int healthAddition;
 
+    public int maxLevel = 25;
+
+    public AudioSource musicPlayer;
+
+    private Transform bossSpawner;
+
     [System.Serializable]
     public struct Enemy
     {
@@ -78,6 +85,7 @@ public class LevelManager : MonoBehaviour
 	    coins = 0; //Int32.Parse(InfoManager.GetInfo("coins"));
         spawnNextWave = false;
 	    poolManager = GameObject.FindGameObjectWithTag("PoolManager").GetComponent<PoolManager>();
+        bossSpawner = GameObject.FindGameObjectWithTag("BossSpawner").transform;
         spawnObjects = new List<SpawnObject>();
         coinsSpawnObj = poolManager.AddToSpawnPool(coinObj);
         explosionSpawnObj = poolManager.AddToSpawnPool(explosionObj);
@@ -85,6 +93,8 @@ public class LevelManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         InitializeEnemySpawners();
         InitializeEffectSpawners();
+
+        musicPlayer = GameObject.Find("moosic").GetComponent<AudioSource>();
     }
 
     void Start() {
@@ -125,13 +135,16 @@ public class LevelManager : MonoBehaviour
         };
         _skySpawner = CreateSpawnHandlers(enemySpawnerType.SkySpawner.ToString(), sph);
         _groundSpawner = CreateSpawnHandlers(enemySpawnerType.GroundSpawner.ToString(), sph);
+        _bossSpawner = CreateSpawnHandlers(enemySpawnerType.BossSpawner.ToString(), sph);
 
-        foreach(var enemy in enemies) {
+        foreach (var enemy in enemies) {
             SpawnObject sObj = new SpawnObject();
             if (enemy.spawnerType == enemySpawnerType.GroundSpawner)
                 sObj = poolManager.AddToSpawnPool(enemy.prefab, _groundSpawner);
             else if (enemy.spawnerType == enemySpawnerType.SkySpawner)
                 sObj = poolManager.AddToSpawnPool(enemy.prefab, _skySpawner);
+            else if (enemy.spawnerType == enemySpawnerType.BossSpawner)
+                sObj = poolManager.AddToSpawnPool(enemy.prefab, _bossSpawner);
             spawnObjects.Add(sObj);
         }
         Debug.Log("Initialized was successful!");
@@ -166,9 +179,9 @@ public class LevelManager : MonoBehaviour
         scoreText.text = score.ToString();
         coinsText.text = coins.ToString();
         if(spawnNextWave) {
-            curWaveText.text = _wave.ToString();
             NextWave();
         }
+        curWaveText.text = _wave.ToString();
 
         levelBar.value = _wave / 25.0f; 
 
@@ -196,19 +209,30 @@ public class LevelManager : MonoBehaviour
         spawnNextWave = false;
         waveCooldownTimer = 99999999999;
 
-        for (int l = 0; l < (_wave^4); l++)
+        if (_wave == maxLevel)
         {
-            yield return new WaitForSeconds(enemySpawnTime);
-            SpawnEnemy();
+            SpawnEnemy(enemies.Count() - 1);
+        }
+        else
+        {
+            for (int l = 0; l < (_wave ^ 4); l++)
+            {
+                yield return new WaitForSeconds(enemySpawnTime);
+                SpawnEnemy();
+            }
         }
         waveCooldownTimer = Time.time + 2;
     }
 
-    public void SpawnEnemy()
+    public void SpawnEnemy(int enemy = -1)
     {
         if (!spawnEnemies)
             return;
-        poolManager.Spawn(spawnObjects.ElementAt(GetRandomEnemy()));
+        if(enemy != -1)
+        {
+            bossSpawner.position = player.transform.position + new Vector3((player.transform.position.x < 0) ? 5 : -5, 15);
+        }
+        poolManager.Spawn(spawnObjects.ElementAt((enemy == -1) ? GetRandomEnemy() : enemy));
         totalEnmiesInWave++;
         Debug.Log("Spawning Object");
     }
@@ -223,19 +247,22 @@ public class LevelManager : MonoBehaviour
     {
         int newEnemy = 0;
         range = 0;
-        for (int i = 0; i < enemies.Count(); i++)
+        for (int i = 0; i < enemies.Count() - 1; i++)
             range += enemies[i].rarity;
 
         randomEnemy = UnityEngine.Random.Range(0.0f, range);
         current = 0;
-        for (int i = 0; i < enemies.Count(); i++)
+        for (int i = 0; i < enemies.Count() -1; i++)
         {
             current += enemies[i].rarity;
             if (randomEnemy < current)
             {
                 if (_wave >= enemies[i].minWave)
                 {
-                    newEnemy = i;
+                    if(enemies[i].minWave == maxLevel)
+                        newEnemy = GetRandomEnemy();
+                    else
+                        newEnemy = i;
                 }
                 else
                 {
@@ -309,5 +336,6 @@ public class LevelManager : MonoBehaviour
 }
 public enum enemySpawnerType {
     SkySpawner = 0,
-    GroundSpawner = 1
+    GroundSpawner = 1,
+    BossSpawner = 2
 }

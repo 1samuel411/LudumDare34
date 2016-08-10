@@ -23,6 +23,8 @@ public class PlayerController : BaseEntity {
     // Toggling
     public float toggleTimer = 0.5f;
     public float toggleTime;
+    public bool canToggleWeapon = true;
+    public bool cinematic = false;
 
     // Moving
     private bool _holdingLeftKey;
@@ -82,7 +84,7 @@ public class PlayerController : BaseEntity {
             animator.SetBool("oneHanded", false);
         }
         animator.SetBool("strafing", _strafingAnim);
-        if (baseHealth._died)
+        if (baseHealth._died || cinematic)
             return;
 
         // Hard landing
@@ -276,7 +278,6 @@ public class PlayerController : BaseEntity {
                 Tutorial.instance.GoToStage("MoveRight");
             }
 
-        Debug.Log("HI0");
         // Jumping
         if (canJump && !isJumping)
         {
@@ -301,10 +302,12 @@ public class PlayerController : BaseEntity {
                     animator.SetTrigger("jump");
                     rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
                     Jump();
-                    if (Tutorial.instance)
-                        Tutorial.instance.CompleteStage("Jump");
+                    
                     landed = false;
                     _holdingKeys = false;
+
+                    if (Tutorial.instance)
+                        Tutorial.instance.CompleteStage("Jump");
                 }
                 else
                 {
@@ -315,22 +318,21 @@ public class PlayerController : BaseEntity {
             {
                 _holdingKeys = false;
             }
-            Debug.Log("HI12");
 
             if (TouchController.controller.GetSwipe(SwipeLocations.Up))
             {
-                Debug.Log("HI1");
                 // Jump
                 animator.SetTrigger("jump");
                 rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
                 Jump();
-                if (Tutorial.instance)
-                    Tutorial.instance.CompleteStage("Jump");
+                
                 landed = false;
                 _holdingKeys = false;
+
+                if (Tutorial.instance)
+                    Tutorial.instance.CompleteStage("Jump");
             }
         }
-        Debug.Log("HI2");
 
         // Boost down
         if (isJumping && airTime > targetAirTimeBoost && !isBoosting) {
@@ -360,7 +362,6 @@ public class PlayerController : BaseEntity {
             }
 
             if (TouchController.controller.GetSwipe(SwipeLocations.Down)) {
-                Debug.Log("HI3");
                 // Jump
                 BoostDown(2);
                 if (Tutorial.instance)
@@ -376,7 +377,7 @@ public class PlayerController : BaseEntity {
                 Tutorial.instance.GoToStage("Jump");
             }
         }
-        if(Input.GetKeyDown(toggleWeaponKey) || TouchController.controller.GetTouchUp(TouchLocations.Down, 250, 120))
+        if(Input.GetKeyDown(toggleWeaponKey) || TouchController.controller.GetTouchUp(TouchLocations.Down, 250, 120) && canToggleWeapon)
         {
             if (Tutorial.instance)
             {

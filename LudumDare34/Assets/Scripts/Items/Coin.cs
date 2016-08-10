@@ -7,11 +7,15 @@ public class Coin : MonoBehaviour
     public SpriteRenderer imageRenderer;
     public float despawnTimer;
 
+    public AudioClip sound;
+
     public void OnEnable()
     {
         despawnTimer = Time.time + 6;
         imageRenderer.enabled = true;
         onOff = false;
+        imageRenderer.enabled = true;
+        gotten = false;
     }
 
     void Start()
@@ -27,34 +31,49 @@ public class Coin : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.tag == "Player")
+        if(collider.tag == "Player" && !gotten)
         {
             LevelManager.instance.coins++;
+            
             Despawn();
         }
     }
 
+    private new AudioSource audio;
+    private bool gotten;
+    private float gottenTimer;
     public void Despawn()
     {
-        transform.parent.gameObject.SetActive(false);
+        if (!audio)
+            audio = GetComponentInParent<AudioSource>();
+
+        gotten = true;
+        audio.PlayOneShot(sound);
+
+        imageRenderer.enabled = false;
+        gottenTimer = Time.time + 1;
     }
 
     public void CheckTimer()
     {
         if (Time.time >= despawnTimer)
         {
-            Despawn();
+            transform.parent.gameObject.SetActive(false);
         }
         if ((despawnTimer - Time.time) <= 3 && !onOff)
         {
             onOff = true;
+        }
+        if(Time.time >= gottenTimer && gotten)
+        {
+            transform.parent.gameObject.SetActive(false);
         }
     }
     private bool onOff;
 
     public void ToggleOnOff()
     {
-        if(onOff)
+        if(onOff && !gotten)
             imageRenderer.enabled = !imageRenderer.enabled;
     }
 }

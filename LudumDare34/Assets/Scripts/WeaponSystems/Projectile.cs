@@ -55,6 +55,8 @@ public class Projectile : MonoBehaviour
         if (collider.tag == "Enemy")
         {
             impactAmounts--;
+            if (LevelManager.instance._wave == LevelManager.instance.maxLevel)
+                impactAmounts = 0;
             BaseHealth enemyHealth = collider.GetComponent<BaseHealth>();
             if (enemyHealth._died == false)
             {

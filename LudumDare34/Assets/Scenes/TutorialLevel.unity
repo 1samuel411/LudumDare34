@@ -5480,6 +5480,10 @@ MonoBehaviour:
     rarity: 45
     minWave: 0
     spawnerType: 1
+  - prefab: {fileID: 162986, guid: acc45e9b99e9b7744a1c267895b44b56, type: 2}
+    rarity: 45
+    minWave: 25
+    spawnerType: 1
   poolManager: {fileID: 0}
   spawnObjects: []
   spawnEffects: []
@@ -5523,6 +5527,7 @@ MonoBehaviour:
   boostDamageAddition: 0
   pistolDamageAddition: 0
   healthAddition: 0
+  maxLevel: 25
 --- !u!4 &708378602
 Transform:
   m_ObjectHideFlags: 0
@@ -12364,19 +12369,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22470886, guid: 1e78523253a5dd5458a9e201f8102698, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -56
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22470886, guid: 1e78523253a5dd5458a9e201f8102698, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22470886, guid: 1e78523253a5dd5458a9e201f8102698, type: 2}
       propertyPath: m_SizeDelta.x
-      value: -112
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22470886, guid: 1e78523253a5dd5458a9e201f8102698, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22470886, guid: 1e78523253a5dd5458a9e201f8102698, type: 2}
       propertyPath: m_AnchorMin.x
@@ -12384,7 +12389,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22470886, guid: 1e78523253a5dd5458a9e201f8102698, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22470886, guid: 1e78523253a5dd5458a9e201f8102698, type: 2}
       propertyPath: m_AnchorMax.x
@@ -12392,7 +12397,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22470886, guid: 1e78523253a5dd5458a9e201f8102698, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22470886, guid: 1e78523253a5dd5458a9e201f8102698, type: 2}
       propertyPath: m_Pivot.x

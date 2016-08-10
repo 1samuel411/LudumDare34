@@ -81,8 +81,8 @@ public class Tutorial : MonoBehaviour
     public IEnumerator FinishTutorial()
     {
         InfoManager.SetInfo("finishedTutorial", "1");
-        if(GameManager.instance.playerDetails.UnlockedLevels < 1)
-            GameManager.instance.playerDetails.UnlockedLevels = 1;
+        if(GameManager.instance.playerDetails.UnlockedLevels < 2)
+            GameManager.instance.playerDetails.UnlockedLevels = 2;
         Notification.Notify("Tutorial Master", "Congratualations you have completed the tutorial!", completedIcon);
         yield return new WaitForSeconds(3);
         Tutorial.instance = null;
