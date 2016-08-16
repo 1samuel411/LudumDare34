@@ -37,9 +37,9 @@ public class AxeLogic : MonoBehaviour
 
     private bool hitPlayer;
 
-    public int damage = 2;
-
     private new Rigidbody2D rigidbody;
+
+    public BossEnemy boss;
 
     void Start()
     {
@@ -50,7 +50,7 @@ public class AxeLogic : MonoBehaviour
     {
         if (listenForInfo)
         {
-            if (collider.tag != "Player")
+            if (collider.tag != "Player" && beingThrown)
             {
                 listenForInfo = false;
                 rigidbody.isKinematic = true;
@@ -61,6 +61,8 @@ public class AxeLogic : MonoBehaviour
                 {
                     hitPlayer = true;
                     // Attack
+                    boss.targetEntity.Knockback(10, 0.2f, boss.direction);
+                    boss.targetEntity.baseHealth.DealDamage(boss.damage);
                 }
             }
         }

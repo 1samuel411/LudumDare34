@@ -7027,7 +7027,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2131473112}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.1140251
+  m_Size: 0.11402511
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8870,7 +8870,7 @@ MonoBehaviour:
   - Id: 2
     levelName: Boss
     levelToLoad: 4
-    image: {fileID: 21300000, guid: d2bb5b1d2eaabb9468233121a7ed20a7, type: 3}
+    image: {fileID: 21300000, guid: a38f17f8b9cda1c49832c21687dcb2be, type: 3}
     locked: 0
   - Id: 3
     levelName: Nightmares
@@ -9060,7 +9060,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 38516581}
   m_Direction: 0
   m_Value: 0.9999997
-  m_Size: 0.11402515
+  m_Size: 0.11402514
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

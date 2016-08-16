@@ -5156,6 +5156,7 @@ MonoBehaviour:
   pistolDamageAddition: 0
   healthAddition: 0
   maxLevel: 25
+  musicPlayer: {fileID: 0}
 --- !u!4 &708378602
 Transform:
   m_ObjectHideFlags: 0

@@ -21,7 +21,8 @@ public class VoiceManager : MonoBehaviour
 
     public void Update()
     {
-        died = LevelManager.instance.player.baseHealth._died;
+        if(LevelManager.instance.player)
+            died = LevelManager.instance.player.baseHealth._died;
     }
 
     public void PlayStartSound()

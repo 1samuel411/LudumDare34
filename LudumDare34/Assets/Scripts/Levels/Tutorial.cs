@@ -21,6 +21,10 @@ public class Tutorial : MonoBehaviour
 
     private bool enemySpawned;
 
+    private float curTimeStart;
+
+    public Text infoText;
+
     void Awake()
     {
         instance = this;
@@ -31,10 +35,14 @@ public class Tutorial : MonoBehaviour
         LevelManager.instance.wepsEnabled = false;
         LevelManager.instance.spawnEnemies = false;
         LevelManager.instance.moveOn = false;
+        curTimeStart = Time.time + 4;
     }
 
     void Update()
     {
+        if (Time.time < curTimeStart)
+            return;
+        infoText.gameObject.SetActive(false);
         if (finishedTutorial && !finishedTutorialFinal)
         {
             finishedTutorialFinal = true;

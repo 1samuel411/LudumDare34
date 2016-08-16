@@ -98,6 +98,8 @@ public class Options : MonoBehaviour
     {
         if (response == Popup.ResponseTypes.Accepted)
         {
+            menuEnabled = false;
+            Time.timeScale = 1;
             exitEvent.Invoke();
             LevelManager.instance.LoadLevel("mainMenu", false, true);
             Debug.Log("Accepted, Load mainMenu");

@@ -31,7 +31,7 @@ public class TouchController : MonoBehaviour
     private Vector2 endedTouchPosition;
     private Vector2 difference;
     private bool began, ended, tapInitialized;
-    private float swipeDifference = 15.0f;
+    private float swipeDifference = 25.0f;
     private float swipeTime = 0.3f;
     private float swipeTimer;
     private float screenWidthHalf, screenHeightHalf;

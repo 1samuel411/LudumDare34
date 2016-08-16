@@ -33,7 +33,8 @@ public class BossEnemy : BaseEntity
     public Transform[] feetTransform;
     public GameObject landEffect;
 
-    private AxeLogic axeLogic;
+    [HideInInspector]
+    public AxeLogic axeLogic;
 
     public AudioClip roarSound;
 
@@ -55,6 +56,7 @@ public class BossEnemy : BaseEntity
 
     public bool pullingback = false;
     public float pullingbackForce = 200;
+    private bool setPullbackTrigger;
 
     public Transform landingSprite;
     public float landingSpriteOldYOffset;
@@ -73,6 +75,10 @@ public class BossEnemy : BaseEntity
     private float curLargeJumpTime;
 
     public float newJumpHeight;
+
+    public float landingForce;
+
+    private bool _Began;
 
     public override void OnEnable()
     {
@@ -101,6 +107,8 @@ public class BossEnemy : BaseEntity
         largeJumping = false;
         largeJumpingPrep = false;
         setLandingXOffset = false;
+        axeLogic.boss = this;
+        _Began = false;
     }
 
     public bool deathZoomedin;
@@ -117,6 +125,7 @@ public class BossEnemy : BaseEntity
             LandingToggle();
         }
 
+        distanceToTarget = Mathf.Abs(transform.position.x - targetEntity.transform.position.x);
         if (!landed)
         {
             if (!setLandingXOffset)
@@ -135,6 +144,8 @@ public class BossEnemy : BaseEntity
                 LandingToggle(true);
                 beganBeginning = true;
                 curSpawnTime = Time.time + spawnTime;
+                if (_Began)
+                    curSpawnTime -= 1.5f;
                 original_music = LevelManager.instance.musicPlayer.clip;
                 bool makeNewEffects = (landingEffects.Count <= 0) ? true : false;
                 for (int i = 0; i < feetTransform.Length; i++)
@@ -155,22 +166,27 @@ public class BossEnemy : BaseEntity
                     CameraManager.ZoomIn(8, 3f, 4, 0.3f, transform.position, 5, spawnTime/1.5f);
                 CameraManager.ShakeScreen(2, 1.2f);
                 animator.SetTrigger("Land");
+
+                // Player didn't move! Attack him
+                if (distanceToTarget <= (distanceToStop + 0.4f) && _Began)
+                {
+                    targetEntity.Knockback(landingForce, 0.2f, ((transform.position.x - targetEntity.transform.position.x) < 0) ? -1 : 1);
+                    targetEntity.baseHealth.DealDamage(damage + 1);
+                }
             }
 
             if(Time.time >= curSpawnTime && beganBeginning)
             {
-                LevelManager.instance.wepsEnabled = true;
+                if (!_Began)
+                {
+                    _Began = true;
+                    LevelManager.instance.wepsEnabled = true;
+                }
                 LevelManager.instance.player.cinematic = false;
 
                 animator.SetBool("Began", true);
                 landed = true;
                 largeJumping = false;
-
-                if(distanceToTarget < distanceToStop)
-                {
-                    // Player didn't move! Attack him
-
-                }
             }
 
             return;
@@ -188,21 +204,22 @@ public class BossEnemy : BaseEntity
         }
 
         axeDistance = Mathf.Abs(axeRigidbody.position.x - axeFollower.original.position.x);
-        distanceToTarget = Mathf.Abs(transform.position.x - targetEntity.transform.position.x);
 
         if(pullingback)
         {
             axeRigidbody.transform.position = Vector3.MoveTowards(axeRigidbody.position, axeFollower.original.position, pullingbackForce * Time.deltaTime);
         }
 
-        if (!pullingback && Time.time >= curAxepullback && !hasAxe)
+        if (!pullingback && Time.time >= curAxepullback && !hasAxe && !setPullbackTrigger)
         {
-            PullAxeBack();
+            setPullbackTrigger = true;
+            animator.SetTrigger("Pullback");
         }
 
         if (axeDistance < minAxeDistance && !hasAxe && Time.time >= curAxepullback)
         {
             CatchAxe();
+            setPullbackTrigger = false;
         }
 
         if (Time.time >= curLargeJumpTime && !largeJumping && !attacking && hasAxe && baseHealth.currentHealth <= minLargeJumpHealth)
@@ -210,10 +227,11 @@ public class BossEnemy : BaseEntity
             if (!largeJumpingPrep && distanceToTarget > distanceToAxe.y + 0.5f)
             {
                 largeJumpingPrep = true;
-                curJumpTime = Time.time + 0.25f;
+                curJumpTime = Time.time + 4f;
+                curLargeJumpTime = Time.time + 0.6f;
                 return;
             }
-            if (Time.time >= curJumpTime && largeJumpingPrep)
+            if (Time.time >= curLargeJumpTime && largeJumpingPrep)
                 LargeJump();
         }
 
@@ -362,11 +380,13 @@ public class BossEnemy : BaseEntity
 
     private bool jumping;
     private float curJumpTime;
+    private float curLJumpTime;
     public void Animate()
     {
         animator.SetFloat("Velocity", rigidbody.velocity.magnitude);
         animator.SetBool("Jumping", jumping);
         animator.SetBool("Grounded", grounded);
         animator.SetBool("Dead", grounded);
+        animator.SetBool("_Began", _Began);
     }
 }

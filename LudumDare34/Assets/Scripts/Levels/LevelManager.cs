@@ -212,6 +212,8 @@ public class LevelManager : MonoBehaviour
         if (_wave == maxLevel)
         {
             SpawnEnemy(enemies.Count() - 1);
+            if (GameManager.instance.playerDetails.UnlockedLevels < 3)
+                GameManager.instance.playerDetails.UnlockedLevels = 3;
         }
         else
         {
@@ -252,7 +254,7 @@ public class LevelManager : MonoBehaviour
 
         randomEnemy = UnityEngine.Random.Range(0.0f, range);
         current = 0;
-        for (int i = 0; i < enemies.Count() -1; i++)
+        for (int i = 0; i < enemies.Count() - 1; i++)
         {
             current += enemies[i].rarity;
             if (randomEnemy < current)

@@ -377,7 +377,7 @@ public class PlayerController : BaseEntity {
                 Tutorial.instance.GoToStage("Jump");
             }
         }
-        if(Input.GetKeyDown(toggleWeaponKey) || TouchController.controller.GetTouchUp(TouchLocations.Down, 250, 120) && canToggleWeapon)
+        if(Input.GetKeyDown(toggleWeaponKey) || TouchController.controller.GetTouchUp(TouchLocations.Down, 300, 120) && canToggleWeapon)
         {
             if (Tutorial.instance)
             {
