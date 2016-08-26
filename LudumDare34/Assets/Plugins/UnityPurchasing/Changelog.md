@@ -1,3 +1,51 @@
+## [1.7.0] - 2016-08-07
+### Added
+- Samsung Galaxy store support. Preliminary documentation is available [here](https://docs.google.com/document/d/1kUq-AHKyJftUA68xr44mrp7gs_MNxNiQ693s0b7qDdM).
+- Google Play - failed purchases - the [Google Play server response code](https://developer.android.com/google/play/billing/billing_reference.html#billing-codes) is now supplied as the [PurchaseFailedEventArgs.message](https://docs.unity3d.com/ScriptReference/Purchasing.PurchaseFailedEventArgs-message.html) property for failed purchases.
+- Android - it is now possible to choose the store implementation to use at runtime.
+    - Make a build containing all store implementations by choosing Window > Unity IAP > Android > "Select store at runtime"
+
+```csharp
+// Pass the desired store to the module, e.g. Amazon Apps.
+var module = StandardPurchasingModule.Instance(AndroidStore.AmazonAppStore);
+```
+
+### Fixed
+- Google Play - PurchaseFailureReason.ItemUnavailable and PurchaseFailureReason.BillingUnavailable being reported as 'Unknown' errors.
+
+## [1.6.1] - 2016-07-18
+### Fixed
+- Google Play - fixed non fatal 'IllegalArgumentException: Receiver not registered' warning appearing in crashlogs.
+
+## [1.6.0] - 2016-7-7
+### Added
+- Support for redeeming [Google Play promo codes](https://developer.android.com/google/play/billing/billing_promotions.html) for IAPs.
+- IAndroidStoreSelection extended configuration for accessing the currently selected Android store.
+
+```csharp
+var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
+Debug.Log(builder.Configure<IAndroidStoreSelection>().androidStore);
+```
+
+### Fixed
+- Apple Stores - ProcessPurchase not being called on initialize for existing transactions if another storekit transaction observer is added elsewhere in the App. This addresses a number of issues when using third party SDKs, including Facebook's.
+- Google Play - sandbox purchases. In Google's sandbox Unity IAP now uses Google's purchase token instead of Order ID to represent transaction IDs.
+- iOS not initializing when IAP purchase restrictions are active. IAP will now initialise if restrictions are active, enabling browsing of IAP metadata, although purchases will fail until restrictions are disabled.
+- Instantiating multiple ConfigurationBuilders causing purchasing to break on Google Play & iOS.
+
+## [1.5.0] - 2016-5-10
+### Added
+- Amazon stores - Added NotifyUnableToFulfillUnavailableProduct(string transactionID) to IAmazonExtensions.
+
+You should use this method if your App cannot fulfill an Amazon purchase and you need to call [notifyFulfillment](https://developer.amazon.com/public/apis/earn/in-app-purchasing/docs-v2/implementing-iap-2.0) method with a FulfillmentResult of UNAVAILABLE.
+
+### Fixed
+- Google Play - purchase failure event not firing if the Google Play purchase dialog was destroyed when backgrounding and relaunching the App.
+
+### Changed
+- Updated to V2.0.61 of Amazon's IAP API.
+- Apple stores, Google Play - removed logging of products details on startup.
+
 ## [1.4.1] - 2016-4-12
 ### Fixed
 - Amazon stores - "App failed to call Purchasing Fullfillment" error caused by Unity IAP misuse of Amazon's notifyFulfillment mechanism.
