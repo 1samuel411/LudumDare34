@@ -32,6 +32,7 @@ public class Shop : MonoBehaviour
     {
         itemDatabase = items;
         SelectItem(selectedItem);
+        boughtItems = GetBoughtItems(GameManager.instance.playerPurchases.Bought);
     }
 
     void Update()
@@ -47,6 +48,10 @@ public class Shop : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Open will open up the shop for first time use. 
+    /// Everytime the "Shop" is open from the main menu, this will be triggered.
+    /// </summary>
     public void Open()
     {
         boughtItems = GetBoughtItems(GameManager.instance.playerPurchases.Bought);
@@ -63,10 +68,11 @@ public class Shop : MonoBehaviour
                 newShopItemObj.transform.localScale = Vector3.one;
                 GameShopItem newShopItem = newShopItemObj.GetComponent<GameShopItem>();
                 newShopItem.SetIndex(i);
-                newShopItem.SetShopItem(items[i]);
+                //Fixed: ShopItem Price Issue - Alex M.
                 //Might be a problem, this means we can never change the order of the shop items.
                 int timesBought = boughtItems.Count(s => s == newShopItem.index);
-                newShopItem.SetTimesBought(timesBought);
+                items[i].SetTimesBought(timesBought);
+                newShopItem.SetShopItem(items[i]);
                 newShopItem.selectedButton.onClick.AddListener(() => { SelectItem(newShopItem.index); });
                 shopItems.Add(newShopItem);
             }
@@ -96,9 +102,7 @@ public class Shop : MonoBehaviour
             selectedCostText.text = shopItem.cost.ToString();
             selectedDescText.text = items[selectedItem].desc;
             selectedIconImage.sprite = items[selectedItem].icon;
-        }
-        else
-        {
+        } else {
             selectedTitleText.gameObject.SetActive(false);
             selectedCostText.gameObject.SetActive(false);
             selectedDescText.gameObject.SetActive(false);
