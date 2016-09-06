@@ -9,12 +9,14 @@ public class Layers : MonoBehaviour
 {
 
     [System.Serializable]
-    public enum Type { none, trail, particle };
+    public enum Type { none, trail, particle, mesh, skinnedMesh };
     public Type type;
     public string layerNames = "Player";
     public int layerOrder;
     private ParticleSystem particleRenderer;
     private TrailRenderer trailRenderer;
+    private MeshRenderer meshRenderer;
+    private SkinnedMeshRenderer skinnedMeshRenderer;
 
     void Awake()
     {
@@ -29,6 +31,18 @@ public class Layers : MonoBehaviour
             trailRenderer = GetComponent<TrailRenderer>();
             trailRenderer.GetComponent<TrailRenderer>().sortingOrder = layerOrder;
             trailRenderer.GetComponent<TrailRenderer>().sortingLayerName = layerNames;
+        }
+        if (type == Type.mesh)
+        {
+            meshRenderer = GetComponent<MeshRenderer>();
+            meshRenderer.GetComponent<MeshRenderer>().sortingOrder = layerOrder;
+            meshRenderer.GetComponent<MeshRenderer>().sortingLayerName = layerNames;
+        }
+        if (type == Type.skinnedMesh)
+        {
+            skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
+            skinnedMeshRenderer.GetComponent<SkinnedMeshRenderer>().sortingOrder = layerOrder;
+            skinnedMeshRenderer.GetComponent<SkinnedMeshRenderer>().sortingLayerName = layerNames;
         }
     }
 
@@ -48,6 +62,20 @@ public class Layers : MonoBehaviour
                 trailRenderer = GetComponent<TrailRenderer>();
             trailRenderer.GetComponent<TrailRenderer>().sortingOrder = layerOrder;
             trailRenderer.GetComponent<TrailRenderer>().sortingLayerName = layerNames;
+        }
+        if (type == Type.mesh)
+        {
+            if (!meshRenderer)
+                meshRenderer = GetComponent<MeshRenderer>();
+            meshRenderer.GetComponent<MeshRenderer>().sortingOrder = layerOrder;
+            meshRenderer.GetComponent<MeshRenderer>().sortingLayerName = layerNames;
+        }
+        if (type == Type.skinnedMesh)
+        {
+            if (!skinnedMeshRenderer)
+                skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
+            skinnedMeshRenderer.GetComponent<SkinnedMeshRenderer>().sortingOrder = layerOrder;
+            skinnedMeshRenderer.GetComponent<SkinnedMeshRenderer>().sortingLayerName = layerNames;
         }
     }
 #endif

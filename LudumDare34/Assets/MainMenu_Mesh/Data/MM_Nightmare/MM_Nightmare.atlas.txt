@@ -1,0 +1,97 @@
+
+MM_Nightmare.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Eyes
+  rotate: false
+  xy: 368, 4
+  size: 41, 27
+  orig: 41, 27
+  offset: 0, 0
+  index: -1
+Face
+  rotate: false
+  xy: 310, 61
+  size: 56, 65
+  orig: 56, 65
+  offset: 0, 0
+  index: -1
+Finger1
+  rotate: false
+  xy: 411, 2
+  size: 18, 29
+  orig: 18, 29
+  offset: 0, 0
+  index: -1
+Finger1_2
+  rotate: true
+  xy: 310, 4
+  size: 11, 21
+  orig: 11, 21
+  offset: 0, 0
+  index: -1
+Finger2
+  rotate: false
+  xy: 479, 46
+  size: 14, 28
+  orig: 14, 28
+  offset: 0, 0
+  index: -1
+Finger3
+  rotate: false
+  xy: 457, 48
+  size: 20, 26
+  orig: 20, 26
+  offset: 0, 0
+  index: -1
+Jaw
+  rotate: false
+  xy: 416, 40
+  size: 39, 34
+  orig: 39, 34
+  offset: 0, 0
+  index: -1
+L_Lower_Arm
+  rotate: true
+  xy: 368, 79
+  size: 47, 66
+  orig: 47, 66
+  offset: 0, 0
+  index: -1
+L_Uppper_Arm
+  rotate: false
+  xy: 310, 17
+  size: 56, 42
+  orig: 56, 42
+  offset: 0, 0
+  index: -1
+Right_Lower_Arm
+  rotate: false
+  xy: 228, 7
+  size: 80, 119
+  orig: 80, 119
+  offset: 0, 0
+  index: -1
+Right_Upper_Arm
+  rotate: false
+  xy: 368, 33
+  size: 46, 44
+  orig: 46, 44
+  offset: 0, 0
+  index: -1
+Right_hand
+  rotate: true
+  xy: 436, 76
+  size: 50, 62
+  orig: 50, 62
+  offset: 0, 0
+  index: -1
+Spine
+  rotate: false
+  xy: 2, 6
+  size: 224, 120
+  orig: 224, 120
+  offset: 0, 0
+  index: -1

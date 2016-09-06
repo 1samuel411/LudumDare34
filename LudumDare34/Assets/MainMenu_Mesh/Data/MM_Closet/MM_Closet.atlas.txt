@@ -1,0 +1,62 @@
+
+MM_Closet.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Closet_Back
+  rotate: true
+  xy: 2, 49
+  size: 165, 231
+  orig: 165, 231
+  offset: 0, 0
+  index: -1
+Dust_Group
+  rotate: true
+  xy: 288, 224
+  size: 127, 138
+  orig: 127, 138
+  offset: 0, 0
+  index: -1
+Layer 18 copy
+  rotate: false
+  xy: 2, 216
+  size: 284, 284
+  orig: 284, 284
+  offset: 0, 0
+  index: -1
+Spiral
+  rotate: false
+  xy: 288, 353
+  size: 144, 147
+  orig: 144, 147
+  offset: 0, 0
+  index: -1
+dust1
+  rotate: false
+  xy: 2, 2
+  size: 53, 45
+  orig: 53, 45
+  offset: 0, 0
+  index: -1
+dust2
+  rotate: false
+  xy: 434, 455
+  size: 37, 45
+  orig: 37, 45
+  offset: 0, 0
+  index: -1
+dust3
+  rotate: false
+  xy: 235, 181
+  size: 50, 33
+  orig: 50, 33
+  offset: 0, 0
+  index: -1
+dust4
+  rotate: true
+  xy: 57, 22
+  size: 25, 53
+  orig: 25, 53
+  offset: 0, 0
+  index: -1

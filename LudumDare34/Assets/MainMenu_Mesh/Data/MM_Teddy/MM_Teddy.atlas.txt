@@ -1,0 +1,69 @@
+
+MM_Teddy.png
+size: 128,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 93 copy
+  rotate: false
+  xy: 56, 33
+  size: 50, 76
+  orig: 50, 76
+  offset: 0, 0
+  index: -1
+Left_Arm
+  rotate: false
+  xy: 108, 75
+  size: 17, 34
+  orig: 17, 34
+  offset: 0, 0
+  index: -1
+NBear_Base
+  rotate: false
+  xy: 2, 25
+  size: 52, 100
+  orig: 52, 100
+  offset: 0, 0
+  index: -1
+Right_Arm
+  rotate: false
+  xy: 108, 39
+  size: 16, 34
+  orig: 16, 34
+  offset: 0, 0
+  index: -1
+Scarf_Long
+  rotate: true
+  xy: 58, 111
+  size: 14, 55
+  orig: 14, 55
+  offset: 0, 0
+  index: -1
+Scarf_Short
+  rotate: false
+  xy: 2, 2
+  size: 15, 21
+  orig: 15, 21
+  offset: 0, 0
+  index: -1
+Scarf_Top
+  rotate: false
+  xy: 19, 5
+  size: 37, 18
+  orig: 37, 18
+  offset: 0, 0
+  index: -1
+Shadow_L_Arm
+  rotate: true
+  xy: 58, 17
+  size: 14, 33
+  orig: 14, 33
+  offset: 0, 0
+  index: -1
+Shadow_R_Arm
+  rotate: false
+  xy: 108, 2
+  size: 14, 35
+  orig: 14, 35
+  offset: 0, 0
+  index: -1
