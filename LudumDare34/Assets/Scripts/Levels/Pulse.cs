@@ -9,12 +9,17 @@ public class Pulse : MonoBehaviour
     public Type type;
 
     public Vector2 alphaSpread;
+    public Vector2 scaleSpreadX;
+    public Vector2 scaleSpreadY;
+    public float speedScale;
     public float speed;
 
     private Color currentAlpha;
     private Image image;
     private Text text;
     public bool increasing;
+    public bool increasingX;
+    public bool increasingY;
 
     void Start()
     {
@@ -46,9 +51,33 @@ public class Pulse : MonoBehaviour
 
         currentAlpha.a = newAlpha / 255;
 
-        if (type == Type.Image)
+        if (type == Type.Image) 
             image.color = currentAlpha;
         else if (type == Type.Text)
             text.color = currentAlpha;
+
+        if (scaleSpreadX != Vector2.zero)
+        {
+            Vector2 newScale = transform.localScale;
+            if (newScale.x < scaleSpreadX.x && !increasingX)
+                increasingX = !increasingX;
+            if (newScale.x > scaleSpreadX.y && increasingX)
+                increasingX = !increasingX;
+            newScale.x += (((increasingX) ? speedScale : -speedScale) * Time.deltaTime);
+
+            transform.localScale = newScale;
+        }
+
+        if (scaleSpreadY != Vector2.zero)
+        {
+            Vector2 newScale = transform.localScale;
+            if (newScale.y < scaleSpreadY.x && !increasingY)
+                increasingY = !increasingY;
+            if (newScale.y > scaleSpreadY.y && increasingY)
+                increasingY = !increasingY;
+            newScale.y += (((increasingY) ? speedScale : -speedScale) * Time.deltaTime);
+
+            transform.localScale = newScale;
+        }
     }
 }
