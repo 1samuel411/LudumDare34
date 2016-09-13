@@ -13,8 +13,16 @@ public class GameShopItem : MonoBehaviour {
     public int index { get { return _index; } }
     public ShopItem shopItem;
     public int multiplierAddition { get { return shopItem.multiplier * shopItem.timesBought; } }
-    public float cost { get { return shopItem.originalCost * ((shopItem.timesBought == 0.0f) ? 1 : (shopItem.timesBought + 1.0f)); } }
     public bool isRepurchasable { get { return (shopItem.timesBought < shopItem.maxPurchases); } }
+
+    public float cost {
+        get {
+            return shopItem.originalCost *
+                    ((shopItem.iap) ? 1 : 
+                        ((shopItem.timesBought == 0.0f) ? 1 : 
+                            (shopItem.timesBought + 1.0f)));
+        }
+    }
 
     public void SetIndex(int index) {
         _index = index;
