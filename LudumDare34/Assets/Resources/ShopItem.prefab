@@ -206,18 +206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d40099f2d0c1140a6e13cadd4b1784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedCostText: {fileID: 11475922}
-  selectedTitleText: {fileID: 11448914}
-  selectedIconImage: {fileID: 11454790}
-  selectedButton: {fileID: 11454634}
-  cost: 2.99
-  title: 500 Coins
-  desc: Adds 50 coins to your account!
-  index: 1
-  maxed: 0
-  timesBought: 0
-  icon: {fileID: 21300000, guid: d86e39a9eca7d734b9d1d08aeab98c27, type: 3}
-  iap: 1
 --- !u!114 &11428392
 MonoBehaviour:
   m_ObjectHideFlags: 1
